@@ -62,8 +62,8 @@ const AboutSection = () => {
             <h3 className="text-2xl font-bold mb-4">Our Philosophy</h3>
             <p className="text-lg text-muted-foreground">
               At Aethene, we believe in the perfect balance between innovative products and exceptional services. 
-              We don't just build solutions; we craft experiences that transform how businesses operate and grow. 
-              Every project is an opportunity to push the boundaries of what's possible with technology.
+              We don&apos;t just build solutions; we craft experiences that transform how businesses operate and grow. 
+              Every project is an opportunity to push the boundaries of what&apos;s possible with technology.
             </p>
           </motion.div>
         </div>

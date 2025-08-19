@@ -55,7 +55,7 @@ const ProductsPage = () => {
             transition={{ delay: 0.4 }}
             className="text-lg text-gray-200 mb-8 max-w-2xl mx-auto text-center"
           >
-            We don't just build software, we engineer cutting-edge products designed to solve real-world problems and drive growth.
+            We don&apos;t just build software, we engineer cutting-edge products designed to solve real-world problems and drive growth.
           </motion.p>
         </div>
       </motion.section>

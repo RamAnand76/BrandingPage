@@ -22,7 +22,7 @@ export const TextGenerateEffect = ({
       ease: "easeInOut",
     });
     return controls.stop;
-  }, [words]);
+  }, [count, words.length]);
 
   return (
     <motion.span className={className}>

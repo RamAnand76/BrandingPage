@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from 'next/image';
 
 interface FeatureContentProps {
   image: string;
@@ -15,10 +16,12 @@ export const FeatureContent = ({ image, title }: FeatureContentProps) => {
     >
       <div className="glass rounded-xl overflow-hidden w-full relative aspect-video">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
-        <img
+        <Image
           src={image}
           alt={title}
-          className="w-full h-full object-contain relative z-10"
+          layout="fill"
+          objectFit="contain"
+          className="relative z-10"
         />
       </div>
     </motion.div>

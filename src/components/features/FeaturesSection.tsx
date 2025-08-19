@@ -50,11 +50,12 @@ export const FeaturesSection = () => {
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
+    const refs = featureRefs.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const index = featureRefs.current.indexOf(entry.target as HTMLDivElement);
+            const index = refs.indexOf(entry.target as HTMLDivElement);
             if (index !== -1) {
               setActiveFeature(index);
             }
@@ -64,12 +65,12 @@ export const FeaturesSection = () => {
       { threshold: 0.5, rootMargin: "-40% 0px -40% 0px" } 
     );
 
-    featureRefs.current.forEach((ref) => {
+    refs.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
 
     return () => {
-      featureRefs.current.forEach((ref) => {
+      refs.forEach((ref) => {
         if (ref) observer.unobserve(ref);
       });
     };
