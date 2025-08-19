@@ -1,14 +1,22 @@
 import { motion } from "framer-motion";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { ClientTweetCard } from "@/components/magicui/client-tweet-card";
 
 const TeamSection = () => {
   const team = [
-    { name: "Ramanand", role: "AI Fullstack Developer" },
-    { name: "Thejas", role: "Flutter Developer" },
-    { name: "Kesavadas", role: "AI Developer" },
-    { name: "Jithu Francis", role: "Backend Developer" },
-    { name: "Arjun Kumar", role: "Frontend Developer" },
-    { name: "Kiran", role: "Flutter Developer" },
-    { name: "Vishnunarayanan", role: "Flutter Developer" },
+    { id: "1675849118445436929" },
+    { id: "1799106197350207586" },
+    { id: "1689586873583820800" },
+    { id: "1237409257298370560" },
+    { id: "1603833242238464000" },
+    { id: "1683838493132619776" },
+    { id: "1723339031733649438" },
   ];
 
   return (
@@ -20,29 +28,31 @@ const TeamSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Team</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Team</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Meet the people behind Aethene's innovative digital solutions.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-          {team.map((member, idx) => (
-            <motion.div
-              key={member.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.05 }}
-              className="glass rounded-2xl p-6"
-            >
-              <div className="flex items-center justify-center w-16 h-16 rounded-full bg-primary/15 text-primary text-xl font-bold mx-auto mb-4">
-                {member.name.charAt(0)}
-              </div>
-              <h3 className="text-lg font-semibold text-center">{member.name}</h3>
-              <p className="text-sm text-muted-foreground text-center">{member.role}</p>
-            </motion.div>
-          ))}
-        </div>
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full max-w-6xl mx-auto"
+        >
+          <CarouselContent>
+            {team.map((member, idx) => (
+              <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3">
+                <div className="p-1">
+                  <ClientTweetCard id={member.id} className="shadow-2xl" />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
       </div>
     </section>
   );
