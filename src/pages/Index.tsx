@@ -78,7 +78,7 @@ const Index = () => {
             </Link>
             <Link href="/products" className="w-full sm:w-auto">
                 <ShinyButton className="w-full button-gradient text-white">
-                  Discover Our Products <ArrowRight className="ml-2 w-4 h-4" />
+                  Discover Our Products <ArrowRight className="w-4 h-4" />
                 </ShinyButton>
             </Link>
           </motion.div>
