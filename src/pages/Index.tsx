@@ -73,12 +73,12 @@ const Index = () => {
             transition={{ delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-4 items-center justify-center"
           >
-            <Link href="#features">
-                <RainbowButton variant="outline">Explore Our Services</RainbowButton>
+            <Link href="#features" className="w-full sm:w-auto">
+                <RainbowButton variant="outline" className="w-full">Explore Our Services</RainbowButton>
             </Link>
-            <Link href="/products">
-                <ShinyButton>
-                Discover Our Products <ArrowRight className="ml-2 w-4 h-4" />
+            <Link href="/products" className="w-full sm:w-auto">
+                <ShinyButton className="w-full button-gradient text-white">
+                  Discover Our Products <ArrowRight className="ml-2 w-4 h-4" />
                 </ShinyButton>
             </Link>
           </motion.div>
