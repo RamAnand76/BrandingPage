@@ -6,17 +6,18 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { ClientTweetCard } from "@/components/magicui/client-tweet-card";
+import { CometCard } from "@/components/ui/comet-card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const TeamSection = () => {
   const team = [
-    { id: "1675849118445436929" },
-    { id: "1799106197350207586" },
-    { id: "1689586873583820800" },
-    { id: "1237409257298370560" },
-    { id: "1603833242238464000" },
-    { id: "1683838493132619776" },
-    { id: "1723339031733649438" },
+    { name: "John Doe", role: "CEO", image: "https://avatars.githubusercontent.com/u/1234567?v=4" },
+    { name: "Jane Smith", role: "CTO", image: "https://avatars.githubusercontent.com/u/2345678?v=4" },
+    { name: "Peter Jones", role: "Lead Developer", image: "https://avatars.githubusercontent.com/u/3456789?v=4" },
+    { name: "Emily White", role: "UX Designer", image: "https://avatars.githubusercontent.com/u/4567890?v=4" },
+    { name: "Michael Brown", role: "Project Manager", image: "https://avatars.githubusercontent.com/u/5678901?v=4" },
+    { name: "Jessica Green", role: "Frontend Developer", image: "https://avatars.githubusercontent.com/u/6789012?v=4" },
+    { name: "David Black", role: "Backend Developer", image: "https://avatars.githubusercontent.com/u/7890123?v=4" },
   ];
 
   return (
@@ -43,10 +44,19 @@ const TeamSection = () => {
         >
           <CarouselContent>
             {team.map((member, idx) => (
-              <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
-                  <ClientTweetCard id={member.id} className="shadow-2xl" />
-                </div>
+              <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3 flex justify-center">
+                <CometCard>
+                  <div className="my-10 flex w-80 cursor-pointer flex-col items-center rounded-2xl border-0 bg-[#1F2121] p-4 text-center">
+                    <Avatar className="w-32 h-32 border-4 border-primary/50 mt-4">
+                      <AvatarImage src={member.image} />
+                      <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
+                    </Avatar>
+                    <div className="mt-6">
+                      <h3 className="text-xl font-bold text-white">{member.name}</h3>
+                      <p className="text-md text-primary/80 mt-1">{member.role}</p>
+                    </div>
+                  </div>
+                </CometCard>
               </CarouselItem>
             ))}
           </CarouselContent>
