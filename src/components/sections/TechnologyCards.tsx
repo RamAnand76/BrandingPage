@@ -3,10 +3,11 @@ import { Card, CardTitle, CardDescription, CardSkeletonContainer } from "@/compo
 import { ClaudeLogo, OpenAILogo, GeminiLogo, MetaIconOutline } from "@/components/ui/cards-demo-3";
 import { GoCopilot } from "react-icons/go";
 import pythonLogo from "@/assets/logos/python.svg";
-import djangoLogo from "@/assets/logos/django.svg";
 import reactLogo from "@/assets/logos/react.svg";
-import nodejsLogo from "@/assets/logos/nodejs.svg";
-import flutterLogo from "@/assets/logos/flutter.svg";
+import { FaGolang, FaNodeJs, FaFlutter } from "react-icons/fa6";
+import { DiDjango } from "react-icons/di";
+import { RiNextjsFill } from "react-icons/ri";
+
 
 const TechnologyCards = () => {
   const techCategories = [
@@ -15,14 +16,15 @@ const TechnologyCards = () => {
       description: "Modern web technologies for scalable applications",
       technologies: [
         { name: "React", icon: <img src={reactLogo} alt="React" className="w-6 h-6" /> },
-        { name: "Node.js", icon: <img src={nodejsLogo} alt="NodeJS" className="w-6 h-6" /> },
+        { name: "Node.js", icon: <FaNodeJs className="w-6 h-6" /> },
+        { name: "Next.js", icon: <RiNextjsFill className="w-6 h-6" /> },
       ]
     },
     {
       title: "Mobile Development", 
       description: "Cross-platform mobile app development",
       technologies: [
-        { name: "Flutter", icon: <img src={flutterLogo} alt="Flutter" className="w-6 h-6" /> },
+        { name: "Flutter", icon: <FaFlutter className="w-6 h-6" /> },
         { name: "React Native", icon: <img src={reactLogo} alt="React Native" className="w-6 h-6" /> },
       ]
     },
@@ -31,7 +33,8 @@ const TechnologyCards = () => {
       description: "Robust server-side solutions and APIs",
       technologies: [
         { name: "Python", icon: <img src={pythonLogo} alt="Python" className="w-6 h-6" /> },
-        { name: "Django", icon: <img src={djangoLogo} alt="Django" className="w-6 h-6 filter brightness-0 invert" /> },
+        { name: "Django", icon: <DiDjango className="w-6 h-6" /> },
+        { name: "Go", icon: <FaGolang className="w-6 h-6" /> },
       ]
     },
     {
