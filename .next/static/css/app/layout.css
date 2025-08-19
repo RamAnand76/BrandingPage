@@ -595,6 +595,9 @@ body{
 .relative{
   position: relative;
 }
+.sticky{
+  position: sticky;
+}
 .-inset-px{
   inset: -1px;
 }
@@ -748,9 +751,6 @@ body{
 .mb-2{
   margin-bottom: 0.5rem;
 }
-.mb-20{
-  margin-bottom: 5rem;
-}
 .mb-4{
   margin-bottom: 1rem;
 }
@@ -789,9 +789,6 @@ body{
 }
 .mt-4{
   margin-top: 1rem;
-}
-.mt-6{
-  margin-top: 1.5rem;
 }
 .mt-8{
   margin-top: 2rem;
@@ -1703,10 +1700,6 @@ body{
   padding-top: 5rem;
   padding-bottom: 5rem;
 }
-.py-24{
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-}
 .py-3{
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -1787,10 +1780,6 @@ body{
 .text-4xl{
   font-size: 2.25rem;
   line-height: 2.5rem;
-}
-.text-5xl{
-  font-size: 3rem;
-  line-height: 1;
 }
 .text-\[0\.8rem\]{
   font-size: 0.8rem;
@@ -3244,6 +3233,10 @@ body{
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .md\:gap-12{
+    gap: 3rem;
+  }
+
   .md\:p-12{
     padding: 3rem;
   }
@@ -3256,21 +3249,6 @@ body{
   .md\:text-5xl{
     font-size: 3rem;
     line-height: 1;
-  }
-
-  .md\:text-6xl{
-    font-size: 3.75rem;
-    line-height: 1;
-  }
-
-  .md\:text-base{
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-
-  .md\:text-xl{
-    font-size: 1.25rem;
-    line-height: 1.75rem;
   }
 }
 

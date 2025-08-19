@@ -32,11 +32,11 @@ export const FeatureTab = ({ icon, title, description, isActive }: FeatureTabPro
         />
       )}
       <div className="flex items-center gap-4 min-w-0">
-        <div className={`${isActive ? 'text-primary' : 'text-muted-foreground'}`}>
+        <div className={`transition-colors ${isActive ? 'text-primary' : 'text-muted-foreground'}`}>
           {icon}
         </div>
         <div className="text-left min-w-0">
-          <h3 className={`font-semibold truncate text-base ${isActive ? 'text-foreground' : ''}`}>
+          <h3 className={`font-semibold truncate text-base transition-colors ${isActive ? 'text-foreground' : ''}`}>
             {title}
           </h3>
           <p className="text-sm text-muted-foreground line-clamp-2">
