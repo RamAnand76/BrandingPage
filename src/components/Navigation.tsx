@@ -44,9 +44,7 @@ const Navigation = () => {
     { name: "Services", href: "#features", onClick: () => scrollToSection('features') },
     { name: "Products", href: "#products", onClick: () => scrollToSection('products') },
     { name: "About", href: "#about", onClick: () => scrollToSection('about') },
-    { name: "Team", href: "#team", onClick: () => scrollToSection('team') },
-    { name: "Works", href: "#works", onClick: () => scrollToSection('works') },
-    { name: "Testimonials", href: "#testimonials", onClick: () => scrollToSection('testimonials') },
+    { name: "Pricing", href: "#pricing", onClick: () => scrollToSection('pricing') },
     { name: "Contact", href: "#contact", onClick: () => scrollToSection('contact') },
   ];
 
