@@ -7,6 +7,7 @@ import reactLogo from "@/assets/logos/react.svg";
 import { FaGolang, FaNodeJs, FaFlutter } from "react-icons/fa6";
 import { DiDjango } from "react-icons/di";
 import { RiNextjsFill } from "react-icons/ri";
+import Image from "next/image";
 
 
 const TechnologyCards = () => {
@@ -15,7 +16,7 @@ const TechnologyCards = () => {
       title: "Web Development",
       description: "Modern web technologies for scalable applications. Tools: React, Node.js, Next.js",
       technologies: [
-        { name: "React", icon: <img src={reactLogo} alt="React" className="w-6 h-6" /> },
+        { name: "React", icon: <Image src={reactLogo} alt="React" width={24} height={24} /> },
         { name: "Node.js", icon: <FaNodeJs className="w-6 h-6" /> },
         { name: "Next.js", icon: <RiNextjsFill className="w-6 h-6" /> },
       ]
@@ -25,14 +26,14 @@ const TechnologyCards = () => {
       description: "Cross-platform mobile app development. Tools: Flutter, React Native",
       technologies: [
         { name: "Flutter", icon: <FaFlutter className="w-6 h-6" /> },
-        { name: "React Native", icon: <img src={reactLogo} alt="React Native" className="w-6 h-6" /> },
+        { name: "React Native", icon: <Image src={reactLogo} alt="React Native" width={24} height={24} /> },
       ]
     },
     {
       title: "Backend Development",
       description: "Robust server-side solutions and APIs. Tools: Python, Django, Go",
       technologies: [
-        { name: "Python", icon: <img src={pythonLogo} alt="Python" className="w-6 h-6" /> },
+        { name: "Python", icon: <Image src={pythonLogo} alt="Python" width={24} height={24} /> },
         { name: "Django", icon: <DiDjango className="w-6 h-6" /> },
         { name: "Go", icon: <FaGolang className="w-6 h-6" /> },
       ]

@@ -16,6 +16,7 @@ import { AuroraText } from "@/components/magicui/aurora-text";
 import { ShinyButton } from "@/components/magicui/shiny-button";
 import { RainbowButton } from "@/components/magicui/rainbow-button";
 import Link from 'next/link';
+import Image from "next/image";
 
 const Index = () => {
   return (
@@ -64,7 +65,7 @@ const Index = () => {
             className="text-lg text-gray-200 mb-8 max-w-2xl mx-auto text-center"
           >
             From stunning UI/UX to powerful AI and flawless apps, we build the digital solutions of tomorrow.{" "}
-            <span className="text-white">Let's create something amazing together.</span>
+            <span className="text-white">Let&apos;s create something amazing together.</span>
           </motion.p>
           
           <motion.div
@@ -92,9 +93,11 @@ const Index = () => {
           className="relative mx-auto max-w-5xl mt-20"
         >
           <div className="glass rounded-xl overflow-hidden">
-            <img
+            <Image
               src="/lovable-uploads/c32c6788-5e4a-4fee-afee-604b03113c7f.png"
               alt="Aethene Digital Solutions Dashboard"
+              width={1200}
+              height={675}
               className="w-full h-auto"
             />
           </div>
