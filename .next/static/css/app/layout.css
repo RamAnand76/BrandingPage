@@ -3165,6 +3165,10 @@ body{
     margin-top: 0px;
   }
 
+  .sm\:w-auto{
+    width: auto;
+  }
+
   .sm\:max-w-sm{
     max-width: 24rem;
   }
