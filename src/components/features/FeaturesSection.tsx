@@ -1,10 +1,10 @@
 
 "use client";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FeatureTab } from "./FeatureTab";
 import { FeatureContent } from "./FeatureContent";
 import { BarChart3, ShieldCheck, Wallet, ArrowUpDown, Palette, Globe, Bot, Smartphone } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useInView } from "framer-motion";
 
 const features = [
   {
@@ -46,7 +46,35 @@ const features = [
 ];
 
 export const FeaturesSection = () => {
-  const [activeTab, setActiveTab] = useState(features[0].title);
+  const [activeFeature, setActiveFeature] = useState(0);
+  const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = featureRefs.current.indexOf(entry.target as HTMLDivElement);
+            if (index !== -1) {
+              setActiveFeature(index);
+            }
+          }
+        });
+      },
+      { threshold: 0.5, rootMargin: "-40% 0px -40% 0px" } 
+    );
+
+    featureRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      featureRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, []);
+
   return (
     <section className="container px-4 py-20">
       {/* Header Section */}
@@ -61,45 +89,38 @@ export const FeaturesSection = () => {
         </p>
       </div>
 
-      <Tabs defaultValue={features[0].title} onValueChange={setActiveTab} className="w-full">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-          {/* Left side - Tab triggers */}
-          <div className="md:col-span-5 space-y-3">
-            <TabsList className="flex flex-col w-full bg-transparent h-auto p-0 space-y-3">
-              {features.map((feature) => (
-                <TabsTrigger
-                  key={feature.title}
-                  value={feature.title}
-                  className="w-full data-[state=active]:shadow-none data-[state=active]:bg-transparent p-0"
-                >
-                  <FeatureTab
-                    title={feature.title}
-                    description={feature.description}
-                    icon={feature.icon}
-                    isActive={activeTab === feature.title}
-                  />
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </div>
-
-          {/* Right side - Tab content with images */}
-          <div className="md:col-span-7">
-            {features.map((feature) => (
-              <TabsContent
-                key={feature.title}
-                value={feature.title}
-                className="mt-0 h-full"
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+        {/* Left side - Feature list */}
+        <div className="md:col-span-5">
+          <div className="flex flex-col space-y-4">
+            {features.map((feature, index) => (
+              <div 
+                key={feature.title} 
+                ref={(el) => (featureRefs.current[index] = el)}
+                className="py-12" // Add padding to create scroll area for each item
               >
-                <FeatureContent
-                  image={feature.image}
+                <FeatureTab
                   title={feature.title}
+                  description={feature.description}
+                  icon={feature.icon}
+                  isActive={activeFeature === index}
                 />
-              </TabsContent>
+              </div>
             ))}
           </div>
         </div>
-      </Tabs>
+
+        {/* Right side - Sticky content */}
+        <div className="md:col-span-7 h-full">
+          <div className="sticky top-20">
+            <FeatureContent
+              key={activeFeature}
+              image={features[activeFeature].image}
+              title={features[activeFeature].title}
+            />
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
