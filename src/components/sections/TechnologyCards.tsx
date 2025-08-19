@@ -13,7 +13,7 @@ const TechnologyCards = () => {
   const techCategories = [
     {
       title: "Web Development",
-      description: "Modern web technologies for scalable applications",
+      description: "Modern web technologies for scalable applications. Tools: React, Node.js, Next.js",
       technologies: [
         { name: "React", icon: <img src={reactLogo} alt="React" className="w-6 h-6" /> },
         { name: "Node.js", icon: <FaNodeJs className="w-6 h-6" /> },
@@ -22,7 +22,7 @@ const TechnologyCards = () => {
     },
     {
       title: "Mobile Development", 
-      description: "Cross-platform mobile app development",
+      description: "Cross-platform mobile app development. Tools: Flutter, React Native",
       technologies: [
         { name: "Flutter", icon: <FaFlutter className="w-6 h-6" /> },
         { name: "React Native", icon: <img src={reactLogo} alt="React Native" className="w-6 h-6" /> },
@@ -30,7 +30,7 @@ const TechnologyCards = () => {
     },
     {
       title: "Backend Development",
-      description: "Robust server-side solutions and APIs",
+      description: "Robust server-side solutions and APIs. Tools: Python, Django, Go",
       technologies: [
         { name: "Python", icon: <img src={pythonLogo} alt="Python" className="w-6 h-6" /> },
         { name: "Django", icon: <DiDjango className="w-6 h-6" /> },
@@ -39,7 +39,7 @@ const TechnologyCards = () => {
     },
     {
       title: "AI Development",
-      description: "Cutting-edge artificial intelligence solutions",
+      description: "Cutting-edge artificial intelligence solutions. Tools: OpenAI, Copilot",
       technologies: [
         { name: "OpenAI", icon: <OpenAILogo className="w-6 h-6" /> },
         { name: "Copilot", icon: <GoCopilot className="w-6 h-6" /> },
@@ -47,7 +47,7 @@ const TechnologyCards = () => {
     },
     {
       title: "Core AI",
-      description: "Advanced model building and fine-tuning",
+      description: "Advanced model building and fine-tuning. Tools: Claude, Gemini, Meta AI",
       technologies: [
         { name: "Claude", icon: <ClaudeLogo className="w-6 h-6" /> },
         { name: "Gemini", icon: <GeminiLogo className="w-6 h-6" /> },
@@ -86,7 +86,7 @@ const TechnologyCards = () => {
           transition={{ duration: 0.6, delay: index * 0.1 }}
           className="w-full"
         >
-          <Card className="h-full">
+          <Card className="h-full w-full">
             <CardSkeletonContainer className="h-[12rem]">
               <TechSkeleton technologies={category.technologies} />
             </CardSkeletonContainer>
