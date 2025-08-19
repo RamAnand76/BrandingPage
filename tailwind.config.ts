@@ -63,8 +63,22 @@ export default {
           '100%': { transform: 'translateX(-100%)' }
         },
         rainbow: {
-          "0%": { "--border-angle": "0deg" },
-          "100%": { "--border-angle": "360deg" },
+          "0%": {
+            "--border-angle": "0deg",
+            "--color-1": "hsl(0, 100%, 50%)",
+            "--color-2": "hsl(60, 100%, 50%)",
+            "--color-3": "hsl(120, 100%, 50%)",
+            "--color-4": "hsl(180, 100%, 50%)",
+            "--color-5": "hsl(240, 100%, 50%)",
+          },
+          "100%": {
+            "--border-angle": "360deg",
+            "--color-1": "hsl(360, 100%, 50%)",
+            "--color-2": "hsl(420, 100%, 50%)",
+            "--color-3": "hsl(480, 100%, 50%)",
+            "--color-4": "hsl(540, 100%, 50%)",
+            "--color-5": "hsl(600, 100%, 50%)",
+          },
         },
         move: {
           "0%": { transform: "translateY(-200px)" },
