@@ -8,7 +8,6 @@ import { PricingSection } from "@/components/pricing/PricingSection";
 import LogoCarousel from "@/components/LogoCarousel";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import Footer from "@/components/Footer";
-import ProductsSection from "@/components/sections/ProductsSection";
 import AboutSection from "@/components/sections/AboutSection";
 import TeamSection from "@/components/sections/TeamSection";
 import WorksSection from "@/components/sections/WorksSection";
@@ -16,6 +15,7 @@ import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { AuroraText } from "@/components/magicui/aurora-text";
 import { ShinyButton } from "@/components/magicui/shiny-button";
 import { RainbowButton } from "@/components/magicui/rainbow-button";
+import Link from 'next/link';
 
 const Index = () => {
   return (
@@ -47,9 +47,9 @@ const Index = () => {
         </motion.div>
         
         <div className="max-w-4xl mx-auto relative z-10">
-          <h1 className="text-4xl md:text-5xl font-normal mb-4 tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-normal mb-4 tracking-tight text-center">
             <span className="text-gray-200">
-              <TextGenerateEffect words="Innovative products, expert services" />
+              <TextGenerateEffect words="Expert Services, Delivered" />
             </span>
             <br />
             <span className="text-white font-medium">
@@ -61,7 +61,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-lg text-gray-200 mb-8 max-w-2xl mx-auto"
+            className="text-lg text-gray-200 mb-8 max-w-2xl mx-auto text-center"
           >
             From stunning UI/UX to powerful AI and flawless apps, we build the digital solutions of tomorrow.{" "}
             <span className="text-white">Let's create something amazing together.</span>
@@ -73,10 +73,14 @@ const Index = () => {
             transition={{ delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-4 items-center justify-center"
           >
-            <RainbowButton variant="outline">Explore Our Services</RainbowButton>
-            <ShinyButton>
-              Discover Our Products <ArrowRight className="ml-2 w-4 h-4" />
-            </ShinyButton>
+            <Link href="#features">
+                <RainbowButton variant="outline">Explore Our Services</RainbowButton>
+            </Link>
+            <Link href="/products">
+                <ShinyButton>
+                Discover Our Products <ArrowRight className="ml-2 w-4 h-4" />
+                </ShinyButton>
+            </Link>
           </motion.div>
         </div>
 
@@ -103,9 +107,6 @@ const Index = () => {
       <div id="features" className="bg-black">
         <FeaturesSection />
       </div>
-
-      {/* Products Section */}
-      <ProductsSection />
 
       {/* About Section */}
       <AboutSection />
@@ -146,10 +147,10 @@ const Index = () => {
           transition={{ duration: 0.5 }}
           className="bg-[#0A0A0A]/80 backdrop-blur-lg border border-white/10 rounded-2xl p-8 md:p-12 text-center relative z-10"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
             Ready to transform your ideas?
           </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto text-center">
             Join hundreds of businesses who have already discovered the power of our digital solutions.
           </p>
           <Button size="lg" className="button-gradient">

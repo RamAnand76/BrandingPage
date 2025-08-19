@@ -3,6 +3,7 @@ import { Command, Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
+import Link from 'next/link';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -18,34 +19,18 @@ const Navigation = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    if (sectionId === 'testimonials') {
-      const testimonialSection = document.querySelector('.animate-marquee');
-      if (testimonialSection) {
-        const yOffset = -100; // Offset to account for the fixed header
-        const y = testimonialSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: 'smooth' });
-      }
-    } else if (sectionId === 'cta') {
-      const ctaSection = document.querySelector('.button-gradient');
-      if (ctaSection) {
-        const yOffset = -100;
-        const y = ctaSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: 'smooth' });
-      }
-    } else {
-      const element = document.getElementById(sectionId);
-      if (element) {
+    const element = document.getElementById(sectionId);
+    if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
-      }
     }
   };
 
   const navItems = [
-    { name: "Services", href: "#features", onClick: () => scrollToSection('features') },
-    { name: "Products", href: "#products", onClick: () => scrollToSection('products') },
-    { name: "About", href: "#about", onClick: () => scrollToSection('about') },
-    { name: "Pricing", href: "#pricing", onClick: () => scrollToSection('pricing') },
-    { name: "Contact", href: "#contact", onClick: () => scrollToSection('contact') },
+    { name: "Services", href: "/#features", onClick: () => scrollToSection('features') },
+    { name: "Products", href: "/products" },
+    { name: "About", href: "/#about", onClick: () => scrollToSection('about') },
+    { name: "Pricing", href: "/#pricing", onClick: () => scrollToSection('pricing') },
+    { name: "Contact", href: "/#contact", onClick: () => scrollToSection('contact') },
   ];
 
   return (
@@ -65,27 +50,32 @@ const Navigation = () => {
       >
         <div className="mx-auto h-full px-6">
           <nav className="flex items-center justify-between h-full">
-            <div className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2">
               <Command className="w-5 h-5 text-primary" />
               <span className="font-bold text-base">Aethene</span>
-            </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-6">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
                   href={item.href}
                   onClick={(e) => {
-                    e.preventDefault();
                     if (item.onClick) {
-                      item.onClick();
+                      if (window.location.pathname !== '/') {
+                        window.location.href = '/';
+                        setTimeout(() => item.onClick(), 200);
+                      } else {
+                        e.preventDefault();
+                        item.onClick();
+                      }
                     }
                   }}
                   className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300"
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
             </div>
 
@@ -100,20 +90,25 @@ const Navigation = () => {
                 <SheetContent className="bg-[#1B1B1B]">
                   <div className="flex flex-col gap-4 mt-8">
                     {navItems.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
                         className="text-lg text-muted-foreground hover:text-foreground transition-colors"
                         onClick={(e) => {
-                          e.preventDefault();
                           setIsMobileMenuOpen(false);
-                          if (item.onClick) {
-                            item.onClick();
-                          }
+                           if (item.onClick) {
+                            if (window.location.pathname !== '/') {
+                                window.location.href = '/';
+                                setTimeout(() => item.onClick(), 200);
+                            } else {
+                                e.preventDefault();
+                                item.onClick();
+                            }
+                           }
                         }}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </SheetContent>
