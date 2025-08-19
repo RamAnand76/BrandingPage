@@ -21,8 +21,8 @@ const ProductsSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Our Products</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Products</h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Innovative solutions built with cutting-edge technology to transform how businesses operate
           </p>
         </motion.div>
@@ -46,7 +46,7 @@ const ProductsSection = () => {
                 </div>
               </div>
               
-              <p className="text-muted-foreground mb-6 text-lg">
+              <p className="text-muted-foreground mb-6 text-base">
                 {product.description}
               </p>
               

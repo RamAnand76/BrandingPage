@@ -47,7 +47,7 @@ const Index = () => {
         </motion.div>
         
         <div className="max-w-4xl mx-auto relative z-10">
-          <h1 className="text-3xl md:text-4xl font-normal mb-4 tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-normal mb-4 tracking-tight">
             <span className="text-gray-200">
               <TextGenerateEffect words="Innovative products, expert services" />
             </span>
@@ -61,7 +61,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-sm md:text-base text-gray-200 mb-8 max-w-2xl mx-auto"
+            className="text-lg text-gray-200 mb-8 max-w-2xl mx-auto"
           >
             From stunning UI/UX to powerful AI and flawless apps, we build the digital solutions of tomorrow.{" "}
             <span className="text-white">Let's create something amazing together.</span>
