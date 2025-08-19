@@ -54,8 +54,8 @@ const TestimonialsSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-normal mb-4">Trusted by Businesses</h2>
-          <p className="text-muted-foreground text-lg">
+          <h2 className="text-4xl md:text-5xl font-normal mb-4">Trusted by Businesses</h2>
+          <p className="text-lg text-muted-foreground">
             Join businesses who trust Aethene for digital solutions
           </p>
         </motion.div>

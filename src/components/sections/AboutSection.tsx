@@ -19,8 +19,8 @@ const AboutSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">About Aethene</h2>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">About Aethene</h2>
+          <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
             We are a hybrid of innovation, combining expert service delivery with product-driven solutions. 
             Our team of specialists is dedicated to bringing your ideas to life, from stunning UI/UX designs 
             to powerful AI models and flawless mobile applications.
