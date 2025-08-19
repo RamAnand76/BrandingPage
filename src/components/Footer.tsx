@@ -1,8 +1,15 @@
 import { Github, Twitter } from "lucide-react";
 import { Button } from "./ui/button";
 import { VideoText } from "@/registry/magicui/video-text";
+import { useEffect, useState } from "react";
 
 const Footer = () => {
+  const [year, setYear] = useState(new Date().getFullYear());
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+
   return (
     <footer className="w-full py-12 mt-20">
       <div className="container px-4">
@@ -88,7 +95,7 @@ const Footer = () => {
 
           <div className="mt-8 pt-8 border-t border-white/10">
             <p className="text-sm text-muted-foreground text-center">
-              © {new Date().getFullYear()} Aethene. All rights reserved.
+              © {year} Aethene. All rights reserved.
             </p>
           </div>
         </div>
