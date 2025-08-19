@@ -46,7 +46,7 @@ const TeamSection = () => {
             {team.map((member, idx) => (
               <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3 flex justify-center">
                 <CometCard>
-                  <div className="my-10 flex w-80 cursor-pointer flex-col items-center rounded-2xl border-0 bg-[#1F2121] p-4 text-center">
+                  <div className="my-10 flex w-72 cursor-pointer flex-col items-center rounded-2xl border-0 bg-[#1F2121] p-4 text-center">
                     <Avatar className="w-32 h-32 border-4 border-primary/50 mt-4">
                       <AvatarImage src={member.image} />
                       <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
