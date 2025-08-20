@@ -71,7 +71,7 @@ export const SuccessAnimation = () => {
         transition={{ delay: 1, duration: 0.5 }}
         className="text-muted-foreground mt-2"
       >
-        We'll get back to you soon.
+        We&apos;ll get back to you soon.
       </motion.p>
     </div>
   );
