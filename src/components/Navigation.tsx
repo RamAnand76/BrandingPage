@@ -1,13 +1,18 @@
+
+"use client";
+
 import { useState, useEffect } from "react";
 import { Command, Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
 import Link from 'next/link';
+import { usePathname } from "next/navigation";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,7 +23,13 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (sectionId: string, e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pathname !== '/') {
+      // Let the Link component handle navigation
+      return;
+    }
+    
+    e.preventDefault();
     const element = document.getElementById(sectionId);
     if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
@@ -26,11 +37,11 @@ const Navigation = () => {
   };
 
   const navItems = [
-    { name: "Services", href: "/#features", onClick: () => scrollToSection('features') },
+    { name: "Services", href: "/#features", sectionId: "features" },
     { name: "Products", href: "/products" },
-    { name: "About", href: "/#about", onClick: () => scrollToSection('about') },
-    { name: "Pricing", href: "/#pricing", onClick: () => scrollToSection('pricing') },
-    { name: "Contact", href: "/#contact", onClick: () => scrollToSection('contact') },
+    { name: "About", href: "/#about", sectionId: "about" },
+    { name: "Pricing", href: "/#pricing", sectionId: "pricing" },
+    { name: "Contact", href: "/#contact", sectionId: "contact" },
   ];
 
   return (
@@ -62,14 +73,8 @@ const Navigation = () => {
                   key={item.name}
                   href={item.href}
                   onClick={(e) => {
-                    if (item.onClick) {
-                      if (window.location.pathname !== '/') {
-                        window.location.href = '/';
-                        setTimeout(() => item.onClick(), 200);
-                      } else {
-                        e.preventDefault();
-                        item.onClick();
-                      }
+                    if (item.sectionId) {
+                      scrollToSection(item.sectionId, e);
                     }
                   }}
                   className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300"
@@ -96,15 +101,17 @@ const Navigation = () => {
                         className="text-lg text-muted-foreground hover:text-foreground transition-colors"
                         onClick={(e) => {
                           setIsMobileMenuOpen(false);
-                           if (item.onClick) {
-                            if (window.location.pathname !== '/') {
-                                window.location.href = '/';
-                                setTimeout(() => item.onClick(), 200);
-                            } else {
+                          if (item.sectionId) {
+                            // On mobile, just let the link navigate, scrolling will happen automatically
+                            // or after page load.
+                            if (pathname === '/') {
                                 e.preventDefault();
-                                item.onClick();
+                                const element = document.getElementById(item.sectionId);
+                                if (element) {
+                                    element.scrollIntoView({ behavior: 'smooth' });
+                                }
                             }
-                           }
+                          }
                         }}
                       >
                         {item.name}
