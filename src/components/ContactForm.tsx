@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useForm } from "react-hook-form";
@@ -14,10 +15,10 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
 import { useState } from "react";
+import { SuccessAnimation } from "./SuccessAnimation";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -36,8 +37,8 @@ export function ContactForm({
 }: {
   onSuccess?: () => void;
 }) {
-  const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -53,17 +54,21 @@ export function ContactForm({
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1500));
     setIsSubmitting(false);
+    setIsSubmitted(true);
 
     console.log(values);
-    toast({
-      title: "Message Sent!",
-      description: "Thanks for reaching out. We'll get back to you soon.",
-    });
+    
+    setTimeout(() => {
+        if (onSuccess) {
+            onSuccess();
+        }
+        // Reset form and submitted state after modal closes
+        setTimeout(() => {
+            form.reset();
+            setIsSubmitted(false);
+        }, 500);
 
-    form.reset();
-    if (onSuccess) {
-      onSuccess();
-    }
+    }, 1800); // Wait for animation to mostly complete
   }
 
   const fieldVariants = {
@@ -78,6 +83,10 @@ export function ContactForm({
       },
     }),
   };
+
+  if (isSubmitted) {
+    return <SuccessAnimation />;
+  }
 
   return (
     <Form {...form}>
