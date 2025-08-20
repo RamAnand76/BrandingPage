@@ -22,13 +22,13 @@ const TeamSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-black">
+    <section className="py-10 md:py-20 bg-black">
       <div className="container px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Team</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -47,7 +47,7 @@ const TeamSection = () => {
             {team.map((member, idx) => (
               <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3 flex justify-center">
                 <CometCard>
-                  <div className="my-10 flex w-[90vw] max-w-[260px] cursor-pointer flex-col items-center rounded-2xl border-0 bg-[#1F2121] p-4 text-center">
+                  <div className="my-10 flex w-[80vw] max-w-xs cursor-pointer flex-col items-center rounded-2xl border-0 bg-[#1F2121] p-4 text-center">
                     <Avatar className="w-32 h-32 border-4 border-primary/50 mt-4">
                       <AvatarImage src={member.image} />
                       <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>

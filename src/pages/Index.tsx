@@ -29,7 +29,7 @@ const Index = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="relative container px-4 pt-28 md:pt-40 pb-20 text-center"
+        className="relative container px-4 pt-28 md:pt-40 pb-10 md:pb-20 text-center"
       >
         {/* Background */}
         <div 
@@ -91,7 +91,7 @@ const Index = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="relative mx-auto max-w-5xl mt-20"
+          className="relative mx-auto max-w-5xl mt-12 md:mt-20"
         >
           <div className="glass rounded-xl overflow-hidden">
             <Image
@@ -137,7 +137,7 @@ const Index = () => {
       </div>
 
       {/* CTA Section */}
-      <section id="contact" className="container px-4 py-20 relative bg-black">
+      <section id="contact" className="container px-4 py-10 md:py-20 relative bg-black">
         <div 
           className="absolute inset-0 opacity-40"
           style={{
