@@ -18,11 +18,16 @@ import { ShinyButton } from "@/components/magicui/shiny-button";
 import { RainbowButton } from "@/components/magicui/rainbow-button";
 import Link from 'next/link';
 import Image from "next/image";
+import { useState } from "react";
+import { ContactModal } from "@/components/ContactModal";
 
 const Index = () => {
+  const [isContactModalOpen, setContactModalOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-black text-foreground">
       <Navigation />
+      <ContactModal isOpen={isContactModalOpen} onOpenChange={setContactModalOpen} />
       
       {/* Hero Section */}
       <motion.section 
@@ -95,11 +100,12 @@ const Index = () => {
         >
           <div className="glass rounded-xl overflow-hidden">
             <Image
-              src="/lovable-uploads/c32c6788-5e4a-4fee-afee-604b03113c7f.png"
+              src="https://placehold.co/1200x675.png"
               alt="Aethene Digital Solutions Dashboard"
               width={1200}
               height={675}
               className="w-full h-auto"
+              data-ai-hint="dashboard application"
             />
           </div>
         </motion.div>
@@ -141,14 +147,16 @@ const Index = () => {
         <div 
           className="absolute inset-0 opacity-40"
           style={{
-            backgroundImage: 'url("/lovable-uploads/21f3edfb-62b5-4e35-9d03-7339d803b980.png")',
+            backgroundImage: 'url("https://placehold.co/1200x400.png")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
+          data-ai-hint="abstract background"
         />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="bg-[#0A0A0A]/80 backdrop-blur-lg border border-white/10 rounded-2xl p-8 md:p-12 text-center relative z-10"
         >
@@ -158,7 +166,7 @@ const Index = () => {
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto text-center">
             Join hundreds of businesses who have already discovered the power of our digital solutions.
           </p>
-          <Button size="lg" className="button-gradient">
+          <Button size="lg" className="button-gradient" onClick={() => setContactModalOpen(true)}>
             Start Your Project
             <ArrowRight className="ml-2 w-4 h-4" />
           </Button>
