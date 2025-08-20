@@ -98,7 +98,9 @@ export const FeaturesSection = () => {
               <div 
                 key={feature.title} 
                 ref={(el) => {
-                  if (el) featureRefs.current[index] = el;
+                  if (el) {
+                    featureRefs.current[index] = el;
+                  }
                 }}
                 className="py-12" // Add padding to create scroll area for each item
               >
@@ -127,5 +129,3 @@ export const FeaturesSection = () => {
     </section>
   );
 };
-
-    
