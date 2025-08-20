@@ -97,7 +97,9 @@ export const FeaturesSection = () => {
             {features.map((feature, index) => (
               <div 
                 key={feature.title} 
-                ref={(el) => (featureRefs.current[index] = el)}
+                ref={(el) => {
+                  featureRefs.current[index] = el;
+                }}
                 className="py-12" // Add padding to create scroll area for each item
               >
                 <FeatureTab
