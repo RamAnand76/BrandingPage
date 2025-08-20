@@ -70,7 +70,8 @@ export const FeaturesSection = () => {
     });
 
     return () => {
-      refs.forEach((ref) => {
+      const currentRefs = featureRefs.current;
+      currentRefs.forEach((ref) => {
         if (ref) observer.unobserve(ref);
       });
     };
@@ -98,7 +99,7 @@ export const FeaturesSection = () => {
               <div 
                 key={feature.title} 
                 ref={(el) => {
-                  featureRefs.current[index] = el;
+                  if (el) featureRefs.current[index] = el;
                 }}
                 className="py-12" // Add padding to create scroll area for each item
               >
