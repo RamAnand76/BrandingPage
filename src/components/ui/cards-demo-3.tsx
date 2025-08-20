@@ -64,8 +64,8 @@ const Skeleton = () => {
         },
         { duration: 0.8 },
       ],
-    ];
-    // @ts-ignore
+    ] as any;
+    
     animate(sequence, {
       repeat: Infinity,
       repeatDelay: 1,
@@ -356,3 +356,5 @@ export const MetaIconOutline = ({ className }: { className?: string }) => {
     </svg>
   );
 };
+
+    

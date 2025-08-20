@@ -2,9 +2,8 @@
 "use client";
 import { FeatureTab } from "./FeatureTab";
 import { FeatureContent } from "./FeatureContent";
-import { BarChart3, ShieldCheck, Wallet, ArrowUpDown, Palette, Globe, Bot, Smartphone } from "lucide-react";
+import { BarChart3, Bot, Smartphone, Globe, Palette, ArrowUpDown } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
-import { useInView } from "framer-motion";
 
 const features = [
   {
@@ -128,3 +127,5 @@ export const FeaturesSection = () => {
     </section>
   );
 };
+
+    
