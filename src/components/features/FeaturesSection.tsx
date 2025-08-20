@@ -69,17 +69,16 @@ export const FeaturesSection = () => {
     });
 
     return () => {
-      const currentRefs = featureRefs.current;
-      currentRefs.forEach((ref) => {
+      refs.forEach((ref) => {
         if (ref) observer.unobserve(ref);
       });
     };
   }, []);
 
   return (
-    <section className="container px-4 py-20">
+    <section className="container px-4 py-10 md:py-20">
       {/* Header Section */}
-      <div className="max-w-2xl mx-auto text-center mb-16">
+      <div className="max-w-2xl mx-auto text-center mb-12 md:mb-16">
         <h2 className="text-4xl md:text-5xl font-normal mb-6 tracking-tight">
           Expert Services
           <br />
@@ -90,19 +89,19 @@ export const FeaturesSection = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
         {/* Left side - Feature list */}
-        <div className="md:col-span-5">
+        <div className="lg:col-span-5">
           <div className="flex flex-col space-y-4">
             {features.map((feature, index) => (
-              <div 
-                key={feature.title} 
+              <div
+                key={feature.title}
                 ref={(el) => {
                   if (el) {
                     featureRefs.current[index] = el;
                   }
                 }}
-                className="py-12" // Add padding to create scroll area for each item
+                className="py-2 md:py-12"
               >
                 <FeatureTab
                   title={feature.title}
@@ -116,8 +115,8 @@ export const FeaturesSection = () => {
         </div>
 
         {/* Right side - Sticky content */}
-        <div className="md:col-span-7 h-full">
-          <div className="sticky top-20">
+        <div className="lg:col-span-7 h-full">
+          <div className="lg:sticky top-20">
             <FeatureContent
               key={activeFeature}
               image={features[activeFeature].image}
