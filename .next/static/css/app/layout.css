@@ -3313,6 +3313,10 @@ body{
     width: auto;
   }
 
+  .md\:w-\[350px\]{
+    width: 350px;
+  }
+
   .md\:max-w-\[420px\]{
     max-width: 420px;
   }
