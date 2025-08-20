@@ -1056,6 +1056,9 @@ body{
 .w-px{
   width: 1px;
 }
+.w-\[260px\]{
+  width: 260px;
+}
 .min-w-0{
   min-width: 0px;
 }
@@ -1098,6 +1101,9 @@ body{
 }
 .max-w-xl{
   max-width: 36rem;
+}
+.max-w-\[400px\]{
+  max-width: 400px;
 }
 .flex-1{
   flex: 1 1 0%;
@@ -1806,6 +1812,9 @@ body{
 }
 .pt-8{
   padding-top: 2rem;
+}
+.pt-28{
+  padding-top: 7rem;
 }
 .text-left{
   text-align: left;
@@ -3308,6 +3317,10 @@ body{
 
   .md\:p-4{
     padding: 1rem;
+  }
+
+  .md\:pt-40{
+    padding-top: 10rem;
   }
 
   .md\:text-4xl{

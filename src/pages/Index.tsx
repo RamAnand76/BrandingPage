@@ -1,3 +1,4 @@
+
 "use client";
 import { motion } from "framer-motion";
 import { ArrowRight, Command } from "lucide-react";
@@ -28,7 +29,7 @@ const Index = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="relative container px-4 pt-40 pb-20 text-center"
+        className="relative container px-4 pt-28 md:pt-40 pb-20 text-center"
       >
         {/* Background */}
         <div 
@@ -78,7 +79,7 @@ const Index = () => {
                 <RainbowButton variant="outline" className="w-full">Explore Our Services</RainbowButton>
             </Link>
             <Link href="/products" className="w-full sm:w-auto">
-                <ShinyButton className="w-full button-gradient text-white">
+                <ShinyButton className="w-full text-white">
                   Discover Our Products
                   <ArrowRight className="w-4 h-4" />
                 </ShinyButton>
