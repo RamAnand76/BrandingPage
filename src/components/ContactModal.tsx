@@ -28,10 +28,10 @@ export function ContactModal({ isOpen, onOpenChange }: ContactModalProps) {
           <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-primary/20 to-transparent pointer-events-none" />
           <DialogHeader className="p-8 pb-4 text-center">
             <DialogTitle className="text-2xl font-bold tracking-tight">
-              Let's Build Something Great
+              Let&apos;s Build Something Great
             </DialogTitle>
             <DialogDescription className="text-muted-foreground pt-1">
-              Fill out the form below, and we'll get back to you as soon as
+              Fill out the form below, and we&apos;ll get back to you as soon as
               possible.
             </DialogDescription>
           </DialogHeader>
