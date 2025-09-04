@@ -2,14 +2,6 @@ import { motion } from "framer-motion";
 import TechnologyCards from "./TechnologyCards";
 
 const AboutSection = () => {
-  const services = [
-    "Web Development using React.js",
-    "Mobile App Development using Flutter",
-    "Backend Development (Node.js & Django REST)",
-    "AWS (Cloud & DevOps)",
-    "AI Development",
-  ];
-
   return (
     <section id="about" className="py-20 bg-black">
       <div className="container px-4">
@@ -27,37 +19,13 @@ const AboutSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto mb-16">
-          {/* Our Services */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="glass rounded-2xl p-8"
-          >
-            <h3 className="text-2xl font-bold mb-6">Our Services</h3>
-            <div className="space-y-4">
-              {services.map((service, index) => (
-                <motion.div
-                  key={service}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="flex items-center gap-3"
-                >
-                  <div className="w-2 h-2 rounded-full bg-primary"></div>
-                  <span className="text-muted-foreground">{service}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
+        <div className="flex justify-center mb-16">
           {/* Philosophy */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="glass rounded-2xl p-8"
+            className="glass rounded-2xl p-8 max-w-3xl"
           >
             <h3 className="text-2xl font-bold mb-4">Our Philosophy</h3>
             <p className="text-lg text-muted-foreground">
