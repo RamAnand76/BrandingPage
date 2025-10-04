@@ -101,7 +101,7 @@ const Index = () => {
           <div className="glass rounded-xl overflow-hidden">
             <Image
               src="https://placehold.co/1200x675.png"
-              alt="Aethene Digital Solutions Dashboard"
+              alt="RE:INVENT Digital Solutions Dashboard"
               width={1200}
               height={675}
               className="w-full h-auto"
