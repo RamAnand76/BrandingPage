@@ -23,25 +23,12 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string, e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (pathname !== '/') {
-      // Let the Link component handle navigation
-      return;
-    }
-    
-    e.preventDefault();
-    const element = document.getElementById(sectionId);
-    if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const navItems = [
-    { name: "Services", href: "/#features", sectionId: "features" },
+    { name: "Services", href: "/#features" },
     { name: "Products", href: "/products" },
-    { name: "About", href: "/#about", sectionId: "about" },
-    { name: "Pricing", href: "/#pricing", sectionId: "pricing" },
-    { name: "Contact", href: "/#contact", sectionId: "contact" },
+    { name: "About", href: "/#about" },
+    { name: "Pricing", href: "/#pricing" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   return (
@@ -63,7 +50,7 @@ const Navigation = () => {
           <nav className="flex items-center justify-between h-full">
             <Link href="/" className="flex items-center gap-2">
               <Command className="w-5 h-5 text-primary" />
-              <span className="font-bold text-base">Aethene</span>
+              <span className="font-bold text-base">RE:INVENT</span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -72,11 +59,6 @@ const Navigation = () => {
                 <Link
                   key={item.name}
                   href={item.href}
-                  onClick={(e) => {
-                    if (item.sectionId) {
-                      scrollToSection(item.sectionId, e);
-                    }
-                  }}
                   className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300"
                 >
                   {item.name}
@@ -99,20 +81,7 @@ const Navigation = () => {
                         key={item.name}
                         href={item.href}
                         className="text-lg text-muted-foreground hover:text-foreground transition-colors"
-                        onClick={(e) => {
-                          setIsMobileMenuOpen(false);
-                          if (item.sectionId) {
-                            // On mobile, just let the link navigate, scrolling will happen automatically
-                            // or after page load.
-                            if (pathname === '/') {
-                                e.preventDefault();
-                                const element = document.getElementById(item.sectionId);
-                                if (element) {
-                                    element.scrollIntoView({ behavior: 'smooth' });
-                                }
-                            }
-                          }
-                        }}
+                        onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {item.name}
                       </Link>

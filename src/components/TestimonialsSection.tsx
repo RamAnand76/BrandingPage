@@ -10,25 +10,25 @@ const testimonials = [
     name: "Alex Chen",
     role: "CTO",
     image: "https://avatars.githubusercontent.com/u/1234567?v=4",
-    content: "Aethene's AI development expertise helped us transform our business processes. Their custom solutions delivered exactly what we needed with excellent performance."
+    content: "RE:INVENT's AI development expertise helped us transform our business processes. Their custom solutions delivered exactly what we needed with excellent performance."
   },
   {
     name: "Sarah Mitchell",
     role: "Product Manager",
     image: "https://avatars.githubusercontent.com/u/2345678?v=4",
-    content: "The web application Aethene built for us exceeded expectations. Their React.js expertise and attention to detail made our project a huge success."
+    content: "The web application RE:INVENT built for us exceeded expectations. Their React.js expertise and attention to detail made our project a huge success."
   },
   {
     name: "Marcus Rodriguez",
     role: "Startup Founder",
     image: "https://avatars.githubusercontent.com/u/3456789?v=4",
-    content: "Outstanding mobile app development with Flutter. The team's professionalism and timely delivery made working with Aethene a pleasure."
+    content: "Outstanding mobile app development with Flutter. The team's professionalism and timely delivery made working with RE:INVENT a pleasure."
   },
   {
     name: "Emily Foster",
     role: "Marketing Director",
     image: "https://avatars.githubusercontent.com/u/4567890?v=4",
-    content: "Aethene's UI/UX design transformed our user experience completely. The designs are beautiful, intuitive, and conversion rates have improved significantly."
+    content: "RE:INVENT's UI/UX design transformed our user experience completely. The designs are beautiful, intuitive, and conversion rates have improved significantly."
   },
   {
     name: "David Kim",
@@ -40,7 +40,7 @@ const testimonials = [
     name: "Jessica Wright",
     role: "Innovation Director",
     image: "https://avatars.githubusercontent.com/u/6789012?v=4",
-    content: "Working with Aethene on our AI integration project was fantastic. They delivered sophisticated GenAI solutions that revolutionized our workflow."
+    content: "Working with RE:INVENT on our AI integration project was fantastic. They delivered sophisticated GenAI solutions that revolutionized our workflow."
   }
 ];
 
@@ -57,7 +57,7 @@ const TestimonialsSection = () => {
         >
           <h2 className="text-4xl md:text-5xl font-normal mb-4">Trusted by Businesses</h2>
           <p className="text-lg text-muted-foreground">
-            Join businesses who trust Aethene for digital solutions
+            Join businesses who trust RE:INVENT for digital solutions
           </p>
         </motion.div>
 

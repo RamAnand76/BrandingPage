@@ -18,7 +18,7 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="relative h-10 w-40 overflow-hidden">
                 <VideoText src="https://cdn.magicui.design/ocean-small.webm" className="size-full">
-                  AETHENE
+                  RE:INVENT
                 </VideoText>
               </div>
               <p className="text-sm text-muted-foreground">
@@ -95,7 +95,7 @@ const Footer = () => {
 
           <div className="mt-8 pt-8 border-t border-white/10">
             <p className="text-sm text-muted-foreground text-center">
-              © {year} Aethene. All rights reserved.
+              © {year} RE:INVENT. All rights reserved.
             </p>
           </div>
         </div>

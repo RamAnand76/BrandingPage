@@ -11,7 +11,7 @@ const AboutSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">About Aethene</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">About RE:INVENT</h2>
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
             We are a hybrid of innovation, combining expert service delivery with product-driven solutions. 
             Our team of specialists is dedicated to bringing your ideas to life, from stunning UI/UX designs 
@@ -29,7 +29,7 @@ const AboutSection = () => {
           >
             <h3 className="text-2xl font-bold mb-4">Our Philosophy</h3>
             <p className="text-lg text-muted-foreground">
-              At Aethene, we believe in the perfect balance between innovative products and exceptional services. 
+              At RE:INVENT, we believe in the perfect balance between innovative products and exceptional services. 
               We don&apos;t just build solutions; we craft experiences that transform how businesses operate and grow. 
               Every project is an opportunity to push the boundaries of what&apos;s possible with technology.
             </p>
