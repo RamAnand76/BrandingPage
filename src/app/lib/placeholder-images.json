@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "src": "https://picsum.photos/seed/hero-1/1200/675",
+    "alt": "RE:INVENT Digital Solutions Dashboard",
+    "data-ai-hint": "dashboard application"
+  },
+  "cta": {
+    "src": "https://picsum.photos/seed/cta-bg/1200/400",
+    "alt": "Abstract background for call to action",
+    "data-ai-hint": "abstract background"
+  },
+  "works": [
+    {
+      "src": "https://picsum.photos/seed/work-alpha/600/400",
+      "alt": "Project Alpha screenshot",
+      "data-ai-hint": "data analytics"
+    },
+    {
+      "src": "https://picsum.photos/seed/work-beta/600/400",
+      "alt": "Project Beta screenshot",
+      "data-ai-hint": "mobile interface"
+    },
+    {
+      "src": "https://picsum.photos/seed/work-gamma/600/400",
+      "alt": "Project Gamma screenshot",
+      "data-ai-hint": "cloud infrastructure"
+    }
+  ],
+  "products": [
+    {
+      "src": "https://picsum.photos/seed/product-flo/600/800",
+      "alt": "FLO.io product image",
+      "data-ai-hint": "abstract workflow"
+    },
+    {
+      "src": "https://picsum.photos/seed/product-cogni/600/800",
+      "alt": "CogniSynth product image",
+      "data-ai-hint": "artificial intelligence"
+    },
+    {
+      "src": "https://picsum.photos/seed/product-devkit/600/800",
+      "alt": "DevKit product image",
+      "data-ai-hint": "code editor"
+    }
+  ]
+}
