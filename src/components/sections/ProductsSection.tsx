@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Carousel from "@/components/Carousel";
-import { Zap, Bot, Code } from "lucide-react";
+import { Zap, Bot, Code, BrainCircuit, Rocket } from "lucide-react";
 import images from "@/app/lib/placeholder-images.json";
 
 const ProductsSection = () => {
@@ -106,6 +106,74 @@ const ProductsSection = () => {
         </div>
       ),
       image: images.products[2],
+    },
+    {
+      key: "4",
+      content: (
+        <div className="glass rounded-2xl p-8 text-white h-full flex flex-col">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 rounded-xl bg-primary/20 text-primary">
+              <BrainCircuit className="w-8 h-8" />
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold">NeuralNet</h3>
+              <span className="text-sm text-primary font-medium">Research</span>
+            </div>
+          </div>
+          <p className="text-muted-foreground mb-6 flex-grow">
+            A deep learning framework for researchers and data scientists.
+          </p>
+           <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary"></div>
+              <span className="text-sm">Tensor Operations</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary"></div>
+              <span className="text-sm">GPU Acceleration</span>
+            </div>
+             <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary"></div>
+              <span className="text-sm">Model Zoo</span>
+            </div>
+          </div>
+        </div>
+      ),
+      image: images.products[3],
+    },
+    {
+      key: "5",
+      content: (
+        <div className="glass rounded-2xl p-8 text-white h-full flex flex-col">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 rounded-xl bg-primary/20 text-primary">
+              <Rocket className="w-8 h-8" />
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold">LaunchPad</h3>
+              <span className="text-sm text-primary font-medium">Coming Soon</span>
+            </div>
+          </div>
+          <p className="text-muted-foreground mb-6 flex-grow">
+            A continuous integration and deployment platform for modern web apps.
+          </p>
+           <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary"></div>
+              <span className="text-sm">Automated Builds</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary"></div>
+              <span className="text-sm">One-click Deployments</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary"></div>
+              <span className="text-sm">Scalable Infrastructure</span>
+            </div>
+          </div>
+        </div>
+      ),
+      image: images.products[4],
     },
   ];
 
