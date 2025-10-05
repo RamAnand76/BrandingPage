@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import TechnologyCards from "./TechnologyCards";
+import { CometCard } from "@/components/ui/comet-card";
 
 const AboutSection = () => {
   return (
@@ -21,19 +22,21 @@ const AboutSection = () => {
 
         <div className="flex justify-center mb-16">
           {/* Philosophy */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="glass rounded-2xl p-8 max-w-3xl"
-          >
-            <h3 className="text-2xl font-bold mb-4">Our Philosophy</h3>
-            <p className="text-lg text-muted-foreground">
-              At RE:INVENT, we believe in the perfect balance between innovative products and exceptional services. 
-              We don&apos;t just build solutions; we craft experiences that transform how businesses operate and grow. 
-              Every project is an opportunity to push the boundaries of what&apos;s possible with technology.
-            </p>
-          </motion.div>
+          <CometCard>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="glass rounded-2xl p-8 max-w-3xl"
+            >
+              <h3 className="text-2xl font-bold mb-4">Our Philosophy</h3>
+              <p className="text-lg text-muted-foreground">
+                At RE:INVENT, we believe in the perfect balance between innovative products and exceptional services. 
+                We don&apos;t just build solutions; we craft experiences that transform how businesses operate and grow. 
+                Every project is an opportunity to push the boundaries of what&apos;s possible with technology.
+              </p>
+            </motion.div>
+          </CometCard>
         </div>
 
         {/* Technologies Section */}
