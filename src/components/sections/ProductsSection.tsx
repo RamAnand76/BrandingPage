@@ -1,20 +1,117 @@
 import { motion } from "framer-motion";
-import { Zap } from "lucide-react";
+import Carousel from "@/components/Carousel";
+import { Zap, Bot, Code } from "lucide-react";
+import images from "@/app/lib/placeholder-images.json";
 
 const ProductsSection = () => {
   const products = [
     {
-      name: "FLO.io",
-      description: "Workflow automation platform in progress. Stay tuned for updates!",
-      icon: <Zap className="w-8 h-8" />,
-      status: "In Progress",
-      features: ["AI-Powered Automation", "Real-time Analytics", "Custom Workflows"]
+      key: "1",
+      content: (
+        <div className="glass rounded-2xl p-8 text-white h-full flex flex-col">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 rounded-xl bg-primary/20 text-primary">
+              <Zap className="w-8 h-8" />
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold">FLO.io</h3>
+              <span className="text-sm text-primary font-medium">In Progress</span>
+            </div>
+          </div>
+          <p className="text-muted-foreground mb-6 flex-grow">
+            Workflow automation platform in progress. Stay tuned for updates!
+          </p>
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary"></div>
+              <span className="text-sm">AI-Powered Automation</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary"></div>
+              <span className="text-sm">Real-time Analytics</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary"></div>
+              <span className="text-sm">Custom Workflows</span>
+            </div>
+          </div>
+        </div>
+      ),
+      image: images.products[0],
+    },
+    {
+      key: "2",
+      content: (
+        <div className="glass rounded-2xl p-8 text-white h-full flex flex-col">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 rounded-xl bg-primary/20 text-primary">
+              <Bot className="w-8 h-8" />
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold">CogniSynth</h3>
+              <span className="text-sm text-primary font-medium">Beta</span>
+            </div>
+          </div>
+          <p className="text-muted-foreground mb-6 flex-grow">
+            An advanced AI agent platform for building and deploying intelligent conversational bots.
+          </p>
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary"></div>
+              <span className="text-sm">Natural Language Processing</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary"></div>
+              <span className="text-sm">Multi-platform Integration</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary"></div>
+              <span className="text-sm">No-Code Builder</span>
+            </div>
+          </div>
+        </div>
+      ),
+      image: images.products[1],
+    },
+    {
+      key: "3",
+      content: (
+        <div className="glass rounded-2xl p-8 text-white h-full flex flex-col">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 rounded-xl bg-primary/20 text-primary">
+              <Code className="w-8 h-8" />
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold">DevKit</h3>
+              <span className="text-sm text-primary font-medium">Alpha</span>
+            </div>
+          </div>
+          <p className="text-muted-foreground mb-6 flex-grow">
+            A suite of development tools designed to accelerate the creation of modern web applications.
+          </p>
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary"></div>
+              <span className="text-sm">Component Library</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary"></div>
+              <span className="text-sm">CLI & Scaffolding</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary"></div>
+              <span className="text-sm">State Management</span>
+            </div>
+          </div>
+        </div>
+      ),
+      image: images.products[2],
     },
   ];
 
   return (
-    <section id="products" className="py-20 bg-black">
-      <div className="container px-4">
+    <section id="products" className="py-20 bg-black h-[60rem] md:h-[50rem]">
+      <div className="container px-4 h-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -26,41 +123,14 @@ const ProductsSection = () => {
             Innovative solutions built with cutting-edge technology to transform how businesses operate
           </p>
         </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {products.map((product, index) => (
-            <motion.div
-              key={product.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="glass rounded-2xl p-8 hover:bg-white/10 transition-all duration-300"
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 rounded-xl bg-primary/20 text-primary">
-                  {product.icon}
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold">{product.name}</h3>
-                  <span className="text-sm text-primary font-medium">{product.status}</span>
-                </div>
-              </div>
-              
-              <p className="text-muted-foreground mb-6 text-base">
-                {product.description}
-              </p>
-              
-              <div className="space-y-2">
-                {product.features.map((feature, idx) => (
-                  <div key={idx} className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span className="text-sm">{feature}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <Carousel
+          cards={products}
+          height="500px"
+          width="80%"
+          margin="0 auto"
+          offset={2}
+          showArrows={true}
+        />
       </div>
     </section>
   );
