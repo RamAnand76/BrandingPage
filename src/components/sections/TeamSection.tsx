@@ -12,13 +12,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const TeamSection = () => {
   const team = [
-    { name: "John Doe", role: "CEO", image: "https://avatars.githubusercontent.com/u/1234567?v=4" },
-    { name: "Jane Smith", role: "CTO", image: "https://avatars.githubusercontent.com/u/2345678?v=4" },
-    { name: "Peter Jones", role: "Lead Developer", image: "https://avatars.githubusercontent.com/u/3456789?v=4" },
-    { name: "Emily White", role: "UX Designer", image: "https://avatars.githubusercontent.com/u/4567890?v=4" },
-    { name: "Michael Brown", role: "Project Manager", image: "https://avatars.githubusercontent.com/u/5678901?v=4" },
-    { name: "Jessica Green", role: "Frontend Developer", image: "https://avatars.githubusercontent.com/u/6789012?v=4" },
-    { name: "David Black", role: "Backend Developer", image: "https://avatars.githubusercontent.com/u/7890123?v=4" },
+    { name: "Ram", role: "CEO", image: "https://avatars.githubusercontent.com/u/1024025?v=4" },
+    { name: "Thejas", role: "CTO", image: "https://avatars.githubusercontent.com/u/7764849?v=4" },
+    { name: "Jithu Francis", role: "Lead Developer", image: "https://avatars.githubusercontent.com/u/22292288?v=4" },
+    { name: "Kesavadas", role: "UX Designer", image: "https://avatars.githubusercontent.com/u/11832316?v=4" },
+    { name: "Kiran Rajeev", role: "Project Manager", image: "https://avatars.githubusercontent.com/u/16237122?v=4" },
+    { name: "B. VishnuNarayanan", role: "Frontend Developer", image: "https://avatars.githubusercontent.com/u/17563333?v=4" },
   ];
 
   return (
