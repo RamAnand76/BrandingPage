@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import TechnologyCards from "./TechnologyCards";
-import { CometCard } from "@/components/ui/comet-card";
+import StarBorder from "@/components/ui/StarBorder";
 
 const AboutSection = () => {
   return (
@@ -22,7 +22,7 @@ const AboutSection = () => {
 
         <div className="flex justify-center mb-16">
           {/* Philosophy */}
-          <CometCard>
+          <StarBorder as="div" color="#4ADE80" speed="3s">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ const AboutSection = () => {
                 Every project is an opportunity to push the boundaries of what&apos;s possible with technology.
               </p>
             </motion.div>
-          </CometCard>
+          </StarBorder>
         </div>
 
         {/* Technologies Section */}

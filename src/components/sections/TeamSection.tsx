@@ -7,7 +7,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { CometCard } from "@/components/ui/comet-card";
+import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const TeamSection = () => {
@@ -46,18 +46,16 @@ const TeamSection = () => {
           <CarouselContent>
             {team.map((member, idx) => (
               <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3 flex justify-center">
-                <CometCard>
-                  <div className="my-10 flex w-[80vw] max-w-xs cursor-pointer flex-col items-center rounded-2xl border-0 bg-[#1F2121] p-4 text-center">
-                    <Avatar className="w-32 h-32 border-4 border-primary/50 mt-4">
-                      <AvatarImage src={member.image} />
-                      <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
-                    </Avatar>
-                    <div className="mt-6">
-                      <h3 className="text-xl font-bold text-white">{member.name}</h3>
-                      <p className="text-md text-primary/80 mt-1">{member.role}</p>
-                    </div>
+                <Card className="my-10 flex w-[80vw] max-w-xs cursor-pointer flex-col items-center rounded-2xl p-4 text-center glass glass-hover">
+                  <Avatar className="w-32 h-32 border-4 border-primary/50 mt-4">
+                    <AvatarImage src={member.image} />
+                    <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
+                  </Avatar>
+                  <div className="mt-6">
+                    <h3 className="text-xl font-bold text-white">{member.name}</h3>
+                    <p className="text-md text-primary/80 mt-1">{member.role}</p>
                   </div>
-                </CometCard>
+                </Card>
               </CarouselItem>
             ))}
           </CarouselContent>
