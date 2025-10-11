@@ -29,13 +29,20 @@ const AboutSection = () => {
             transition={{ duration: 0.6 }}
             className="relative overflow-hidden glass rounded-2xl p-8 max-w-3xl"
           >
-            <BorderBeam size={250} duration={12} delay={9} />
             <h3 className="text-2xl font-bold mb-4">Our Philosophy</h3>
             <p className="text-lg text-muted-foreground">
               At RE:INVENT, we believe in the perfect balance between innovative products and exceptional services. 
               We don&apos;t just build solutions; we craft experiences that transform how businesses operate and grow. 
               Every project is an opportunity to push the boundaries of what&apos;s possible with technology.
             </p>
+            <BorderBeam size={250} duration={12} delay={9} />
+            <BorderBeam
+              size={250}
+              duration={12}
+              delay={11}
+              colorFrom="hsl(var(--primary))"
+              colorTo="hsl(var(--primary))"
+            />
           </motion.div>
         </div>
 
