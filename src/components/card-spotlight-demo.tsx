@@ -4,7 +4,7 @@ export default function CardSpotlightDemo() {
   return (
     <CardSpotlight className="group/spotlight relative h-auto w-full max-w-2xl overflow-hidden rounded-2xl border border-white/10 bg-black/80 p-8 shadow-2xl backdrop-blur-lg lg:h-96">
       <div className="relative z-10">
-        <h2 className="text-4xl font-bold text-gradient">
+        <h2 className="text-4xl font-bold text-white">
           About RE:INVENT
         </h2>
         <p className="mt-4 text-lg text-neutral-200">
