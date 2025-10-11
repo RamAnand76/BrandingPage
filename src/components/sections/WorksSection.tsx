@@ -3,29 +3,33 @@ import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
+import placeholderImages from "@/app/lib/placeholder-images.json";
 
 const WorksSection = () => {
   const works = [
     {
       title: "Project Alpha",
       description: "A next-gen web platform for data analytics and visualization, providing real-time insights.",
-      image: "https://placehold.co/600x400.png",
+      image: placeholderImages.works[0].src,
+      dataAiHint: placeholderImages.works[0]["data-ai-hint"],
+      alt: placeholderImages.works[0].alt,
       technologies: ["React", "Next.js", "Tailwind CSS", "AI"],
-      dataAiHint: "data analytics",
     },
     {
       title: "Project Beta",
       description: "An AI-powered mobile experience for personalized content delivery and user engagement.",
-      image: "https://placehold.co/600x400.png",
+      image: placeholderImages.works[1].src,
+      dataAiHint: placeholderImages.works[1]["data-ai-hint"],
+      alt: placeholderImages.works[1].alt,
       technologies: ["Flutter", "Firebase", "GenAI", "Node.js"],
-      dataAiHint: "mobile interface",
     },
     {
       title: "Project Gamma",
       description: "A scalable, cloud-native backend solution for a high-traffic e-commerce application on AWS.",
-      image: "https://placehold.co/600x400.png",
+      image: placeholderImages.works[2].src,
+      dataAiHint: placeholderImages.works[2]["data-ai-hint"],
+      alt: placeholderImages.works[2].alt,
       technologies: ["AWS", "Django", "Python", "PostgreSQL"],
-      dataAiHint: "cloud infrastructure",
     },
   ];
 
@@ -56,7 +60,7 @@ const WorksSection = () => {
               <div className="rounded-lg overflow-hidden mb-6">
                 <Image
                   src={work.image}
-                  alt={work.title}
+                  alt={work.alt}
                   width={600}
                   height={400}
                   className="w-full h-auto object-cover aspect-video"

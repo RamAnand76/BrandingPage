@@ -10,8 +10,34 @@ import QueryProvider from "@/components/QueryProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "RE:INVENT",
-  description: "Lovable Generated Project",
+  metadataBase: new URL('https://reinvent.lovable.dev'),
+  title: {
+    template: "%s | RE:INVENT",
+    default: "RE:INVENT - Expert Services, Delivered",
+  },
+  description: "From stunning UI/UX to powerful AI and flawless apps, we build the digital solutions of tomorrow.",
+  keywords: ["Web Development", "Mobile Apps", "AI Development", "UI/UX Design", "Digital Solutions", "AI Workflow Automation", "AI Agents", "Developer Tools", "Deep Learning", "CI/CD"],
+  openGraph: {
+    title: "RE:INVENT - Expert Services, Delivered",
+    description: "From stunning UI/UX to powerful AI and flawless apps, we build the digital solutions of tomorrow.",
+    url: "https://reinvent.lovable.dev",
+    siteName: "RE:INVENT",
+    images: [
+      {
+        url: "https://picsum.photos/seed/og-reinvent/1200/630",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "RE:INVENT - Expert Services, Delivered",
+    description: "From stunning UI/UX to powerful AI and flawless apps, we build the digital solutions of tomorrow.",
+    images: ["https://picsum.photos/seed/og-reinvent/1200/630"],
+  },
 };
 
 export default function RootLayout({
