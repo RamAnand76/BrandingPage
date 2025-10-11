@@ -30,7 +30,7 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#4ADE80",
+          DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
@@ -92,7 +92,7 @@ export default {
         }
       },
       animation: {
-        "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
+        "border-beam": "border-beam calc(var(--duration) * 1s) infinite linear",
         marquee: 'marquee 40s linear infinite',
         rainbow: "rainbow var(--duration, 4s) linear infinite",
         move: "move 5s linear infinite",
