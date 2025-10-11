@@ -35,7 +35,7 @@ export function MagicCard({
     <div
       onMouseMove={onMouseMove}
       className={cn(
-        "group relative w-full bg-transparent",
+        "group relative w-full",
         className,
       )}
     >
@@ -47,7 +47,7 @@ export function MagicCard({
           ).get(),
         }}
       />
-      {children}
+      <div className="relative z-10">{children}</div>
     </div>
   );
 }
