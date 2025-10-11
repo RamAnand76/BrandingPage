@@ -1,6 +1,7 @@
+
 import { motion } from "framer-motion";
-import Carousel from "@/components/Carousel";
-import { Zap, Bot, Code, BrainCircuit, Rocket } from "lucide-react";
+import ClientCarousel from "@/components/ClientCarousel";
+import { Zap, Bot, Code, BrainCircuit, Rocket, Activity, Shield } from "lucide-react";
 import images from "@/app/lib/placeholder-images.json";
 
 const ProductsSection = () => {
@@ -175,6 +176,74 @@ const ProductsSection = () => {
       ),
       image: images.products[4],
     },
+     {
+      key: "6",
+      content: (
+        <div className="glass rounded-2xl p-8 text-white h-full flex flex-col">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 rounded-xl bg-primary/20 text-primary">
+              <Activity className="w-8 h-8" />
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold">Pulse</h3>
+              <span className="text-sm text-primary font-medium">Beta</span>
+            </div>
+          </div>
+          <p className="text-muted-foreground mb-6 flex-grow">
+            Real-time monitoring and analytics for your applications.
+          </p>
+           <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary"></div>
+              <span className="text-sm">Live Dashboards</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary"></div>
+              <span className="text-sm">Alerting & Notifications</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary"></div>
+              <span className="text-sm">Performance Metrics</span>
+            </div>
+          </div>
+        </div>
+      ),
+      image: { src: "https://picsum.photos/seed/product-pulse/600/800", alt: "Pulse product image" },
+    },
+    {
+      key: "7",
+      content: (
+        <div className="glass rounded-2xl p-8 text-white h-full flex flex-col">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 rounded-xl bg-primary/20 text-primary">
+              <Shield className="w-8 h-8" />
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold">Guardian</h3>
+              <span className="text-sm text-primary font-medium">Alpha</span>
+            </div>
+          </div>
+          <p className="text-muted-foreground mb-6 flex-grow">
+            Comprehensive security suite for modern applications.
+          </p>
+           <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary"></div>
+              <span className="text-sm">Threat Detection</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary"></div>
+              <span className="text-sm">Vulnerability Scanning</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary"></div>
+              <span className="text-sm">Automated Remediation</span>
+            </div>
+          </div>
+        </div>
+      ),
+      image: { src: "https://picsum.photos/seed/product-guardian/600/800", alt: "Guardian product image" },
+    },
   ];
 
   return (
@@ -191,7 +260,7 @@ const ProductsSection = () => {
             Innovative solutions built with cutting-edge technology to transform how businesses operate
           </p>
         </motion.div>
-        <Carousel
+        <ClientCarousel
           cards={products}
           height="500px"
           width="80%"
@@ -205,3 +274,5 @@ const ProductsSection = () => {
 };
 
 export default ProductsSection;
+
+    
