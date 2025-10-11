@@ -12,12 +12,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const TeamSection = () => {
   const team = [
-    { name: "Ram", role: "CEO", image: "https://avatars.githubusercontent.com/u/1024025?v=4" },
-    { name: "Thejas", role: "CTO", image: "https://avatars.githubusercontent.com/u/7764849?v=4" },
-    { name: "Jithu Francis", role: "Lead Developer", image: "https://avatars.githubusercontent.com/u/22292288?v=4" },
-    { name: "Kesavadas", role: "UX Designer", image: "https://avatars.githubusercontent.com/u/11832316?v=4" },
-    { name: "Kiran Rajeev", role: "Project Manager", image: "https://avatars.githubusercontent.com/u/16237122?v=4" },
-    { name: "B. VishnuNarayanan", role: "Frontend Developer", image: "https://avatars.githubusercontent.com/u/17563333?v=4" },
+    { name: "Ram", role: "Co-Founder", image: "https://avatars.githubusercontent.com/u/1024025?v=4" },
+    { name: "Thejas", role: "Co-Founder", image: "https://avatars.githubusercontent.com/u/7764849?v=4" },
+    { name: "Jithu Francis", role: "Co-Founder", image: "https://avatars.githubusercontent.com/u/22292288?v=4" },
+    { name: "Kesavadas", role: "Co-Founder", image: "https://avatars.githubusercontent.com/u/11832316?v=4" },
+    { name: "Kiran Rajeev", role: "Co-Founder", image: "https://avatars.githubusercontent.com/u/16237122?v=4" },
+    { name: "B. VishnuNarayanan", role: "Co-Founder", image: "https://avatars.githubusercontent.com/u/17563333?v=4" },
   ];
 
   return (
