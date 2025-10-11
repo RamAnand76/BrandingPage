@@ -2203,9 +2203,24 @@ body{
 .\[border\:calc\(0\.125rem\)_solid_transparent\]{
   border: calc(0.125rem) solid transparent;
 }
+.\[border\:calc\(var\(--border-width\)\*1px\)_solid_transparent\]{
+  border: calc(var(--border-width) * 1px) solid transparent;
+}
+.\!\[mask-clip\:padding-box\2c border-box\]{
+  -webkit-mask-clip: padding-box,border-box !important;
+          mask-clip: padding-box,border-box !important;
+}
+.\!\[mask-composite\:intersect\]{
+  -webkit-mask-composite: source-in, xor !important;
+          mask-composite: intersect !important;
+}
 .\[mask-image\:radial-gradient\(50\%_50\%_at_50\%_50\%\2c white_0\%\2c transparent_100\%\)\]{
   -webkit-mask-image: radial-gradient(50% 50% at 50% 50%,white 0%,transparent 100%);
           mask-image: radial-gradient(50% 50% at 50% 50%,white 0%,transparent 100%);
+}
+.\[mask\:linear-gradient\(transparent\2c transparent\)\2c linear-gradient\(white\2c white\)\]{
+  -webkit-mask: linear-gradient(transparent,transparent),linear-gradient(white,white);
+          mask: linear-gradient(transparent,transparent),linear-gradient(white,white);
 }
 
 .glass{
@@ -2389,15 +2404,53 @@ body{
   left: 50%;
 }
 
+.after\:aspect-square::after{
+  content: var(--tw-content);
+  aspect-ratio: 1 / 1;
+}
+
 .after\:w-1::after{
   content: var(--tw-content);
   width: 0.25rem;
+}
+
+.after\:w-\[calc\(var\(--size\)\*1px\)\]::after{
+  content: var(--tw-content);
+  width: calc(var(--size) * 1px);
 }
 
 .after\:-translate-x-1\/2::after{
   content: var(--tw-content);
   --tw-translate-x: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+@keyframes border-beam{
+
+  100%{
+    content: var(--tw-content);
+    offset-distance: 100%;
+  }
+}
+
+.after\:animate-border-beam::after{
+  content: var(--tw-content);
+  animation: border-beam calc(var(--duration)*1s) infinite linear;
+}
+
+.after\:\[background\:linear-gradient\(to_left\2c var\(--color-from\)\2c var\(--color-to\)\2c transparent\)\]::after{
+  content: var(--tw-content);
+  background: linear-gradient(to left,var(--color-from),var(--color-to),transparent);
+}
+
+.after\:\[offset-anchor\:calc\(var\(--anchor\)\*1\%\)_50\%\]::after{
+  content: var(--tw-content);
+  offset-anchor: calc(var(--anchor) * 1%) 50%;
+}
+
+.after\:\[offset-path\:rect\(0_100\%_100\%_0_round_calc\(var\(--radius\)-var\(--border-width\)\)\)\]::after{
+  content: var(--tw-content);
+  offset-path: rect(0 100% 100% 0 round calc(var(--radius) - var(--border-width)));
 }
 
 .first\:rounded-l-md:first-child{

@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -58,6 +59,11 @@ export default {
         },
       },
       keyframes: {
+        "border-beam": {
+          "100%": {
+            "offset-distance": "100%",
+          },
+        },
         marquee: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-100%)' }
@@ -86,6 +92,7 @@ export default {
         }
       },
       animation: {
+        "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
         marquee: 'marquee 40s linear infinite',
         rainbow: "rainbow var(--duration, 4s) linear infinite",
         move: "move 5s linear infinite",
