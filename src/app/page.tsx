@@ -41,18 +41,6 @@ const Index = () => {
           className="absolute inset-0 -z-10 bg-[#0A0A0A]"
         />
         
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="inline-block mb-4 px-4 py-1.5 rounded-full glass"
-        >
-          <span className="text-sm font-medium">
-            <Command className="w-4 h-4 inline-block mr-2" />
-            Digital Innovation Company
-          </span>
-        </motion.div>
-        
         <div className="max-w-4xl mx-auto relative z-10">
           <h1 className="text-4xl md:text-5xl font-normal mb-4 tracking-tight text-center">
             <span className="text-gray-200">
