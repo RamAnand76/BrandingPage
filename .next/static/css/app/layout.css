@@ -2440,6 +2440,11 @@ body{
   background: linear-gradient(to left,hsl(var(--primary)),transparent);
 }
 
+.after\:\[background\:linear-gradient\(to_left\2c var\(--color-from\)\2c var\(--color-to\)\2c transparent\)\]::after{
+  content: var(--tw-content);
+  background: linear-gradient(to left,var(--color-from),var(--color-to),transparent);
+}
+
 .after\:\[offset-anchor\:calc\(var\(--anchor\)\*1\%\)_50\%\]::after{
   content: var(--tw-content);
   offset-anchor: calc(var(--anchor) * 1%) 50%;
