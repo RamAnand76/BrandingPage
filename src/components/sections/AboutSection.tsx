@@ -24,19 +24,15 @@ const AboutSection = () => {
         <div className="flex justify-center mb-16">
           {/* Philosophy */}
           <MagicCard
-            className="max-w-3xl"
+            className="max-w-3xl p-8"
             gradientColor="hsl(var(--primary))"
           >
-            <div
-              className="relative p-8"
-            >
               <h3 className="text-2xl font-bold mb-4 text-white">Our Philosophy</h3>
               <p className="text-lg text-muted-foreground">
                 At RE:INVENT, we believe in the perfect balance between innovative products and exceptional services. 
                 We don&apos;t just build solutions; we craft experiences that transform how businesses operate and grow. 
                 Every project is an opportunity to push the boundaries of what&apos;s possible with technology.
               </p>
-            </div>
           </MagicCard>
         </div>
 
