@@ -1,4 +1,3 @@
-
 "use client";
 
 import { cn } from "@/lib/utils";
@@ -36,7 +35,7 @@ export function MagicCard({
     <div
       onMouseMove={onMouseMove}
       className={cn(
-        "group relative w-full rounded-xl border-white/10 bg-black/80 backdrop-blur-lg",
+        "group relative w-full bg-transparent",
         className,
       )}
     >
