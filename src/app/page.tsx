@@ -38,7 +38,7 @@ const Index = () => {
         className="relative container px-4 flex items-center justify-center text-center min-h-screen overflow-hidden"
       >
         {/* Background Layer */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 pointer-events-none">
           <GradientBlinds
             gradientColors={['#FF9FFC', '#5227FF']}
             mixBlendMode="lighten"
