@@ -35,15 +35,17 @@ const Index = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="relative container px-4 flex items-center justify-center text-center min-h-screen"
+        className="relative container px-4 flex items-center justify-center text-center min-h-screen overflow-hidden"
       >
-        {/* Background */}
-        <GradientBlinds
-          gradientColors={['#FF9FFC', '#5227FF']}
-          className="absolute inset-0 z-0"
-          mixBlendMode="lighten"
-        />
+        {/* Background Layer */}
+        <div className="absolute inset-0 z-0">
+          <GradientBlinds
+            gradientColors={['#FF9FFC', '#5227FF']}
+            mixBlendMode="lighten"
+          />
+        </div>
         
+        {/* Content Layer */}
         <div className="max-w-4xl mx-auto relative z-10">
           <h1 className="text-4xl md:text-5xl font-normal mb-4 tracking-tight text-center">
             <span className="text-gray-200">
