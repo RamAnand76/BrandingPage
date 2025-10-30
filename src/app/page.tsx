@@ -20,7 +20,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { ContactModal } from "@/components/ContactModal";
 import placeholderImages from "@/app/lib/placeholder-images.json";
-import { StripedPattern } from "@/components/ui/striped-pattern";
+import Hyperspeed from "@/components/ui/Hyperspeed";
 
 const Index = () => {
   const [isContactModalOpen, setContactModalOpen] = useState(false);
@@ -38,11 +38,7 @@ const Index = () => {
         className="relative container px-4 flex items-center justify-center text-center min-h-screen"
       >
         {/* Background */}
-        <div 
-          className="absolute inset-0 -z-10 bg-[#0A0A0A]"
-        >
-            <StripedPattern className="text-primary/10" />
-        </div>
+        <Hyperspeed />
         
         <div className="max-w-4xl mx-auto relative z-10">
           <h1 className="text-4xl md:text-5xl font-normal mb-4 tracking-tight text-center">
