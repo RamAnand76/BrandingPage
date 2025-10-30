@@ -91,7 +91,14 @@ const features = [
     icon: <ArrowUpDown className="w-6 h-6" />,
     content: (
        <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--pink-500),var(--indigo-500))] text-white">
-        Performance Analytics
+         <Image
+          src="https://picsum.photos/seed/analytics-demo/300/300"
+          width={300}
+          height={300}
+          className="h-full w-full object-cover"
+          alt="Performance Analytics demo"
+          data-ai-hint="data charts"
+        />
       </div>
     )
   }
@@ -258,3 +265,5 @@ const Index = () => {
 };
 
 export default Index;
+
+    
