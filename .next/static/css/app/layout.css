@@ -2023,9 +2023,6 @@ body{
 .text-white\/90{
   color: rgb(255 255 255 / 0.9);
 }
-.text-primary\/10{
-  color: hsl(var(--primary) / 0.1);
-}
 .underline-offset-4{
   text-underline-offset: 4px;
 }
@@ -2236,12 +2233,6 @@ body{
 }
 .ease-in-out{
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-.\!paused{
-  animation-play-state: paused !important;
-}
-.paused{
-  animation-play-state: paused;
 }
 .\[background-clip\:padding-box\2c border-box\2c border-box\]{
   background-clip: padding-box,border-box,border-box;
