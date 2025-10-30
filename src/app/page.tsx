@@ -31,10 +31,10 @@ const Index = () => {
       
       {/* Hero Section */}
       <motion.section 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="relative container px-4 pt-28 md:pt-40 pb-10 md:pb-20 text-center"
+        className="relative container px-4 flex items-center justify-center text-center min-h-screen"
       >
         {/* Background */}
         <div 
@@ -79,12 +79,14 @@ const Index = () => {
             </Link>
           </motion.div>
         </div>
+      </motion.section>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="relative mx-auto max-w-5xl mt-12 md:mt-20"
+      <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8 }}
+          className="relative mx-auto max-w-5xl -mt-20 md:-mt-32 px-4"
         >
           <div className="glass rounded-xl overflow-hidden">
             <Image
@@ -98,13 +100,12 @@ const Index = () => {
             />
           </div>
         </motion.div>
-      </motion.section>
 
       {/* Logo Carousel */}
       {/* <LogoCarousel /> */}
 
       {/* Services Section */}
-      <div id="features" className="bg-black">
+      <div id="features" className="bg-black pt-20">
         <FeaturesSection />
       </div>
 
