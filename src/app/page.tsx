@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { ArrowRight, Command } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
-import { FeaturesSection } from "@/components/features/FeaturesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import Footer from "@/components/Footer";
 import AboutSection from "@/components/sections/AboutSection";
@@ -20,6 +19,84 @@ import { useState } from "react";
 import { ContactModal } from "@/components/ContactModal";
 import placeholderImages from "@/app/lib/placeholder-images.json";
 import GradientBlinds from "@/components/ui/GradientBlinds";
+import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
+import { BarChart3, Bot, Smartphone, Globe, Palette, ArrowUpDown } from "lucide-react";
+
+const features = [
+  {
+    title: "Web Development",
+    description: "Professional-grade web applications using React.js, Next.js with modern development practices.",
+    icon: <Globe className="w-6 h-6" />,
+    content: (
+       <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white">
+        Web Development
+      </div>
+    )
+  },
+  {
+    title: "Website Development",
+    description: "Custom website design and development with responsive layouts and modern frameworks.",
+    icon: <BarChart3 className="w-6 h-6" />,
+     content: (
+      <div className="flex h-full w-full items-center justify-center text-white">
+        <Image
+          src="/lovable-uploads/7335619d-58a9-41ad-a233-f7826f56f3e9.png"
+          width={300}
+          height={300}
+          className="h-full w-full object-cover"
+          alt="linear board demo"
+        />
+      </div>
+    ),
+  },
+  {
+    title: "Branding",
+    description: "Complete brand identity solutions including logo design, color schemes, and brand guidelines.",
+    icon: <Palette className="w-6 h-6" />,
+    content: (
+       <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] text-white">
+        Branding
+      </div>
+    ),
+  },
+  {
+    title: "AI Agent Building",
+    description: "Intelligent AI agents and chatbots powered by cutting-edge machine learning technologies.",
+    icon: <Bot className="w-6 h-6" />,
+    content: (
+      <div className="flex h-full w-full items-center justify-center text-white">
+         <Image
+          src="/lovable-uploads/79f2b901-8a4e-42a5-939f-fae0828e0aef.png"
+          width={300}
+          height={300}
+          className="h-full w-full object-cover"
+          alt="AI Agent demo"
+        />
+      </div>
+    )
+  },
+  {
+    title: "Mobile App Building",
+    description: "Native and cross-platform mobile applications for iOS and Android using Flutter and React Native.",
+    icon: <Smartphone className="w-6 h-6" />,
+    content: (
+       <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white">
+        Mobile App Building
+      </div>
+    )
+  },
+  {
+    title: "Performance Analytics",
+    description: "Detailed analytics and performance monitoring to optimize your digital solutions.",
+    icon: <ArrowUpDown className="w-6 h-6" />,
+    content: (
+       <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--pink-500),var(--indigo-500))] text-white">
+        Performance Analytics
+      </div>
+    )
+  }
+];
+
 
 const Index = () => {
   const [isContactModalOpen, setContactModalOpen] = useState(false);
@@ -110,7 +187,17 @@ const Index = () => {
 
       {/* Services Section */}
       <div id="features" className="bg-black pt-20">
-        <FeaturesSection />
+         <div className="max-w-2xl mx-auto text-center mb-12 md:mb-16">
+          <h2 className="text-4xl md:text-5xl font-normal mb-6 tracking-tight">
+            Expert Services
+            <br />
+            <span className="text-gradient font-medium">Features & Tools</span>
+          </h2>
+          <p className="text-lg text-gray-400">
+            Experience professional-grade development services designed for businesses ready to transform digitally.
+          </p>
+        </div>
+        <StickyScroll content={features} />
       </div>
 
       {/* About Section */}
