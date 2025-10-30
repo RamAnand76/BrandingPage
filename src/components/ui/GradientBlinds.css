@@ -6,3 +6,7 @@
   pointer-events: none;
   z-index: 0;
 }
+
+.gradient-blinds-container > canvas {
+    pointer-events: auto;
+}
