@@ -20,7 +20,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { ContactModal } from "@/components/ContactModal";
 import placeholderImages from "@/app/lib/placeholder-images.json";
-import Hyperspeed from "@/components/ui/Hyperspeed";
+import GradientBlinds from "@/components/ui/GradientBlinds";
 
 const Index = () => {
   const [isContactModalOpen, setContactModalOpen] = useState(false);
@@ -38,7 +38,11 @@ const Index = () => {
         className="relative container px-4 flex items-center justify-center text-center min-h-screen"
       >
         {/* Background */}
-        <Hyperspeed />
+        <GradientBlinds
+          gradientColors={['#FF9FFC', '#5227FF']}
+          className="absolute inset-0 z-0"
+          mixBlendMode="lighten"
+        />
         
         <div className="max-w-4xl mx-auto relative z-10">
           <h1 className="text-4xl md:text-5xl font-normal mb-4 tracking-tight text-center">

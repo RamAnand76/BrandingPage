@@ -2234,6 +2234,12 @@ body{
 .ease-in-out{
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+.\!paused{
+  animation-play-state: paused !important;
+}
+.paused{
+  animation-play-state: paused;
+}
 .\[background-clip\:padding-box\2c border-box\2c border-box\]{
   background-clip: padding-box,border-box,border-box;
 }
