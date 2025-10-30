@@ -606,6 +606,9 @@ body{
 .relative{
   position: relative;
 }
+.sticky{
+  position: sticky;
+}
 .-inset-px{
   inset: -1px;
 }
@@ -751,6 +754,10 @@ body{
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
 }
+.my-20{
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
 .-ml-4{
   margin-left: -1rem;
 }
@@ -819,6 +826,9 @@ body{
 }
 .mt-auto{
   margin-top: auto;
+}
+.mt-10{
+  margin-top: 2.5rem;
 }
 .line-clamp-2{
   overflow: hidden;
@@ -950,6 +960,12 @@ body{
 .h-px{
   height: 1px;
 }
+.h-60{
+  height: 15rem;
+}
+.h-\[30rem\]{
+  height: 30rem;
+}
 .max-h-96{
   max-height: 24rem;
 }
@@ -1065,6 +1081,9 @@ body{
 }
 .w-px{
   width: 1px;
+}
+.w-80{
+  width: 20rem;
 }
 .min-w-0{
   min-width: 0px;
@@ -1373,6 +1392,11 @@ body{
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
+.space-x-10 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-x-reverse: 0;
+  margin-right: calc(2.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(2.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
 .overflow-auto{
   overflow: auto;
 }
@@ -1638,6 +1662,15 @@ body{
 }
 .bg-gradient-to-t{
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
+}
+.bg-\[linear-gradient\(to_bottom_right\2c var\(--cyan-500\)\2c var\(--emerald-500\)\)\]{
+  background-image: linear-gradient(to bottom right,var(--cyan-500),var(--emerald-500));
+}
+.bg-\[linear-gradient\(to_bottom_right\2c var\(--orange-500\)\2c var\(--yellow-500\)\)\]{
+  background-image: linear-gradient(to bottom right,var(--orange-500),var(--yellow-500));
+}
+.bg-\[linear-gradient\(to_bottom_right\2c var\(--pink-500\)\2c var\(--indigo-500\)\)\]{
+  background-image: linear-gradient(to bottom right,var(--pink-500),var(--indigo-500));
 }
 .from-gray-950{
   --tw-gradient-from: #030712 var(--tw-gradient-from-position);
@@ -2022,6 +2055,14 @@ body{
 }
 .text-white\/90{
   color: rgb(255 255 255 / 0.9);
+}
+.text-slate-100{
+  --tw-text-opacity: 1;
+  color: rgb(241 245 249 / var(--tw-text-opacity, 1));
+}
+.text-slate-300{
+  --tw-text-opacity: 1;
+  color: rgb(203 213 225 / var(--tw-text-opacity, 1));
 }
 .underline-offset-4{
   text-underline-offset: 4px;
@@ -3473,8 +3514,8 @@ body{
     grid-column: span 7 / span 7;
   }
 
-  .lg\:h-96{
-    height: 24rem;
+  .lg\:block{
+    display: block;
   }
 
   .lg\:basis-1\/3{
