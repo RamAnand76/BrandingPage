@@ -81,8 +81,14 @@ const features = [
     description: "Native and cross-platform mobile applications for iOS and Android using Flutter and React Native.",
     icon: <Smartphone className="w-6 h-6" />,
     content: (
-       <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white">
-        Mobile App Building
+      <div className="flex h-full w-full items-center justify-center text-white">
+        <Image
+          src="/lovable-uploads/b1328b9c-48c5-4309-a477-96a840b3353e.png"
+          width={300}
+          height={300}
+          className="h-full w-full object-cover"
+          alt="Mobile App demo"
+        />
       </div>
     )
   },
@@ -177,7 +183,7 @@ const Index = () => {
       {/* <LogoCarousel /> */}
 
       {/* Services Section */}
-      <div id="features" className="bg-black pt-20">
+      <div id="features" className="pt-20">
          <div className="max-w-2xl mx-auto text-center mb-12 md:mb-16">
           <h2 className="text-4xl md:text-5xl font-normal mb-6 tracking-tight">
             Expert Services
@@ -218,12 +224,12 @@ const Index = () => {
           transition={{ duration: 0.5 }}
           className="bg-[#0A0A0A]/80 backdrop-blur-lg border border-white/10 rounded-2xl p-8 md:p-12 text-center relative z-10 overflow-hidden"
         >
-          <div className="absolute inset-0 w-full h-full bg-transparent z-20 [mask-image:radial-gradient(350px_200px_at_center,transparent_20%,white)]"></div>
+          <div className="absolute inset-0 w-full h-full bg-transparent z-20 [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
           <SparklesCore
             background="transparent"
             minSize={0.4}
             maxSize={1.2}
-            particleDensity={1000}
+            particleDensity={100}
             className="w-full h-full absolute inset-0"
             particleColor="#FFFFFF"
           />
@@ -251,3 +257,5 @@ const Index = () => {
 };
 
 export default Index;
+
+    
