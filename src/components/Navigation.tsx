@@ -1,11 +1,16 @@
+
 "use client";
 
 import { FloatingNav } from "@/components/ui/floating-navbar";
 import { Briefcase, Home, Info, Mail, AppWindow, Tag } from "lucide-react";
+import Image from "next/image";
 
 const Navigation = () => {
   const navItems = [
-    { name: <span style={{color: 'hsl(var(--primary))'}}>Re-Invent</span>, link: "/", icon: <Home className="h-4 w-4 text-neutral-500 dark:text-white" /> },
+    { name: <div className="flex items-center gap-2">
+              <Image src="/lovable-uploads/logo.png" width={20} height={20} alt="RE:INVENT Logo" />
+              <span style={{color: 'hsl(var(--primary))'}}>Re-Invent</span>
+            </div>, link: "/", icon: <Image src="/lovable-uploads/logo.png" width={24} height={24} alt="RE:INVENT Logo" /> },
     { name: "Services", link: "/#features", icon: <Briefcase className="h-4 w-4 text-neutral-500 dark:text-white" /> },
     { name: "Products", link: "/products", icon: <AppWindow className="h-4 w-4 text-neutral-500 dark:text-white" /> },
     { name: "About", link: "/#about", icon: <Info className="h-4 w-4 text-neutral-500 dark:text-white" /> },
