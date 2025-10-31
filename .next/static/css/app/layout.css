@@ -2248,6 +2248,13 @@ body{
 .paused{
   animation-play-state: paused;
 }
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+.no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 .\[background-clip\:padding-box\2c border-box\2c border-box\]{
   background-clip: padding-box,border-box,border-box;
 }
