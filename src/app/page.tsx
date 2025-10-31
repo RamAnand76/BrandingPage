@@ -210,15 +210,6 @@ const Index = () => {
 
       {/* CTA Section */}
       <section id="contact" className="container px-4 py-10 md:py-20 relative bg-black">
-        <div 
-          className="absolute inset-0 opacity-40"
-          style={{
-            backgroundImage: `url(${placeholderImages.cta.src})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-          data-ai-hint={placeholderImages.cta["data-ai-hint"]}
-        />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -248,5 +239,7 @@ const Index = () => {
 };
 
 export default Index;
+
+    
 
     
