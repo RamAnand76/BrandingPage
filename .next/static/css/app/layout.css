@@ -2283,10 +2283,6 @@ body{
   -webkit-mask-composite: source-in, xor !important;
           mask-composite: intersect !important;
 }
-.\[mask-image\:radial-gradient\(350px_200px_at_center\2c transparent_20\%\2c white\)\]{
-  -webkit-mask-image: radial-gradient(350px 200px at center,transparent 20%,white);
-          mask-image: radial-gradient(350px 200px at center,transparent 20%,white);
-}
 .\[mask-image\:radial-gradient\(350px_200px_at_top\2c transparent_20\%\2c white\)\]{
   -webkit-mask-image: radial-gradient(350px 200px at top,transparent 20%,white);
           mask-image: radial-gradient(350px 200px at top,transparent 20%,white);
@@ -2608,6 +2604,10 @@ body{
 
 .hover\:bg-white\/5:hover{
   background-color: rgb(255 255 255 / 0.05);
+}
+
+.hover\:bg-primary\/10:hover{
+  background-color: hsl(var(--primary) / 0.1);
 }
 
 .hover\:text-accent-foreground:hover{
