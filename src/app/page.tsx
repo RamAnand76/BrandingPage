@@ -12,7 +12,6 @@ import WorksSection from "@/components/sections/WorksSection";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { AuroraText } from "@/components/magicui/aurora-text";
 import { ShinyButton } from "@/components/magicui/shiny-button";
-import { RainbowButton } from "@/components/magicui/rainbow-button";
 import Link from 'next/link';
 import Image from "next/image";
 import { useState } from "react";
@@ -147,7 +146,7 @@ const Index = () => {
             className="flex flex-col sm:flex-row gap-4 items-center justify-center"
           >
             <Link href="#features" className="w-full sm:w-auto">
-                <RainbowButton variant="outline" className="w-full">Explore Our Services</RainbowButton>
+                <Button variant="outline" className="w-full border-primary/50 hover:bg-primary/10 hover:text-primary transition-all">Explore Our Services</Button>
             </Link>
             <Link href="/products" className="w-full sm:w-auto">
                 <ShinyButton className="w-full text-white">
