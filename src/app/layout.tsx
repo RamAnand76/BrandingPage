@@ -12,21 +12,23 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL('https://reinvent.lovable.dev'),
   title: {
-    template: "%s | RE:INVENT",
-    default: "RE:INVENT - Expert Services, Delivered",
+    template: "%s | Re-Invent",
+    default: "Re-Invent: Expert Services, Delivered",
   },
-  description: "From stunning UI/UX to powerful AI and flawless apps, we build the digital solutions of tomorrow.",
-  keywords: ["Web Development", "Mobile Apps", "AI Development", "UI/UX Design", "Digital Solutions", "AI Workflow Automation", "AI Agents", "Developer Tools", "Deep Learning", "CI/CD"],
+  description: "Re-Invent: From stunning UI/UX to powerful AI and flawless apps, we build the digital solutions of tomorrow.",
+  keywords: ["Re-Invent", "Web Development", "Mobile Apps", "AI Development", "UI/UX Design", "Digital Solutions"],
+  authors: [{ name: "Re-Invent" }],
   openGraph: {
-    title: "RE:INVENT - Expert Services, Delivered",
+    title: "Re-Invent: Expert Services, Delivered",
     description: "From stunning UI/UX to powerful AI and flawless apps, we build the digital solutions of tomorrow.",
     url: "https://reinvent.lovable.dev",
-    siteName: "RE:INVENT",
+    siteName: "Re-Invent",
     images: [
       {
         url: "https://picsum.photos/seed/og-reinvent/1200/630",
         width: 1200,
         height: 630,
+        alt: "Re-Invent Digital Solutions",
       },
     ],
     locale: "en_US",
@@ -34,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "RE:INVENT - Expert Services, Delivered",
+    title: "Re-Invent: Expert Services, Delivered",
     description: "From stunning UI/UX to powerful AI and flawless apps, we build the digital solutions of tomorrow.",
     images: ["https://picsum.photos/seed/og-reinvent/1200/630"],
   },

@@ -1224,29 +1224,6 @@ body{
 .animate-pulse{
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
-@keyframes rainbow{
-
-  0%{
-    --border-angle: 0deg;
-    --color-1: hsl(0, 100%, 50%);
-    --color-2: hsl(60, 100%, 50%);
-    --color-3: hsl(120, 100%, 50%);
-    --color-4: hsl(180, 100%, 50%);
-    --color-5: hsl(240, 100%, 50%);
-  }
-
-  100%{
-    --border-angle: 360deg;
-    --color-1: hsl(360, 100%, 50%);
-    --color-2: hsl(420, 100%, 50%);
-    --color-3: hsl(480, 100%, 50%);
-    --color-4: hsl(540, 100%, 50%);
-    --color-5: hsl(600, 100%, 50%);
-  }
-}
-.animate-rainbow{
-  animation: rainbow var(--duration, 4s) linear infinite;
-}
 @keyframes spin{
 
   to{
@@ -2423,34 +2400,6 @@ body{
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-@keyframes rainbow{
-
-  0%{
-    content: var(--tw-content);
-    --border-angle: 0deg;
-    --color-1: hsl(0, 100%, 50%);
-    --color-2: hsl(60, 100%, 50%);
-    --color-3: hsl(120, 100%, 50%);
-    --color-4: hsl(180, 100%, 50%);
-    --color-5: hsl(240, 100%, 50%);
-  }
-
-  100%{
-    content: var(--tw-content);
-    --border-angle: 360deg;
-    --color-1: hsl(360, 100%, 50%);
-    --color-2: hsl(420, 100%, 50%);
-    --color-3: hsl(480, 100%, 50%);
-    --color-4: hsl(540, 100%, 50%);
-    --color-5: hsl(600, 100%, 50%);
-  }
-}
-
-.before\:animate-rainbow::before{
-  content: var(--tw-content);
-  animation: rainbow var(--duration, 4s) linear infinite;
-}
-
 .before\:bg-\[linear-gradient\(90deg\2c var\(--color-1\)\2c var\(--color-5\)\2c var\(--color-3\)\2c var\(--color-4\)\2c var\(--color-2\)\)\]::before{
   content: var(--tw-content);
   background-image: linear-gradient(90deg,var(--color-1),var(--color-5),var(--color-3),var(--color-4),var(--color-2));
@@ -2586,6 +2535,10 @@ body{
   background-color: hsl(var(--primary));
 }
 
+.hover\:bg-primary\/10:hover{
+  background-color: hsl(var(--primary) / 0.1);
+}
+
 .hover\:bg-primary\/80:hover{
   background-color: hsl(var(--primary) / 0.8);
 }
@@ -2604,10 +2557,6 @@ body{
 
 .hover\:bg-white\/5:hover{
   background-color: rgb(255 255 255 / 0.05);
-}
-
-.hover\:bg-primary\/10:hover{
-  background-color: hsl(var(--primary) / 0.1);
 }
 
 .hover\:text-accent-foreground:hover{
