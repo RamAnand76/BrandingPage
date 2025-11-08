@@ -121,7 +121,7 @@ const Index = () => {
         <div className="max-w-4xl mx-auto relative z-10">
           <h1 className="text-4xl md:text-5xl font-normal mb-4 tracking-tight text-center">
             <span className="text-gray-200">
-              <TextGenerateEffect words="Expert Services, Delivered" />
+              <TextGenerateEffect words="Re-Invent: Expert Services, Delivered" />
             </span>
             <br />
             <span className="text-white font-medium">
