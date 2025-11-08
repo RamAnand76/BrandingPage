@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   description: "Re-Invent: From stunning UI/UX to powerful AI and flawless apps, we build the digital solutions of tomorrow.",
   keywords: ["Re-Invent", "Web Development", "Mobile Apps", "AI Development", "UI/UX Design", "Digital Solutions"],
   authors: [{ name: "Re-Invent" }],
+  verification: {
+    google: "ia9izdQwctLX-20p5INS7Mr0rAoO-0CIQTtXvDmw70w",
+  },
   openGraph: {
     title: "Re-Invent: Expert Services, Delivered",
     description: "From stunning UI/UX to powerful AI and flawless apps, we build the digital solutions of tomorrow.",
