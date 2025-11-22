@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { config } from "@react-spring/web";
+import { config } from "react-spring";
 import { v4 as uuidv4 } from "uuid";
 import Carousel from "react-spring-3d-carousel";
 import Image from "next/image";
