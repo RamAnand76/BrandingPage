@@ -21,6 +21,7 @@ import GradientBlinds from "@/components/ui/GradientBlinds";
 import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
 import { BarChart3, Bot, Smartphone, Globe, Palette, ArrowUpDown } from "lucide-react";
 import { SparklesCore } from "@/components/ui/sparkles";
+import { PricingSection } from "@/components/pricing/PricingSection";
 
 const features = [
   {
@@ -199,6 +200,11 @@ const Index = () => {
       {/* About Section */}
       <AboutSection />
 
+      {/* Pricing Section */}
+      <div id="pricing" className="bg-black">
+        <PricingSection />
+      </div>
+
       {/* Team Section */}
       <div id="team" className="bg-black">
         <TeamSection />
@@ -256,5 +262,3 @@ const Index = () => {
 };
 
 export default Index;
-
-    
