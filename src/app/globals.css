@@ -30,6 +30,10 @@
     --duration: 4s;
     --radius: 0.75rem;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @layer base {
