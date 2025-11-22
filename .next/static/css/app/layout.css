@@ -731,6 +731,9 @@ body{
 .z-\[5000\]{
   z-index: 5000;
 }
+.z-30{
+  z-index: 30;
+}
 .m-40{
   margin: 10rem;
 }
@@ -1374,6 +1377,11 @@ body{
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
+.space-y-8 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
 .overflow-auto{
   overflow: auto;
 }
@@ -1609,6 +1617,12 @@ body{
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+.bg-black\/50{
+  background-color: rgb(0 0 0 / 0.5);
+}
+.bg-opacity-95{
+  --tw-bg-opacity: 0.95;
 }
 .bg-\[linear-gradient\(\#121213\2c \#121213\)\2c linear-gradient\(\#121213_50\%\2c rgba\(18\2c 18\2c 19\2c 0\.6\)_80\%\2c rgba\(18\2c 18\2c 19\2c 0\)\)\2c linear-gradient\(90deg\2c var\(--color-1\)\2c var\(--color-5\)\2c var\(--color-3\)\2c var\(--color-4\)\2c var\(--color-2\)\)\]{
   background-image: linear-gradient(#121213,#121213),linear-gradient(#121213 50%,rgba(18,18,19,0.6) 80%,rgba(18,18,19,0)),linear-gradient(90deg,var(--color-1),var(--color-5),var(--color-3),var(--color-4),var(--color-2));
@@ -3372,6 +3386,14 @@ body{
 
   .md\:mb-16{
     margin-bottom: 4rem;
+  }
+
+  .md\:block{
+    display: block;
+  }
+
+  .md\:hidden{
+    display: none;
   }
 
   .md\:h-\[20rem\]{
