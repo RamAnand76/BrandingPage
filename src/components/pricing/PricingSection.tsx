@@ -7,12 +7,14 @@ import { CardSpotlight } from "./CardSpotlight";
 const PricingTier = ({
   name,
   price,
+  priceSuffix,
   description,
   features,
   isPopular,
 }: {
   name: string;
   price: string;
+  priceSuffix?: string;
   description: string;
   features: string[];
   isPopular?: boolean;
@@ -27,7 +29,7 @@ const PricingTier = ({
       <h3 className="text-xl font-medium mb-2">{name}</h3>
       <div className="mb-4">
         <span className="text-4xl font-bold">{price}</span>
-        {price !== "Custom" && <span className="text-gray-400">/month</span>}
+        {priceSuffix && <span className="text-gray-400">{priceSuffix}</span>}
       </div>
       <p className="text-gray-400 mb-6">{description}</p>
       <ul className="space-y-3 mb-8 flex-grow">
@@ -70,40 +72,42 @@ export const PricingSection = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         <PricingTier
-          name="Basic Trader"
-          price="$0"
-          description="Perfect for startups beginning their digital transformation"
+          name="Starter"
+          price="$1,500"
+          priceSuffix="/mo"
+          description="Ideal for startups and small businesses to establish a professional digital presence."
           features={[
-            "Basic web development",
-            "Standard UI/UX design",
-            "Basic mobile app",
-            "Email support"
+            "Custom Website (up to 5 pages)",
+            "Basic Branding Package",
+            "SEO Setup & Optimization",
+            "Monthly Maintenance",
+            "Email Support"
           ]}
         />
         <PricingTier
-          name="Pro Trader"
-          price="$29"
-          description="Advanced features for serious traders"
+          name="Business"
+          price="$4,500"
+          priceSuffix="/mo"
+          description="Comprehensive solutions for growing businesses that need to scale and innovate."
           features={[
-            "Advanced development",
-            "AI integration",
-            "Advanced technical analysis",
-            "Priority support",
-            "API access"
+            "Advanced Web or Mobile App",
+            "Full Branding & UI/UX Design",
+            "AI Agent Integration",
+            "Priority Support",
+            "API Access & Integrations"
           ]}
           isPopular
         />
         <PricingTier
-          name="Institutional"
+          name="Enterprise"
           price="Custom"
-          description="Enterprise-grade solutions for institutions"
+          description="Tailored, high-end solutions for large-scale enterprise needs."
           features={[
-            "Custom enterprise solutions",
-            "Unlimited project scope",
-            "OTC desk access",
-            "Dedicated account manager",
-            "Custom API integration",
-            "24/7 priority support"
+            "Custom Enterprise Solutions",
+            "Unlimited Project Scope",
+            "Dedicated Development Team",
+            "Advanced AI Model Training",
+            "24/7 Priority Support"
           ]}
         />
       </div>
