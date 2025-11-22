@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{}"
+self.__REACT_LOADABLE_MANIFEST="{\"components/ClientCarousel.tsx -> ./Carousel\":{\"id\":\"components/ClientCarousel.tsx -> ./Carousel\",\"files\":[\"static/chunks/_app-pages-browser_src_components_Carousel_tsx.js\"]}}"
