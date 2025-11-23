@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import {
   Carousel,
@@ -13,12 +12,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 const TeamSection = () => {
   const team = [
     { name: "Ram", role: "Co-Founder", image: "/lovable-uploads/Ramanand.jpg" },
-    { name: "Thejas", role: "Co-Founder", image: "https://avatars.githubusercontent.com/u/7764849?v=4" },
+    { name: "Thejas", role: "Co-Founder", image: "/lovable-uploads/Thejas.jpg" },
     { name: "Jithu Francis", role: "Co-Founder", image: "/lovable-uploads/Jithu.jpg" },
     { name: "Kesavadas", role: "Co-Founder", image: "https://avatars.githubusercontent.com/u/11832316?v=4" },
     { name: "Kiran Rajeev", role: "Co-Founder", image: "/lovable-uploads/Kiran.jpg" },
     { name: "B. VishnuNarayanan", role: "Co-Founder", image: "/lovable-uploads/Vishnu.jpg" },
-    { name: "Arjun Kumar VS", role: "Co-Founder", image: "https://avatars.githubusercontent.com/u/17563334?v=4" },
+    { name: "Arjun Kumar VS", role: "Co-Founder", image: "/lovable-uploads/Arjun.jpg" },
   ];
 
   return (
