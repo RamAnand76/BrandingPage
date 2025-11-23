@@ -12,12 +12,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const TeamSection = () => {
   const team = [
-    { name: "Ram", role: "Co-Founder", image: "https://avatars.githubusercontent.com/u/1024025?v=4" },
+    { name: "Ram", role: "Co-Founder", image: "/lovable-uploads/Ramanand.jpg" },
     { name: "Thejas", role: "Co-Founder", image: "https://avatars.githubusercontent.com/u/7764849?v=4" },
     { name: "Jithu Francis", role: "Co-Founder", image: "/lovable-uploads/Jithu.jpg" },
     { name: "Kesavadas", role: "Co-Founder", image: "https://avatars.githubusercontent.com/u/11832316?v=4" },
     { name: "Kiran Rajeev", role: "Co-Founder", image: "https://avatars.githubusercontent.com/u/16237122?v=4" },
-    { name: "B. VishnuNarayanan", role: "Co-Founder", image: "https://avatars.githubusercontent.com/u/17563333?v=4" },
+    { name: "B. VishnuNarayanan", role: "Co-Founder", image: "/lovable-uploads/Vishnu.jpg" },
     { name: "Arjun Kumar VS", role: "Co-Founder", image: "https://avatars.githubusercontent.com/u/17563334?v=4" },
   ];
 
