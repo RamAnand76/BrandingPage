@@ -10,13 +10,13 @@ import { Label } from "@/components/ui/label";
 
 const pricingData = {
   USD: {
-    starter: { price: "$1,500", suffix: "/mo" },
-    business: { price: "$4,500", suffix: "/mo" },
+    starter: { price: "$1,500", suffix: "/month" },
+    business: { price: "$4,500", suffix: "/month" },
     enterprise: { price: "Custom", suffix: "" },
   },
   INR: {
-    starter: { price: "₹1,24,500", suffix: "/mo" },
-    business: { price: "₹3,73,500", suffix: "/mo" },
+    starter: { price: "₹1,24,500", suffix: "/month" },
+    business: { price: "₹3,73,500", suffix: "/month" },
     enterprise: { price: "Custom", suffix: "" },
   },
 };
@@ -113,26 +113,26 @@ export const PricingSection = () => {
           name="Starter"
           price={pricingData[currency].starter.price}
           priceSuffix={pricingData[currency].starter.suffix}
-          description="Ideal for startups and small businesses to establish a professional digital presence."
+          description="Ideal for startups needing ongoing design and development support."
           features={[
-            "Custom Website (up to 5 pages)",
-            "Basic Branding Package",
-            "SEO Setup & Optimization",
-            "Monthly Maintenance",
-            "Email Support"
+            "Dedicated Development Hours",
+            "UI/UX Design Updates",
+            "Website Maintenance & SEO",
+            "Monthly Strategy Call",
+            "Email & Chat Support"
           ]}
         />
         <PricingTier
           name="Business"
           price={pricingData[currency].business.price}
           priceSuffix={pricingData[currency].business.suffix}
-          description="Comprehensive solutions for growing businesses that need to scale and innovate."
+          description="For growing businesses requiring consistent innovation and feature development."
           features={[
-            "Advanced Web or Mobile App",
-            "Full Branding & UI/UX Design",
-            "AI Agent Integration",
-            "Priority Support",
-            "API Access & Integrations"
+            "More Development Hours",
+            "Proactive UI/UX Improvements",
+            "Mobile & Web Support",
+            "AI Integration & Support",
+            "Priority Queue & API Help"
           ]}
           isPopular
         />
@@ -140,12 +140,12 @@ export const PricingSection = () => {
           name="Enterprise"
           price={pricingData[currency].enterprise.price}
           priceSuffix={pricingData[currency].enterprise.suffix}
-          description="Tailored, high-end solutions for large-scale enterprise needs."
+          description="A fully managed, bespoke partnership for large-scale enterprise needs."
           features={[
-            "Custom Enterprise Solutions",
-            "Unlimited Project Scope",
-            "Dedicated Development Team",
-            "Advanced AI Model Training",
+            "Fully Dedicated Team",
+            "Custom Project & Feature Roadmap",
+            "Advanced AI Model Services",
+            "On-demand Scaling",
             "24/7 Priority Support"
           ]}
         />
