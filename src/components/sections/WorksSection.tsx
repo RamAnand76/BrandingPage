@@ -4,6 +4,8 @@ import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import placeholderImages from "@/app/lib/placeholder-images.json";
+import { MagicCard } from "@/components/magicui/magic-card";
+import { StripedPattern } from "@/components/ui/striped-pattern";
 
 const WorksSection = () => {
   const works = [
@@ -50,36 +52,42 @@ const WorksSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {works.map((work, idx) => (
-            <motion.article
+            <motion.div
               key={work.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="glass rounded-2xl p-6 flex flex-col hover:bg-white/5 transition-all duration-300"
             >
-              <div className="rounded-lg overflow-hidden mb-6">
-                <Image
-                  src={work.image}
-                  alt={work.alt}
-                  width={600}
-                  height={400}
-                  className="w-full h-auto object-cover aspect-video"
-                  data-ai-hint={work.dataAiHint}
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">{work.title}</h3>
-              <p className="text-muted-foreground flex-1 mb-4 text-sm">{work.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {work.technologies.map((tech) => (
-                  <Badge key={tech} variant="secondary" className="text-xs">
-                    {tech}
-                  </Badge>
-                ))}
-              </div>
-              <a href="#contact" className="inline-flex items-center justify-center gap-2 mt-auto text-primary text-sm font-medium">
-                Learn more <ExternalLink className="w-4 h-4" />
-              </a>
-            </motion.article>
+              <MagicCard className="h-full">
+                <div className="relative rounded-2xl p-6 flex flex-col bg-card/80 backdrop-blur-sm border border-white/10 h-full overflow-hidden">
+                  <StripedPattern className="absolute inset-0 w-full h-full object-cover z-0 opacity-5 stroke-white/20" />
+                  <div className="relative z-10">
+                    <div className="rounded-lg overflow-hidden mb-6">
+                      <Image
+                        src={work.image}
+                        alt={work.alt}
+                        width={600}
+                        height={400}
+                        className="w-full h-auto object-cover aspect-video"
+                        data-ai-hint={work.dataAiHint}
+                      />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">{work.title}</h3>
+                    <p className="text-muted-foreground flex-1 mb-4 text-sm">{work.description}</p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {work.technologies.map((tech) => (
+                        <Badge key={tech} variant="secondary" className="text-xs">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                  <a href="#contact" className="inline-flex items-center justify-center gap-2 mt-auto text-primary text-sm font-medium relative z-10">
+                    Learn more <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+              </MagicCard>
+            </motion.div>
           ))}
         </div>
       </div>

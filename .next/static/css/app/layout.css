@@ -1576,6 +1576,9 @@ body{
 .bg-card{
   background-color: hsl(var(--card));
 }
+.bg-card\/80{
+  background-color: hsl(var(--card) / 0.8);
+}
 .bg-destructive{
   background-color: hsl(var(--destructive));
 }
@@ -1624,9 +1627,6 @@ body{
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
-}
-.bg-card\/80{
-  background-color: hsl(var(--card) / 0.8);
 }
 .bg-opacity-95{
   --tw-bg-opacity: 0.95;
@@ -2052,6 +2052,9 @@ body{
 .opacity-0{
   opacity: 0;
 }
+.opacity-5{
+  opacity: 0.05;
+}
 .opacity-50{
   opacity: 0.5;
 }
@@ -2066,9 +2069,6 @@ body{
 }
 .opacity-\[0\.8\]{
   opacity: 0.8;
-}
-.opacity-5{
-  opacity: 0.05;
 }
 .shadow{
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
