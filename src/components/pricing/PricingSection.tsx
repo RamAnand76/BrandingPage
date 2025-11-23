@@ -1,8 +1,25 @@
 
+"use client";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CardSpotlight } from "./CardSpotlight";
+import { useState } from "react";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
+
+const pricingData = {
+  USD: {
+    starter: { price: "$1,500", suffix: "/mo" },
+    business: { price: "$4,500", suffix: "/mo" },
+    enterprise: { price: "Custom", suffix: "" },
+  },
+  INR: {
+    starter: { price: "₹1,24,500", suffix: "/mo" },
+    business: { price: "₹3,73,500", suffix: "/mo" },
+    enterprise: { price: "Custom", suffix: "" },
+  },
+};
 
 const PricingTier = ({
   name,
@@ -48,9 +65,15 @@ const PricingTier = ({
 );
 
 export const PricingSection = () => {
+  const [currency, setCurrency] = useState<"USD" | "INR">("USD");
+
+  const handleCurrencyChange = (checked: boolean) => {
+    setCurrency(checked ? "INR" : "USD");
+  };
+
   return (
     <section className="container px-4 py-20">
-      <div className="max-w-2xl mx-auto text-center mb-16">
+      <div className="max-w-2xl mx-auto text-center mb-12">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -70,11 +93,26 @@ export const PricingSection = () => {
         </motion.p>
       </div>
 
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.5 }}
+        className="flex items-center justify-center space-x-4 mb-12">
+        <Label htmlFor="currency-toggle" className={currency === 'USD' ? 'text-white' : 'text-muted-foreground'}>USD</Label>
+        <Switch
+          id="currency-toggle"
+          checked={currency === 'INR'}
+          onCheckedChange={handleCurrencyChange}
+          aria-label="Switch between USD and INR"
+        />
+        <Label htmlFor="currency-toggle" className={currency === 'INR' ? 'text-white' : 'text-muted-foreground'}>INR</Label>
+      </motion.div>
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         <PricingTier
           name="Starter"
-          price="$1,500"
-          priceSuffix="/mo"
+          price={pricingData[currency].starter.price}
+          priceSuffix={pricingData[currency].starter.suffix}
           description="Ideal for startups and small businesses to establish a professional digital presence."
           features={[
             "Custom Website (up to 5 pages)",
@@ -86,8 +124,8 @@ export const PricingSection = () => {
         />
         <PricingTier
           name="Business"
-          price="$4,500"
-          priceSuffix="/mo"
+          price={pricingData[currency].business.price}
+          priceSuffix={pricingData[currency].business.suffix}
           description="Comprehensive solutions for growing businesses that need to scale and innovate."
           features={[
             "Advanced Web or Mobile App",
@@ -100,7 +138,8 @@ export const PricingSection = () => {
         />
         <PricingTier
           name="Enterprise"
-          price="Custom"
+          price={pricingData[currency].enterprise.price}
+          priceSuffix={pricingData[currency].enterprise.suffix}
           description="Tailored, high-end solutions for large-scale enterprise needs."
           features={[
             "Custom Enterprise Solutions",
