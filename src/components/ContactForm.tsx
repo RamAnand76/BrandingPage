@@ -19,6 +19,7 @@ import { motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
 import { useState } from "react";
 import { SuccessAnimation } from "./SuccessAnimation";
+import { toast } from "@/components/ui/use-toast";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -51,24 +52,44 @@ export function ContactForm({
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
 
-    console.log(values);
-    
-    setTimeout(() => {
-        if (onSuccess) {
-            onSuccess();
-        }
-        // Reset form and submitted state after modal closes
-        setTimeout(() => {
-            form.reset();
-            setIsSubmitted(false);
-        }, 500);
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Something went wrong');
+      }
 
-    }, 1800); // Wait for animation to mostly complete
+      setIsSubmitted(true);
+      
+      setTimeout(() => {
+          if (onSuccess) {
+              onSuccess();
+          }
+          // Reset form and submitted state after modal closes
+          setTimeout(() => {
+              form.reset();
+              setIsSubmitted(false);
+          }, 500);
+
+      }, 1800); // Wait for animation to mostly complete
+
+    } catch (error: any) {
+      console.error('Failed to send message:', error);
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: error.message || "Could not send your message. Please try again later.",
+      });
+    } finally {
+        setIsSubmitting(false);
+    }
   }
 
   const fieldVariants = {
