@@ -29,8 +29,14 @@ const features = [
     description: "Professional-grade web applications using React.js, Next.js with modern development practices.",
     icon: <Globe className="w-6 h-6" />,
     content: (
-       <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white">
-        Web Development
+       <div className="flex h-full w-full items-center justify-center text-white">
+        <Image
+          src="/lovable-uploads/7335619d-58a9-41ad-a233-f7826f56f3e9.png"
+          width={300}
+          height={300}
+          className="h-full w-full object-cover"
+          alt="Web Development"
+        />
       </div>
     )
   },
@@ -45,7 +51,7 @@ const features = [
           width={300}
           height={300}
           className="h-full w-full object-cover"
-          alt="linear board demo"
+          alt="Website Development"
         />
       </div>
     ),
@@ -71,7 +77,7 @@ const features = [
           width={300}
           height={300}
           className="h-full w-full object-cover"
-          alt="AI Agent demo"
+          alt="AI Agent Building"
         />
       </div>
     )
@@ -87,7 +93,7 @@ const features = [
           width={300}
           height={300}
           className="h-full w-full object-cover"
-          alt="Mobile App demo"
+          alt="Mobile App Building"
         />
       </div>
     )
