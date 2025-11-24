@@ -31,7 +31,7 @@ const features = [
     content: (
        <div className="flex h-full w-full items-center justify-center text-white">
         <Image
-          src="/lovable-uploads/7335619d-58a9-41ad-a233-f7826f56f3e9.png"
+          src="/lovable-uploads/Web-dev.png"
           width={300}
           height={300}
           className="h-full w-full object-cover"
@@ -47,7 +47,7 @@ const features = [
      content: (
       <div className="flex h-full w-full items-center justify-center text-white">
         <Image
-          src="/lovable-uploads/7335619d-58a9-41ad-a233-f7826f56f3e9.png"
+          src="/lovable-uploads/website.png"
           width={300}
           height={300}
           className="h-full w-full object-cover"
@@ -61,9 +61,15 @@ const features = [
     description: "Complete brand identity solutions including logo design, color schemes, and brand guidelines.",
     icon: <Palette className="w-6 h-6" />,
     content: (
-       <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] text-white">
-        Branding
-      </div>
+      <div className="flex h-full w-full items-center justify-center text-white">
+      <Image
+        src="/lovable-uploads/Branding.png"
+        width={300}
+        height={300}
+        className="h-full w-full object-cover"
+        alt="Website Development"
+      />
+    </div>
     ),
   },
   {
@@ -73,7 +79,7 @@ const features = [
     content: (
       <div className="flex h-full w-full items-center justify-center text-white">
          <Image
-          src="/lovable-uploads/79f2b901-8a4e-42a5-939f-fae0828e0aef.png"
+          src="/lovable-uploads/AI.png"
           width={300}
           height={300}
           className="h-full w-full object-cover"
@@ -89,7 +95,7 @@ const features = [
     content: (
       <div className="flex h-full w-full items-center justify-center text-white">
         <Image
-          src="/lovable-uploads/b1328b9c-48c5-4309-a477-96a840b3353e.png"
+          src="/lovable-uploads/MobileApp.png"
           width={300}
           height={300}
           className="h-full w-full object-cover"
