@@ -41,22 +41,6 @@ const features = [
     )
   },
   {
-    title: "Website Development",
-    description: "Custom website design and development with responsive layouts and modern frameworks.",
-    icon: <BarChart3 className="w-6 h-6" />,
-     content: (
-      <div className="flex h-full w-full items-center justify-center text-white">
-        <Image
-          src="/lovable-uploads/website.png"
-          width={300}
-          height={300}
-          className="h-full w-full object-cover"
-          alt="Website Development"
-        />
-      </div>
-    ),
-  },
-  {
     title: "Branding",
     description: "Complete brand identity solutions including logo design, color schemes, and brand guidelines.",
     icon: <Palette className="w-6 h-6" />,
@@ -67,7 +51,7 @@ const features = [
         width={300}
         height={300}
         className="h-full w-full object-cover"
-        alt="Website Development"
+        alt="Branding"
       />
     </div>
     ),
@@ -277,5 +261,3 @@ const Index = () => {
 };
 
 export default Index;
-
-    
