@@ -9,10 +9,15 @@ import { cn } from "@/lib/utils";
 const termsSections = [
   { id: "agreement-to-terms", title: "1. Agreement to Terms" },
   { id: "changes-to-terms", title: "2. Changes to Terms" },
-  { id: "who-may-use", title: "3. Who May Use the Services" },
-  { id: "content-ownership", title: "4. Content Ownership" },
-  { id: "general-prohibitions", title: "5. General Prohibitions" },
-  { id: "contact-information", title: "6. Contact Information" },
+  { id: "intellectual-property", title: "3. Intellectual Property" },
+  { id: "user-representations", title: "4. User Representations" },
+  { id: "prohibited-activities", title: "5. Prohibited Activities" },
+  { id: "third-party-links", title: "6. Third-Party Links" },
+  { id: "termination", title: "7. Termination" },
+  { id: "disclaimers", title: "8. Disclaimers" },
+  { id: "limitation-of-liability", title: "9. Limitation of Liability" },
+  { id: "governing-law", title: "10. Governing Law" },
+  { id: "contact-information", title: "11. Contact Information" },
 ];
 
 const TermsOfServicePage = () => {
@@ -101,42 +106,61 @@ const TermsOfServicePage = () => {
               <section id="agreement-to-terms">
                 <h2 className="text-white">1. Agreement to Terms</h2>
                 <p>
-                  By using our services, you agree to be bound by these Terms. If you don’t agree to be bound by these Terms, do not use the services.
+                  By using our services, website, and products ("Services"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to be bound by these Terms, do not use the Services.
                 </p>
               </section>
 
               <section id="changes-to-terms" className="pt-8">
                 <h2 className="text-white">2. Changes to Terms or Services</h2>
                 <p>
-                  We may update the Terms at any time, in our sole discretion. If we do so, we’ll let you know either by posting the updated Terms on the Site or through other communications. It’s important that you review the Terms whenever we update them or you use the Services.
+                  We may update the Terms at any time, in our sole discretion. If we do so, we will let you know by posting the updated Terms on the Site. It’s important that you review the Terms whenever we update them.
                 </p>
               </section>
 
-              <section id="who-may-use" className="pt-8">
-                <h2 className="text-white">3. Who May Use the Services</h2>
+              <section id="intellectual-property" className="pt-8">
+                <h2 className="text-white">3. Intellectual Property Rights</h2>
                 <p>
-                  You may use the Services only if you are 13 years or older and are not barred from using the Services under applicable law.
+                  Unless otherwise indicated, the Site and our Services are our proprietary property and all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics on the Site (collectively, the “Content”) and the trademarks, service marks, and logos contained therein (the “Marks”) are owned or controlled by us or licensed to us, and are protected by copyright and trademark laws.
                 </p>
               </section>
               
-              <section id="content-ownership" className="pt-8">
-                <h2 className="text-white">4. Content Ownership</h2>
-                <p>
-                  We do not claim any ownership rights in any User Content and nothing in these Terms will be deemed to restrict any rights that you may have to use and exploit your User Content.
-                </p>
-              </section>
-              
-              <section id="general-prohibitions" className="pt-8">
-                <h2 className="text-white">5. General Prohibitions</h2>
-                <p>You agree not to do any of the following:</p>
-                <ul>
-                  <li>Post, upload, publish, submit or transmit any Content that: (i) infringes, misappropriates or violates a third party’s patent, copyright, trademark, trade secret, moral rights or other intellectual property rights, or rights of publicity or privacy; (ii) violates, or encourages any conduct that would violate, any applicable law or regulation or would give rise to civil liability.</li>
-                  <li>Use, display, mirror or frame the Services or any individual element within the Services, RE:INVENT’s name, any RE:INVENT trademark, logo or other proprietary information, or the layout and design of any page or form contained on a page, without RE:INVENT’s express written consent.</li>
-                </ul>
+              <section id="user-representations" className="pt-8">
+                <h2 className="text-white">4. User Representations</h2>
+                <p>By using the Site, you represent and warrant that: (1) you have the legal capacity and you agree to comply with these Terms of Use; (2) you are not under the age of 13; (3) you will not access the Site through automated or non-human means, whether through a bot, script, or otherwise.</p>
               </section>
 
+              <section id="prohibited-activities" className="pt-8">
+                <h2 className="text-white">5. Prohibited Activities</h2>
+                <p>You may not access or use the Site for any purpose other than that for which we make the Site available. The Site may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us. Prohibited activity includes, but is not limited to: systematic retrieval of data, unauthorized framing or linking, and interfering with the proper working of the Site.</p>
+              </section>
+
+              <section id="third-party-links" className="pt-8">
+                <h2 className="text-white">6. Third-Party Links & Content</h2>
+                <p>The Site may contain links to other websites ("Third-Party Websites") as well as articles, photographs, text, graphics, or other content belonging to or originating from third parties ("Third-Party Content"). Such Third-Party Websites and Third-Party Content are not investigated, monitored, or checked for accuracy, appropriateness, or completeness by us.</p>
+              </section>
+
+              <section id="termination" className="pt-8">
+                <h2 className="text-white">7. Termination</h2>
+                <p>We may suspend or terminate your rights to use the Services at any time for any reason at our sole discretion, including for any use of the Services in violation of these Terms. Upon termination, your right to use the Services will immediately cease.</p>
+              </section>
+
+              <section id="disclaimers" className="pt-8">
+                <h2 className="text-white">8. Disclaimers</h2>
+                <p>THE SERVICES ARE PROVIDED ON AN "AS-IS" AND "AS-AVAILABLE" BASIS. YOU AGREE THAT YOUR USE OF THE SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SERVICES AND YOUR USE THEREOF.</p>
+              </section>
+
+              <section id="limitation-of-liability" className="pt-8">
+                <h2 className="text-white">9. Limitation of Liability</h2>
+                <p>IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SERVICES.</p>
+              </section>
+
+              <section id="governing-law" className="pt-8">
+                <h2 className="text-white">10. Governing Law</h2>
+                <p>These Terms and your use of the Services are governed by and construed in accordance with the laws of the jurisdiction in which our company is established, without regard to its conflict of law principles.</p>
+              </section>
+              
               <section id="contact-information" className="pt-8">
-                <h2 className="text-white">6. Contact Information</h2>
+                <h2 className="text-white">11. Contact Information</h2>
                 <p>
                   If you have any questions about these Terms, please contact us.
                 </p>
