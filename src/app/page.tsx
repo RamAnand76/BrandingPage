@@ -94,6 +94,7 @@ const features = [
 const Index = () => {
   const [isContactModalOpen, setContactModalOpen] = useState(false);
   const showPricing = process.env.NEXT_PUBLIC_SHOW_PRICING === 'true';
+  const showWorks = process.env.NEXT_PUBLIC_SHOW_WORKS === 'true';
 
   return (
     <div className="min-h-screen bg-black text-foreground">
@@ -210,9 +211,11 @@ const Index = () => {
       </div>
 
       {/* Works Section */}
-      <div id="works" className="bg-black">
-        <WorksSection />
-      </div>
+      {showWorks && (
+        <div id="works" className="bg-black">
+          <WorksSection />
+        </div>
+      )}
 
       {/* Testimonials Section */}
       <div className="bg-black">
