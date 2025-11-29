@@ -143,11 +143,7 @@ const PrivacyPolicyPage = () => {
               <section id="contact-us" className="pt-8">
                 <h2 className="text-white">Contact Us</h2>
                 <p>
-                  If you have questions or comments about this Privacy Policy, please contact us at:
-                </p>
-                <p>
-                  RE:INVENT<br />
-                  <a href="mailto:ramanandr7666@gmail.com" className="text-primary hover:underline">ramanandr7666@gmail.com</a>
+                  If you have questions or comments about this Privacy Policy, please contact us.
                 </p>
               </section>
             </div>
