@@ -54,7 +54,7 @@ export function ContactForm({
     setIsSubmitting(true);
     try {
       const { name, email, message } = values;
-      const mailtoLink = `mailto:ramanandr7666@gmail.com?subject=${encodeURIComponent(
+      const mailtoLink = `mailto:?subject=${encodeURIComponent(
         `New message from ${name}`
       )}&body=${encodeURIComponent(
         `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
