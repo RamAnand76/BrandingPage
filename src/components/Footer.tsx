@@ -2,6 +2,7 @@ import { Github, Twitter } from "lucide-react";
 import { Button } from "./ui/button";
 import { VideoText } from "@/registry/magicui/video-text";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const Footer = () => {
   const [year, setYear] = useState(new Date().getFullYear());
@@ -59,9 +60,9 @@ const Footer = () => {
               <h4 className="font-medium">Resources</h4>
               <ul className="space-y-2">
                 <li>
-                  <a href="#products" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <Link href="/products" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                     Our Products
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a href="#team" className="text-sm text-muted-foreground hover:text-primary transition-colors">
@@ -80,14 +81,14 @@ const Footer = () => {
               <h4 className="font-medium">Legal</h4>
               <ul className="space-y-2">
                 <li>
-                  <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                     Privacy Policy
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <Link href="/terms-of-service" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                     Terms of Service
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
