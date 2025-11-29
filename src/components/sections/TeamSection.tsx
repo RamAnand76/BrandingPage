@@ -13,7 +13,7 @@ const TeamSection = () => {
   const team = [
     { name: "Ram", role: "Co-Founder", image: "/lovable-uploads/Ramanand.jpg" },
     { name: "Thejas", role: "Co-Founder", image: "/lovable-uploads/Thejas.jpg" },
-    { name: "Jithu Francis", role: "Co-Founder", image: "/lovable-uploads/Jithu.jpg" },
+    { name: "Jithu Francis", role: "Co-Founder", image: "/lovable-uploads/Jithu.png" },
     { name: "Kesavadas", role: "Co-Founder", image: "https://avatars.githubusercontent.com/u/11832316?v=4" },
     { name: "Kiran Rajeev", role: "Co-Founder", image: "/lovable-uploads/Kiran.jpg" },
     { name: "B. VishnuNarayanan", role: "Co-Founder", image: "/lovable-uploads/Vishnu.jpg" },
