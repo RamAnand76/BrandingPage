@@ -53,14 +53,19 @@ export function ContactForm({
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     try {
-      const { name, email, message } = values;
-      const mailtoLink = `mailto:your-email@example.com?subject=${encodeURIComponent(
-        `New message from ${name}`
-      )}&body=${encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-      )}`;
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
 
-      window.location.href = mailtoLink;
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Something went wrong.");
+      }
 
       setIsSubmitted(true);
       
@@ -76,11 +81,11 @@ export function ContactForm({
       }, 1800); // Wait for animation to mostly complete
 
     } catch (error: any) {
-      console.error('Failed to create mailto link:', error);
+      console.error('Failed to send email:', error);
       toast({
         variant: "destructive",
         title: "Uh oh! Something went wrong.",
-        description: "Could not open your email client. Please try again later.",
+        description: error.message || "Could not send your message. Please try again later.",
       });
     } finally {
         setIsSubmitting(false);
