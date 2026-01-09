@@ -33,7 +33,7 @@ const WorksSection = () => {
     {
       title: "ScriptForge",
       description: "An intelligent, culturally adaptive screenplay creation ecosystem. ScriptForge uses AI to extract key events, detail scenes, manage scripts, and offers a worldbuilding engine and character AI. Tailored for both Indian and global storytellers.",
-      images: ["/lovable-uploads/user_image.png"],
+      images: ["/lovable-uploads/script-forge.png"],
       dataAiHint: "screenwriting application",
       alt: "ScriptForge Application Interface",
       technologies: ["Next.JS", "Supabase", "GenAI Kit"],
