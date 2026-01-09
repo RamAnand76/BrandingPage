@@ -105,7 +105,7 @@ const PrivacyPolicyPage = () => {
               <section id="introduction">
                 <h2 className="text-white">Introduction</h2>
                 <p>
-                  Welcome to RE:INVENT ("we," "our," or "us"). We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website. Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.
+                  Welcome to RE:INVENT (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website. Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.
                 </p>
               </section>
 
@@ -165,13 +165,13 @@ const PrivacyPolicyPage = () => {
               </section>
 
               <section id="childrens-privacy" className="pt-8">
-                <h2 className="text-white">Children's Privacy</h2>
+                <h2 className="text-white">Children&apos;s Privacy</h2>
                 <p>We do not knowingly solicit information from or market to children under the age of 13. If we learn that we have collected personal information from a child under age 13 without verification of parental consent, we will delete that information as quickly as possible.</p>
               </section>
 
               <section id="policy-changes" className="pt-8">
                 <h2 className="text-white">Changes to This Privacy Policy</h2>
-                <p>We reserve the right to make changes to this Privacy Policy at any time and for any reason. We will alert you about any changes by updating the "Last updated" date of this Privacy Policy. You are encouraged to periodically review this Privacy Policy to stay informed of updates.</p>
+                <p>We reserve the right to make changes to this Privacy Policy at any time and for any reason. We will alert you about any changes by updating the &quot;Last updated&quot; date of this Privacy Policy. You are encouraged to periodically review this Privacy Policy to stay informed of updates.</p>
               </section>
               
               <section id="contact-us" className="pt-8">
