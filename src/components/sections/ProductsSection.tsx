@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import ClientCarousel from "@/components/ClientCarousel";
-import { Zap, Bot, Code, BrainCircuit, Rocket, Activity, Shield } from "lucide-react";
+import { Zap, Hourglass } from "lucide-react";
 import images from "@/app/lib/placeholder-images.json";
 import { MagicCard } from "@/components/magicui/magic-card";
 import { StripedPattern } from "@/components/ui/striped-pattern";
@@ -57,229 +57,34 @@ const ProductsSection = () => {
                 />
                 <div className="flex items-center gap-4 mb-6 relative z-10">
                     <div className="p-3 rounded-xl bg-primary/20 text-primary">
-                    <Bot className="w-8 h-8" />
+                    <Hourglass className="w-8 h-8" />
                     </div>
                     <div>
-                    <h3 className="text-2xl font-bold">CogniSynth</h3>
-                    <span className="text-sm text-primary font-medium">Beta</span>
-                    </div>
-                </div>
-                <p className="text-muted-foreground mb-6 flex-grow relative z-10">
-                    An advanced AI agent platform for building and deploying intelligent conversational bots.
-                </p>
-                <div className="space-y-2 relative z-10">
-                    <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span className="text-sm">Natural Language Processing</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span className="text-sm">Multi-platform Integration</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span className="text-sm">No-Code Builder</span>
-                    </div>
-                </div>
-            </div>
-        </MagicCard>
-      ),
-      image: images.products[1],
-    },
-    {
-      key: "3",
-      content: (
-         <MagicCard className="h-full">
-            <div className="relative rounded-2xl p-8 text-white h-full flex flex-col bg-card/80 backdrop-blur-sm border border-white/10 overflow-hidden">
-                <StripedPattern
-                    className="absolute inset-0 w-full h-full object-cover z-0 opacity-5 stroke-white/20"
-                />
-                <div className="flex items-center gap-4 mb-6 relative z-10">
-                    <div className="p-3 rounded-xl bg-primary/20 text-primary">
-                    <Code className="w-8 h-8" />
-                    </div>
-                    <div>
-                    <h3 className="text-2xl font-bold">DevKit</h3>
-                    <span className="text-sm text-primary font-medium">Alpha</span>
-                    </div>
-                </div>
-                <p className="text-muted-foreground mb-6 flex-grow relative z-10">
-                    A suite of development tools designed to accelerate the creation of modern web applications.
-                </p>
-                <div className="space-y-2 relative z-10">
-                    <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span className="text-sm">Component Library</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span className="text-sm">CLI & Scaffolding</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span className="text-sm">State Management</span>
-                    </div>
-                </div>
-            </div>
-        </MagicCard>
-      ),
-      image: images.products[2],
-    },
-    {
-      key: "4",
-      content: (
-         <MagicCard className="h-full">
-            <div className="relative rounded-2xl p-8 text-white h-full flex flex-col bg-card/80 backdrop-blur-sm border border-white/10 overflow-hidden">
-                <StripedPattern
-                    className="absolute inset-0 w-full h-full object-cover z-0 opacity-5 stroke-white/20"
-                />
-                <div className="flex items-center gap-4 mb-6 relative z-10">
-                    <div className="p-3 rounded-xl bg-primary/20 text-primary">
-                    <BrainCircuit className="w-8 h-8" />
-                    </div>
-                    <div>
-                    <h3 className="text-2xl font-bold">NeuralNet</h3>
-                    <span className="text-sm text-primary font-medium">Research</span>
-                    </div>
-                </div>
-                <p className="text-muted-foreground mb-6 flex-grow relative z-10">
-                    A deep learning framework for researchers and data scientists.
-                </p>
-                <div className="space-y-2 relative z-10">
-                    <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span className="text-sm">Tensor Operations</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span className="text-sm">GPU Acceleration</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span className="text-sm">Model Zoo</span>
-                    </div>
-                </div>
-            </div>
-        </MagicCard>
-      ),
-      image: images.products[3],
-    },
-    {
-      key: "5",
-      content: (
-         <MagicCard className="h-full">
-            <div className="relative rounded-2xl p-8 text-white h-full flex flex-col bg-card/80 backdrop-blur-sm border border-white/10 overflow-hidden">
-                <StripedPattern
-                    className="absolute inset-0 w-full h-full object-cover z-0 opacity-5 stroke-white/20"
-                />
-                <div className="flex items-center gap-4 mb-6 relative z-10">
-                    <div className="p-3 rounded-xl bg-primary/20 text-primary">
-                    <Rocket className="w-8 h-8" />
-                    </div>
-                    <div>
-                    <h3 className="text-2xl font-bold">LaunchPad</h3>
+                    <h3 className="text-2xl font-bold">More on the way</h3>
                     <span className="text-sm text-primary font-medium">Coming Soon</span>
                     </div>
                 </div>
                 <p className="text-muted-foreground mb-6 flex-grow relative z-10">
-                    A continuous integration and deployment platform for modern web apps.
+                    We are working on new and exciting products. Keep an eye on this space for future announcements.
                 </p>
                 <div className="space-y-2 relative z-10">
                     <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span className="text-sm">Automated Builds</span>
+                    <div className="w-2 h-2 rounded-full bg-primary/50"></div>
+                    <span className="text-sm text-muted-foreground">Innovative Features</span>
                     </div>
                     <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span className="text-sm">One-click Deployments</span>
+                    <div className="w-2 h-2 rounded-full bg-primary/50"></div>
+                    <span className="text-sm text-muted-foreground">Cutting-Edge Technology</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span className="text-sm">Scalable Infrastructure</span>
+                     <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-primary/50"></div>
+                    <span className="text-sm text-muted-foreground">User-Centric Design</span>
                     </div>
                 </div>
             </div>
         </MagicCard>
       ),
-      image: images.products[4],
-    },
-     {
-      key: "6",
-      content: (
-         <MagicCard className="h-full">
-            <div className="relative rounded-2xl p-8 text-white h-full flex flex-col bg-card/80 backdrop-blur-sm border border-white/10 overflow-hidden">
-                <StripedPattern
-                    className="absolute inset-0 w-full h-full object-cover z-0 opacity-5 stroke-white/20"
-                />
-                <div className="flex items-center gap-4 mb-6 relative z-10">
-                    <div className="p-3 rounded-xl bg-primary/20 text-primary">
-                    <Activity className="w-8 h-8" />
-                    </div>
-                    <div>
-                    <h3 className="text-2xl font-bold">Pulse</h3>
-                    <span className="text-sm text-primary font-medium">Beta</span>
-                    </div>
-                </div>
-                <p className="text-muted-foreground mb-6 flex-grow relative z-10">
-                    Real-time monitoring and analytics for your applications.
-                </p>
-                <div className="space-y-2 relative z-10">
-                    <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span className="text-sm">Live Dashboards</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span className="text-sm">Alerting & Notifications</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span className="text-sm">Performance Metrics</span>
-                    </div>
-                </div>
-            </div>
-        </MagicCard>
-      ),
-      image: { src: "https://picsum.photos/seed/product-pulse/600/800", alt: "Pulse product image" },
-    },
-    {
-      key: "7",
-      content: (
-         <MagicCard className="h-full">
-            <div className="relative rounded-2xl p-8 text-white h-full flex flex-col bg-card/80 backdrop-blur-sm border border-white/10 overflow-hidden">
-                <StripedPattern
-                    className="absolute inset-0 w-full h-full object-cover z-0 opacity-5 stroke-white/20"
-                />
-                <div className="flex items-center gap-4 mb-6 relative z-10">
-                    <div className="p-3 rounded-xl bg-primary/20 text-primary">
-                    <Shield className="w-8 h-8" />
-                    </div>
-                    <div>
-                    <h3 className="text-2xl font-bold">Guardian</h3>
-                    <span className="text-sm text-primary font-medium">Alpha</span>
-                    </div>
-                </div>
-                <p className="text-muted-foreground mb-6 flex-grow relative z-10">
-                    Comprehensive security suite for modern applications.
-                </p>
-                <div className="space-y-2 relative z-10">
-                    <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span className="text-sm">Threat Detection</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span className="text-sm">Vulnerability Scanning</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span className="text-sm">Automated Remediation</span>
-                    </div>
-                </div>
-            </div>
-        </MagicCard>
-      ),
-      image: { src: "https://picsum.photos/seed/product-guardian/600/800", alt: "Guardian product image" },
+      image: { src: "https://picsum.photos/seed/product-soon/600/800", alt: "Coming soon placeholder" },
     },
   ];
 
