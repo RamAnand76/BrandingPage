@@ -37,7 +37,7 @@ const WorksSection = () => {
       dataAiHint: "screenwriting application",
       alt: "ScriptForge Application Interface",
       technologies: ["Next.JS", "Supabase", "GenAI kit"],
-      link: "#contact",
+      link: "https://script-forge-two.vercel.app/",
     },
     {
       title: "Project Gamma",
@@ -129,7 +129,7 @@ const WorksSection = () => {
                     </div>
                   </div>
                   <Link href={work.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 mt-auto text-primary text-sm font-medium relative z-10">
-                    Learn more <ExternalLink className="w-4 h-4" />
+                    view <ExternalLink className="w-4 h-4" />
                   </Link>
                 </div>
               </MagicCard>
