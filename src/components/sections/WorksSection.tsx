@@ -40,12 +40,12 @@ const WorksSection = () => {
       link: "https://script-forge-two.vercel.app/",
     },
     {
-      title: "Project Gamma",
-      description: "A scalable, cloud-native backend solution for a high-traffic e-commerce application on AWS.",
+      title: "Comprehensive Laundry Management Platform Backend",
+      description: "We engineered a sophisticated multi-tenant backend system for a modern laundry services platform, featuring role-based access control across four distinct user types. This Firebase-integrated solution delivers a complete ecosystem for managing on-demand laundry operations at scale.",
       images: [placeholderImages.works[2].src],
-      dataAiHint: placeholderImages.works[2]["data-ai-hint"],
-      alt: placeholderImages.works[2].alt,
-      technologies: ["AWS", "Django", "Python", "PostgreSQL"],
+      dataAiHint: "backend dashboard",
+      alt: "Laundry Management Platform Backend",
+      technologies: ["Django", "Firebase", "Python", "PostgreSQL"],
       link: "#contact",
     },
   ];
@@ -77,13 +77,17 @@ const WorksSection = () => {
                 <div className="relative rounded-2xl p-6 flex flex-col bg-card/80 backdrop-blur-sm border border-white/10 h-full overflow-hidden">
                   
                   <StripedPattern className="absolute inset-0 w-full h-full object-cover z-0 opacity-5 stroke-white/20" />
+                  
+                  {work.isOpenSource && (
+                    <div className="absolute top-0 right-0 p-4 z-20">
+                      <Badge variant="default" className="text-xs bg-primary/80 text-primary-foreground border-primary/50 backdrop-blur-sm">
+                        Opensource Contribution
+                      </Badge>
+                    </div>
+                  )}
+
                   <div className="relative z-10 flex-grow flex flex-col">
                     <div className="relative">
-                      {work.isOpenSource && (
-                        <Badge variant="default" className="absolute top-2 right-2 text-xs bg-primary/80 text-primary-foreground border-primary/50 backdrop-blur-sm z-20">
-                          Opensource Contribution
-                        </Badge>
-                      )}
                       <div className="rounded-lg overflow-hidden mb-6">
                         {work.images.length > 1 ? (
                           <Carousel className="w-full">
