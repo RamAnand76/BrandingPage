@@ -16,6 +16,7 @@ const WorksSection = () => {
       dataAiHint: placeholderImages.works[0]["data-ai-hint"],
       alt: "V0 Style Sandpack Component",
       technologies: ["React", "Sandpack", "TypeScript", "Tailwind CSS"],
+      isOpenSource: true,
     },
     {
       title: "Project Beta",
@@ -72,7 +73,14 @@ const WorksSection = () => {
                         data-ai-hint={work.dataAiHint}
                       />
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">{work.title}</h3>
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="text-xl font-semibold">{work.title}</h3>
+                      {work.isOpenSource && (
+                        <Badge variant="default" className="text-xs bg-primary/10 text-primary border-primary/30">
+                          Open Source
+                        </Badge>
+                      )}
+                    </div>
                     <p className="text-muted-foreground flex-1 mb-4 text-sm">{work.description}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {work.technologies.map((tech) => (
