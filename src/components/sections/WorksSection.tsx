@@ -75,14 +75,14 @@ const WorksSection = () => {
             >
               <MagicCard className="h-full">
                 <div className="relative rounded-2xl p-6 flex flex-col bg-card/80 backdrop-blur-sm border border-white/10 h-full overflow-hidden">
+                  {work.isOpenSource && (
+                    <Badge variant="default" className="absolute top-4 right-4 text-xs bg-primary/80 text-primary-foreground border-primary/50 backdrop-blur-sm z-20">
+                      Opensource Contribution
+                    </Badge>
+                  )}
                   <StripedPattern className="absolute inset-0 w-full h-full object-cover z-0 opacity-5 stroke-white/20" />
                   <div className="relative z-10">
                     <div className="rounded-lg overflow-hidden mb-6 relative">
-                       {work.isOpenSource && (
-                        <Badge variant="default" className="absolute top-2 right-2 text-xs bg-primary/80 text-primary-foreground border-primary/50 backdrop-blur-sm z-10">
-                          Opensource Contribution
-                        </Badge>
-                      )}
                       {work.images.length > 1 ? (
                         <Carousel className="w-full">
                           <CarouselContent>
