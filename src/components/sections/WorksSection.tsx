@@ -76,7 +76,7 @@ const WorksSection = () => {
               <MagicCard className="h-full">
                 <div className="relative rounded-2xl p-6 flex flex-col bg-card/80 backdrop-blur-sm border border-white/10 h-full overflow-hidden">
                   {work.isOpenSource && (
-                    <Badge variant="default" className="absolute top-4 right-4 text-xs bg-primary/80 text-primary-foreground border-primary/50 backdrop-blur-sm z-20">
+                    <Badge variant="default" className="absolute top-2 right-4 text-xs bg-primary/80 text-primary-foreground border-primary/50 backdrop-blur-sm z-20">
                       Opensource Contribution
                     </Badge>
                   )}
