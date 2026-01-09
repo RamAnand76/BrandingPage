@@ -6,22 +6,32 @@ import { Badge } from "@/components/ui/badge";
 import placeholderImages from "@/app/lib/placeholder-images.json";
 import { MagicCard } from "@/components/magicui/magic-card";
 import { StripedPattern } from "@/components/ui/striped-pattern";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const WorksSection = () => {
   const works = [
     {
       title: "V0 Style Sandpack Component",
       description: "A React code editor replicating v0.dev's aesthetic, built on Sandpack for a professional, dark-themed coding experience with live preview and custom styling.",
-      image: placeholderImages.works[0].src,
-      dataAiHint: placeholderImages.works[0]["data-ai-hint"],
+      images: [
+        "/lovable-uploads/Code-editor compoennet-2.png",
+        "/lovable-uploads/code-editor-component.png",
+      ],
       alt: "V0 Style Sandpack Component",
       technologies: ["React", "Sandpack", "TypeScript", "Tailwind CSS"],
       isOpenSource: true,
+      dataAiHint: "code editor",
     },
     {
       title: "Project Beta",
       description: "An AI-powered mobile experience for personalized content delivery and user engagement.",
-      image: placeholderImages.works[1].src,
+      images: [placeholderImages.works[1].src],
       dataAiHint: placeholderImages.works[1]["data-ai-hint"],
       alt: placeholderImages.works[1].alt,
       technologies: ["Flutter", "Firebase", "GenAI", "Node.js"],
@@ -29,7 +39,7 @@ const WorksSection = () => {
     {
       title: "Project Gamma",
       description: "A scalable, cloud-native backend solution for a high-traffic e-commerce application on AWS.",
-      image: placeholderImages.works[2].src,
+      images: [placeholderImages.works[2].src],
       dataAiHint: placeholderImages.works[2]["data-ai-hint"],
       alt: placeholderImages.works[2].alt,
       technologies: ["AWS", "Django", "Python", "PostgreSQL"],
@@ -65,18 +75,39 @@ const WorksSection = () => {
                   <div className="relative z-10">
                     <div className="rounded-lg overflow-hidden mb-6 relative">
                        {work.isOpenSource && (
-                        <Badge variant="default" className="absolute top-2 right-2 text-xs bg-primary/80 text-primary-foreground border-primary/50 backdrop-blur-sm">
+                        <Badge variant="default" className="absolute top-2 right-2 text-xs bg-primary/80 text-primary-foreground border-primary/50 backdrop-blur-sm z-10">
                           Opensource Contribution
                         </Badge>
                       )}
-                      <Image
-                        src={work.image}
-                        alt={work.alt}
-                        width={600}
-                        height={400}
-                        className="w-full h-auto object-cover aspect-video"
-                        data-ai-hint={work.dataAiHint}
-                      />
+                      {work.images.length > 1 ? (
+                        <Carousel className="w-full">
+                          <CarouselContent>
+                            {work.images.map((imgSrc, imgIdx) => (
+                              <CarouselItem key={imgIdx}>
+                                <Image
+                                  src={imgSrc}
+                                  alt={`${work.alt} - ${imgIdx + 1}`}
+                                  width={600}
+                                  height={400}
+                                  className="w-full h-auto object-cover aspect-video"
+                                  data-ai-hint={work.dataAiHint}
+                                />
+                              </CarouselItem>
+                            ))}
+                          </CarouselContent>
+                          <CarouselPrevious className="left-2" />
+                          <CarouselNext className="right-2" />
+                        </Carousel>
+                      ) : (
+                        <Image
+                          src={work.images[0]}
+                          alt={work.alt}
+                          width={600}
+                          height={400}
+                          className="w-full h-auto object-cover aspect-video"
+                          data-ai-hint={work.dataAiHint}
+                        />
+                      )}
                     </div>
                     <div className="flex justify-between items-start mb-2">
                       <h3 className="text-xl font-semibold">{work.title}</h3>
