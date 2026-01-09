@@ -36,7 +36,7 @@ const WorksSection = () => {
       images: ["/lovable-uploads/script-forge.png"],
       dataAiHint: "screenwriting application",
       alt: "ScriptForge Application Interface",
-      technologies: ["Next.JS", "Supabase", "GenAI Kit"],
+      technologies: ["Next.JS", "Supabase", "GenAI kit"],
       link: "#contact",
     },
     {
@@ -75,48 +75,51 @@ const WorksSection = () => {
             >
               <MagicCard className="h-full">
                 <div className="relative rounded-2xl p-6 flex flex-col bg-card/80 backdrop-blur-sm border border-white/10 h-full overflow-hidden">
-                  {work.isOpenSource && (
-                     <Badge variant="default" className="absolute top-2 right-4 text-xs bg-primary/80 text-primary-foreground border-primary/50 backdrop-blur-sm z-20">
-                      Opensource Contribution
-                    </Badge>
-                  )}
+                  
                   <StripedPattern className="absolute inset-0 w-full h-full object-cover z-0 opacity-5 stroke-white/20" />
-                  <div className="relative z-10">
-                    <div className="rounded-lg overflow-hidden mb-6 relative">
-                      {work.images.length > 1 ? (
-                        <Carousel className="w-full">
-                          <CarouselContent>
-                            {work.images.map((imgSrc, imgIdx) => (
-                              <CarouselItem key={imgIdx}>
-                                <Image
-                                  src={imgSrc}
-                                  alt={`${work.alt} - ${imgIdx + 1}`}
-                                  width={600}
-                                  height={400}
-                                  className="w-full h-auto object-cover aspect-video"
-                                  data-ai-hint={work.dataAiHint}
-                                />
-                              </CarouselItem>
-                            ))}
-                          </CarouselContent>
-                          <CarouselPrevious className="left-2" />
-                          <CarouselNext className="right-2" />
-                        </Carousel>
-                      ) : (
-                        <Image
-                          src={work.images[0]}
-                          alt={work.alt}
-                          width={600}
-                          height={400}
-                          className="w-full h-auto object-cover aspect-video"
-                          data-ai-hint={work.dataAiHint}
-                        />
+                  <div className="relative z-10 flex-grow flex flex-col">
+                    <div className="relative">
+                      {work.isOpenSource && (
+                        <Badge variant="default" className="absolute top-2 right-2 text-xs bg-primary/80 text-primary-foreground border-primary/50 backdrop-blur-sm z-20">
+                          Opensource Contribution
+                        </Badge>
                       )}
+                      <div className="rounded-lg overflow-hidden mb-6">
+                        {work.images.length > 1 ? (
+                          <Carousel className="w-full">
+                            <CarouselContent>
+                              {work.images.map((imgSrc, imgIdx) => (
+                                <CarouselItem key={imgIdx}>
+                                  <Image
+                                    src={imgSrc}
+                                    alt={`${work.alt} - ${imgIdx + 1}`}
+                                    width={600}
+                                    height={400}
+                                    className="w-full h-auto object-cover aspect-video"
+                                    data-ai-hint={work.dataAiHint}
+                                  />
+                                </CarouselItem>
+                              ))}
+                            </CarouselContent>
+                            <CarouselPrevious className="left-2" />
+                            <CarouselNext className="right-2" />
+                          </Carousel>
+                        ) : (
+                          <Image
+                            src={work.images[0]}
+                            alt={work.alt}
+                            width={600}
+                            height={400}
+                            className="w-full h-auto object-cover aspect-video"
+                            data-ai-hint={work.dataAiHint}
+                          />
+                        )}
+                      </div>
                     </div>
                     <div className="flex justify-between items-start mb-2">
                       <h3 className="text-xl font-semibold">{work.title}</h3>
                     </div>
-                    <p className="text-muted-foreground flex-1 mb-4 text-sm">{work.description}</p>
+                    <p className="text-muted-foreground flex-1 mb-4 text-sm line-clamp-4">{work.description}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {work.technologies.map((tech) => (
                         <Badge key={tech} variant="secondary" className="text-xs">
