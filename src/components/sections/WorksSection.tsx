@@ -72,14 +72,15 @@ const WorksSection = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="flex"
             >
-              <MagicCard className="h-full">
+              <MagicCard className="h-full w-full">
                 <div className="relative rounded-2xl p-6 flex flex-col bg-card/80 backdrop-blur-sm border border-white/10 h-full overflow-hidden">
                   
                   <StripedPattern className="absolute inset-0 w-full h-full object-cover z-0 opacity-5 stroke-white/20" />
                   
                   {work.isOpenSource && (
-                    <div className="absolute top-0 right-0 p-4 z-20">
+                    <div className="absolute top-4 right-4 z-20">
                       <Badge variant="default" className="text-xs bg-primary/80 text-primary-foreground border-primary/50 backdrop-blur-sm">
                         Opensource Contribution
                       </Badge>
@@ -120,16 +121,18 @@ const WorksSection = () => {
                         )}
                       </div>
                     </div>
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-xl font-semibold">{work.title}</h3>
-                    </div>
-                    <p className="text-muted-foreground flex-1 mb-4 text-sm line-clamp-4">{work.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {work.technologies.map((tech) => (
-                        <Badge key={tech} variant="secondary" className="text-xs">
-                          {tech}
-                        </Badge>
-                      ))}
+                    <div className="flex flex-col flex-1">
+                      <div className="flex justify-between items-start mb-2">
+                        <h3 className="text-xl font-semibold">{work.title}</h3>
+                      </div>
+                      <p className="text-muted-foreground flex-1 mb-4 text-sm line-clamp-4">{work.description}</p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {work.technologies.map((tech) => (
+                          <Badge key={tech} variant="secondary" className="text-xs">
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
                     </div>
                   </div>
                   <Link href={work.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 mt-auto text-primary text-sm font-medium relative z-10">
