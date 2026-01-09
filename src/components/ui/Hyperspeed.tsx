@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, FC } from 'react';
+import { useEffect, useRef, FC, useMemo } from 'react';
 import * as THREE from 'three';
 import { BloomEffect, EffectComposer, EffectPass, RenderPass, SMAAEffect, SMAAPreset } from 'postprocessing';
 
@@ -1214,10 +1214,11 @@ class App {
 }
 
 const Hyperspeed: FC<HyperspeedProps> = ({ effectOptions = {} }) => {
-  const mergedOptions: HyperspeedOptions = {
+  const mergedOptions = useMemo(() => ({
     ...defaultOptions,
     ...effectOptions
-  };
+  }), [effectOptions]);
+  
   const hyperspeed = useRef<HTMLDivElement>(null);
   const appRef = useRef<App | null>(null);
 
@@ -1240,7 +1241,7 @@ const Hyperspeed: FC<HyperspeedProps> = ({ effectOptions = {} }) => {
       options.distortion = distortions[options.distortion];
     }
 
-    const myApp = new App(container, options);
+    const myApp = new App(container, options as HyperspeedOptions);
     appRef.current = myApp;
     myApp.loadAssets().then(myApp.init);
 

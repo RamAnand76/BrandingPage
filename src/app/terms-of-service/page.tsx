@@ -106,7 +106,7 @@ const TermsOfServicePage = () => {
               <section id="agreement-to-terms">
                 <h2 className="text-white">1. Agreement to Terms</h2>
                 <p>
-                  By using our services, website, and products ("Services"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to be bound by these Terms, do not use the Services.
+                  By using our services, website, and products (&quot;Services&quot;), you agree to be bound by these Terms of Service (&quot;Terms&quot;). If you do not agree to be bound by these Terms, do not use the Services.
                 </p>
               </section>
 
@@ -135,8 +135,8 @@ const TermsOfServicePage = () => {
               </section>
 
               <section id="third-party-links" className="pt-8">
-                <h2 className="text-white">6. Third-Party Links & Content</h2>
-                <p>The Site may contain links to other websites ("Third-Party Websites") as well as articles, photographs, text, graphics, or other content belonging to or originating from third parties ("Third-Party Content"). Such Third-Party Websites and Third-Party Content are not investigated, monitored, or checked for accuracy, appropriateness, or completeness by us.</p>
+                <h2 className="text-white">6. Third-Party Links &amp; Content</h2>
+                <p>The Site may contain links to other websites (&quot;Third-Party Websites&quot;) as well as articles, photographs, text, graphics, or other content belonging to or originating from third parties (&quot;Third-Party Content&quot;). Such Third-Party Websites and Third-Party Content are not investigated, monitored, or checked for accuracy, appropriateness, or completeness by us.</p>
               </section>
 
               <section id="termination" className="pt-8">
@@ -146,7 +146,7 @@ const TermsOfServicePage = () => {
 
               <section id="disclaimers" className="pt-8">
                 <h2 className="text-white">8. Disclaimers</h2>
-                <p>THE SERVICES ARE PROVIDED ON AN "AS-IS" AND "AS-AVAILABLE" BASIS. YOU AGREE THAT YOUR USE OF THE SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SERVICES AND YOUR USE THEREOF.</p>
+                <p>THE SERVICES ARE PROVIDED ON AN &quot;AS-IS&quot; AND &quot;AS-AVAILABLE&quot; BASIS. YOU AGREE THAT YOUR USE OF THE SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SERVICES AND YOUR USE THEREOF.</p>
               </section>
 
               <section id="limitation-of-liability" className="pt-8">
