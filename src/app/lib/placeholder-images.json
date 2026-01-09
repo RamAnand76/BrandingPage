@@ -13,8 +13,8 @@
   "works": [
     {
       "src": "https://picsum.photos/seed/work-alpha/600/400",
-      "alt": "Project Alpha screenshot",
-      "data-ai-hint": "data analytics"
+      "alt": "V0 Style Sandpack Component",
+      "data-ai-hint": "code editor"
     },
     {
       "src": "https://picsum.photos/seed/work-beta/600/400",

@@ -10,12 +10,12 @@ import { StripedPattern } from "@/components/ui/striped-pattern";
 const WorksSection = () => {
   const works = [
     {
-      title: "Project Alpha",
-      description: "A next-gen web platform for data analytics and visualization, providing real-time insights.",
+      title: "V0 Style Sandpack Component",
+      description: "A React code editor replicating v0.dev's aesthetic, built on Sandpack for a professional, dark-themed coding experience with live preview and custom styling.",
       image: placeholderImages.works[0].src,
       dataAiHint: placeholderImages.works[0]["data-ai-hint"],
-      alt: placeholderImages.works[0].alt,
-      technologies: ["React", "Next.js", "Tailwind CSS", "AI"],
+      alt: "V0 Style Sandpack Component",
+      technologies: ["React", "Sandpack", "TypeScript", "Tailwind CSS"],
     },
     {
       title: "Project Beta",
