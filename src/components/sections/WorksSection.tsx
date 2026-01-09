@@ -13,6 +13,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Link from "next/link";
 
 const WorksSection = () => {
   const works = [
@@ -27,6 +28,7 @@ const WorksSection = () => {
       technologies: ["React", "Sandpack", "TypeScript", "Tailwind CSS"],
       isOpenSource: true,
       dataAiHint: "code editor",
+      link: "https://v0-primitive-react-sandpack-compone.vercel.app/",
     },
     {
       title: "Project Beta",
@@ -35,6 +37,7 @@ const WorksSection = () => {
       dataAiHint: placeholderImages.works[1]["data-ai-hint"],
       alt: placeholderImages.works[1].alt,
       technologies: ["Flutter", "Firebase", "GenAI", "Node.js"],
+      link: "#contact",
     },
     {
       title: "Project Gamma",
@@ -43,6 +46,7 @@ const WorksSection = () => {
       dataAiHint: placeholderImages.works[2]["data-ai-hint"],
       alt: placeholderImages.works[2].alt,
       technologies: ["AWS", "Django", "Python", "PostgreSQL"],
+      link: "#contact",
     },
   ];
 
@@ -121,9 +125,9 @@ const WorksSection = () => {
                       ))}
                     </div>
                   </div>
-                  <a href="#contact" className="inline-flex items-center justify-center gap-2 mt-auto text-primary text-sm font-medium relative z-10">
+                  <Link href={work.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 mt-auto text-primary text-sm font-medium relative z-10">
                     Learn more <ExternalLink className="w-4 h-4" />
-                  </a>
+                  </Link>
                 </div>
               </MagicCard>
             </motion.div>
