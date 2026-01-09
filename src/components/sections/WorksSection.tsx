@@ -63,7 +63,12 @@ const WorksSection = () => {
                 <div className="relative rounded-2xl p-6 flex flex-col bg-card/80 backdrop-blur-sm border border-white/10 h-full overflow-hidden">
                   <StripedPattern className="absolute inset-0 w-full h-full object-cover z-0 opacity-5 stroke-white/20" />
                   <div className="relative z-10">
-                    <div className="rounded-lg overflow-hidden mb-6">
+                    <div className="rounded-lg overflow-hidden mb-6 relative">
+                       {work.isOpenSource && (
+                        <Badge variant="default" className="absolute top-2 right-2 text-xs bg-primary/80 text-primary-foreground border-primary/50 backdrop-blur-sm">
+                          Open Source
+                        </Badge>
+                      )}
                       <Image
                         src={work.image}
                         alt={work.alt}
@@ -75,11 +80,6 @@ const WorksSection = () => {
                     </div>
                     <div className="flex justify-between items-start mb-2">
                       <h3 className="text-xl font-semibold">{work.title}</h3>
-                      {work.isOpenSource && (
-                        <Badge variant="default" className="text-xs bg-primary/10 text-primary border-primary/30">
-                          Open Source
-                        </Badge>
-                      )}
                     </div>
                     <p className="text-muted-foreground flex-1 mb-4 text-sm">{work.description}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
