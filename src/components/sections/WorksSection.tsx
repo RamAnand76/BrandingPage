@@ -66,7 +66,7 @@ const WorksSection = () => {
                     <div className="rounded-lg overflow-hidden mb-6 relative">
                        {work.isOpenSource && (
                         <Badge variant="default" className="absolute top-2 right-2 text-xs bg-primary/80 text-primary-foreground border-primary/50 backdrop-blur-sm">
-                          Open Source
+                          Opensource Contribution
                         </Badge>
                       )}
                       <Image
