@@ -31,12 +31,12 @@ const WorksSection = () => {
       link: "https://v0-primitive-react-sandpack-compone.vercel.app/",
     },
     {
-      title: "Project Beta",
-      description: "An AI-powered mobile experience for personalized content delivery and user engagement.",
-      images: [placeholderImages.works[1].src],
-      dataAiHint: placeholderImages.works[1]["data-ai-hint"],
-      alt: placeholderImages.works[1].alt,
-      technologies: ["Flutter", "Firebase", "GenAI", "Node.js"],
+      title: "ScriptForge",
+      description: "An intelligent, culturally adaptive screenplay creation ecosystem. ScriptForge uses AI to extract key events, detail scenes, manage scripts, and offers a worldbuilding engine and character AI. Tailored for both Indian and global storytellers.",
+      images: ["/lovable-uploads/user_image.png"],
+      dataAiHint: "screenwriting application",
+      alt: "ScriptForge Application Interface",
+      technologies: ["Next.JS", "Supabase", "GenAI Kit"],
       link: "#contact",
     },
     {
@@ -76,7 +76,7 @@ const WorksSection = () => {
               <MagicCard className="h-full">
                 <div className="relative rounded-2xl p-6 flex flex-col bg-card/80 backdrop-blur-sm border border-white/10 h-full overflow-hidden">
                   {work.isOpenSource && (
-                    <Badge variant="default" className="absolute top-2 right-4 text-xs bg-primary/80 text-primary-foreground border-primary/50 backdrop-blur-sm z-20">
+                     <Badge variant="default" className="absolute top-2 right-4 text-xs bg-primary/80 text-primary-foreground border-primary/50 backdrop-blur-sm z-20">
                       Opensource Contribution
                     </Badge>
                   )}
