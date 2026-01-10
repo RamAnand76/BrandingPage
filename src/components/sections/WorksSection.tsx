@@ -48,6 +48,16 @@ const WorksSection = () => {
       technologies: ["Django", "Firebase", "Python", "PostgreSQL"],
       link: "#contact",
     },
+    {
+      title: "Mobile First Billing Software",
+      description: "GoBright-Billing — Mobile-first billing & invoicing for SMBs with secure phone‑OTP auth, live bill preview, inventory-aware pricing, persistent billing history, and automated WhatsApp PDF delivery.",
+      images: ["https://picsum.photos/seed/billing-app/600/400"],
+      alt: "Mobile First Billing Software",
+      technologies: ["Go", "Firebase Auth", "React", "Flutter", "PostgreSQL", "WhatsApp API"],
+      isOpenSource: false,
+      dataAiHint: "mobile billing application",
+      link: "#contact",
+    }
   ];
 
   return (
@@ -111,7 +121,7 @@ const WorksSection = () => {
                           </Carousel>
                         ) : (
                           <Image
-                            src={work.images[0]}
+                            src={Array.isArray(work.images) ? work.images[0] : work.images}
                             alt={work.alt}
                             width={600}
                             height={400}
