@@ -51,7 +51,7 @@ const WorksSection = () => {
     {
       title: "Mobile First Billing Software",
       description: "GoBright-Billing — Mobile-first billing & invoicing for SMBs with secure phone‑OTP auth, live bill preview, inventory-aware pricing, persistent billing history, and automated WhatsApp PDF delivery.",
-      images: ["https://picsum.photos/seed/billing-app/600/400"],
+      images: ["/lovable-uploads/billin-software.png"],
       alt: "Mobile First Billing Software",
       technologies: ["Go", "Firebase Auth", "React", "Flutter", "PostgreSQL", "WhatsApp API"],
       isOpenSource: false,
@@ -145,7 +145,7 @@ const WorksSection = () => {
                       </div>
                     </div>
                   </div>
-                  <Link href={work.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 mt-auto text-primary text-sm font-medium relative z-10">
+                  <Link href={work.link} target={work.link === "#contact" ? "_self" : "_blank"} rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 mt-auto text-primary text-sm font-medium relative z-10">
                     view <ExternalLink className="w-4 h-4" />
                   </Link>
                 </div>
