@@ -145,9 +145,11 @@ const WorksSection = () => {
                       </div>
                     </div>
                   </div>
-                  <Link href={work.link} target={work.link === "#contact" ? "_self" : "_blank"} rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 mt-auto text-primary text-sm font-medium relative z-10">
-                    view <ExternalLink className="w-4 h-4" />
-                  </Link>
+                  {work.link !== "#contact" && (
+                    <Link href={work.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 mt-auto text-primary text-sm font-medium relative z-10">
+                      view <ExternalLink className="w-4 h-4" />
+                    </Link>
+                  )}
                 </div>
               </MagicCard>
             </motion.div>
