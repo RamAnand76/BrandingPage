@@ -29,7 +29,7 @@ const features = [
     description: "Professional-grade web applications using React.js, Next.js with modern development practices.",
     icon: <Globe className="w-6 h-6" />,
     content: (
-       <div className="flex h-full w-full items-center justify-center text-white">
+      <div className="flex h-full w-full items-center justify-center text-white">
         <Image
           src="/lovable-uploads/Web-dev.png"
           width={300}
@@ -46,14 +46,14 @@ const features = [
     icon: <Palette className="w-6 h-6" />,
     content: (
       <div className="flex h-full w-full items-center justify-center text-white">
-      <Image
-        src="/lovable-uploads/Branding.png"
-        width={300}
-        height={300}
-        className="h-full w-full object-cover"
-        alt="Branding"
-      />
-    </div>
+        <Image
+          src="/lovable-uploads/Branding.png"
+          width={300}
+          height={300}
+          className="h-full w-full object-cover"
+          alt="Branding"
+        />
+      </div>
     ),
   },
   {
@@ -62,7 +62,7 @@ const features = [
     icon: <Bot className="w-6 h-6" />,
     content: (
       <div className="flex h-full w-full items-center justify-center text-white">
-         <Image
+        <Image
           src="/lovable-uploads/AI.png"
           width={300}
           height={300}
@@ -100,13 +100,13 @@ const Index = () => {
     <div className="min-h-screen bg-black text-foreground">
       <Navigation />
       <ContactModal isOpen={isContactModalOpen} onOpenChange={setContactModalOpen} />
-      
+
       {/* Hero Section */}
-      <motion.section 
+      <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="relative container px-4 flex items-center justify-center text-center min-h-screen overflow-hidden"
+        className="relative w-full flex items-center justify-center text-center min-h-screen overflow-hidden"
       >
         {/* Background Layer */}
         <div className="absolute inset-0 z-0 pointer-events-none">
@@ -115,7 +115,7 @@ const Index = () => {
             mixBlendMode="lighten"
           />
         </div>
-        
+
         {/* Content Layer */}
         <div className="max-w-4xl mx-auto relative z-10">
           <h1 className="text-4xl md:text-5xl font-normal mb-4 tracking-tight text-center">
@@ -127,8 +127,8 @@ const Index = () => {
               <AuroraText><TextGenerateEffect words="Transforming ideas into reality" /></AuroraText>
             </span>
           </h1>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
@@ -137,7 +137,7 @@ const Index = () => {
             From stunning UI/UX to powerful AI and flawless apps, we build the digital solutions of tomorrow.{" "}
             <span className="text-white">Let&apos;s create something amazing together.</span>
           </motion.p>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -145,44 +145,44 @@ const Index = () => {
             className="flex flex-col sm:flex-row gap-4 items-center justify-center"
           >
             <Link href="#features" className="w-full sm:w-auto">
-                <Button variant="outline" className="w-full border-primary/50 hover:bg-primary/10 hover:text-primary transition-all">Explore Our Services</Button>
+              <Button variant="outline" className="w-full border-primary/50 hover:bg-primary/10 hover:text-primary transition-all">Explore Our Services</Button>
             </Link>
             <Link href="/products" className="w-full sm:w-auto">
-                <ShinyButton className="w-full text-white">
-                  Discover Our Products
-                  <ArrowRight className="w-4 h-4" />
-                </ShinyButton>
+              <ShinyButton className="w-full text-white">
+                Discover Our Products
+                <ArrowRight className="w-4 h-4" />
+              </ShinyButton>
             </Link>
           </motion.div>
         </div>
       </motion.section>
 
       <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.8 }}
-          className="relative mx-auto max-w-5xl -mt-20 md:-mt-32 px-4"
-        >
-          <div className="glass rounded-xl overflow-hidden">
-            <Image
-              src={placeholderImages.hero.src}
-              alt={placeholderImages.hero.alt}
-              width={1200}
-              height={675}
-              className="w-full h-auto"
-              data-ai-hint={placeholderImages.hero["data-ai-hint"]}
-              priority
-            />
-          </div>
-        </motion.div>
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.8 }}
+        className="relative mx-auto max-w-5xl -mt-20 md:-mt-32 px-4"
+      >
+        <div className="glass rounded-xl overflow-hidden">
+          <Image
+            src={placeholderImages.hero.src}
+            alt={placeholderImages.hero.alt}
+            width={1200}
+            height={675}
+            className="w-full h-auto"
+            data-ai-hint={placeholderImages.hero["data-ai-hint"]}
+            priority
+          />
+        </div>
+      </motion.div>
 
       {/* Logo Carousel */}
       {/* <LogoCarousel /> */}
 
       {/* Services Section */}
       <div id="features" className="pt-20">
-         <div className="max-w-2xl mx-auto text-center mb-12 md:mb-16">
+        <div className="max-w-2xl mx-auto text-center mb-12 md:mb-16">
           <h2 className="text-4xl md:text-5xl font-normal mb-6 tracking-tight">
             Expert Services
             <br />
