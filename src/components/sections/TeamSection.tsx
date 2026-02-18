@@ -1,4 +1,8 @@
+
+"use client";
+
 import { motion } from "framer-motion";
+import { Users, Linkedin, Twitter } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -6,8 +10,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { MagicCard } from "@/components/magicui/magic-card";
+import { StripedPattern } from "@/components/ui/striped-pattern";
 
 const TeamSection = () => {
   const team = [
@@ -21,17 +26,35 @@ const TeamSection = () => {
   ];
 
   return (
-    <section className="py-10 md:py-20 bg-black">
-      <div className="container px-4">
+    <section className="py-24 md:py-32 bg-black relative overflow-hidden">
+      {/* Ambient background glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/[0.03] rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="container px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-16 md:mb-20 flex flex-col items-center"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Team</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Meet the people behind RE:INVENT&apos;s innovative digital solutions.
+          {/* Section pill */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6"
+          >
+            <Users className="w-4 h-4 text-primary" />
+            <span className="text-sm font-medium text-gray-300">Our Squad</span>
+          </motion.div>
+
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+            Meet the <span className="text-gradient">Team</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            The innovative minds behind RE:INVENT&apos;s digital solutions.
           </p>
         </motion.div>
 
@@ -42,24 +65,43 @@ const TeamSection = () => {
           }}
           className="w-full max-w-6xl mx-auto"
         >
-          <CarouselContent>
+          <CarouselContent className="-ml-4">
             {team.map((member, idx) => (
-              <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3 flex justify-center">
-                <Card className="my-10 flex w-[80vw] max-w-xs cursor-pointer flex-col items-center rounded-2xl p-4 text-center glass glass-hover">
-                  <Avatar className="w-32 h-32 border-4 border-primary/50 mt-4">
-                    <AvatarImage src={member.image} />
-                    <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
-                  </Avatar>
-                  <div className="mt-6">
-                    <h3 className="text-xl font-bold text-white">{member.name}</h3>
-                    <p className="text-md text-primary/80 mt-1">{member.role}</p>
-                  </div>
-                </Card>
+              <CarouselItem key={idx} className="pl-4 md:basis-1/3 lg:basis-1/4">
+                <div className="h-full py-4">
+                  <MagicCard className="h-full w-full cursor-pointer group overflow-visible" gradientColor="hsl(var(--primary))">
+                    <div className="relative rounded-2xl p-6 flex flex-col items-center text-center bg-[#0A0A0A]/80 backdrop-blur-md border border-white/10 h-full overflow-hidden hover:bg-[#0A0A0A]/60 transition-all duration-500 group-hover:translate-y-[-5px]">
+                      <StripedPattern className="absolute inset-0 w-full h-full object-cover z-0 opacity-[0.03] stroke-white/20" />
+
+                      <div className="relative mb-6">
+                        <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <Avatar className="w-28 h-28 border-2 border-white/10 relative z-10 group-hover:border-primary/50 transition-colors duration-300">
+                          <AvatarImage src={member.image} className="object-cover" />
+                          <AvatarFallback className="bg-primary/10 text-primary text-xl font-bold">{member.name.charAt(0)}</AvatarFallback>
+                        </Avatar>
+                      </div>
+
+                      <div className="relative z-10">
+                        <h3 className="text-lg font-bold text-white mb-1 group-hover:text-primary transition-colors">{member.name}</h3>
+                        <p className="text-sm text-gray-400 font-medium mb-4">{member.role}</p>
+
+                        <div className="flex gap-3 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                          <div className="p-2 rounded-full bg-white/5 hover:bg-white/10 hover:text-primary transition-colors cursor-pointer">
+                            <Linkedin className="w-4 h-4" />
+                          </div>
+                          <div className="p-2 rounded-full bg-white/5 hover:bg-white/10 hover:text-primary transition-colors cursor-pointer">
+                            <Twitter className="w-4 h-4" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </MagicCard>
+                </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="-left-4 lg:-left-12 bg-black/50 border-white/10 hover:bg-black/80" />
+          <CarouselNext className="-right-4 lg:-right-12 bg-black/50 border-white/10 hover:bg-black/80" />
         </Carousel>
       </div>
     </section>

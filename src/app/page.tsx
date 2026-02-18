@@ -211,11 +211,10 @@ const Index = () => {
       </div>
 
       {/* Works Section */}
-      {showWorks && (
-        <div id="works" className="bg-black">
-          <WorksSection />
-        </div>
-      )}
+      {/* Works Section */}
+      <div id="works" className="bg-black">
+        <WorksSection />
+      </div>
 
       {/* Testimonials Section */}
       <div className="bg-black">
