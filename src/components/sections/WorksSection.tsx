@@ -16,6 +16,27 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Link from "next/link";
+import { FaReact, FaPython, FaGolang, FaNodeJs } from "react-icons/fa6";
+import { SiTypescript, SiTailwindcss, SiSupabase, SiDjango, SiFirebase, SiPostgresql, SiFlutter, SiCodesandbox } from "react-icons/si";
+import { RiNextjsFill } from "react-icons/ri";
+import { Bot, Sparkles as SparklesIcon } from "lucide-react";
+
+const techIcons: Record<string, any> = {
+  "React": FaReact,
+  "Sandpack": SiCodesandbox,
+  "TypeScript": SiTypescript,
+  "Tailwind CSS": SiTailwindcss,
+  "Next.JS": RiNextjsFill,
+  "Supabase": SiSupabase,
+  "GenAI kit": SparklesIcon,
+  "Django": SiDjango,
+  "Firebase": SiFirebase,
+  "Python": FaPython,
+  "PostgreSQL": SiPostgresql,
+  "Go": FaGolang,
+  "Flutter": SiFlutter,
+  "Node.js": FaNodeJs,
+};
 
 const WorksSection = () => {
   const works = [
@@ -119,7 +140,7 @@ const WorksSection = () => {
                     </div>
                   )}
 
-                  <div className="relative z-10 flex-grow flex flex-col">
+                  <div className="relative z-10 flex-grow flex flex-col h-full">
                     <div className="relative">
                       <div className="rounded-xl overflow-hidden mb-6 border border-white/10 shadow-2xl group-hover:scale-[1.02] transition-transform duration-500">
                         {work.images.length > 1 ? (
@@ -153,36 +174,49 @@ const WorksSection = () => {
                         )}
                       </div>
                     </div>
+
                     <div className="flex flex-col flex-1">
                       <div className="flex justify-between items-start mb-3">
                         <h3 className="text-xl font-bold text-gray-100 group-hover:text-primary transition-colors">{work.title}</h3>
                       </div>
-                      <p className="text-gray-400 flex-1 mb-6 text-sm leading-relaxed line-clamp-3 group-hover:line-clamp-none transition-all duration-300">{work.description}</p>
 
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {work.technologies.slice(0, 4).map((tech) => (
-                          <div key={tech} className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-xs text-gray-400">
-                            {tech}
-                          </div>
-                        ))}
-                        {work.technologies.length > 4 && (
-                          <div className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-xs text-gray-400">
-                            +{work.technologies.length - 4}
-                          </div>
-                        )}
+                      {/* Description fills space */}
+                      <p className="text-gray-400 flex-1 mb-6 text-sm leading-relaxed line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
+                        {work.description}
+                      </p>
+
+                      {/* Tech Icons - Fixed height row, horizontally aligned */}
+                      <div className="h-10 flex items-center gap-3 mb-6 overflow-hidden">
+                        {work.technologies.slice(0, 6).map((tech) => {
+                          const Icon = techIcons[tech] || Sparkles;
+                          return (
+                            <div key={tech} className="relative group/icon">
+                              <div className="p-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 transition-colors">
+                                <Icon className="w-5 h-5" />
+                              </div>
+                              {/* Simple Tooltip */}
+                              <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-black border border-white/10 text-xs text-white rounded opacity-0 group-hover/icon:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50">
+                                {tech}
+                              </span>
+                            </div>
+                          );
+                        })}
                       </div>
                     </div>
-                  </div>
 
-                  {work.link !== "#contact" ? (
-                    <Link href={work.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-auto text-sm font-medium text-gray-300 hover:text-white transition-colors relative z-10 group/link">
-                      View Project <ExternalLink className="w-3.5 h-3.5 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
-                    </Link>
-                  ) : (
-                    <span className="inline-flex items-center gap-2 mt-auto text-sm font-medium text-gray-500 cursor-not-allowed">
-                      Internal Project
-                    </span>
-                  )}
+                    {/* Bottom Action Area - Aligned at bottom */}
+                    <div className="mt-auto pt-4 border-t border-white/5">
+                      {work.link !== "#contact" ? (
+                        <Link href={work.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-white transition-colors relative z-10 group/link">
+                          View Project <ExternalLink className="w-3.5 h-3.5 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
+                        </Link>
+                      ) : (
+                        <span className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 cursor-not-allowed">
+                          Internal Project
+                        </span>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </MagicCard>
             </motion.div>
