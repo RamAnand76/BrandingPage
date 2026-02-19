@@ -3,6 +3,7 @@
 
 import { motion } from "framer-motion";
 import { Users, Linkedin, Twitter } from "lucide-react";
+import Link from "next/link";
 import {
   Carousel,
   CarouselContent,
@@ -16,13 +17,13 @@ import { StripedPattern } from "@/components/ui/striped-pattern";
 
 const TeamSection = () => {
   const team = [
-    { name: "Ram", role: "Co-Founder", image: "/lovable-uploads/Ramanand.jpg" },
-    { name: "Thejas", role: "Co-Founder", image: "/lovable-uploads/Thejas.jpg" },
-    { name: "Jithu Francis", role: "Co-Founder", image: "/lovable-uploads/Jithu.png" },
-    { name: "Kesavadas", role: "Co-Founder", image: "https://avatars.githubusercontent.com/u/11832316?v=4" },
-    { name: "Kiran Rajeev", role: "Co-Founder", image: "/lovable-uploads/Kiran.jpg" },
-    { name: "B. VishnuNarayanan", role: "Co-Founder", image: "/lovable-uploads/Vishnu.jpg" },
-    { name: "Arjun Kumar VS", role: "Co-Founder", image: "/lovable-uploads/Arjun.jpg" },
+    { name: "Ram", role: "Co-Founder", image: "/lovable-uploads/Ramanand.jpg", linkedin: "https://www.linkedin.com/in/ramanand-r-53919821b/" },
+    { name: "Thejas", role: "Co-Founder", image: "/lovable-uploads/Thejas.jpg", linkedin: "https://www.linkedin.com/in/thejas-somarajan/" },
+    { name: "Jithu Francis", role: "Co-Founder", image: "/lovable-uploads/Jithu.png", linkedin: "https://www.linkedin.com/in/jithu-francis-958aa81a0/" },
+    { name: "Kesavadas", role: "Co-Founder", image: "https://avatars.githubusercontent.com/u/11832316?v=4", linkedin: "https://www.linkedin.com/in/kesavadas3/" },
+    { name: "Kiran Rajeev", role: "Co-Founder", image: "/lovable-uploads/Kiran.jpg", linkedin: "#" },
+    { name: "B. VishnuNarayanan", role: "Co-Founder", image: "/lovable-uploads/Vishnu.jpg", linkedin: "https://www.linkedin.com/in/vishnu-narayanan-b-643aa7202/" },
+    { name: "Arjun Kumar VS", role: "Co-Founder", image: "/lovable-uploads/Arjun.jpg", linkedin: "https://www.linkedin.com/in/arjun-kumar-v-s/" },
   ];
 
   return (
@@ -99,9 +100,11 @@ const TeamSection = () => {
                       </div>
 
                       {/* LinkedIn Icon */}
-                      <div className="p-2.5 rounded-full bg-white/5 hover:bg-white/10 hover:text-white text-gray-400 transition-colors backdrop-blur-sm border border-white/5 cursor-pointer">
-                        <Linkedin className="w-4 h-4" />
-                      </div>
+                      <Link href={member.linkedin || "#"} target="_blank" rel="noopener noreferrer">
+                        <div className="p-2.5 rounded-full bg-white/5 hover:bg-white/10 hover:text-white text-gray-400 transition-colors backdrop-blur-sm border border-white/5 cursor-pointer">
+                          <Linkedin className="w-4 h-4" />
+                        </div>
+                      </Link>
                     </div>
 
                   </div>
