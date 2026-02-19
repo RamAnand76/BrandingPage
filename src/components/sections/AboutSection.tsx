@@ -46,8 +46,8 @@ const AboutSection = () => {
           className="relative w-full h-[300px] md:h-[450px] rounded-[3rem] overflow-hidden mb-16 group"
         >
           <Image
-            src="/lovable-uploads/hero-image.png" // Fallback or use existing hero image
-            alt="Our Vision Banner"
+            src="/lovable-uploads/About-us.png"
+            alt="About Us"
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
@@ -128,16 +128,12 @@ const AboutSection = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:divide-x md:divide-white/10">
             <div className="flex-1 flex flex-col items-center justify-center text-center px-4">
-              <span className="text-4xl md:text-5xl font-bold text-white mb-2">200+</span>
+              <span className="text-4xl md:text-5xl font-bold text-white mb-2">10+</span>
               <span className="text-sm text-gray-400 uppercase tracking-widest">Projects Completed</span>
             </div>
             <div className="flex-1 flex flex-col items-center justify-center text-center px-4">
-              <span className="text-4xl md:text-5xl font-bold text-white mb-2">150+</span>
+              <span className="text-4xl md:text-5xl font-bold text-white mb-2">3+</span>
               <span className="text-sm text-gray-400 uppercase tracking-widest">Satisfied Clients</span>
-            </div>
-            <div className="flex-1 flex flex-col items-center justify-center text-center px-4">
-              <span className="text-4xl md:text-5xl font-bold text-white mb-2">50+</span>
-              <span className="text-sm text-gray-400 uppercase tracking-widest">Industry Awards</span>
             </div>
           </div>
         </motion.div>
