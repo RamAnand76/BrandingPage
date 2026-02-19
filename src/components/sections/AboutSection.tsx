@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import CardSpotlightDemo from "@/components/card-spotlight-demo";
-import TechnologyCards from "@/components/sections/TechnologyCards";
+
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -69,29 +69,6 @@ const AboutSection = () => {
                 <CardSpotlightDemo />
               </div>
             </motion.div>
-          </motion.div>
-
-          {/* Technologies Block */}
-          <motion.div variants={itemVariants} className="flex flex-col gap-6 items-center w-full">
-            {/* Section pill */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass"
-            >
-              <span className="text-sm font-medium text-gray-300">⚡ Our Stack</span>
-            </motion.div>
-
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center tracking-tight">
-              Our <span className="text-gradient">Technologies</span>
-            </h2>
-            <p className="text-gray-400 text-center text-lg max-w-2xl leading-relaxed mb-4">
-              We leverage the most powerful tools and frameworks to deliver exceptional results.
-            </p>
-
-            <TechnologyCards />
           </motion.div>
         </motion.div>
       </div>
