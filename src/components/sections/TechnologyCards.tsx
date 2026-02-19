@@ -22,7 +22,7 @@ const TechnologyCards = () => {
       ]
     },
     {
-      title: "Mobile Development", 
+      title: "Mobile Development",
       description: "Cross-platform mobile app development. Tools: Flutter, React Native",
       technologies: [
         { name: "Flutter", icon: <FaFlutter className="w-6 h-6" /> },
@@ -59,7 +59,7 @@ const TechnologyCards = () => {
 
   const TechSkeleton = ({ technologies }: { technologies: any[] }) => {
     return (
-      <div className="p-8 overflow-hidden h-full relative flex items-center justify-center">
+      <div className="p-4 overflow-hidden h-full relative flex items-center justify-center">
         <div className="flex flex-row shrink-0 justify-center items-center gap-3 flex-wrap">
           {technologies.map((tech, index) => (
             <motion.div
@@ -67,7 +67,7 @@ const TechnologyCards = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="h-12 w-12 rounded-full flex items-center justify-center bg-[rgba(248,248,248,0.01)] shadow-[0px_0px_8px_0px_rgba(248,248,248,0.25)_inset,0px_32px_24px_-16px_rgba(0,0,0,0.40)] hover:scale-110 transition-transform"
+              className="h-10 w-10 rounded-full flex items-center justify-center bg-[rgba(248,248,248,0.01)] shadow-[0px_0px_8px_0px_rgba(248,248,248,0.25)_inset,0px_32px_24px_-16px_rgba(0,0,0,0.40)] hover:scale-110 transition-transform"
             >
               {tech.icon}
             </motion.div>
@@ -88,7 +88,7 @@ const TechnologyCards = () => {
           className="w-full"
         >
           <Card className="h-full w-full">
-            <CardSkeletonContainer className="h-[12rem]">
+            <CardSkeletonContainer className="h-[9rem]">
               <TechSkeleton technologies={category.technologies} />
             </CardSkeletonContainer>
             <CardTitle>{category.title}</CardTitle>
