@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import Footer from "@/components/Footer";
-import AboutSection from "@/components/sections/AboutSection";
-import TeamSection from "@/components/sections/TeamSection";
+// import AboutSection from "@/components/sections/AboutSection";
+import TechStackSection from "@/components/sections/TechStackSection";
 import WorksSection from "@/components/sections/WorksSection";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { AuroraText } from "@/components/magicui/aurora-text";
@@ -195,8 +195,8 @@ const Index = () => {
         <StickyScroll content={features} />
       </div>
 
-      {/* About Section */}
-      <AboutSection />
+      {/* About Section - Moved to /about */}
+      {/* <AboutSection /> */}
 
       {/* Pricing Section */}
       {showPricing && (
@@ -205,9 +205,9 @@ const Index = () => {
         </div>
       )}
 
-      {/* Team Section */}
-      <div id="team" className="bg-black">
-        <TeamSection />
+      {/* Tech Stack Section */}
+      <div id="tech-stack" className="bg-black">
+        <TechStackSection />
       </div>
 
       {/* Works Section */}
