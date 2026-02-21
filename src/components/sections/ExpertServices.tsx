@@ -67,8 +67,8 @@ export const ExpertServices = () => {
                                 transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
                                 className="text-[11px] leading-relaxed text-neutral-500 font-mono flex flex-col gap-1"
                             >
-                                <div><span className="text-purple-400">import</span> {'{'} useState {'}'} <span className="text-purple-400">from</span> <span className="text-green-400">'react'</span>;</div>
-                                <div><span className="text-purple-400">import</span> {'{'} motion {'}'} <span className="text-purple-400">from</span> <span className="text-green-400">'framer-motion'</span>;</div>
+                                <div><span className="text-purple-400">import</span> {'{'} useState {'}'} <span className="text-purple-400">from</span> <span className="text-green-400">&apos;react&apos;</span>;</div>
+                                <div><span className="text-purple-400">import</span> {'{'} motion {'}'} <span className="text-purple-400">from</span> <span className="text-green-400">&apos;framer-motion&apos;</span>;</div>
                                 <br />
                                 <div><span className="text-purple-400">export default function</span> <span className="text-blue-400">App</span>() {'{'}</div>
                                 <div className="pl-4"><span className="text-purple-400">return</span> (</div>
