@@ -91,10 +91,13 @@ export const ExpertServices = () => {
 
                     {/* Card B: AI Agent Building */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.3 }}
+                        variants={{
+                            hidden: { opacity: 0, scale: 0.95 },
+                            visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } }
+                        }}
                         className="md:col-span-1 md:row-span-2 bg-[#0c0c0c] border border-white/[0.05] rounded-3xl relative overflow-hidden group shadow-2xl"
                     >
                         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-purple-500/10 blur-[100px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
@@ -114,42 +117,81 @@ export const ExpertServices = () => {
                             </div>
 
                             {/* Animated AI Chat Mock */}
-                            <div className="mt-auto h-[180px] w-full flex flex-col justify-end relative z-20">
+                            <div className="mt-auto h-[220px] w-full flex flex-col justify-end relative z-20">
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0c] via-transparent to-transparent pointer-events-none z-10" />
 
-                                <div className="space-y-3 pb-8 relative z-0">
-                                    {/* User Message */}
+                                <motion.div
+                                    variants={{
+                                        hidden: { opacity: 1 },
+                                        visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.3 } }
+                                    }}
+                                    className="space-y-3 pb-8 relative z-0 flex flex-col w-full"
+                                >
+                                    {/* Message 1 */}
                                     <motion.div
-                                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                                        transition={{ delay: 0.5, duration: 0.5 }}
-                                        className="ml-auto w-[85%] bg-neutral-800 p-3 rounded-2xl rounded-tr-sm text-[11px] text-neutral-300"
+                                        variants={{
+                                            hidden: { opacity: 0, y: 15, scale: 0.95 },
+                                            visible: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 300, damping: 20 } }
+                                        }}
+                                        className="flex items-end gap-2 w-full"
                                     >
-                                        Analyze this data stream and generate a report.
-                                    </motion.div>
-
-                                    {/* AI Message */}
-                                    <motion.div
-                                        initial={{ opacity: 0, scale: 0.95, originX: 0, originY: 1 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        transition={{ delay: 1.5, duration: 0.4 }}
-                                        className="mr-auto w-[90%] bg-indigo-500/20 border border-indigo-500/20 p-3 rounded-2xl rounded-tl-sm"
-                                    >
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <Sparkles className="w-3 h-3 text-indigo-400" />
-                                            <span className="text-[10px] font-medium text-indigo-400">AI Agent</span>
+                                        <div className="w-7 h-7 rounded-full shrink-0 overflow-hidden bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center border border-white/10 shadow-sm">
+                                            <span className="text-[11px] font-bold text-white">U</span>
                                         </div>
-
-                                        <motion.div
-                                            initial={{ width: 0 }}
-                                            animate={{ width: "100%" }}
-                                            transition={{ delay: 2, duration: 2, ease: "linear" }}
-                                            className="overflow-hidden whitespace-nowrap"
-                                        >
-                                            <p className="text-[11px] text-indigo-200/80">Processing datasets... ⚡️</p>
-                                        </motion.div>
+                                        <div className="bg-[#222222] p-2.5 px-3.5 rounded-2xl rounded-bl-none text-[12px] text-white/90 shadow-sm border border-white/[0.05] tracking-wide max-w-[80%]">
+                                            Hey! Are you free for a quick call?
+                                        </div>
                                     </motion.div>
-                                </div>
+
+                                    {/* Message 2 */}
+                                    <motion.div
+                                        variants={{
+                                            hidden: { opacity: 0, y: 15, scale: 0.95 },
+                                            visible: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 300, damping: 20 } }
+                                        }}
+                                        className="flex items-end gap-2 w-full justify-end"
+                                    >
+                                        <div className="bg-[#333333] p-2.5 px-3.5 rounded-2xl rounded-br-none text-[12px] text-white/90 shadow-sm border border-white/[0.05] tracking-wide max-w-[80%]">
+                                            Sure, give me 5 minutes!
+                                        </div>
+                                        <div className="w-7 h-7 rounded-full shrink-0 overflow-hidden bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center border border-white/10 shadow-sm">
+                                            <span className="text-[11px] font-bold text-white">A</span>
+                                        </div>
+                                    </motion.div>
+
+                                    {/* Message 3 */}
+                                    <motion.div
+                                        variants={{
+                                            hidden: { opacity: 0, y: 15, scale: 0.95 },
+                                            visible: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 300, damping: 20 } }
+                                        }}
+                                        className="flex items-end gap-2 w-full"
+                                    >
+                                        <div className="w-7 h-7 rounded-full shrink-0 overflow-hidden bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center border border-white/10 shadow-sm">
+                                            <span className="text-[11px] font-bold text-white">C</span>
+                                        </div>
+                                        <div className="bg-[#222222] p-2.5 px-3.5 rounded-2xl rounded-bl-none text-[12px] text-white/90 shadow-sm border border-white/[0.05] tracking-wide max-w-[80%]">
+                                            Sounds good 👍
+                                        </div>
+                                    </motion.div>
+
+                                    {/* Message 4 */}
+                                    <motion.div
+                                        variants={{
+                                            hidden: { opacity: 0, y: 15, scale: 0.95 },
+                                            visible: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 300, damping: 20 } }
+                                        }}
+                                        className="flex items-end gap-2 w-full justify-end"
+                                    >
+                                        <div className="bg-[#333333] p-2.5 px-3.5 rounded-2xl rounded-br-none text-[12px] text-white/90 shadow-sm border border-white/[0.05] tracking-wide max-w-[80%]">
+                                            I'm not sure if I can make it.
+                                        </div>
+                                        <div className="w-7 h-7 rounded-full shrink-0 overflow-hidden bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center border border-white/10 shadow-sm">
+                                            <span className="text-[11px] font-bold text-white">A</span>
+                                        </div>
+                                    </motion.div>
+
+                                </motion.div>
                             </div>
                         </div>
                     </motion.div>
