@@ -26,7 +26,7 @@
     --border: 0 0% 12%;
     --input: 0 0% 12%;
     --ring: 142 75% 45%;
-    
+
     --duration: 4s;
     --radius: 0.75rem;
   }
@@ -40,9 +40,16 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  @media (min-width: 1024px) {
+    body {
+      zoom: 0.75;
+    }
   }
 }
 
@@ -59,7 +66,7 @@
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(225deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+  background: linear-gradient(225deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
@@ -83,8 +90,11 @@
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
   .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
   }
 }
