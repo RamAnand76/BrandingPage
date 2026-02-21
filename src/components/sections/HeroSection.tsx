@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 
 interface HeroSectionProps {
     setContactModalOpen: (val: boolean) => void;
@@ -47,22 +48,25 @@ export const HeroSection = ({ setContactModalOpen }: HeroSectionProps) => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
-                        className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+                        className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
                     >
-                        <Button
-                            size="lg"
-                            className="bg-white hover:bg-neutral-200 text-black text-base font-semibold px-8 py-7 rounded-full flex items-center justify-center gap-3 group transition-all w-full sm:w-auto"
+                        <HoverBorderGradient
+                            containerClassName="rounded-full w-full sm:w-auto"
+                            as="button"
+                            className="bg-black/80 hover:bg-black/60 text-white text-base md:text-lg font-bold px-8 py-4 md:py-5 flex items-center justify-center gap-3 transition-all w-full shadow-[0_0_40px_rgba(50,117,248,0.5)] border border-white/10"
                             onClick={() => setContactModalOpen(true)}
                         >
-                            Start Your Project
-                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </Button>
+                            <span className="relative z-10 flex items-center gap-2">
+                                Start Your Project
+                                <ArrowRight className="w-5 h-5 ml-1" />
+                            </span>
+                        </HoverBorderGradient>
 
                         <Link href="/products" className="w-full sm:w-auto">
                             <Button
                                 size="lg"
                                 variant="outline"
-                                className="bg-transparent border-white/20 hover:bg-white/5 text-white text-base font-semibold px-8 py-7 rounded-full w-full sm:w-auto transition-all"
+                                className="bg-transparent border-white/20 hover:bg-white/5 text-white text-base md:text-lg font-semibold px-8 py-7 h-auto md:h-[68px] rounded-full w-full sm:w-auto transition-all"
                             >
                                 Discover Products
                             </Button>
