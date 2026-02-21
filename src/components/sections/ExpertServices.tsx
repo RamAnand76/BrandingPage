@@ -184,7 +184,7 @@ export const ExpertServices = () => {
                                         className="flex items-end gap-2 w-full justify-end"
                                     >
                                         <div className="bg-[#333333] p-2.5 px-3.5 rounded-2xl rounded-br-none text-[12px] text-white/90 shadow-sm border border-white/[0.05] tracking-wide max-w-[80%]">
-                                            I'm not sure if I can make it.
+                                            I&apos;m not sure if I can make it.
                                         </div>
                                         <div className="w-7 h-7 rounded-full shrink-0 overflow-hidden bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center border border-white/10 shadow-sm">
                                             <span className="text-[11px] font-bold text-white">A</span>
