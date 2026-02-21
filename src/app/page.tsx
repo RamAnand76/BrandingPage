@@ -1,26 +1,16 @@
-
 "use client";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Command } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
 import Navigation from "@/components/Navigation";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import Footer from "@/components/Footer";
-// import AboutSection from "@/components/sections/AboutSection";
 import TechStackSection from "@/components/sections/TechStackSection";
 import WorksSection from "@/components/sections/WorksSection";
 import { ExpertServices } from "@/components/sections/ExpertServices";
-import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
-import { AuroraText } from "@/components/magicui/aurora-text";
-import { ShinyButton } from "@/components/magicui/shiny-button";
-import Link from 'next/link';
-import Image from "next/image";
-import { useState } from "react";
+import { HeroSection } from "@/components/sections/HeroSection";
 import { ContactModal } from "@/components/ContactModal";
-import placeholderImages from "@/app/lib/placeholder-images.json";
-import GradientBlinds from "@/components/ui/GradientBlinds";
-import { BarChart3, Bot, Smartphone, Globe, Palette, ArrowUpDown } from "lucide-react";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { PricingSection } from "@/components/pricing/PricingSection";
 
@@ -34,81 +24,8 @@ const Index = () => {
       <Navigation />
       <ContactModal isOpen={isContactModalOpen} onOpenChange={setContactModalOpen} />
 
-      {/* Hero Section */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="relative w-full flex items-center justify-center text-center min-h-screen overflow-hidden"
-      >
-        {/* Background Layer */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          <GradientBlinds
-            gradientColors={['#FF9FFC', '#5227FF']}
-            mixBlendMode="lighten"
-          />
-        </div>
-
-        {/* Content Layer */}
-        <div className="max-w-4xl mx-auto relative z-10">
-          <h1 className="text-4xl md:text-5xl font-normal mb-4 tracking-tight text-center">
-            <span className="text-gray-200">
-              <TextGenerateEffect words="Re-Invent: Expert Services, Delivered" />
-            </span>
-            <br />
-            <span className="text-white font-medium">
-              <AuroraText><TextGenerateEffect words="Transforming ideas into reality" /></AuroraText>
-            </span>
-          </h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="text-lg text-gray-200 mb-8 max-w-2xl mx-auto text-center"
-          >
-            From stunning UI/UX to powerful AI and flawless apps, we build the digital solutions of tomorrow.{" "}
-            <span className="text-white">Let&apos;s create something amazing together.</span>
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4 items-center justify-center"
-          >
-            <Link href="#features" className="w-full sm:w-auto">
-              <Button variant="outline" className="w-full border-primary/50 hover:bg-primary/10 hover:text-primary transition-all">Explore Our Services</Button>
-            </Link>
-            <Link href="/products" className="w-full sm:w-auto">
-              <ShinyButton className="w-full text-white">
-                Discover Our Products
-                <ArrowRight className="w-4 h-4" />
-              </ShinyButton>
-            </Link>
-          </motion.div>
-        </div>
-      </motion.section>
-
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.8 }}
-        className="relative mx-auto max-w-5xl -mt-20 md:-mt-32 px-4"
-      >
-        <div className="glass rounded-xl overflow-hidden">
-          <Image
-            src={placeholderImages.hero.src}
-            alt={placeholderImages.hero.alt}
-            width={1200}
-            height={675}
-            className="w-full h-auto"
-            data-ai-hint={placeholderImages.hero["data-ai-hint"]}
-            priority
-          />
-        </div>
-      </motion.div>
+      {/* New Hero Section */}
+      <HeroSection setContactModalOpen={setContactModalOpen} />
 
       {/* Services Section */}
       <div id="features" className="pt-20">
