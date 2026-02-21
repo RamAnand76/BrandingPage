@@ -2,11 +2,16 @@
 import { EmailTemplate } from '@/components/EmailTemplate';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const toEmail = process.env.TO_EMAIL || 'ramanandr7666@gmail.com';
 
 export async function POST(request: Request) {
   try {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      return Response.json({ error: 'Email service is not configured.' }, { status: 503 });
+    }
+    const resend = new Resend(apiKey);
+
     const body = await request.json();
     const { name, email, message } = body;
 

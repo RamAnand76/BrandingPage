@@ -1,0 +1,18 @@
+  ? Next.js 14.2.35
+
+   Creating an optimized production build ...
+ ? Compiled successfully
+   Linting and checking validity of types ...
+Failed to compile.
+System.Management.Automation.RemoteException
+./src/components/ui/hover-border-gradient.tsx:59:6
+Type error: This JSX tag's 'children' prop expects a single child of type 'never', but multiple children were provided.
+System.Management.Automation.RemoteException
+[0m [90m 57 |[39m   }[33m,[39m [hovered[33m,[39m duration[33m,[39m rotateDirection])[33m;[39m[0m
+[0m [90m 58 |[39m   [36mreturn[39m ([0m
+[0m[31m[1m>[22m[39m[90m 59 |[39m     [33m<[39m[33mTag[39m[0m
+[0m [90m    |[39m      [31m[1m^[22m[39m[0m
+[0m [90m 60 |[39m       onMouseEnter[33m=[39m{(event[33m:[39m [33mReact[39m[33m.[39m[33mMouseEvent[39m[33m<[39m[33mHTMLDivElement[39m[33m>[39m) [33m=>[39m {[0m
+[0m [90m 61 |[39m         setHovered([36mtrue[39m)[33m;[39m[0m
+[0m [90m 62 |[39m       }}[0m
+Next.js build worker exited with code: 1 and signal: null
