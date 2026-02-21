@@ -1,6 +1,7 @@
-import { Github, Twitter } from "lucide-react";
+import { Github, Twitter, Linkedin, Instagram, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 import { VideoText } from "@/registry/magicui/video-text";
+import { SparklesCore } from "@/components/ui/sparkles";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
@@ -12,93 +13,112 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="w-full py-12 mt-20">
-      <div className="container px-4">
-        <div className="glass glass-hover rounded-xl p-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="space-y-4">
-              <div className="relative h-10 w-40 overflow-hidden">
-                <VideoText src="https://cdn.magicui.design/ocean-small.webm" className="size-full">
-                  RE:INVENT
-                </VideoText>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Building innovative digital solutions for tomorrow.
-              </p>
-              <div className="flex space-x-4">
-                <Button variant="ghost" size="icon">
-                  <Twitter className="w-4 h-4" />
-                </Button>
-                <Button variant="ghost" size="icon">
-                  <Github className="w-4 h-4" />
-                </Button>
-              </div>
-            </div>
+    <footer className="w-full pt-16 pb-20 mt-10 bg-black relative">
+      <div className="container px-4 md:px-8 mx-auto max-w-[1300px]">
 
-            <div className="space-y-4">
-              <h4 className="font-medium">Services</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#features" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    Web Development
-                  </a>
-                </li>
-                <li>
-                  <a href="#about" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    Mobile Apps
-                  </a>
-                </li>
-                <li>
-                  <a href="#pricing" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    AI Development
-                  </a>
-                </li>
-              </ul>
-            </div>
+        {/* 'Ready to work with us ?' CTA Card */}
+        <div className="relative w-full bg-[#050505] border border-white/5 rounded-[40px] md:rounded-[48px] p-10 py-16 md:p-16 flex flex-col md:flex-row items-center justify-between mb-24 overflow-hidden shadow-2xl">
+          {/* Subtle glowing halo from bottom */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[150%] bg-blue-500/10 blur-[120px] pointer-events-none rounded-full" />
 
-            <div className="space-y-4">
-              <h4 className="font-medium">Resources</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/products" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    Our Products
-                  </Link>
-                </li>
-                <li>
-                  <a href="#team" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    Our Team
-                  </a>
-                </li>
-                <li>
-                  <a href="#works" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    Portfolio
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="space-y-4">
-              <h4 className="font-medium">Legal</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms-of-service" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    Terms of Service
-                  </Link>
-                </li>
-              </ul>
-            </div>
+          {/* Sparkles animated background */}
+          <div className="absolute inset-0 w-full h-full bg-transparent z-0 [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)] md:[mask-image:none]">
+            <SparklesCore
+              background="transparent"
+              minSize={0.4}
+              maxSize={1.2}
+              particleDensity={100}
+              className="w-full h-full absolute inset-0"
+              particleColor="#FFFFFF"
+            />
           </div>
 
-          <div className="mt-8 pt-8 border-t border-white/10">
-            <p className="text-sm text-muted-foreground text-center">
-              © {year} RE:INVENT. All rights reserved.
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-medium text-white tracking-tight relative z-10 mb-8 md:mb-0">
+            Ready to work with us ?
+          </h2>
+
+          <Button className="relative z-10 bg-white hover:bg-neutral-200 text-black rounded-full px-8 py-7 md:px-10 md:py-8 font-semibold text-base md:text-lg flex items-center justify-center gap-3 transition-colors shadow-lg shrink-0 w-full md:w-auto mt-4 md:mt-0">
+            Book a Free Call
+            <ArrowRight className="w-5 h-5" />
+          </Button>
+        </div>
+
+        {/* Footer 4-Column Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2.5fr_1fr_1fr_1.5fr] gap-12 lg:gap-8">
+
+          {/* Column 1: Brand & Logo */}
+          <div className="flex flex-col pr-0 lg:pr-12">
+            <div className="relative h-12 w-48 overflow-hidden mb-6 filter drop-shadow-lg">
+              <VideoText src="https://cdn.magicui.design/ocean-small.webm" className="size-full">
+                RE:INVENT
+              </VideoText>
+            </div>
+            <p className="text-neutral-400 text-sm leading-relaxed mb-10 max-w-[450px]">
+              We offer a comprehensive suite of rapid development services that cover all aspects of a product launch. From scoping and design to building and final deployment, we have the expertise and resources to transform your vision into a live, usable MVP in just 100 hours.
             </p>
+            <div className="flex items-center gap-3">
+              <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 hover:text-white hover:bg-white/10 transition-colors shadow-sm">
+                <Twitter className="w-4 h-4 fill-current" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 hover:text-white hover:bg-white/10 transition-colors shadow-sm">
+                <Github className="w-4 h-4 fill-current" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 hover:text-white hover:bg-white/10 transition-colors shadow-sm">
+                <Linkedin className="w-4 h-4 fill-current" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 hover:text-white hover:bg-white/10 transition-colors shadow-sm">
+                <Instagram className="w-4 h-4" />
+              </a>
+            </div>
           </div>
+
+          {/* Column 2: Navigation */}
+          <div className="flex flex-col">
+            <h4 className="text-white font-medium mb-8 text-base tracking-wide">Navigation</h4>
+            <ul className="space-y-4 flex flex-col">
+              <li><Link href="#service" className="text-neutral-400 hover:text-white transition-colors text-sm">Service</Link></li>
+              <li><Link href="#agency" className="text-neutral-400 hover:text-white transition-colors text-sm">Agency</Link></li>
+              <li><Link href="#case-study" className="text-neutral-400 hover:text-white transition-colors text-sm">Case Study</Link></li>
+              <li><Link href="#resource" className="text-neutral-400 hover:text-white transition-colors text-sm">Resource</Link></li>
+              <li><Link href="#contact" className="text-neutral-400 hover:text-white transition-colors text-sm">Contact</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 3: Licence */}
+          <div className="flex flex-col">
+            <h4 className="text-white font-medium mb-8 text-base tracking-wide">Licence</h4>
+            <ul className="space-y-4 flex flex-col">
+              <li><Link href="/privacy-policy" className="text-neutral-400 hover:text-white transition-colors text-sm">Privacy Policy</Link></li>
+              <li><Link href="/copyright" className="text-neutral-400 hover:text-white transition-colors text-sm">Copyright</Link></li>
+              <li><Link href="#contact" className="text-neutral-400 hover:text-white transition-colors text-sm">Email Address</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 4: Contact */}
+          <div className="flex flex-col">
+            <h4 className="text-white font-medium mb-8 text-base tracking-wide">Contact</h4>
+            <ul className="space-y-6 flex flex-col">
+              <li className="flex items-start gap-4 text-neutral-400 text-sm group">
+                <div className="p-2 border border-white/5 rounded-md bg-white/[0.02] group-hover:bg-white/10 transition-colors text-white shrink-0">
+                  <Phone className="w-4 h-4" />
+                </div>
+                <span className="mt-2">(406) 555-0120</span>
+              </li>
+              <li className="flex items-start gap-4 text-neutral-400 text-sm group">
+                <div className="p-2 border border-white/5 rounded-md bg-white/[0.02] group-hover:bg-white/10 transition-colors text-white shrink-0">
+                  <Mail className="w-4 h-4" />
+                </div>
+                <span className="mt-2">Hey@boostim.com</span>
+              </li>
+              <li className="flex items-start gap-4 text-neutral-400 text-sm group">
+                <div className="p-2 border border-white/5 rounded-md bg-white/[0.02] group-hover:bg-white/10 transition-colors text-white shrink-0">
+                  <MapPin className="w-4 h-4" />
+                </div>
+                <span className="mt-1 leading-relaxed">2972 Westheimer Rd. Santa Ana,<br />Illinois 85486</span>
+              </li>
+            </ul>
+          </div>
+
         </div>
       </div>
     </footer>
