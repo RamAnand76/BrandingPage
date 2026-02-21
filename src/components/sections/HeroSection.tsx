@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+import DarkVeil from "@/components/ui/DarkVeil";
 
 interface HeroSectionProps {
     setContactModalOpen: (val: boolean) => void;
@@ -12,7 +13,18 @@ interface HeroSectionProps {
 
 export const HeroSection = ({ setContactModalOpen }: HeroSectionProps) => {
     return (
-        <section className="relative w-full pt-32 pb-20 md:pt-40 md:pb-32 px-4 sm:px-6 lg:px-8 flex items-center justify-center overflow-hidden">
+        <section className="relative w-full pt-32 pb-20 md:pt-40 md:pb-32 px-4 sm:px-6 lg:px-8 flex items-center justify-center overflow-hidden bg-black">
+            {/* Dark Veil Absolute Background Layer */}
+            <div className="absolute inset-0 z-0 pointer-events-none w-full h-full opacity-60">
+                <DarkVeil
+                    hueShift={0}
+                    noiseIntensity={0.05}
+                    scanlineIntensity={0.1}
+                    speed={0.5}
+                    scanlineFrequency={0}
+                    warpAmount={0.3}
+                />
+            </div>
             <div className="max-w-[1240px] mx-auto w-full grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
 
                 {/* Left Column */}
