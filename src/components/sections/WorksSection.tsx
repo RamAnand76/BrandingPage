@@ -93,16 +93,16 @@ const WorksSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-16 md:mb-20 flex flex-col items-center"
         >
           {/* Section pill */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.3 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6"
           >
             <FolderGit2 className="w-4 h-4 text-primary" />
@@ -123,17 +123,17 @@ const WorksSection = () => {
               key={work.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.4, delay: idx * 0.05 }}
               className="flex"
             >
               <MagicCard className="h-full w-full cursor-pointer group" gradientColor="hsl(var(--primary))">
-                <div className="relative rounded-2xl p-6 flex flex-col bg-[#0A0A0A]/80 backdrop-blur-md border border-white/10 h-full overflow-hidden hover:bg-[#0A0A0A]/60 transition-colors duration-500">
+                <div className="relative rounded-2xl p-5 sm:p-6 flex flex-col bg-[#0A0A0A]/80 backdrop-blur-md border border-white/10 h-full overflow-hidden hover:bg-[#0A0A0A]/60 transition-colors duration-500">
 
                   <StripedPattern className="absolute inset-0 w-full h-full object-cover z-0 opacity-[0.03] stroke-white/20" />
 
                   {work.isOpenSource && (
-                    <div className="absolute top-4 right-4 z-20">
+                    <div className="absolute top-4 right-4 sm:top-5 sm:right-5 z-20">
                       <Badge variant="default" className="text-[10px] uppercase tracking-wider bg-primary/20 text-primary border-primary/20 backdrop-blur-sm hover:bg-primary/30">
                         Open Source
                       </Badge>
