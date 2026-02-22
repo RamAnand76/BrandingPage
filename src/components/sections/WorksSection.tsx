@@ -93,16 +93,16 @@ const WorksSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-16 md:mb-20 flex flex-col items-center"
         >
           {/* Section pill */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.3 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6"
           >
             <FolderGit2 className="w-4 h-4 text-primary" />
@@ -123,8 +123,8 @@ const WorksSection = () => {
               key={work.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.4, delay: idx * 0.05 }}
               className="flex"
             >
               <MagicCard className="h-full w-full cursor-pointer group" gradientColor="hsl(var(--primary))">
