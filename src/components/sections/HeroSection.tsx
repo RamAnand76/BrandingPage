@@ -42,7 +42,7 @@ export const HeroSection = ({ setContactModalOpen }: HeroSectionProps) => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
-                        className="text-4xl sm:text-6xl md:text-7xl lg:text-[80px] font-bold tracking-tighter text-white leading-[1.05] sm:leading-[0.95] mb-6 md:mb-8"
+                        className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[68px] font-bold tracking-tighter text-white leading-[1.05] sm:leading-[0.95] mb-6 md:mb-8"
                     >
                         Transform ideas <br className="hidden md:block" /> Into digital reality
                     </motion.h1>
@@ -51,7 +51,7 @@ export const HeroSection = ({ setContactModalOpen }: HeroSectionProps) => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="text-lg md:text-xl text-neutral-400 mb-8 max-w-[480px] leading-relaxed font-light"
+                        className="text-base md:text-lg text-neutral-400 mb-8 max-w-[480px] leading-relaxed font-light"
                     >
                         From stunning UI/UX to powerful AI and flawless apps, we build the digital solutions of tomorrow. Let&apos;s create something amazing together.
                     </motion.p>
@@ -102,7 +102,7 @@ export const HeroSection = ({ setContactModalOpen }: HeroSectionProps) => {
                         <span className="text-neutral-300 font-medium text-sm md:text-base tracking-wide">Fast & Reliable</span>
                     </div>
 
-                    <h3 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-[1.15] mb-auto relative z-10 md:max-w-[85%] tracking-tight">
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium text-white leading-[1.15] mb-auto relative z-10 md:max-w-[85%] tracking-tight">
                         We build the digital solutions of tomorrow!
                     </h3>
 
