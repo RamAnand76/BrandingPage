@@ -102,19 +102,19 @@ const Footer = () => {
                 <div className="p-2 border border-white/5 rounded-md bg-white/[0.02] group-hover:bg-white/10 transition-colors text-white shrink-0">
                   <Phone className="w-4 h-4" />
                 </div>
-                <span className="mt-2">(406) 555-0120</span>
+                <span className="mt-2">+91 7012445960</span>
               </li>
               <li className="flex items-start gap-4 text-neutral-400 text-sm group">
                 <div className="p-2 border border-white/5 rounded-md bg-white/[0.02] group-hover:bg-white/10 transition-colors text-white shrink-0">
                   <Mail className="w-4 h-4" />
                 </div>
-                <span className="mt-2">Hey@boostim.com</span>
+                <a href="mailto:ramanandr7666@gmail.com" className="mt-2 hover:text-white transition-colors">ramanandr7666@gmail.com</a>
               </li>
               <li className="flex items-start gap-4 text-neutral-400 text-sm group">
                 <div className="p-2 border border-white/5 rounded-md bg-white/[0.02] group-hover:bg-white/10 transition-colors text-white shrink-0">
                   <MapPin className="w-4 h-4" />
                 </div>
-                <span className="mt-1 leading-relaxed">2972 Westheimer Rd. Santa Ana,<br />Illinois 85486</span>
+                <span className="mt-1 leading-relaxed">Address not set yet.<br />India</span>
               </li>
             </ul>
           </div>
