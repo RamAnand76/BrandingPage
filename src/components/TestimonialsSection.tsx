@@ -55,16 +55,16 @@ const TestimonialsSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           className="text-center mb-16 md:mb-20 flex flex-col items-center"
         >
           {/* Section pill */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.3 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6"
           >
             <MessageSquareHeart className="w-4 h-4 text-primary" />

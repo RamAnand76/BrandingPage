@@ -15,7 +15,7 @@ export const ExpertServices = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: true, amount: 0.1 }}
                         className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.05] mb-6"
                     >
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center">
@@ -26,7 +26,7 @@ export const ExpertServices = () => {
                     <motion.h2
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: true, amount: 0.1 }}
                         transition={{ delay: 0.1 }}
                         className="text-4xl md:text-5xl lg:text-[56px] font-normal tracking-tight text-white/90"
                     >
@@ -41,7 +41,7 @@ export const ExpertServices = () => {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: true, amount: 0.1 }}
                         transition={{ delay: 0.1 }}
                         className="md:col-span-2 md:row-span-1 bg-[#0c0c0c] border border-white/[0.05] rounded-3xl relative overflow-hidden group shadow-2xl"
                     >
@@ -55,9 +55,6 @@ export const ExpertServices = () => {
                                     Professional-grade web applications using React.js, Next.js with modern development practices.
                                 </p>
                             </div>
-                            <Link href="#contact" className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors mt-8 font-medium">
-                                See More <ArrowRight className="w-4 h-4" />
-                            </Link>
                         </div>
 
                         {/* Animated Code Mock */}
@@ -109,11 +106,6 @@ export const ExpertServices = () => {
                                 <p className="text-sm text-neutral-400 leading-relaxed font-light">
                                     Intelligent AI agents and chatbots powered by cutting-edge machine learning technologies.
                                 </p>
-                            </div>
-                            <div className="mt-8 mb-auto">
-                                <Link href="#contact" className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors font-medium">
-                                    See More <ArrowRight className="w-4 h-4" />
-                                </Link>
                             </div>
 
                             {/* Animated AI Chat Mock */}
@@ -200,8 +192,8 @@ export const ExpertServices = () => {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3 }}
+                        viewport={{ once: true, amount: 0.1 }}
+                        transition={{ duration: 0.5, delay: 0.1 }}
                         className="md:col-span-1 md:row-span-2 bg-[#0c0c0c] border border-white/[0.05] rounded-3xl relative overflow-hidden group shadow-2xl"
                     >
                         <div className="absolute -bottom-20 -left-20 w-[300px] h-[300px] bg-indigo-500/10 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
@@ -213,11 +205,6 @@ export const ExpertServices = () => {
                                 <p className="text-sm text-neutral-400 leading-relaxed font-light">
                                     Complete brand identity solutions including logo design, color schemes, and brand guidelines.
                                 </p>
-                            </div>
-                            <div className="mt-8 mb-auto">
-                                <Link href="#contact" className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors font-medium">
-                                    See More <ArrowRight className="w-4 h-4" />
-                                </Link>
                             </div>
 
                             {/* Animated Branding Mock */}
@@ -260,8 +247,8 @@ export const ExpertServices = () => {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.4 }}
+                        viewport={{ once: true, amount: 0.1 }}
+                        transition={{ duration: 0.5, delay: 0.15 }}
                         className="md:col-span-1 md:row-span-1 rounded-3xl bg-gradient-to-br from-[#8ba1ce] via-[#526a9a] to-[#253255] border border-white/20 relative overflow-hidden flex items-center justify-center group p-8 shadow-2xl"
                     >
                         <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
@@ -286,8 +273,8 @@ export const ExpertServices = () => {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.5 }}
+                        viewport={{ once: true, amount: 0.1 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
                         className="md:col-span-2 md:row-span-1 bg-[#0c0c0c] border border-white/[0.05] rounded-3xl relative overflow-hidden group shadow-2xl"
                     >
                         <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-sky-500/10 blur-[100px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
@@ -300,9 +287,6 @@ export const ExpertServices = () => {
                                     Native and cross-platform mobile applications for iOS and Android using Flutter and React Native.
                                 </p>
                             </div>
-                            <Link href="#contact" className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors mt-8 font-medium">
-                                See More <ArrowRight className="w-4 h-4" />
-                            </Link>
                         </div>
 
                         {/* Animated Mobile Device Mock UI */}
