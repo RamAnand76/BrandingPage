@@ -128,12 +128,12 @@ const WorksSection = () => {
               className="flex"
             >
               <MagicCard className="h-full w-full cursor-pointer group" gradientColor="hsl(var(--primary))">
-                <div className="relative rounded-2xl p-6 flex flex-col bg-[#0A0A0A]/80 backdrop-blur-md border border-white/10 h-full overflow-hidden hover:bg-[#0A0A0A]/60 transition-colors duration-500">
+                <div className="relative rounded-2xl p-5 sm:p-6 flex flex-col bg-[#0A0A0A]/80 backdrop-blur-md border border-white/10 h-full overflow-hidden hover:bg-[#0A0A0A]/60 transition-colors duration-500">
 
                   <StripedPattern className="absolute inset-0 w-full h-full object-cover z-0 opacity-[0.03] stroke-white/20" />
 
                   {work.isOpenSource && (
-                    <div className="absolute top-4 right-4 z-20">
+                    <div className="absolute top-4 right-4 sm:top-5 sm:right-5 z-20">
                       <Badge variant="default" className="text-[10px] uppercase tracking-wider bg-primary/20 text-primary border-primary/20 backdrop-blur-sm hover:bg-primary/30">
                         Open Source
                       </Badge>

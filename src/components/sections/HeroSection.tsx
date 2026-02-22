@@ -42,7 +42,7 @@ export const HeroSection = ({ setContactModalOpen }: HeroSectionProps) => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
-                        className="text-5xl sm:text-6xl md:text-7xl lg:text-[80px] font-bold tracking-tighter text-white leading-[0.95] mb-6 md:mb-8"
+                        className="text-4xl sm:text-6xl md:text-7xl lg:text-[80px] font-bold tracking-tighter text-white leading-[1.05] sm:leading-[0.95] mb-6 md:mb-8"
                     >
                         Transform ideas <br className="hidden md:block" /> Into digital reality
                     </motion.h1>
@@ -60,7 +60,7 @@ export const HeroSection = ({ setContactModalOpen }: HeroSectionProps) => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
-                        className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+                        className="flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto"
                     >
                         <HoverBorderGradient
                             containerClassName="rounded-full w-full sm:w-auto"

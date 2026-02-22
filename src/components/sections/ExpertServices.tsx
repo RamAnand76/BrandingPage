@@ -125,7 +125,7 @@ export const ExpertServices = () => {
                                         hidden: { opacity: 1 },
                                         visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.3 } }
                                     }}
-                                    className="space-y-3 pb-8 relative z-0 flex flex-col w-full"
+                                    className="space-y-3 pb-8 px-1 sm:px-0 relative z-0 flex flex-col w-full"
                                 >
                                     {/* Message 1 */}
                                     <motion.div
@@ -221,7 +221,7 @@ export const ExpertServices = () => {
                             </div>
 
                             {/* Animated Branding Mock */}
-                            <div className="mt-auto grid grid-cols-2 lg:grid-cols-3 gap-3 overflow-hidden">
+                            <div className="mt-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 overflow-hidden">
                                 <motion.div
                                     whileHover={{ scale: 1.05 }}
                                     className="aspect-square bg-[#121212] border border-white/[0.05] rounded-2xl p-3 flex flex-col justify-center shadow-lg"

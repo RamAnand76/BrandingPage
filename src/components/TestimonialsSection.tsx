@@ -80,10 +80,11 @@ const TestimonialsSection = () => {
         </motion.div>
 
         <div className="relative flex flex-col antialiased">
-          <div className="relative flex overflow-hidden py-4">
-            <div className="animate-marquee flex min-w-full shrink-0 items-stretch gap-6">
+          <div className="relative flex flex-col md:flex-row md:overflow-hidden py-4 gap-6 md:gap-0">
+
+            <div className="flex flex-col md:flex-row md:animate-marquee md:min-w-full shrink-0 items-stretch gap-6">
               {testimonials.map((testimonial, index) => (
-                <Card key={`${index}-1`} className="w-[80vw] max-w-sm shrink-0 bg-[#0A0A0A]/60 backdrop-blur-xl border-white/5 hover:border-white/10 hover:bg-[#0A0A0A]/80 transition-all duration-300 p-8 md:w-[400px] rounded-2xl group">
+                <Card key={`${index}-1`} className="w-full md:w-[400px] md:max-w-sm shrink-0 bg-[#0A0A0A]/60 backdrop-blur-xl border-white/5 hover:border-white/10 hover:bg-[#0A0A0A]/80 transition-all duration-300 p-8 rounded-2xl group">
                   <div className="flex items-center gap-4 mb-6">
                     <div className="relative">
                       <div className="absolute inset-0 bg-primary/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -103,9 +104,11 @@ const TestimonialsSection = () => {
                 </Card>
               ))}
             </div>
-            <div className="animate-marquee flex min-w-full shrink-0 items-stretch gap-6 ml-6">
+
+            {/* Duplicate set for infinite marquee (Desktop only) */}
+            <div className="hidden md:flex flex-row md:animate-marquee min-w-full shrink-0 items-stretch gap-6 md:ml-6">
               {testimonials.map((testimonial, index) => (
-                <Card key={`${index}-2`} className="w-[80vw] max-w-sm shrink-0 bg-[#0A0A0A]/60 backdrop-blur-xl border-white/5 hover:border-white/10 hover:bg-[#0A0A0A]/80 transition-all duration-300 p-8 md:w-[400px] rounded-2xl group">
+                <Card key={`${index}-2`} className="w-full md:w-[400px] md:max-w-sm shrink-0 bg-[#0A0A0A]/60 backdrop-blur-xl border-white/5 hover:border-white/10 hover:bg-[#0A0A0A]/80 transition-all duration-300 p-8 rounded-2xl group">
                   <div className="flex items-center gap-4 mb-6">
                     <div className="relative">
                       <div className="absolute inset-0 bg-primary/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -125,6 +128,7 @@ const TestimonialsSection = () => {
                 </Card>
               ))}
             </div>
+
           </div>
         </div>
       </div>
