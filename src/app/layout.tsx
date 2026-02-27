@@ -55,7 +55,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <QueryProvider>
           <TooltipProvider>
-            <div className="min-h-screen bg-background w-full overflow-x-hidden">
+            <div className="min-h-screen bg-background w-full">
               <Toaster />
               <Sonner />
               {children}
