@@ -11,6 +11,7 @@ import WorksSection from "@/components/sections/WorksSection";
 import { ExpertServices } from "@/components/sections/ExpertServices";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ContactModal } from "@/components/ContactModal";
+import { TechScroll } from "@/components/TechScroll";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { PricingSection } from "@/components/pricing/PricingSection";
 
@@ -43,8 +44,8 @@ const Index = () => {
       )}
 
       {/* Tech Stack Section */}
-      <div id="tech-stack" className="bg-black">
-        <TechStackSection />
+      <div id="tech-stack" className="bg-[#0a0a14]">
+        <TechScroll />
       </div>
 
       {/* Works Section */}
