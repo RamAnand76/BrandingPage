@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useTransform, MotionValue, useMotionValueEvent, useMotionValue } from 'motion/react';
+import { motion, useTransform, MotionValue, useMotionValueEvent, useMotionValue, useSpring } from 'motion/react';
 import { TECH_DATA, TechItem } from '../constants';
 
 interface TechScrollProps {
@@ -18,10 +18,19 @@ export const TechScroll: React.FC<TechScrollProps> = ({ items = TECH_DATA }) => 
     const scrollPerItem = 133;
     const containerHeightVh = total * scrollPerItem + 100;
 
-    const scrollYProgress = useMotionValue(0);
+    const rawScrollProgress = useMotionValue(0);
+    // Physics-based spring for 0% lag, buttery modern 3D smoothness
+    const scrollYProgress = useSpring(rawScrollProgress, {
+        stiffness: 150,
+        damping: 30,
+        mass: 0.5,
+        restDelta: 0.001
+    });
 
     useEffect(() => {
-        const handleScroll = () => {
+        let ticking = false;
+
+        const updateScroll = () => {
             if (!containerRef.current) return;
             const rect = containerRef.current.getBoundingClientRect();
             const scrollable = rect.height - window.innerHeight;
@@ -29,18 +38,26 @@ export const TechScroll: React.FC<TechScrollProps> = ({ items = TECH_DATA }) => 
 
             let p = -rect.top / scrollable;
             p = Math.max(0, Math.min(1, p));
-            scrollYProgress.set(p);
+            rawScrollProgress.set(p);
+            ticking = false;
         };
 
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        window.addEventListener('resize', handleScroll);
-        handleScroll(); // initialize
+        const onScroll = () => {
+            if (!ticking) {
+                window.requestAnimationFrame(updateScroll);
+                ticking = true;
+            }
+        };
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', updateScroll);
+        updateScroll(); // initialize
 
         return () => {
-            window.removeEventListener('scroll', handleScroll);
-            window.removeEventListener('resize', handleScroll);
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('resize', updateScroll);
         };
-    }, [scrollYProgress]);
+    }, [rawScrollProgress]);
 
     // Track active index for haptic feedback
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
@@ -61,7 +78,7 @@ export const TechScroll: React.FC<TechScrollProps> = ({ items = TECH_DATA }) => 
     return (
         <div
             ref={containerRef}
-            className="relative w-full bg-[#0a0a14]"
+            className="relative w-full bg-transparent"
             style={{ height: `${containerHeightVh}vh` }}
         >
             {/* Snap Points - positioned so browser snaps exactly when each icon centers */}
@@ -89,7 +106,7 @@ export const TechScroll: React.FC<TechScrollProps> = ({ items = TECH_DATA }) => 
             <div className="sticky top-0 flex h-screen w-full flex-col items-center justify-center overflow-hidden">
                 {/* Background Decorative Elements */}
                 <div className="absolute inset-0 z-0 flex items-center justify-center">
-                    <div className="absolute h-[600px] w-[600px] rounded-full bg-white/[0.02] border border-white/[0.05]" />
+                    <div className="absolute h-[600px] w-[600px] rounded-full bg-white/[0.01] border border-white/[0.03]" />
                     <div className="absolute h-[1000px] w-[1000px] rounded-full border border-white/[0.01]" />
                     <div className="absolute h-[800px] w-[800px] rounded-full border border-white/[0.02]" />
                     <div className="absolute h-full w-[1px] bg-gradient-to-b from-transparent via-white/20 to-transparent" />
@@ -127,7 +144,7 @@ export const TechScroll: React.FC<TechScrollProps> = ({ items = TECH_DATA }) => 
                 <div className="relative z-10 flex h-[400px] w-full items-center justify-center">
                     {/* Central Rings with Dots */}
                     <div className="absolute h-48 w-48 rounded-full border-2 border-white/5 shadow-[0_0_40px_rgba(255,255,255,0.03)]" />
-                    <div className="absolute h-40 w-40 rounded-full border-[6px] border-white/10 bg-[#0a0a14]/60 backdrop-blur-xl shadow-[inset_0_0_30px_rgba(255,255,255,0.05)]">
+                    <div className="absolute h-40 w-40 rounded-full border-[6px] border-white/10 bg-black/40 backdrop-blur-xl shadow-[inset_0_0_30px_rgba(255,255,255,0.05)]">
                         <div className="absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-white/40 bg-white shadow-[0_0_15px_rgba(255,255,255,0.8)]" />
                         <div className="absolute -bottom-2 left-1/2 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-white/40 bg-white shadow-[0_0_15px_rgba(255,255,255,0.8)]" />
                     </div>
