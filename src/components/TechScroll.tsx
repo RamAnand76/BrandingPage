@@ -16,13 +16,14 @@ export const TechScroll: React.FC<TechScrollProps> = ({ items = TECH_DATA }) => 
     // Give each item ~133vh of scroll to compensate for body zoom: 0.75
     // At zoom 0.75, 133vh CSS ≈ 100vh effective scroll
     const scrollPerItem = 133;
-    const containerHeightVh = total * scrollPerItem + 100;
+    // Base height on the gaps between items, so item 0 is at top, item N is at very bottom
+    const containerHeightVh = (total > 1 ? total - 1 : 1) * scrollPerItem + 100;
 
     const rawScrollProgress = useMotionValue(0);
-    // Physics-based spring for 0% lag, buttery modern 3D smoothness
+    // Physics-based spring for 0% lag, buttery modern 3D smoothness (looser Apple-style glide)
     const scrollYProgress = useSpring(rawScrollProgress, {
-        stiffness: 150,
-        damping: 30,
+        stiffness: 70,
+        damping: 20,
         mass: 0.5,
         restDelta: 0.001
     });
@@ -61,7 +62,7 @@ export const TechScroll: React.FC<TechScrollProps> = ({ items = TECH_DATA }) => 
 
     // Track active index for haptic feedback
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        const step = 1 / total;
+        const step = 1 / (total > 1 ? total - 1 : 1);
         const idx = Math.round(latest / step);
         const clamped = Math.max(0, Math.min(total - 1, idx));
         if (clamped !== activeIdx) {
@@ -84,7 +85,7 @@ export const TechScroll: React.FC<TechScrollProps> = ({ items = TECH_DATA }) => 
             {/* Snap Points - positioned so browser snaps exactly when each icon centers */}
             <div className="absolute inset-0 pointer-events-none z-50">
                 {items.map((_, i) => {
-                    const step = 1 / total;
+                    const step = 1 / (total > 1 ? total - 1 : 1);
                     const centerProgress = i * step;
                     // Convert progress to absolute position within container
                     // scrollYProgress = scrollOffset / scrollableDistance
@@ -188,19 +189,18 @@ interface TechIconProps {
 }
 
 const TechIcon: React.FC<TechIconProps> = ({ item, index, total, scrollYProgress }) => {
-    const step = 1 / total;
+    const step = 1 / (total > 1 ? total - 1 : 1);
     const center = index * step;
     const plateau = step * 0.1;
-    const isLast = index === total - 1;
 
     // Wider, smoother ranges for enter/center/exit transitions
     const range = [
         center - step * 1.5,  // Far right (entering)
         center - step * 0.8,  // Near right
         center - plateau,     // Center plateau start
-        isLast ? 1.0 : center + plateau,     // HOLD perfectly centered until container finishes
-        isLast ? 1.0 + step * 0.8 : center + step * 0.8,  // Near left
-        isLast ? 1.0 + step * 1.5 : center + step * 1.5,  // Far left (exiting)
+        center + plateau,     // HOLD perfectly centered through duration
+        center + step * 0.8,  // Near left
+        center + step * 1.5,  // Far left (exiting)
     ];
 
     const x = useTransform(
@@ -226,8 +226,8 @@ const TechIcon: React.FC<TechIconProps> = ({ item, index, total, scrollYProgress
         [
             center - step * 0.6,
             center - plateau,
-            isLast ? 1.0 : center + plateau,
-            isLast ? 1.0 + step * 0.6 : center + step * 0.6
+            center + plateau,
+            center + step * 0.6
         ],
         [0, 0.8, 0.8, 0]
     );
@@ -265,18 +265,17 @@ const TechIcon: React.FC<TechIconProps> = ({ item, index, total, scrollYProgress
 };
 
 const TechLabel: React.FC<TechIconProps> = ({ item, index, total, scrollYProgress }) => {
-    const step = 1 / total;
+    const step = 1 / (total > 1 ? total - 1 : 1);
     const center = index * step;
     const plateau = step * 0.1;
-    const isLast = index === total - 1;
 
     const opacity = useTransform(
         scrollYProgress,
         [
             center - step * 0.5,
             center - plateau,
-            isLast ? 1.0 : center + plateau,
-            isLast ? 1.0 + step * 0.5 : center + step * 0.5
+            center + plateau,
+            center + step * 0.5
         ],
         [0, 1, 1, 0]
     );
@@ -286,8 +285,8 @@ const TechLabel: React.FC<TechIconProps> = ({ item, index, total, scrollYProgres
         [
             center - step * 0.5,
             center - plateau,
-            isLast ? 1.0 : center + plateau,
-            isLast ? 1.0 + step * 0.5 : center + step * 0.5
+            center + plateau,
+            center + step * 0.5
         ],
         [15, 0, 0, -15]
     );
