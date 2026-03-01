@@ -13,11 +13,10 @@ export const TechScroll: React.FC<TechScrollProps> = ({ items = TECH_DATA }) => 
     const [activeIdx, setActiveIdx] = useState(0);
     const total = items.length;
 
-    // Give each item ~133vh of scroll to compensate for body zoom: 0.75
-    // At zoom 0.75, 133vh CSS ≈ 100vh effective scroll
-    const scrollPerItem = 133;
-    // Base height on the gaps between items, so item 0 is at top, item N is at very bottom
-    const containerHeightVh = (total > 1 ? total - 1 : 1) * scrollPerItem + 100;
+    // Give each item ~145vh of scroll to pad out more animation completion time
+    const scrollPerItem = 145;
+    // Base height on the gaps between items, plus a larger trailing buffer (150vh instead of 100vh)
+    const containerHeightVh = (total > 1 ? total - 1 : 1) * scrollPerItem + 150;
 
     const rawScrollProgress = useMotionValue(0);
     // Physics-based spring for 0% lag, buttery modern 3D smoothness (looser Apple-style glide)
@@ -79,7 +78,7 @@ export const TechScroll: React.FC<TechScrollProps> = ({ items = TECH_DATA }) => 
     return (
         <div
             ref={containerRef}
-            className="relative w-full bg-transparent"
+            className="relative w-full bg-transparent pb-[15vh]"
             style={{ height: `${containerHeightVh}vh` }}
         >
             {/* Snap Points - positioned so browser snaps exactly when each icon centers */}
@@ -140,9 +139,9 @@ export const TechScroll: React.FC<TechScrollProps> = ({ items = TECH_DATA }) => 
 
                         {/* Background Decorative Rings logically tied to exactly this origin point */}
                         <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
-                            <div className="absolute h-[600px] w-[600px] rounded-full bg-white/[0.015] border border-white/[0.03]" />
-                            <div className="absolute h-[800px] w-[800px] rounded-full border border-white/[0.02]" />
-                            <div className="absolute h-[1000px] w-[1000px] rounded-full border border-white/[0.01]" />
+                            <div className="absolute h-[500px] w-[500px] rounded-full bg-white/[0.015] border border-white/[0.03]" />
+                            <div className="absolute h-[700px] w-[700px] rounded-full border border-white/[0.02]" />
+                            <div className="absolute h-[900px] w-[900px] rounded-full border border-white/[0.01]" />
                             <div className="absolute h-[250vh] w-[1px] bg-gradient-to-b from-transparent via-white/20 to-transparent" />
                         </div>
 
