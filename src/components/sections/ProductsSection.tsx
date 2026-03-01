@@ -68,7 +68,7 @@ const ProductsSection = () => {
 
       <div className="container px-4">
         {/* Section Header */}
-        <div className="product-header text-center mb-16 md:mb-20" style={{ transformPerspective: 1000 }}>
+        <div className="product-header text-center mb-16 md:mb-20" style={{ perspective: 1000 }}>
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6">
             <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-gray-300">Our Products</span>
