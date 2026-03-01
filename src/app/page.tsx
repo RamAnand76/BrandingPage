@@ -44,7 +44,7 @@ const Index = () => {
       )}
 
       {/* Tech Stack Section */}
-      <div id="tech-stack" className="bg-[#0a0a14]">
+      <div id="tech-stack" className="bg-black">
         <TechScroll />
       </div>
 
