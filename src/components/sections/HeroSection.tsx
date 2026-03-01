@@ -1,5 +1,8 @@
 "use client";
 
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -12,8 +15,41 @@ interface HeroSectionProps {
 }
 
 export const HeroSection = ({ setContactModalOpen }: HeroSectionProps) => {
+    const container = useRef<HTMLDivElement>(null);
+
+    useGSAP(() => {
+        const tl = gsap.timeline();
+
+        // Y-axis staggered entrance for text
+        tl.from(".hero-text", {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.15,
+            ease: "power4.out",
+        });
+
+        // Springy entrance for the graphic bars
+        tl.from(".hero-bar", {
+            height: 0,
+            duration: 1.5,
+            stagger: 0.1,
+            ease: "elastic.out(1, 0.5)",
+        }, "-=0.5");
+
+        // Dark card entrance
+        gsap.from(".hero-card", {
+            scale: 0.95,
+            x: 20,
+            opacity: 0,
+            duration: 1,
+            ease: "power3.out",
+            delay: 0.2
+        });
+    }, { scope: container });
+
     return (
-        <section className="relative w-full pt-32 pb-20 md:pt-40 md:pb-32 px-4 sm:px-6 lg:px-8 flex items-center justify-center overflow-hidden bg-black">
+        <section ref={container} className="relative w-full pt-32 pb-20 md:pt-40 md:pb-32 px-4 sm:px-6 lg:px-8 flex items-center justify-center overflow-hidden bg-black">
             {/* Dark Veil Absolute Background Layer */}
             <div className="absolute inset-0 z-0 pointer-events-none w-full h-full opacity-60">
                 <DarkVeil
@@ -29,39 +65,19 @@ export const HeroSection = ({ setContactModalOpen }: HeroSectionProps) => {
 
                 {/* Left Column */}
                 <div className="flex flex-col items-start text-left relative z-10 w-full">
-                    <motion.p
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="text-[#98E04D] font-medium text-sm md:text-base tracking-wide mb-4 md:mb-6 uppercase"
-                    >
+                    <p className="hero-text text-[#98E04D] font-medium text-sm md:text-base tracking-wide mb-4 md:mb-6 uppercase">
                         Re-Invent: Expert Services, Delivered.
-                    </motion.p>
+                    </p>
 
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
-                        className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[68px] font-bold tracking-tighter text-white leading-[1.05] sm:leading-[0.95] mb-6 md:mb-8"
-                    >
+                    <h1 className="hero-text text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[68px] font-bold tracking-tighter text-white leading-[1.05] sm:leading-[0.95] mb-6 md:mb-8">
                         Transform ideas <br className="hidden md:block" /> Into digital reality
-                    </motion.h1>
+                    </h1>
 
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        className="text-base md:text-lg text-neutral-400 mb-8 max-w-[480px] leading-relaxed font-light"
-                    >
+                    <p className="hero-text text-base md:text-lg text-neutral-400 mb-8 max-w-[480px] leading-relaxed font-light">
                         From stunning UI/UX to powerful AI and flawless apps, we build the digital solutions of tomorrow. Let&apos;s create something amazing together.
-                    </motion.p>
+                    </p>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
-                        className="flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto"
-                    >
+                    <div className="hero-text flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
                         <HoverBorderGradient
                             containerClassName="rounded-full w-full sm:w-auto"
                             as="button"
@@ -83,16 +99,11 @@ export const HeroSection = ({ setContactModalOpen }: HeroSectionProps) => {
                                 Discover Products
                             </Button>
                         </Link>
-                    </motion.div>
+                    </div>
                 </div>
 
                 {/* Right Column - Dark Card with Chart */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95, x: 20 }}
-                    animate={{ opacity: 1, scale: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    className="relative w-full h-[450px] sm:h-[500px] lg:h-[600px] bg-[#0A0A0A] rounded-[32px] md:rounded-[48px] overflow-hidden flex flex-col p-8 md:p-12 shadow-2xl group border border-white/[0.05]"
-                >
+                <div className="hero-card relative w-full h-[450px] sm:h-[500px] lg:h-[600px] bg-[#0A0A0A] rounded-[32px] md:rounded-[48px] overflow-hidden flex flex-col p-8 md:p-12 shadow-2xl group border border-white/[0.05]">
                     {/* Abstract fluid shapes inside card */}
                     <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/[0.04] rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 transition-transform duration-1000 group-hover:scale-110" />
                     <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-[#98E04D]/[0.05] rounded-full blur-[100px] transition-transform duration-1000 group-hover:scale-110" />
@@ -108,26 +119,11 @@ export const HeroSection = ({ setContactModalOpen }: HeroSectionProps) => {
 
                     {/* Bar Chart Graphic */}
                     <div className="mt-auto flex items-end justify-end gap-3 md:gap-4 h-[150px] md:h-[220px] w-full relative z-10 bottom-0 pr-2">
-                        <motion.div
-                            initial={{ height: 0 }}
-                            animate={{ height: "45%" }}
-                            transition={{ duration: 1, delay: 0.5, type: "spring" }}
-                            className="w-14 sm:w-16 md:w-20 bg-[#D4F2A3] rounded-t-sm md:rounded-t-md"
-                        />
-                        <motion.div
-                            initial={{ height: 0 }}
-                            animate={{ height: "65%" }}
-                            transition={{ duration: 1, delay: 0.6, type: "spring" }}
-                            className="w-14 sm:w-16 md:w-20 bg-[#B5E973] rounded-t-sm md:rounded-t-md"
-                        />
-                        <motion.div
-                            initial={{ height: 0 }}
-                            animate={{ height: "100%" }}
-                            transition={{ duration: 1, delay: 0.7, type: "spring" }}
-                            className="w-14 sm:w-16 md:w-20 bg-[#98E04D] rounded-t-sm md:rounded-t-md"
-                        />
+                        <div className="hero-bar w-14 sm:w-16 md:w-20 bg-[#D4F2A3] rounded-t-sm md:rounded-t-md h-[45%]" />
+                        <div className="hero-bar w-14 sm:w-16 md:w-20 bg-[#B5E973] rounded-t-sm md:rounded-t-md h-[65%]" />
+                        <div className="hero-bar w-14 sm:w-16 md:w-20 bg-[#98E04D] rounded-t-sm md:rounded-t-md h-[100%]" />
                     </div>
-                </motion.div>
+                </div>
 
             </div>
         </section>

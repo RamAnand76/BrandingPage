@@ -1,50 +1,70 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import { ArrowRight, Bot, Smartphone, Globe, Palette, Sparkles, MessageSquare } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger);
+}
 
 export const ExpertServices = () => {
+    const container = useRef<HTMLSelectElement>(null);
+
+    useGSAP(() => {
+        // Headers sliding from Left (-X)
+        gsap.from(".service-header", {
+            scrollTrigger: {
+                trigger: container.current,
+                start: "top 80%",
+            },
+            x: -100,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power3.out"
+        });
+
+        // Cards sliding from Right (+X)
+        gsap.from(".service-card", {
+            scrollTrigger: {
+                trigger: ".service-grid",
+                start: "top 85%",
+            },
+            x: 100,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.15,
+            ease: "back.out(1.2)"
+        });
+    }, { scope: container });
+
     return (
-        <section className="py-20 bg-black relative">
+        <section ref={container} className="py-20 bg-black relative">
             <div className="max-w-[1200px] mx-auto px-4 md:px-8">
                 {/* Header */}
                 <div className="flex flex-col items-center text-center mb-16 md:mb-24">
-                    <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.1 }}
-                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.05] mb-6"
-                    >
+                    <div className="service-header inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.05] mb-6">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center">
                             <div className="w-1.5 h-1.5 bg-black rounded-full" />
                         </div>
                         <span className="text-xs font-medium text-neutral-300">Digital Agency</span>
-                    </motion.div>
-                    <motion.h2
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.1 }}
-                        transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl lg:text-[56px] font-normal tracking-tight text-white/90"
-                    >
+                    </div>
+                    <h2 className="service-header text-4xl md:text-5xl lg:text-[56px] font-normal tracking-tight text-white/90">
                         A Full-Service Digital Partner
-                    </motion.h2>
+                    </h2>
                 </div>
 
                 {/* Bento Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:grid-rows-[auto_auto]">
+                <div className="service-grid grid grid-cols-1 md:grid-cols-3 gap-5 md:grid-rows-[auto_auto]">
 
                     {/* Card A: Web Development */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true, amount: 0.1 }}
-                        transition={{ delay: 0.1 }}
-                        className="md:col-span-2 bg-[#0c0c0c] border border-white/[0.05] rounded-3xl relative overflow-hidden group shadow-2xl min-h-[320px]"
-                    >
+                    <div className="service-card md:col-span-2 bg-[#0c0c0c] border border-white/[0.05] rounded-3xl relative overflow-hidden group shadow-2xl min-h-[320px]">
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-indigo-500/10 blur-[120px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
                         <div className="p-8 md:p-10 relative z-10 w-full md:w-[55%] flex flex-col h-full justify-between">
@@ -84,19 +104,10 @@ export const ExpertServices = () => {
                                 <div>{'}'}</div>
                             </motion.div>
                         </div>
-                    </motion.div>
+                    </div>
 
                     {/* Card B: AI Agent Building */}
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, amount: 0.3 }}
-                        variants={{
-                            hidden: { opacity: 0, scale: 0.95 },
-                            visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } }
-                        }}
-                        className="md:col-span-1 md:row-span-2 bg-[#0c0c0c] border border-white/[0.05] rounded-3xl relative overflow-hidden group shadow-2xl"
-                    >
+                    <div className="service-card md:col-span-1 md:row-span-2 bg-[#0c0c0c] border border-white/[0.05] rounded-3xl relative overflow-hidden group shadow-2xl">
                         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-purple-500/10 blur-[100px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
                         <div className="p-8 md:p-10 relative z-10 flex flex-col h-full">
@@ -186,16 +197,10 @@ export const ExpertServices = () => {
                                 </motion.div>
                             </div>
                         </div>
-                    </motion.div>
+                    </div>
 
                     {/* Card C: Branding */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true, amount: 0.1 }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
-                        className="md:col-span-1 md:row-span-2 bg-[#0c0c0c] border border-white/[0.05] rounded-3xl relative overflow-hidden group shadow-2xl"
-                    >
+                    <div className="service-card md:col-span-1 md:row-span-2 bg-[#0c0c0c] border border-white/[0.05] rounded-3xl relative overflow-hidden group shadow-2xl">
                         <div className="absolute -bottom-20 -left-20 w-[300px] h-[300px] bg-indigo-500/10 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
                         <div className="p-8 md:p-10 relative z-10 flex flex-col h-full">
@@ -250,16 +255,10 @@ export const ExpertServices = () => {
                                 </motion.div>
                             </div>
                         </div>
-                    </motion.div>
+                    </div>
 
                     {/* Card D: Everything in One Place */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true, amount: 0.1 }}
-                        transition={{ duration: 0.5, delay: 0.15 }}
-                        className="md:col-span-1 rounded-3xl bg-gradient-to-br from-[#8ba1ce] via-[#526a9a] to-[#253255] border border-white/20 relative overflow-hidden flex items-center justify-center group p-6 shadow-2xl min-h-[160px]"
-                    >
+                    <div className="service-card md:col-span-1 rounded-3xl bg-gradient-to-br from-[#8ba1ce] via-[#526a9a] to-[#253255] border border-white/20 relative overflow-hidden flex items-center justify-center group p-6 shadow-2xl min-h-[160px]">
                         <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
                         {/* Floating abstract structural shapes */}
                         <motion.div
@@ -276,16 +275,10 @@ export const ExpertServices = () => {
                         <h3 className="text-2xl md:text-[28px] leading-[1.1] font-medium text-white text-center relative z-10 drop-shadow-xl">
                             Everything<br />in One Place
                         </h3>
-                    </motion.div>
+                    </div>
 
                     {/* Card E: Mobile App Building */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true, amount: 0.1 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        className="md:col-span-2 bg-[#0c0c0c] border border-white/[0.05] rounded-3xl relative overflow-hidden group shadow-2xl min-h-[320px]"
-                    >
+                    <div className="service-card md:col-span-2 bg-[#0c0c0c] border border-white/[0.05] rounded-3xl relative overflow-hidden group shadow-2xl min-h-[320px]">
                         <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-sky-500/10 blur-[100px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
                         <div className="p-8 md:p-10 relative z-10 w-full md:w-[45%] flex flex-col h-full justify-between">
@@ -338,7 +331,7 @@ export const ExpertServices = () => {
                                 <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black via-black/80 to-transparent z-20 pointer-events-none" />
                             </div>
                         </div>
-                    </motion.div>
+                    </div>
 
                 </div>
             </div>

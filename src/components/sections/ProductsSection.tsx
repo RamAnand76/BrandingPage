@@ -1,31 +1,20 @@
 "use client";
 
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { Zap, Hourglass, Sparkles, ArrowRight, Check } from "lucide-react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 import { MagicCard } from "@/components/magicui/magic-card";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { StripedPattern } from "@/components/ui/striped-pattern";
 import Link from "next/link";
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-  },
-};
 
 const featureItems = [
   "AI-Powered Automation",
@@ -41,30 +30,49 @@ const comingSoonItems = [
 ];
 
 const ProductsSection = () => {
+  const container = useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    // Header scaling from Z-axis
+    gsap.from(".product-header", {
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top 85%",
+      },
+      scale: 0.8,
+      rotationX: 10,
+      opacity: 0,
+      duration: 1,
+      ease: "back.out(1.5)"
+    });
+
+    // Cards staggered 3D scaling
+    gsap.from(".product-card", {
+      scrollTrigger: {
+        trigger: ".product-grid",
+        start: "top 80%",
+      },
+      scale: 0.8,
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      stagger: 0.2,
+      ease: "back.out(1.2)"
+    });
+  }, { scope: container });
+
   return (
-    <section id="products" className="py-24 md:py-32 bg-black relative overflow-hidden">
+    <section ref={container} id="products" className="py-24 md:py-32 bg-black relative overflow-hidden">
       {/* Ambient background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-primary/[0.03] rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container px-4">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16 md:mb-20"
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6"
-          >
+        <div className="product-header text-center mb-16 md:mb-20" style={{ transformPerspective: 1000 }}>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6">
             <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-gray-300">Our Products</span>
-          </motion.div>
+          </div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-5 tracking-tight">
             Innovative Solutions
@@ -75,18 +83,12 @@ const ProductsSection = () => {
             Cutting-edge products designed to solve real-world problems and
             transform how businesses operate.
           </p>
-        </motion.div>
+        </div>
 
         {/* Products Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 lg:grid-cols-5 gap-6 max-w-6xl mx-auto"
-        >
+        <div className="product-grid grid grid-cols-1 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
           {/* Featured Product — FLO.io */}
-          <motion.div variants={itemVariants} className="lg:col-span-3">
+          <div className="product-card lg:col-span-3">
             <div className="group relative rounded-2xl overflow-hidden h-full">
               {/* Border beam effect */}
               <BorderBeam
@@ -155,10 +157,10 @@ const ProductsSection = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Coming Soon Card */}
-          <motion.div variants={itemVariants} className="lg:col-span-2">
+          <div className="product-card lg:col-span-2">
             <MagicCard className="h-full" gradientColor="hsl(142, 75%, 45%)">
               <div className="group/soon relative rounded-2xl p-8 md:p-10 text-white h-full flex flex-col bg-[#0A0A0A]/80 backdrop-blur-xl border border-white/[0.06] overflow-hidden transition-all duration-500 hover:border-white/[0.12]">
                 <StripedPattern className="absolute inset-0 w-full h-full z-0 opacity-[0.02] stroke-white/20" />
@@ -202,17 +204,11 @@ const ProductsSection = () => {
                 </div>
               </div>
             </MagicCard>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6, duration: 0.5 }}
-          className="text-center mt-16 md:mt-20"
-        >
+        <div className="text-center mt-16 md:mt-20">
           <Link
             href="/#contact"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass glass-hover text-sm text-gray-300 hover:text-white transition-colors group"
@@ -220,7 +216,7 @@ const ProductsSection = () => {
             Interested in collaborating?
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
