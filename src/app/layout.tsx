@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import QueryProvider from "@/components/QueryProvider";
+import SmoothScrolling from "@/components/SmoothScrolling";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -55,11 +56,13 @@ export default function RootLayout({
       <body className={inter.className}>
         <QueryProvider>
           <TooltipProvider>
-            <div className="min-h-screen bg-background w-full">
-              <Toaster />
-              <Sonner />
-              {children}
-            </div>
+            <SmoothScrolling>
+              <div className="min-h-screen bg-background w-full">
+                <Toaster />
+                <Sonner />
+                {children}
+              </div>
+            </SmoothScrolling>
           </TooltipProvider>
         </QueryProvider>
       </body>
