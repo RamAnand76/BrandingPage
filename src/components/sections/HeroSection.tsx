@@ -5,17 +5,15 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useContactModal } from "@/context/ContactModalContext";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import DarkVeil from "@/components/ui/DarkVeil";
 
-interface HeroSectionProps {
-    setContactModalOpen: (val: boolean) => void;
-}
-
-export const HeroSection = ({ setContactModalOpen }: HeroSectionProps) => {
+export const HeroSection = () => {
     const container = useRef<HTMLDivElement>(null);
+    const { setContactModalOpen } = useContactModal();
 
     useGSAP(() => {
         const tl = gsap.timeline();
@@ -70,7 +68,7 @@ export const HeroSection = ({ setContactModalOpen }: HeroSectionProps) => {
                     </p>
 
                     <h1 className="hero-text text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[68px] font-bold tracking-tighter text-white leading-[1.05] sm:leading-[0.95] mb-6 md:mb-8">
-                        Transform ideas <br className="hidden md:block" /> Into digital reality
+                        Expert Software <br className="hidden md:block" /> Development Services
                     </h1>
 
                     <p className="hero-text text-base md:text-lg text-neutral-400 mb-8 max-w-[480px] leading-relaxed font-light">
