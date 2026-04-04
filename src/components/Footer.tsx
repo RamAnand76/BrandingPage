@@ -4,9 +4,11 @@ import { VideoText } from "@/registry/magicui/video-text";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { ContactModal } from "@/components/ContactModal";
 
 const Footer = () => {
   const [year, setYear] = useState(new Date().getFullYear());
+  const [isContactModalOpen, setContactModalOpen] = useState(false);
 
   useEffect(() => {
     setYear(new Date().getFullYear());
@@ -14,6 +16,7 @@ const Footer = () => {
 
   return (
     <footer className="w-full pt-16 pb-20 mt-10 bg-black relative">
+      <ContactModal isOpen={isContactModalOpen} onOpenChange={setContactModalOpen} />
       <div className="container px-4 md:px-8 mx-auto max-w-[1300px]">
 
         {/* 'Ready to work with us ?' CTA Card */}
@@ -37,7 +40,10 @@ const Footer = () => {
             Ready to work with us ?
           </h2>
 
-          <Button className="relative z-10 bg-white hover:bg-neutral-200 text-black rounded-full px-8 py-7 md:px-10 md:py-8 font-semibold text-base md:text-lg flex items-center justify-center gap-3 transition-colors shadow-lg shrink-0 w-full md:w-auto mt-4 md:mt-0">
+          <Button
+            onClick={() => setContactModalOpen(true)}
+            className="relative z-10 bg-white hover:bg-neutral-200 text-black rounded-full px-8 py-7 md:px-10 md:py-8 font-semibold text-base md:text-lg flex items-center justify-center gap-3 transition-colors shadow-lg shrink-0 w-full md:w-auto mt-4 md:mt-0"
+          >
             Book a Free Call
             <ArrowRight className="w-5 h-5" />
           </Button>
