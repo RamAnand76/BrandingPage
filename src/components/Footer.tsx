@@ -4,11 +4,11 @@ import { VideoText } from "@/registry/magicui/video-text";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ContactModal } from "@/components/ContactModal";
+import { useContactModal } from "@/context/ContactModalContext";
 
 const Footer = () => {
   const [year, setYear] = useState(new Date().getFullYear());
-  const [isContactModalOpen, setContactModalOpen] = useState(false);
+  const { setContactModalOpen } = useContactModal();
 
   useEffect(() => {
     setYear(new Date().getFullYear());
@@ -16,7 +16,6 @@ const Footer = () => {
 
   return (
     <footer className="w-full pt-16 pb-20 mt-10 bg-black relative">
-      <ContactModal isOpen={isContactModalOpen} onOpenChange={setContactModalOpen} />
       <div className="container px-4 md:px-8 mx-auto max-w-[1300px]">
 
         {/* 'Ready to work with us ?' CTA Card */}
@@ -82,11 +81,18 @@ const Footer = () => {
           <div className="flex flex-col">
             <h4 className="text-white font-medium mb-8 text-base tracking-wide">Navigation</h4>
             <ul className="space-y-4 flex flex-col">
-              <li><Link href="#service" className="text-neutral-400 hover:text-white transition-colors text-sm">Service</Link></li>
-              <li><Link href="#agency" className="text-neutral-400 hover:text-white transition-colors text-sm">Agency</Link></li>
-              <li><Link href="#case-study" className="text-neutral-400 hover:text-white transition-colors text-sm">Case Study</Link></li>
-              <li><Link href="#resource" className="text-neutral-400 hover:text-white transition-colors text-sm">Resource</Link></li>
-              <li><Link href="#contact" className="text-neutral-400 hover:text-white transition-colors text-sm">Contact</Link></li>
+              <li><Link href="#features" className="text-neutral-400 hover:text-white transition-colors text-sm">Services</Link></li>
+              <li><Link href="/products" className="text-neutral-400 hover:text-white transition-colors text-sm">Products</Link></li>
+              <li><Link href="/about" className="text-neutral-400 hover:text-white transition-colors text-sm">About</Link></li>
+              <li><Link href="/products" className="text-neutral-400 hover:text-white transition-colors text-sm">Resource</Link></li>
+              <li>
+                <button 
+                  onClick={() => setContactModalOpen(true)}
+                  className="text-neutral-400 hover:text-white transition-colors text-sm text-left"
+                >
+                  Contact
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -95,8 +101,15 @@ const Footer = () => {
             <h4 className="text-white font-medium mb-8 text-base tracking-wide">Licence</h4>
             <ul className="space-y-4 flex flex-col">
               <li><Link href="/privacy-policy" className="text-neutral-400 hover:text-white transition-colors text-sm">Privacy Policy</Link></li>
-              <li><Link href="/copyright" className="text-neutral-400 hover:text-white transition-colors text-sm">Copyright</Link></li>
-              <li><Link href="#contact" className="text-neutral-400 hover:text-white transition-colors text-sm">Email Address</Link></li>
+              <li><Link href="/terms-of-service" className="text-neutral-400 hover:text-white transition-colors text-sm">Terms of Service</Link></li>
+              <li>
+                <button 
+                  onClick={() => setContactModalOpen(true)}
+                  className="text-neutral-400 hover:text-white transition-colors text-sm text-left"
+                >
+                  Email Address
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -114,13 +127,13 @@ const Footer = () => {
                 <div className="p-2 border border-white/5 rounded-md bg-white/[0.02] group-hover:bg-white/10 transition-colors text-white shrink-0">
                   <Mail className="w-4 h-4" />
                 </div>
-                <a href="mailto:ramanandr7666@gmail.com" className="mt-2 hover:text-white transition-colors">ramanandr7666@gmail.com</a>
+                <button onClick={() => setContactModalOpen(true)} className="mt-2 hover:text-white transition-colors text-left">ramanandr7666@gmail.com</button>
               </li>
               <li className="flex items-start gap-4 text-neutral-400 text-sm group">
                 <div className="p-2 border border-white/5 rounded-md bg-white/[0.02] group-hover:bg-white/10 transition-colors text-white shrink-0">
                   <MapPin className="w-4 h-4" />
                 </div>
-                <span className="mt-1 leading-relaxed">Address not set yet.<br />India</span>
+                <span className="mt-1 leading-relaxed">Kerala, India</span>
               </li>
             </ul>
           </div>
