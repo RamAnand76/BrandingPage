@@ -76,10 +76,6 @@ const WorksSection = () => {
       */}
       {/* Added pt-24 to offset the floating navbar, creating a truer visual center */}
       <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center py-10 pt-24 sm:py-16 sm:pt-32 pb-8 sm:pb-12 z-10">
-        
-        {/* Ambient background glow */}
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-primary/[0.03] rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-500/[0.03] rounded-full blur-[100px] pointer-events-none" />
 
         {/* Reduced bottom margin to bring heading closer, adjusted centering */}
         {/* Added mt-12 (3 rem units) top margin specifically to push the badge down */}
@@ -114,11 +110,11 @@ const WorksSection = () => {
                 style={{ 
                   flex: isActive ? "12 1 0%" : "1 1 0%",
                   transition: "flex 0.4s cubic-bezier(0.25, 1, 0.5, 1)",
-                  WebkitTransform: "translateZ(0)" // Force GPU acceleration
+                  WebkitTransform: "translateZ(0)" // Force GPU acceleration ONLY on the main wrapper
                 }}
-                className={`relative rounded-[2rem] sm:rounded-[3rem] cursor-pointer group flex-shrink-0 origin-center overflow-hidden border border-white/5 transform-gpu ${isActive ? 'shadow-2xl shadow-primary/10 ring-1 ring-white/20' : 'hover:bg-white/5'}`}
+                className={`relative rounded-[2rem] sm:rounded-[4rem] cursor-pointer group flex-shrink-0 origin-center overflow-hidden border border-white/5 transform-gpu ${isActive ? 'shadow-2xl shadow-primary/10 ring-1 ring-white/20' : 'hover:bg-white/5'}`}
               >
-                {/* Background Image - Removed grayscale/scale for performance */}
+                {/* Background Image */}
                 <Image
                   src={imageSrc}
                   alt={work.alt}
@@ -133,7 +129,7 @@ const WorksSection = () => {
                 
                 {/* Content Container */}
                 <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 md:p-8 flex flex-col justify-end pointer-events-none overflow-hidden">
-                    <div className="flex items-end overflow-visible pb-2 md:pb-4 transform-gpu">
+                    <div className="flex items-end overflow-visible pb-2 md:pb-4">
                       {/* Circular Icon / Number */}
                       <div 
                         className={`flex-shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center font-bold text-lg md:text-2xl shadow-xl z-20 transition-all duration-300 ${isActive ? 'bg-white text-black scale-100 mb-2' : 'bg-black/60 text-white backdrop-blur-md border border-white/20 scale-95 group-hover:bg-white/20'}`}
@@ -143,7 +139,7 @@ const WorksSection = () => {
                       
                       {/* Text details next to circle */}
                       <div
-                          className={`flex flex-col ml-4 md:ml-8 min-w-[280px] sm:min-w-[400px] transition-all duration-300 ease-out transform-gpu ${isActive ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`}
+                          className={`flex flex-col ml-4 md:ml-8 min-w-[280px] sm:min-w-[400px] transition-all duration-300 ease-out transform ${isActive ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`}
                       >
                           <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight drop-shadow-md">
                               {work.title}
@@ -158,7 +154,7 @@ const WorksSection = () => {
                           </div>
 
                           {/* View Project Link inside the stack */}
-                          <div className={`transition-all duration-300 delay-75 transform-gpu ${isActive ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
+                          <div className={`transition-all duration-300 delay-75 transform ${isActive ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
                               {work.link !== "#contact" ? (
                                 <Link href={work.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black hover:bg-neutral-200 transition-all text-sm font-bold tracking-wide shadow-xl w-max">
                                   View Project <ExternalLink className="w-4 h-4 ml-1" />
