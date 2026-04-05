@@ -7,7 +7,16 @@ const toEmail = process.env.TO_EMAIL || 'ramanandr7666@gmail.com';
 export async function POST(request: Request) {
   try {
     const apiKey = process.env.RESEND_API_KEY;
+    
+    // In development mode, log the email to console if no API key is found
     if (!apiKey) {
+      if (process.env.NODE_ENV === 'development') {
+        const body = await request.json();
+        console.log('--- DEVELOPMENT MODE (NO API KEY) ---');
+        console.log('Contact Form Submission:', body);
+        console.log('-------------------------------------');
+        return Response.json({ message: 'Development mode: Email logged to console.' });
+      }
       return Response.json({ error: 'Email service is not configured.' }, { status: 503 });
     }
     const resend = new Resend(apiKey);

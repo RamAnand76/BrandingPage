@@ -21,7 +21,8 @@ const Navigation = () => {
         <Menu items={navItems} isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
       <div className="hidden md:block">
-        <FloatingNav navItems={[
+        <FloatingNav 
+          navItems={[
           {
             name: (
               <div className="flex items-center gap-2">

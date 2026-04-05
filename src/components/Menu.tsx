@@ -1,9 +1,9 @@
-
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { useContactModal } from "@/context/ContactModalContext";
 
 interface MenuProps {
   items: {
@@ -16,6 +16,7 @@ interface MenuProps {
 }
 
 const Menu = ({ items, isOpen, setIsOpen }: MenuProps) => {
+  const { setContactModalOpen } = useContactModal();
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -86,19 +87,22 @@ const Menu = ({ items, isOpen, setIsOpen }: MenuProps) => {
             {items.map((item, index) => (
               <motion.div key={index} variants={itemVariants}>
                 <Link href={item.link} onClick={() => setIsOpen(false)} legacyBehavior>
-                  <a className="text-2xl text-white hover:text-primary transition-colors flex items-center gap-4">
-                    {item.icon}
+                  <a className="text-2xl text-white hover:text-primary transition-colors flex items-center">
                     {item.name}
                   </a>
                 </Link>
               </motion.div>
             ))}
              <motion.div variants={itemVariants}>
-                 <Link href="/#contact" onClick={() => setIsOpen(false)} legacyBehavior>
-                   <a className="text-2xl text-white hover:text-primary transition-colors">
-                     Contact
-                   </a>
-                 </Link>
+                <button
+                  onClick={() => {
+                    setIsOpen(false);
+                    setContactModalOpen(true);
+                  }}
+                  className="text-2xl text-white hover:text-primary transition-colors focus:outline-none"
+                >
+                  Contact
+                </button>
              </motion.div>
           </motion.div>
         )}

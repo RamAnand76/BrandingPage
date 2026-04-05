@@ -45,18 +45,18 @@ export const ExpertServices = () => {
     }, { scope: container });
 
     return (
-        <section ref={container} className="py-20 bg-black relative">
-            <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+        <section ref={container} className="py-20 bg-black relative px-4 md:px-0">
+            <div className="max-w-[1240px] mx-auto px-4 md:px-8">
                 {/* Header */}
                 <div className="flex flex-col items-center text-center mb-16 md:mb-24">
                     <div className="service-header inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.05] mb-6">
                         <div className="w-3 h-3 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center">
                             <div className="w-1.5 h-1.5 bg-black rounded-full" />
                         </div>
-                        <span className="text-xs font-medium text-neutral-300">Digital Agency</span>
+                        <span className="text-xs font-medium text-neutral-300">Software Agency</span>
                     </div>
                     <h2 className="service-header text-4xl md:text-5xl lg:text-[56px] font-normal tracking-tight text-white/90">
-                        A Full-Service Digital Partner
+                        Our Software Development Services
                     </h2>
                 </div>
 
@@ -258,18 +258,18 @@ export const ExpertServices = () => {
                     </div>
 
                     {/* Card D: Everything in One Place */}
-                    <div className="service-card md:col-span-1 rounded-3xl bg-gradient-to-br from-[#8ba1ce] via-[#526a9a] to-[#253255] border border-white/20 relative overflow-hidden flex items-center justify-center group p-6 shadow-2xl min-h-[160px]">
+                    <div className="service-card md:col-span-1 rounded-3xl bg-gradient-to-br from-[#8ba1ce] via-[#526a9a] to-[#253255] border border-white/20 relative overflow-hidden flex items-center justify-center group p-6 shadow-2xl min-h-[180px]">
                         <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
                         {/* Floating abstract structural shapes */}
                         <motion.div
                             animate={{ y: [-10, 10, -10], rotate: [12, 15, 12] }}
                             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -right-10 -bottom-10 w-48 h-64 bg-white/10 backdrop-blur-md"
+                            className="absolute -right-4 -bottom-4 w-32 h-48 bg-white/10 backdrop-blur-md"
                         />
                         <motion.div
                             animate={{ y: [10, -10, 10], rotate: [-12, -15, -12] }}
                             transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -left-10 -top-10 w-32 h-64 bg-white/10 backdrop-blur-md"
+                            className="absolute -left-4 -top-4 w-24 h-48 bg-white/10 backdrop-blur-md"
                         />
 
                         <h3 className="text-2xl md:text-[28px] leading-[1.1] font-medium text-white text-center relative z-10 drop-shadow-xl">
