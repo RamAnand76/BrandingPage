@@ -19,7 +19,8 @@ function ScrollTriggerBlock({ index, onActive }: { index: number, onActive: (idx
     }
   }, [isInView, index, onActive]);
 
-  return <div ref={ref} className="h-screen w-full pointer-events-none" />;
+  // Reduced from h-screen to h-[60vh] to make scrolling much faster and remove dead space at the end
+  return <div ref={ref} className="h-[60vh] w-full pointer-events-none" />;
 }
 
 const WorksSection = () => {
