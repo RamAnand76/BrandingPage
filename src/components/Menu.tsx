@@ -87,8 +87,7 @@ const Menu = ({ items, isOpen, setIsOpen }: MenuProps) => {
             {items.map((item, index) => (
               <motion.div key={index} variants={itemVariants}>
                 <Link href={item.link} onClick={() => setIsOpen(false)} legacyBehavior>
-                  <a className="text-2xl text-white hover:text-primary transition-colors flex items-center gap-4">
-                    {item.icon}
+                  <a className="text-2xl text-white hover:text-primary transition-colors flex items-center">
                     {item.name}
                   </a>
                 </Link>
