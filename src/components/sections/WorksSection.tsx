@@ -74,14 +74,15 @@ const WorksSection = () => {
         Sticky Visual Container
       */}
       {/* Added pt-24 to offset the floating navbar, creating a truer visual center */}
-      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden py-10 pt-24 sm:py-16 sm:pt-32 z-10">
+      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center py-10 pt-24 sm:py-16 sm:pt-32 pb-8 sm:pb-12 z-10">
         
         {/* Ambient background glow */}
         <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-primary/[0.03] rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-500/[0.03] rounded-full blur-[100px] pointer-events-none" />
 
         {/* Reduced bottom margin to bring heading closer, adjusted centering */}
-        <div className="w-full px-4 relative z-10 flex flex-col items-center mb-4 md:mb-6 shrink-0 mt-4">
+        {/* Added mt-12 (3 rem units) top margin specifically to push the badge down */}
+        <div className="w-full px-4 relative z-10 flex flex-col items-center mb-4 md:mb-6 shrink-0 mt-12">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -100,8 +101,8 @@ const WorksSection = () => {
           </p>
         </div>
 
-        {/* Expanding Flex Cards Container - Increased width to 1600px */}
-        <div className="w-[96vw] max-w-[1600px] mx-auto px-2 sm:px-6 md:px-8 h-[65vh] min-h-[450px] max-h-[800px] flex justify-center items-stretch gap-2 md:gap-4 relative z-10">
+        {/* Expanding Flex Cards Container - Optimized for max performance */}
+        <div className="w-[96vw] max-w-[1600px] mx-auto px-2 sm:px-6 md:px-8 h-[60vh] min-h-[400px] max-h-[700px] flex justify-center items-stretch gap-2 md:gap-4 relative z-10">
           {works.map((work, idx) => {
             const isActive = activeIndex === idx;
             const imageSrc = Array.isArray(work.images) ? work.images[0] : work.images;
@@ -111,36 +112,37 @@ const WorksSection = () => {
                 key={work.title}
                 style={{ 
                   flex: isActive ? "12 1 0%" : "1 1 0%",
-                  transition: "flex 0.6s cubic-bezier(0.25, 1, 0.5, 1)"
+                  transition: "flex 0.4s cubic-bezier(0.25, 1, 0.5, 1)",
+                  WebkitTransform: "translateZ(0)" // Force GPU acceleration
                 }}
-                className={`relative rounded-[2rem] sm:rounded-[3rem] cursor-pointer group flex-shrink-0 origin-center overflow-hidden border border-white/5 ${isActive ? 'shadow-2xl shadow-primary/10 ring-1 ring-white/20' : 'hover:bg-white/5'}`}
+                className={`relative rounded-[2rem] sm:rounded-[3rem] cursor-pointer group flex-shrink-0 origin-center overflow-hidden border border-white/5 transform-gpu ${isActive ? 'shadow-2xl shadow-primary/10 ring-1 ring-white/20' : 'hover:bg-white/5'}`}
               >
-                {/* Background Image */}
+                {/* Background Image - Removed grayscale/scale for performance */}
                 <Image
                   src={imageSrc}
                   alt={work.alt}
                   fill
-                  className={`object-cover pointer-events-none transition-all duration-700 ease-out origin-center ${isActive ? 'scale-100 opacity-100' : 'scale-[1.15] opacity-40 grayscale-[50%]'}`}
+                  className={`object-cover pointer-events-none transition-opacity duration-300 ease-out origin-center ${isActive ? 'opacity-100' : 'opacity-40'}`}
                   sizes="(max-width: 768px) 100vw, 1000px"
                   priority={idx === 0}
                 />
                 
                 {/* Dark overlay gradients */}
-                <div className={`absolute inset-0 transition-opacity duration-700 pointer-events-none ${isActive ? 'bg-gradient-to-t from-black/90 via-black/20 to-transparent' : 'bg-black/60 group-hover:bg-black/40'}`} />
+                <div className={`absolute inset-0 transition-opacity duration-300 pointer-events-none ${isActive ? 'bg-gradient-to-t from-black/90 via-black/20 to-transparent' : 'bg-black/60 group-hover:bg-black/40'}`} />
                 
                 {/* Content Container */}
-                <div className="absolute inset-0 p-4 sm:p-6 md:p-8 flex flex-col justify-end pointer-events-none overflow-hidden">
-                    <div className="flex items-end overflow-visible pb-2 md:pb-4">
+                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 md:p-8 flex flex-col justify-end pointer-events-none overflow-hidden">
+                    <div className="flex items-end overflow-visible pb-2 md:pb-4 transform-gpu">
                       {/* Circular Icon / Number */}
                       <div 
-                        className={`flex-shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center font-bold text-lg md:text-2xl shadow-xl z-20 transition-all duration-500 delay-75 ${isActive ? 'bg-white text-black scale-100 mb-2' : 'bg-black/60 text-white backdrop-blur-md border border-white/20 scale-95 group-hover:scale-100 group-hover:bg-white/20'}`}
+                        className={`flex-shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center font-bold text-lg md:text-2xl shadow-xl z-20 transition-all duration-300 ${isActive ? 'bg-white text-black scale-100 mb-2' : 'bg-black/60 text-white backdrop-blur-md border border-white/20 scale-95 group-hover:bg-white/20'}`}
                       >
                          0{idx + 1}
                       </div>
                       
                       {/* Text details next to circle */}
                       <div
-                          className={`flex flex-col ml-4 md:ml-8 min-w-[280px] sm:min-w-[400px] transition-all duration-500 ease-out transform ${isActive ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}
+                          className={`flex flex-col ml-4 md:ml-8 min-w-[280px] sm:min-w-[400px] transition-all duration-300 ease-out transform-gpu ${isActive ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`}
                       >
                           <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight drop-shadow-md">
                               {work.title}
@@ -148,14 +150,14 @@ const WorksSection = () => {
                           
                           <div className="flex flex-wrap gap-2 mb-6">
                             {work.technologies.slice(0,3).map((tech) => (
-                                <span key={tech} className="px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/10 rounded-full text-xs sm:text-sm text-neutral-200 shadow-sm">
+                                <span key={tech} className="px-4 py-1.5 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full text-xs sm:text-sm text-neutral-200 shadow-sm">
                                     {tech}
                                 </span>
                             ))}
                           </div>
 
                           {/* View Project Link inside the stack */}
-                          <div className={`transition-all duration-500 delay-150 transform ${isActive ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-6 pointer-events-none'}`}>
+                          <div className={`transition-all duration-300 delay-75 transform-gpu ${isActive ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
                               {work.link !== "#contact" ? (
                                 <Link href={work.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black hover:bg-neutral-200 transition-all text-sm font-bold tracking-wide shadow-xl w-max">
                                   View Project <ExternalLink className="w-4 h-4 ml-1" />
