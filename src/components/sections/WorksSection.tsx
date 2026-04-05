@@ -1,230 +1,214 @@
-
 "use client";
 
-import { motion } from "framer-motion";
-import { ExternalLink, Sparkles, FolderGit2 } from "lucide-react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
+import { FolderGit2, ExternalLink } from "lucide-react";
 import Image from "next/image";
-import { Badge } from "@/components/ui/badge";
-import placeholderImages from "@/app/lib/placeholder-images.json";
-import { MagicCard } from "@/components/magicui/magic-card";
-import { StripedPattern } from "@/components/ui/striped-pattern";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import Link from "next/link";
-import { FaReact, FaPython, FaGolang, FaNodeJs } from "react-icons/fa6";
-import { SiTypescript, SiTailwindcss, SiSupabase, SiDjango, SiFirebase, SiPostgresql, SiFlutter, SiCodesandbox } from "react-icons/si";
-import { RiNextjsFill } from "react-icons/ri";
-import { Bot, Sparkles as SparklesIcon } from "lucide-react";
+import { useRef, useState, useEffect } from "react";
+import placeholderImages from "@/app/lib/placeholder-images.json";
 
-const techIcons: Record<string, any> = {
-  "React": FaReact,
-  "Sandpack": SiCodesandbox,
-  "TypeScript": SiTypescript,
-  "Tailwind CSS": SiTailwindcss,
-  "Next.JS": RiNextjsFill,
-  "Supabase": SiSupabase,
-  "GenAI kit": SparklesIcon,
-  "Django": SiDjango,
-  "Firebase": SiFirebase,
-  "Python": FaPython,
-  "PostgreSQL": SiPostgresql,
-  "Go": FaGolang,
-  "Flutter": SiFlutter,
-  "Node.js": FaNodeJs,
-};
+// Scroll Trigger Component to handle IntersectionObserver logic reliably
+function ScrollTriggerBlock({ index, onActive }: { index: number, onActive: (idx: number) => void }) {
+  const ref = useRef<HTMLDivElement>(null);
+  // Triggers when the block is near the center of the viewport
+  const isInView = useInView(ref, { margin: "-45% 0px -45% 0px" }); 
+  
+  useEffect(() => {
+    if (isInView) {
+      onActive(index);
+    }
+  }, [isInView, index, onActive]);
+
+  return <div ref={ref} className="h-screen w-full pointer-events-none" />;
+}
 
 const WorksSection = () => {
   const works = [
     {
       title: "Interactive Code Editor Component",
-      description: "A professional-grade React software solution replicating advanced code editing environments, built for high-performance live previews and digital product demos.",
+      description: "A professional-grade React software solution replicating advanced code editing environments.",
       images: [
         "/lovable-uploads/Code-editor compoennet-2.png",
-        "/lovable-uploads/code-editor-component.png",
       ],
       alt: "Custom React Software Development - Code Editor",
-      technologies: ["React", "Sandpack", "TypeScript", "Tailwind CSS"],
+      technologies: ["React", "TypeScript", "Tailwind CSS"],
       isOpenSource: true,
       dataAiHint: "code editor",
       link: "https://v0-primitive-react-sandpack-compone.vercel.app/",
     },
     {
       title: "ScriptForge AI Platform",
-      description: "A complex AI-driven software development project for the entertainment industry. Features advanced machine learning for screenplay management and worldbuilding.",
+      description: "A complex AI-driven software development project for the entertainment industry.",
       images: ["/lovable-uploads/script-forge.png"],
       dataAiHint: "screenwriting application",
       alt: "AI Software Development Services - ScriptForge",
-      technologies: ["Next.JS", "Supabase", "GenAI kit"],
+      technologies: ["Next.JS", "Supabase", "GenAI"],
       link: "https://script-forge-two.vercel.app/",
     },
     {
       title: "Enterprise Laundry Backend",
-      description: "A sophisticated multi-tenant software architecture for large-scale operations, featuring robust role-based access control and scalable cloud infrastructure.",
+      description: "A sophisticated multi-tenant software architecture for large-scale operations.",
       images: [placeholderImages.works[2].src],
       dataAiHint: "backend dashboard",
       alt: "Enterprise Software Solution - Backend Dashboard",
-      technologies: ["Django", "Firebase", "Python", "PostgreSQL"],
+      technologies: ["Django", "Python", "PostgreSQL"],
       link: "#contact",
     },
     {
       title: "SMB Billing & Invoicing App",
-      description: "A mobile-first custom software development for small businesses, integrating automated WhatsApp delivery and secure multi-factor authentication.",
+      description: "A mobile-first custom software development for small businesses.",
       images: ["/lovable-uploads/billin-software.png"],
       alt: "Mobile App Development Services - Billing Software",
-      technologies: ["Go", "React", "Flutter", "PostgreSQL"],
+      technologies: ["Go", "Flutter", "PostgreSQL"],
       isOpenSource: false,
       dataAiHint: "mobile billing application",
       link: "#contact",
     }
   ];
 
-  return (
-    <section className="py-24 md:py-32 bg-black relative overflow-hidden">
-      {/* Ambient background glow */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-primary/[0.03] rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-500/[0.03] rounded-full blur-[100px] pointer-events-none" />
+  const [activeIndex, setActiveIndex] = useState(0);
 
-      <div className="container px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.4 }}
-          className="text-center mb-16 md:mb-20 flex flex-col items-center"
-        >
-          {/* Section pill */}
+  return (
+    <section className="relative bg-black w-full">
+      {/* 
+        Sticky Visual Container: Maps to the viewport height and stays pinned
+        while the user scrolls through the invisible trigger blocks below.
+      */}
+      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden py-16 z-10">
+        
+        {/* Ambient background glow */}
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-primary/[0.03] rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-500/[0.03] rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="w-full px-4 relative z-10 flex flex-col items-center mb-6 md:mb-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.3 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6"
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 mb-4"
           >
             <FolderGit2 className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-gray-300">Our Portfolio</span>
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-            Selected <span className="text-gradient">Works</span>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4 text-center">
+            Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">Works</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            A snapshot of what we build. From complex backends to stunning user interfaces.
+          <p className="text-base sm:text-lg text-neutral-400 max-w-2xl text-center leading-relaxed">
+            A snapshot of what we build. Scroll down to expand and explore our projects.
           </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {works.map((work, idx) => (
-            <motion.div
-              key={work.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="flex"
-            >
-              <MagicCard className="h-full w-full cursor-pointer group" gradientColor="hsl(var(--primary))">
-                <div className="relative rounded-2xl p-5 sm:p-6 flex flex-col bg-[#0A0A0A]/80 backdrop-blur-md border border-white/10 h-full overflow-hidden hover:bg-[#0A0A0A]/60 transition-colors duration-500">
-
-                  <StripedPattern className="absolute inset-0 w-full h-full object-cover z-0 opacity-[0.03] stroke-white/20" />
-
-                  {work.isOpenSource && (
-                    <div className="absolute top-4 right-4 sm:top-5 sm:right-5 z-20">
-                      <Badge variant="default" className="text-[10px] uppercase tracking-wider bg-primary/20 text-primary border-primary/20 backdrop-blur-sm hover:bg-primary/30">
-                        Open Source
-                      </Badge>
-                    </div>
-                  )}
-
-                  <div className="relative z-10 flex-grow flex flex-col h-full">
-                    <div className="relative">
-                      <div className="rounded-xl overflow-hidden mb-6 border border-white/10 shadow-2xl group-hover:scale-[1.02] transition-transform duration-500">
-                        {work.images.length > 1 ? (
-                          <Carousel className="w-full">
-                            <CarouselContent>
-                              {work.images.map((imgSrc, imgIdx) => (
-                                <CarouselItem key={imgIdx}>
-                                  <Image
-                                    src={imgSrc}
-                                    alt={`${work.alt} - ${imgIdx + 1}`}
-                                    width={600}
-                                    height={400}
-                                    className="w-full h-auto object-cover aspect-video"
-                                    data-ai-hint={work.dataAiHint}
-                                  />
-                                </CarouselItem>
-                              ))}
-                            </CarouselContent>
-                            <CarouselPrevious className="left-2 bg-black/50 border-white/10 hover:bg-black/80" />
-                            <CarouselNext className="right-2 bg-black/50 border-white/10 hover:bg-black/80" />
-                          </Carousel>
-                        ) : (
-                          <Image
-                            src={Array.isArray(work.images) ? work.images[0] : work.images}
-                            alt={work.alt}
-                            width={600}
-                            height={400}
-                            className="w-full h-auto object-cover aspect-video transform"
-                            data-ai-hint={work.dataAiHint}
-                          />
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col flex-1">
-                      <div className="flex justify-between items-start mb-3">
-                        <h3 className="text-xl font-bold text-gray-100 group-hover:text-primary transition-colors">{work.title}</h3>
-                      </div>
-
-                      {/* Description fills space */}
-                      <p className="text-gray-400 flex-1 mb-6 text-sm leading-relaxed line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
-                        {work.description}
-                      </p>
-
-                      {/* Tech Icons - Fixed height row, horizontally aligned */}
-                      <div className="h-10 flex items-center gap-3 mb-6 overflow-hidden">
-                        {work.technologies.slice(0, 6).map((tech) => {
-                          const Icon = techIcons[tech] || Sparkles;
-                          return (
-                            <div key={tech} className="relative group/icon">
-                              <div className="p-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 transition-colors">
-                                <Icon className="w-5 h-5" />
-                              </div>
-                              {/* Simple Tooltip */}
-                              <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-black border border-white/10 text-xs text-white rounded opacity-0 group-hover/icon:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50">
-                                {tech}
-                              </span>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-
-                    {/* Bottom Action Area - Aligned at bottom */}
-                    <div className="mt-auto pt-4 border-t border-white/5">
-                      {work.link !== "#contact" ? (
-                        <Link href={work.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-white transition-colors relative z-10 group/link">
-                          View Project <ExternalLink className="w-3.5 h-3.5 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
-                        </Link>
-                      ) : (
-                        <span className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 cursor-not-allowed">
-                          Internal Project
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </MagicCard>
-            </motion.div>
-          ))}
         </div>
+
+        {/* Expanding Flex Cards Container */}
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-8 h-[60vh] min-h-[400px] max-h-[650px] flex gap-3 md:gap-5 transition-all duration-300 relative z-10">
+          {works.map((work, idx) => {
+            const isActive = activeIndex === idx;
+            const imageSrc = Array.isArray(work.images) ? work.images[0] : work.images;
+            
+            return (
+              <motion.div
+                key={work.title}
+                layout
+                initial={false}
+                animate={{ 
+                  flex: isActive ? 8 : 1,
+                }}
+                transition={{ 
+                  type: "spring", 
+                  stiffness: 300, 
+                  damping: 30, 
+                  mass: 0.8
+                }}
+                onClick={() => setActiveIndex(idx)}
+                style={{ overflow: "hidden", minWidth: "60px" }}
+                className={`relative rounded-[2rem] sm:rounded-[3rem] cursor-pointer group flex-shrink-0 ${isActive ? 'shadow-2xl shadow-primary/20 ring-1 ring-white/20' : 'hover:bg-white/5'}`}
+              >
+                {/* Background Image */}
+                <Image
+                  src={imageSrc}
+                  alt={work.alt}
+                  fill
+                  className={`object-cover pointer-events-none transition-all duration-700 ease-out ${isActive ? 'scale-100 opacity-100' : 'scale-[1.15] opacity-40 grayscale-[50%]'}`}
+                  sizes="(max-width: 768px) 100vw, 1000px"
+                />
+                
+                {/* Dark overlay gradients */}
+                <div className={`absolute inset-0 transition-opacity duration-700 ${isActive ? 'bg-gradient-to-t from-black/90 via-black/20 to-transparent' : 'bg-black/40 group-hover:bg-black/20'}`} />
+                
+                {/* Content Container */}
+                <div className="absolute inset-0 p-4 sm:p-6 md:p-8 flex flex-col justify-end">
+                    <div className="flex items-center">
+                      {/* Circular Icon / Number */}
+                      <motion.div 
+                        layout 
+                        className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center font-bold text-base sm:text-lg shadow-xl z-20 transition-colors duration-500 ${isActive ? 'bg-white text-black' : 'bg-black/60 text-white backdrop-blur-md border border-white/20'}`}
+                      >
+                         0{idx + 1}
+                      </motion.div>
+                      
+                      {/* Text details next to circle */}
+                      <motion.div
+                          animate={{ 
+                            opacity: isActive ? 1 : 0, 
+                            x: isActive ? 0 : 20,
+                            width: isActive ? "auto" : 0
+                          }}
+                          transition={{ duration: 0.4, delay: isActive ? 0.1 : 0 }}
+                          className="flex-col overflow-hidden whitespace-nowrap ml-4 min-w-[200px]"
+                      >
+                          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 tracking-wide drop-shadow-lg">
+                              {work.title}
+                          </h3>
+                          <div className="flex gap-2">
+                            {work.technologies.slice(0,3).map((tech) => (
+                                <span key={tech} className="px-3 py-1 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full text-xs sm:text-sm text-neutral-200">
+                                    {tech}
+                                </span>
+                            ))}
+                          </div>
+                      </motion.div>
+                    </div>
+
+                    {/* View Project Link */}
+                    <AnimatePresence>
+                      {isActive && work.link && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 15 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 10 }}
+                          transition={{ delay: 0.2, duration: 0.3 }}
+                          className="mt-6 ml-[3.5rem] sm:ml-[4.5rem] md:ml-[5rem] overflow-hidden whitespace-nowrap"
+                        >
+                          {work.link !== "#contact" ? (
+                            <Link href={work.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black hover:bg-neutral-200 transition-all text-sm font-semibold tracking-wide shadow-xl w-max">
+                              View Project <ExternalLink className="w-4 h-4 ml-1" />
+                            </Link>
+                          ) : (
+                            <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 text-white/70 text-sm font-medium w-max border border-white/10 backdrop-blur-md">
+                              Internal Project
+                            </span>
+                          )}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Invisible Flow Container for Scroll Triggers */}
+      {/* We offset it negatively by 100vh so the first block aligns with the sticky start */}
+      <div className="relative z-0 -mt-[100vh]">
+        {works.map((_, idx) => (
+          <ScrollTriggerBlock key={`trigger-${idx}`} index={idx} onActive={setActiveIndex} />
+        ))}
       </div>
     </section>
   );
 };
 
 export default WorksSection;
+
+
