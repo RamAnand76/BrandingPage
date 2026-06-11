@@ -27,12 +27,8 @@ export const WhatWeDoSection = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6">
           <div className="flex flex-col gap-4">
             <h2 className="text-5xl md:text-6xl font-medium tracking-tight flex items-center gap-3">
-              Technologies We Expertise <ArrowDown className="w-8 h-8 md:w-10 md:h-10 mt-2" strokeWidth={1.5} />
+              Technologies We Expertise
             </h2>
-            <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-white/10 bg-[#0A0A0A] hover:bg-white/5 transition-colors cursor-pointer w-fit text-gray-300">
-              <span className="text-sm font-medium">About Us</span>
-              <ArrowRight className="w-4 h-4" />
-            </div>
           </div>
 
           {/* Navigation Buttons for Desktop */}
@@ -69,16 +65,25 @@ export const WhatWeDoSection = () => {
               key={item.id}
               className="snap-start shrink-0 w-[85vw] sm:w-[350px] md:w-[400px] h-[500px] bg-[#0A0A0A]/60 backdrop-blur-xl rounded-[2rem] p-8 md:p-10 flex flex-col justify-between shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)] border border-white/5 group hover:-translate-y-2 hover:border-white/10 hover:bg-[#0A0A0A]/80 transition-all duration-300"
             >
-              {/* Top Section: Title & Icon */}
+              {/* Top Section: Title */}
               <div>
-                <div className="flex justify-between items-start mb-12">
-                  <h3 className="text-2xl md:text-3xl font-medium tracking-tight leading-tight w-2/3">
-                    {item.name}
-                  </h3>
-                  <div className="w-12 h-12 flex items-center justify-center bg-white/5 border border-white/10 rounded-2xl p-2.5 text-white">
-                    {item.icon}
+                <h3 className="text-2xl md:text-3xl font-medium tracking-tight leading-tight mb-8">
+                  {item.name}
+                </h3>
+              </div>
+
+              {/* Middle Section: Icons */}
+              <div className="flex-1 flex items-center gap-3 flex-wrap">
+                {item.technologies.map((tech, i) => (
+                  <div 
+                    key={i} 
+                    className="w-14 h-14 flex items-center justify-center bg-[#111111] border border-white/10 rounded-2xl p-3 shadow-inner hover:scale-110 transition-transform duration-300"
+                    style={{ color: tech.color }}
+                    title={tech.name}
+                  >
+                    {tech.icon}
                   </div>
-                </div>
+                ))}
               </div>
 
               {/* Bottom Section: Description & Decoration */}
