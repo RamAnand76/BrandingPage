@@ -59,6 +59,8 @@ const WorksSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
+  // Ref to hold current activeIndex inside GSAP closure — fixes stale closure bug
+  const activeIndexRef = useRef(0);
 
   // GSAP continuous scroll timeline
   useGSAP(() => {
@@ -71,14 +73,16 @@ const WorksSection = () => {
         trigger: sectionRef.current,
         start: "top top",
         end: "bottom bottom",
-        scrub: 0.5, // 0.5s smoothing on the scrub for buttery feeling
+        scrub: 1.5, // 1.5s smoothing on the scrub for an ultra-smooth buttery feeling
         onUpdate: (self) => {
           // Progress goes from 0.0 to 1.0
           const numTransitions = works.length - 1;
           const rawIndex = self.progress * numTransitions;
           // Switch the active inner-text slightly early (when the card is halfway expanding)
           const newIndex = Math.min(Math.floor(rawIndex + 0.4), works.length - 1);
-          if (newIndex !== activeIndex) {
+          // Use ref to avoid stale closure — always compares against latest activeIndex
+          if (newIndex !== activeIndexRef.current) {
+            activeIndexRef.current = newIndex;
             setActiveIndex(newIndex);
           }
         }
@@ -88,8 +92,8 @@ const WorksSection = () => {
     // We chain the expansion/collapse of the cards sequentially into the timeline
     for (let i = 0; i < works.length - 1; i++) {
         // Time maps to sequence (0, 1, 2)
-        tl.to(cardsRef.current[i], { flex: 1, ease: "none" }, i)
-          .to(cardsRef.current[i + 1], { flex: 12, ease: "none" }, i);
+        tl.to(cardsRef.current[i], { flex: 1, ease: "power2.inOut" }, i)
+          .to(cardsRef.current[i + 1], { flex: 16, ease: "power2.inOut" }, i);
     }
     
     // Safety cleanup
@@ -101,30 +105,30 @@ const WorksSection = () => {
 
   return (
     // Create a mathematically precise scroll container length based on item count
-    <section ref={sectionRef} className="relative bg-black w-full" style={{ height: `${works.length * 80}vh` }}>
+    <section ref={sectionRef} className="relative bg-black w-full" style={{ height: `${works.length * 100}vh` }}>
       {/* Sticky boundary that holds the visual port in frame while scrolling */}
-      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center py-10 pt-24 sm:py-16 sm:pt-32 pb-8 sm:pb-12 z-10 overflow-hidden">
+      <div className="sticky top-0 h-screen w-full flex flex-col items-center pt-24 pb-4 gap-4 z-10 overflow-hidden">
 
-        <div className="w-full px-4 relative z-10 flex flex-col items-center mb-4 md:mb-6 shrink-0 mt-12">
+        <div className="w-full px-4 relative z-10 flex flex-col items-center shrink-0">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 mb-3"
           >
-            <FolderGit2 className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-gray-300">Our Portfolio</span>
+            <FolderGit2 className="w-3.5 h-3.5 text-primary" />
+            <span className="text-xs font-medium text-gray-300">Our Portfolio</span>
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-2 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-1.5 text-center">
             Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">Works</span>
           </h2>
-          <p className="text-base sm:text-lg text-neutral-400 max-w-2xl text-center leading-relaxed hidden sm:block">
+          <p className="text-xs text-neutral-400 max-w-xl text-center leading-relaxed hidden sm:block">
             A snapshot of what we build. Scroll down to expand and explore our projects.
           </p>
         </div>
 
-        <div className="w-[96vw] max-w-[1600px] mx-auto px-2 sm:px-6 md:px-8 h-[60vh] min-h-[400px] max-h-[700px] flex justify-center items-stretch gap-2 md:gap-4 relative z-10">
+        <div className="w-[94vw] max-w-[1500px] mx-auto flex-1 min-h-0 flex justify-center items-stretch gap-3 md:gap-4 relative z-10">
           {works.map((work, idx) => {
             const isActive = activeIndex === idx;
             const imageSrc = Array.isArray(work.images) ? work.images[0] : work.images;
@@ -137,7 +141,7 @@ const WorksSection = () => {
                     if (el) cardsRef.current[idx] = el;
                 }}
                 style={{ 
-                  flex: idx === 0 ? "12 1 0%" : "1 1 0%",
+                  flex: idx === 0 ? "16 1 0%" : "1 1 0%",
                   WebkitTransform: "translateZ(0)" // Force GPU acceleration
                   // Crucial: REMOVED the CSS flex transition here, letting GSAP manage inline ticks exclusively
                 }}

@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import WorksSection from "@/components/sections/WorksSection";
 import { ExpertServices } from "@/components/sections/ExpertServices";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { TechScroll } from "@/components/TechScroll";
+import { WhatWeDoSection } from "@/components/sections/WhatWeDoSection";
 import { PricingSection } from "@/components/pricing/PricingSection";
 
 const Index = () => {
@@ -31,9 +31,9 @@ const Index = () => {
         </div>
       )}
 
-      {/* Tech Stack Section */}
-      <div id="tech-stack" className="bg-black">
-        <TechScroll />
+      {/* What We Do Section */}
+      <div id="what-we-do">
+        <WhatWeDoSection />
       </div>
 
       {/* Works Section */}
