@@ -45,62 +45,62 @@ export const ExpertServices = () => {
     }, { scope: container });
 
     return (
-        <section ref={container} className="py-20 bg-black relative px-4 md:px-0">
-            <div className="max-w-[1240px] mx-auto px-4 md:px-8">
+        <section ref={container} className="py-12 lg:py-6 bg-black relative px-4 md:px-0 flex flex-col justify-center min-h-[100svh] overflow-hidden">
+            <div className="max-w-[1240px] w-full mx-auto px-4 md:px-8">
                 {/* Header */}
-                <div className="flex flex-col items-center text-center mb-16 md:mb-24">
-                    <div className="service-header inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.05] mb-6">
-                        <div className="w-3 h-3 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center">
+                <div className="flex flex-col items-center text-center mb-8 lg:mb-6">
+                    <div className="service-header inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.05] mb-3 lg:mb-2">
+                        <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center">
                             <div className="w-1.5 h-1.5 bg-black rounded-full" />
                         </div>
-                        <span className="text-xs font-medium text-neutral-300">Software Agency</span>
+                        <span className="text-[11px] font-medium text-neutral-300">Software Agency</span>
                     </div>
-                    <h2 className="service-header text-4xl md:text-5xl lg:text-[56px] font-normal tracking-tight text-white/90">
+                    <h2 className="service-header text-3xl md:text-4xl lg:text-[40px] font-normal tracking-tight text-white/90">
                         Our Software Development Services
                     </h2>
                 </div>
 
                 {/* Bento Grid */}
-                <div className="service-grid grid grid-cols-1 md:grid-cols-3 gap-5 md:grid-rows-[auto_auto]">
+                <div className="service-grid grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-3.5 md:grid-rows-[auto_auto]">
 
                     {/* Card A: Web Development */}
-                    <div className="service-card md:col-span-2 bg-[#0c0c0c] border border-white/[0.05] rounded-3xl relative overflow-hidden group shadow-2xl min-h-[320px]">
+                    <div className="service-card md:col-span-2 bg-[#0c0c0c] border border-white/[0.05] rounded-3xl relative overflow-hidden group shadow-2xl min-h-[260px] lg:min-h-[210px]">
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-indigo-500/10 blur-[120px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-                        <div className="p-8 md:p-10 relative z-10 w-full md:w-[55%] flex flex-col h-full justify-between">
+                        <div className="p-6 md:p-8 lg:p-7 relative z-10 w-full md:w-[55%] flex flex-col h-full justify-between">
                             <div>
-                                <Globe className="w-6 h-6 text-neutral-400 mb-6 group-hover:text-white transition-colors" />
-                                <h3 className="text-2xl font-medium text-white mb-3">Web Development</h3>
-                                <p className="text-sm text-neutral-400 leading-relaxed font-light">
+                                <Globe className="w-5 h-5 text-neutral-400 mb-4 group-hover:text-white transition-colors" />
+                                <h3 className="text-xl md:text-2xl font-medium text-white mb-2">Web Development</h3>
+                                <p className="text-xs lg:text-[13px] text-neutral-400 leading-relaxed font-light">
                                     Professional-grade web applications using React.js, Next.js with modern development practices.
                                 </p>
                             </div>
                         </div>
 
                         {/* Animated Code Mock */}
-                        <div className="hidden md:block absolute -right-4 -bottom-4 top-8 w-[50%] bg-[#111] border border-white/[0.05] rounded-tl-2xl rounded-tr-2xl p-6 overflow-hidden transform group-hover:-translate-x-2 transition-transform duration-500 shadow-2xl">
+                        <div className="hidden md:block absolute -right-4 -bottom-4 top-4 w-[46%] bg-[#111] border border-white/[0.05] rounded-tl-2xl rounded-tr-2xl p-4 overflow-hidden transform group-hover:-translate-x-2 transition-transform duration-500 shadow-2xl">
                             <motion.div
                                 animate={{ y: [0, -40, 0] }}
                                 transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                                className="text-[11px] leading-relaxed text-neutral-500 font-mono flex flex-col gap-1"
+                                className="text-[10px] leading-relaxed text-neutral-500 font-mono flex flex-col gap-0.5"
                             >
                                 <div><span className="text-purple-400">import</span> {'{'} useState {'}'} <span className="text-purple-400">from</span> <span className="text-green-400">&apos;react&apos;</span>;</div>
                                 <div><span className="text-purple-400">import</span> {'{'} motion {'}'} <span className="text-purple-400">from</span> <span className="text-green-400">&apos;framer-motion&apos;</span>;</div>
                                 <br />
                                 <div><span className="text-purple-400">export default function</span> <span className="text-blue-400">App</span>() {'{'}</div>
-                                <div className="pl-4"><span className="text-purple-400">return</span> (</div>
-                                <div className="pl-8 text-neutral-400">{'<main className="flex min-h-screen">'}</div>
+                                <div className="pl-3"><span className="text-purple-400">return</span> (</div>
+                                <div className="pl-6 text-neutral-400">{'<main className="flex">'}</div>
                                 <motion.div
                                     animate={{ opacity: [0.5, 1, 0.5] }}
                                     transition={{ duration: 2, repeat: Infinity }}
-                                    className="pl-12 text-blue-300"
+                                    className="pl-9 text-blue-300"
                                 >
                                     {'<HeroSection />'}
                                 </motion.div>
-                                <div className="pl-12 text-blue-300">{'<FeaturesGrid />'}</div>
-                                <div className="pl-12 text-blue-300">{'<InteractiveUI />'}</div>
-                                <div className="pl-8 text-neutral-400">{'</main>'}</div>
-                                <div className="pl-4">);</div>
+                                <div className="pl-9 text-blue-300">{'<FeaturesGrid />'}</div>
+                                <div className="pl-9 text-blue-300">{'<InteractiveUI />'}</div>
+                                <div className="pl-6 text-neutral-400">{'</main>'}</div>
+                                <div className="pl-3">);</div>
                                 <div>{'}'}</div>
                             </motion.div>
                         </div>
@@ -110,17 +110,17 @@ export const ExpertServices = () => {
                     <div className="service-card md:col-span-1 md:row-span-2 bg-[#0c0c0c] border border-white/[0.05] rounded-3xl relative overflow-hidden group shadow-2xl">
                         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-purple-500/10 blur-[100px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-                        <div className="p-8 md:p-10 relative z-10 flex flex-col h-full">
+                        <div className="p-6 md:p-8 lg:p-7 relative z-10 flex flex-col h-full justify-between">
                             <div>
-                                <Bot className="w-6 h-6 text-neutral-400 mb-6 group-hover:text-white transition-colors" />
-                                <h3 className="text-2xl font-medium text-white mb-3">AI Agent Building</h3>
-                                <p className="text-sm text-neutral-400 leading-relaxed font-light">
+                                <Bot className="w-5 h-5 text-neutral-400 mb-4 group-hover:text-white transition-colors" />
+                                <h3 className="text-xl md:text-2xl font-medium text-white mb-2">AI Agent Building</h3>
+                                <p className="text-xs lg:text-[13px] text-neutral-400 leading-relaxed font-light">
                                     Intelligent AI agents and chatbots powered by cutting-edge machine learning technologies.
                                 </p>
                             </div>
 
                             {/* Animated AI Chat Mock */}
-                            <div className="mt-auto h-[220px] w-full flex flex-col justify-end relative z-20">
+                            <div className="mt-6 h-[170px] lg:h-[140px] w-full flex flex-col justify-end relative z-20">
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0c] via-transparent to-transparent pointer-events-none z-10" />
 
                                 <motion.div
@@ -128,20 +128,20 @@ export const ExpertServices = () => {
                                         hidden: { opacity: 1 },
                                         visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.3 } }
                                     }}
-                                    className="space-y-3 pb-8 px-1 sm:px-0 relative z-0 flex flex-col w-full"
+                                    className="space-y-2 pb-4 px-1 sm:px-0 relative z-0 flex flex-col w-full"
                                 >
                                     {/* Message 1 */}
                                     <motion.div
                                         variants={{
-                                            hidden: { opacity: 0, y: 15, scale: 0.95 },
+                                            hidden: { opacity: 0, y: 10, scale: 0.95 },
                                             visible: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 300, damping: 20 } }
                                         }}
-                                        className="flex items-end gap-2 w-full"
+                                        className="flex items-end gap-1.5 w-full"
                                     >
-                                        <div className="w-7 h-7 rounded-full shrink-0 overflow-hidden bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center border border-white/10 shadow-sm">
-                                            <span className="text-[11px] font-bold text-white">U</span>
+                                        <div className="w-6 h-6 rounded-full shrink-0 overflow-hidden bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center border border-white/10 shadow-sm">
+                                            <span className="text-[9px] font-bold text-white">U</span>
                                         </div>
-                                        <div className="bg-[#222222] p-2.5 px-3.5 rounded-2xl rounded-bl-none text-[12px] text-white/90 shadow-sm border border-white/[0.05] tracking-wide max-w-[80%]">
+                                        <div className="bg-[#222222] p-2 px-3 rounded-2xl rounded-bl-none text-[11px] text-white/90 shadow-sm border border-white/[0.05] tracking-wide max-w-[80%]">
                                             Hey! Are you free for a quick call?
                                         </div>
                                     </motion.div>
@@ -149,51 +149,34 @@ export const ExpertServices = () => {
                                     {/* Message 2 */}
                                     <motion.div
                                         variants={{
-                                            hidden: { opacity: 0, y: 15, scale: 0.95 },
+                                            hidden: { opacity: 0, y: 10, scale: 0.95 },
                                             visible: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 300, damping: 20 } }
                                         }}
-                                        className="flex items-end gap-2 w-full justify-end"
+                                        className="flex items-end gap-1.5 w-full justify-end"
                                     >
-                                        <div className="bg-[#333333] p-2.5 px-3.5 rounded-2xl rounded-br-none text-[12px] text-white/90 shadow-sm border border-white/[0.05] tracking-wide max-w-[80%]">
+                                        <div className="bg-[#333333] p-2 px-3 rounded-2xl rounded-br-none text-[11px] text-white/90 shadow-sm border border-white/[0.05] tracking-wide max-w-[80%]">
                                             Sure, give me 5 minutes!
                                         </div>
-                                        <div className="w-7 h-7 rounded-full shrink-0 overflow-hidden bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center border border-white/10 shadow-sm">
-                                            <span className="text-[11px] font-bold text-white">A</span>
+                                        <div className="w-6 h-6 rounded-full shrink-0 overflow-hidden bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center border border-white/10 shadow-sm">
+                                            <span className="text-[9px] font-bold text-white">A</span>
                                         </div>
                                     </motion.div>
 
                                     {/* Message 3 */}
                                     <motion.div
                                         variants={{
-                                            hidden: { opacity: 0, y: 15, scale: 0.95 },
+                                            hidden: { opacity: 0, y: 10, scale: 0.95 },
                                             visible: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 300, damping: 20 } }
                                         }}
-                                        className="flex items-end gap-2 w-full"
+                                        className="flex items-end gap-1.5 w-full"
                                     >
-                                        <div className="w-7 h-7 rounded-full shrink-0 overflow-hidden bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center border border-white/10 shadow-sm">
-                                            <span className="text-[11px] font-bold text-white">C</span>
+                                        <div className="w-6 h-6 rounded-full shrink-0 overflow-hidden bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center border border-white/10 shadow-sm">
+                                            <span className="text-[9px] font-bold text-white">C</span>
                                         </div>
-                                        <div className="bg-[#222222] p-2.5 px-3.5 rounded-2xl rounded-bl-none text-[12px] text-white/90 shadow-sm border border-white/[0.05] tracking-wide max-w-[80%]">
+                                        <div className="bg-[#222222] p-2 px-3 rounded-2xl rounded-bl-none text-[11px] text-white/90 shadow-sm border border-white/[0.05] tracking-wide max-w-[80%]">
                                             Sounds good 👍
                                         </div>
                                     </motion.div>
-
-                                    {/* Message 4 */}
-                                    <motion.div
-                                        variants={{
-                                            hidden: { opacity: 0, y: 15, scale: 0.95 },
-                                            visible: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 300, damping: 20 } }
-                                        }}
-                                        className="flex items-end gap-2 w-full justify-end"
-                                    >
-                                        <div className="bg-[#333333] p-2.5 px-3.5 rounded-2xl rounded-br-none text-[12px] text-white/90 shadow-sm border border-white/[0.05] tracking-wide max-w-[80%]">
-                                            I&apos;m not sure if I can make it.
-                                        </div>
-                                        <div className="w-7 h-7 rounded-full shrink-0 overflow-hidden bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center border border-white/10 shadow-sm">
-                                            <span className="text-[11px] font-bold text-white">A</span>
-                                        </div>
-                                    </motion.div>
-
                                 </motion.div>
                             </div>
                         </div>
@@ -203,35 +186,35 @@ export const ExpertServices = () => {
                     <div className="service-card md:col-span-1 md:row-span-2 bg-[#0c0c0c] border border-white/[0.05] rounded-3xl relative overflow-hidden group shadow-2xl">
                         <div className="absolute -bottom-20 -left-20 w-[300px] h-[300px] bg-indigo-500/10 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-                        <div className="p-8 md:p-10 relative z-10 flex flex-col h-full">
+                        <div className="p-6 md:p-8 lg:p-7 relative z-10 flex flex-col h-full justify-between">
                             <div>
-                                <Palette className="w-6 h-6 text-neutral-400 mb-6 group-hover:text-white transition-colors" />
-                                <h3 className="text-2xl font-medium text-white mb-3">Branding</h3>
-                                <p className="text-sm text-neutral-400 leading-relaxed font-light">
+                                <Palette className="w-5 h-5 text-neutral-400 mb-4 group-hover:text-white transition-colors" />
+                                <h3 className="text-xl md:text-2xl font-medium text-white mb-2">Branding</h3>
+                                <p className="text-xs lg:text-[13px] text-neutral-400 leading-relaxed font-light">
                                     Complete brand identity solutions including logo design, color schemes, and brand guidelines.
                                 </p>
                             </div>
 
                             {/* Animated Branding Mock */}
-                            <div className="mt-auto flex flex-row items-center gap-3 overflow-visible">
+                            <div className="mt-6 flex flex-row items-center gap-2 overflow-visible">
                                 <motion.div
                                     whileHover={{ scale: 1.05, boxShadow: "0px 0px 20px 0px rgba(255,255,255,0.15)" }}
                                     transition={{ duration: 0.2 }}
-                                    className="bg-[#121212] border border-white/[0.05] rounded-[20px] p-4 flex flex-col justify-center shadow-lg h-[130px] shrink-0"
+                                    className="bg-[#121212] border border-white/[0.05] rounded-[15px] p-3 flex flex-col justify-center shadow-lg h-[95px] shrink-0"
                                 >
-                                    <span className="text-[10px] text-neutral-400 leading-[1.6] font-light tracking-wide pt-1">Aa Bb Cc Dd<br />Ee Ff Gg<br />Ii Jj Kk<br />Mm Nn Oo<br />Pp Qq Rr</span>
+                                    <span className="text-[8px] text-neutral-400 leading-[1.5] font-light tracking-wide pt-0.5">Aa Bb Cc Dd<br />Ee Ff Gg<br />Ii Jj Kk<br />Mm Nn Oo</span>
                                 </motion.div>
 
                                 <motion.div
                                     whileHover={{ scale: 1.05, boxShadow: "0px 0px 20px 0px rgba(255,255,255,0.15)" }}
                                     transition={{ duration: 0.2 }}
-                                    className="w-[95px] h-[95px] shrink-0 bg-[#0a0a0a] border border-white/[0.05] rounded-[20px] flex items-center justify-center shadow-lg relative overflow-hidden"
+                                    className="w-[75px] h-[75px] shrink-0 bg-[#0a0a0a] border border-white/[0.05] rounded-[15px] flex items-center justify-center shadow-lg relative overflow-hidden"
                                 >
                                     {/* Continuously Rotating Abstract Logo */}
                                     <motion.svg
                                         animate={{ rotate: 360 }}
                                         transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                                        className="w-10 h-10 text-white relative z-10"
+                                        className="w-8 h-8 text-white relative z-10"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
                                     >
                                         <path d="M12 2v20 M2 12h20 M4.93 4.93l14.14 14.14 M4.93 19.07L19.07 4.93" className="opacity-90" />
@@ -242,15 +225,15 @@ export const ExpertServices = () => {
                                 <motion.div
                                     whileHover={{ scale: 1.05, boxShadow: "0px 0px 20px 0px rgba(255,255,255,0.15)" }}
                                     transition={{ duration: 0.2 }}
-                                    className="w-[95px] h-[95px] shrink-0 bg-[#121212] border border-white/[0.05] rounded-[20px] p-3 flex-col flex items-center justify-center gap-2.5 shadow-lg"
+                                    className="w-[75px] h-[75px] shrink-0 bg-[#121212] border border-white/[0.05] rounded-[15px] p-2 flex-col flex items-center justify-center gap-2 shadow-lg"
                                 >
                                     <div className="w-full flex justify-around">
-                                        <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 0 }} className="w-4 h-4 rounded-full bg-indigo-500" />
-                                        <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }} className="w-4 h-4 rounded-full bg-purple-500" />
+                                        <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 0 }} className="w-3.5 h-3.5 rounded-full bg-indigo-500" />
+                                        <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }} className="w-3.5 h-3.5 rounded-full bg-purple-500" />
                                     </div>
                                     <div className="w-full flex justify-around">
-                                        <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 1 }} className="w-4 h-4 rounded-full bg-blue-500" />
-                                        <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 1.5 }} className="w-4 h-4 rounded-full bg-pink-500" />
+                                        <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 1 }} className="w-3.5 h-3.5 rounded-full bg-blue-500" />
+                                        <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 1.5 }} className="w-3.5 h-3.5 rounded-full bg-pink-500" />
                                     </div>
                                 </motion.div>
                             </div>
@@ -258,60 +241,60 @@ export const ExpertServices = () => {
                     </div>
 
                     {/* Card D: Everything in One Place */}
-                    <div className="service-card md:col-span-1 rounded-3xl bg-gradient-to-br from-[#8ba1ce] via-[#526a9a] to-[#253255] border border-white/20 relative overflow-hidden flex items-center justify-center group p-6 shadow-2xl min-h-[180px]">
+                    <div className="service-card md:col-span-1 rounded-3xl bg-gradient-to-br from-[#8ba1ce] via-[#526a9a] to-[#253255] border border-white/20 relative overflow-hidden flex items-center justify-center group p-5 shadow-2xl min-h-[140px] lg:min-h-[105px]">
                         <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
                         {/* Floating abstract structural shapes */}
                         <motion.div
                             animate={{ y: [-10, 10, -10], rotate: [12, 15, 12] }}
                             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -right-4 -bottom-4 w-32 h-48 bg-white/10 backdrop-blur-md"
+                            className="absolute -right-4 -bottom-4 w-24 h-36 bg-white/10 backdrop-blur-md"
                         />
                         <motion.div
                             animate={{ y: [10, -10, 10], rotate: [-12, -15, -12] }}
                             transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -left-4 -top-4 w-24 h-48 bg-white/10 backdrop-blur-md"
+                            className="absolute -left-4 -top-4 w-20 h-36 bg-white/10 backdrop-blur-md"
                         />
 
-                        <h3 className="text-2xl md:text-[28px] leading-[1.1] font-medium text-white text-center relative z-10 drop-shadow-xl">
+                        <h3 className="text-xl md:text-2xl leading-[1.15] font-medium text-white text-center relative z-10 drop-shadow-xl">
                             Everything<br />in One Place
                         </h3>
                     </div>
 
                     {/* Card E: Mobile App Building */}
-                    <div className="service-card md:col-span-2 bg-[#0c0c0c] border border-white/[0.05] rounded-3xl relative overflow-hidden group shadow-2xl min-h-[320px]">
+                    <div className="service-card md:col-span-2 bg-[#0c0c0c] border border-white/[0.05] rounded-3xl relative overflow-hidden group shadow-2xl min-h-[260px] lg:min-h-[210px]">
                         <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-sky-500/10 blur-[100px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-                        <div className="p-8 md:p-10 relative z-10 w-full md:w-[45%] flex flex-col h-full justify-between">
+                        <div className="p-6 md:p-8 lg:p-7 relative z-10 w-full md:w-[45%] flex flex-col h-full justify-between">
                             <div>
-                                <Smartphone className="w-6 h-6 text-neutral-400 mb-6 group-hover:text-white transition-colors" />
-                                <h3 className="text-2xl font-medium text-white mb-3">Mobile App Building</h3>
-                                <p className="text-sm text-neutral-400 leading-relaxed font-light">
+                                <Smartphone className="w-5 h-5 text-neutral-400 mb-4 group-hover:text-white transition-colors" />
+                                <h3 className="text-xl md:text-2xl font-medium text-white mb-2">Mobile App Building</h3>
+                                <p className="text-xs lg:text-[13px] text-neutral-400 leading-relaxed font-light">
                                     Native and cross-platform mobile applications for iOS and Android using Flutter and React Native.
                                 </p>
                             </div>
                         </div>
 
                         {/* Animated Mobile Device Mock UI */}
-                        <div className="hidden md:flex absolute right-8 -bottom-12 top-8 w-[40%] justify-center overflow-hidden transform group-hover:-translate-y-2 transition-transform duration-500">
-                            <div className="w-[85%] max-w-[260px] h-[500px] bg-black border-[6px] border-[#222] rounded-[32px] overflow-hidden relative shadow-2xl flex flex-col pt-6 px-4">
+                        <div className="hidden md:flex absolute right-8 -bottom-16 top-4 w-[40%] justify-center overflow-hidden transform group-hover:-translate-y-2 transition-transform duration-500">
+                            <div className="w-[85%] max-w-[210px] h-[360px] lg:h-[300px] bg-black border-[5px] border-[#222] rounded-[28px] overflow-hidden relative shadow-2xl flex flex-col pt-4 px-3">
                                 {/* Phone Notch/Dynamic Island */}
-                                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[35%] h-5 bg-[#222] rounded-b-2xl z-20" />
+                                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[35%] h-4 bg-[#222] rounded-b-xl z-20" />
 
                                 {/* App header */}
-                                <div className="flex justify-between items-center mb-6 relative z-10">
-                                    <div className="w-8 h-8 rounded-full bg-white/10" />
-                                    <div className="w-20 h-3 rounded-full bg-white/5" />
+                                <div className="flex justify-between items-center mb-4 relative z-10">
+                                    <div className="w-6 h-6 rounded-full bg-white/10" />
+                                    <div className="w-16 h-2.5 rounded-full bg-white/5" />
                                 </div>
 
                                 {/* Scrolling Content Feed */}
                                 <motion.div
                                     animate={{ y: [0, -180, 0] }}
                                     transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                                    className="flex flex-col gap-4 relative z-10"
+                                    className="flex flex-col gap-3 relative z-10"
                                 >
-                                    {[1, 2, 3, 4, 5].map((i) => (
-                                        <div key={i} className="w-full bg-[#161616] border border-white/[0.05] rounded-2xl p-4 shrink-0">
-                                            <div className="w-full h-32 bg-white/[0.02] rounded-xl mb-3 overflow-hidden relative">
+                                    {[1, 2, 3].map((i) => (
+                                        <div key={i} className="w-full bg-[#161616] border border-white/[0.05] rounded-xl p-3 shrink-0">
+                                            <div className="w-full h-20 bg-white/[0.02] rounded-lg mb-2 overflow-hidden relative">
                                                 {/* Mock skeleton image block */}
                                                 <motion.div
                                                     animate={{
@@ -321,14 +304,14 @@ export const ExpertServices = () => {
                                                     className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.05),transparent)] bg-[length:200%_100%]"
                                                 />
                                             </div>
-                                            <div className="w-3/4 h-3 bg-white/10 rounded-full mb-2" />
-                                            <div className="w-1/2 h-2 bg-white/5 rounded-full" />
+                                            <div className="w-3/4 h-2 bg-white/10 rounded-full mb-1.5" />
+                                            <div className="w-1/2 h-1.5 bg-white/5 rounded-full" />
                                         </div>
                                     ))}
                                 </motion.div>
 
                                 {/* Bottom Gradient Fade */}
-                                <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black via-black/80 to-transparent z-20 pointer-events-none" />
+                                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black via-black/80 to-transparent z-20 pointer-events-none" />
                             </div>
                         </div>
                     </div>

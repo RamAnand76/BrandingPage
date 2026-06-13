@@ -128,11 +128,11 @@ const AboutSection = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:divide-x md:divide-white/10">
             <div className="flex-1 flex flex-col items-center justify-center text-center px-4">
-              <span className="text-4xl md:text-5xl font-bold text-white mb-2">10+</span>
+              <span className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#22c55e] mb-2">10+</span>
               <span className="text-sm text-gray-400 uppercase tracking-widest">Projects Completed</span>
             </div>
             <div className="flex-1 flex flex-col items-center justify-center text-center px-4">
-              <span className="text-4xl md:text-5xl font-bold text-white mb-2">3+</span>
+              <span className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#22c55e] mb-2">3+</span>
               <span className="text-sm text-gray-400 uppercase tracking-widest">Satisfied Clients</span>
             </div>
           </div>
@@ -145,20 +145,20 @@ const AboutSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="group relative h-full min-h-[300px] bg-white text-black rounded-[2rem] p-8 md:p-10 flex flex-col justify-between overflow-hidden"
+            className="group relative h-full min-h-[300px] bg-gradient-to-br from-[#061F0E] via-[#020C05] to-black text-white border border-[#22c55e]/25 rounded-[2rem] p-8 md:p-10 flex flex-col justify-between overflow-hidden"
           >
             <div>
-              <h3 className="text-4xl font-medium tracking-tight mb-6">VISION</h3>
-              <p className="text-black/70 text-lg leading-relaxed max-w-sm">
+              <h3 className="text-4xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#22c55e] mb-6">VISION</h3>
+              <p className="text-gray-300 text-lg leading-relaxed max-w-sm">
                 To be the catalyst for digital evolution, empowering businesses to reach their full potential through technology.
               </p>
             </div>
             {/* Icon Notch Top Right */}
-            <div className="absolute top-0 right-0 bg-black p-4 rounded-bl-[2rem]">
-              <Star className="w-6 h-6 text-white" />
+            <div className="absolute top-0 right-0 bg-black/60 backdrop-blur-md border-l border-b border-white/10 p-4 rounded-bl-[2rem]">
+              <Star className="w-6 h-6 text-primary" />
             </div>
             {/* Decorative */}
-            <div className="absolute bottom-0 right-0 w-32 h-32 bg-gray-100 rounded-tl-full opacity-50 group-hover:scale-110 transition-transform duration-500" />
+            <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#22c55e]/5 rounded-tl-full group-hover:scale-110 transition-transform duration-500" />
           </motion.div>
 
           {/* Mission Card */}
@@ -166,20 +166,20 @@ const AboutSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="group relative h-full min-h-[300px] bg-[#1A1A1A] border border-white/10 rounded-[2rem] p-8 md:p-10 flex flex-col justify-between overflow-hidden text-white"
+            className="group relative h-full min-h-[300px] bg-gradient-to-br from-[#0D0B21] via-[#05040d] to-black border border-indigo-500/25 rounded-[2rem] p-8 md:p-10 flex flex-col justify-between overflow-hidden text-white"
           >
             <div>
-              <h3 className="text-4xl font-medium tracking-tight mb-6">MISSION</h3>
-              <p className="text-gray-400 text-lg leading-relaxed max-w-sm">
+              <h3 className="text-4xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-[#6366f1] mb-6">MISSION</h3>
+              <p className="text-gray-300 text-lg leading-relaxed max-w-sm">
                 Combining innovation with reliability to deliver expert services and products that redefine industry standards.
               </p>
             </div>
             {/* Icon Notch Top Right */}
-            <div className="absolute top-0 right-0 bg-white p-4 rounded-bl-[2rem]">
-              <Award className="w-6 h-6 text-black" />
+            <div className="absolute top-0 right-0 bg-black/60 backdrop-blur-md border-l border-b border-white/10 p-4 rounded-bl-[2rem]">
+              <Award className="w-6 h-6 text-indigo-400" />
             </div>
             {/* Decorative */}
-            <div className="absolute bottom-0 right-0 w-32 h-32 bg-white/5 rounded-tl-full group-hover:bg-white/10 transition-colors duration-500" />
+            <div className="absolute bottom-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-tl-full group-hover:scale-110 transition-transform duration-500" />
           </motion.div>
         </div>
 
