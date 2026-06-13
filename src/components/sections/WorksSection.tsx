@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FolderGit2, ExternalLink } from "lucide-react";
+import { FolderGit2, ExternalLink, Sparkles } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
@@ -25,6 +25,7 @@ const WorksSection = () => {
       isOpenSource: true,
       dataAiHint: "code editor",
       link: "https://v0-primitive-react-sandpack-compone.vercel.app/",
+      metric: "10x faster load times compared to standard embeds",
     },
     {
       title: "ScriptForge AI Platform",
@@ -34,6 +35,7 @@ const WorksSection = () => {
       alt: "AI Software Development Services - ScriptForge",
       technologies: ["Next.JS", "Supabase", "GenAI"],
       link: "https://script-forge-two.vercel.app/",
+      metric: "Launched in 4 weeks; 45% reduction in formatting errors",
     },
     {
       title: "Enterprise Laundry Backend",
@@ -43,6 +45,7 @@ const WorksSection = () => {
       alt: "Enterprise Software Solution - Backend Dashboard",
       technologies: ["Django", "Python", "PostgreSQL"],
       link: "#contact",
+      metric: "Scaled to 10k+ daily transactions; 99.9% uptime",
     },
     {
       title: "SMB Billing & Invoicing App",
@@ -53,6 +56,7 @@ const WorksSection = () => {
       isOpenSource: false,
       dataAiHint: "mobile billing application",
       link: "#contact",
+      metric: "50% faster invoicing lifecycle; 4.9 App Store rating",
     }
   ];
 
@@ -174,13 +178,24 @@ const WorksSection = () => {
                       <div
                           className={`flex flex-col ml-4 md:ml-8 min-w-[280px] sm:min-w-[400px] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] transform ${isActive ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-6'}`}
                       >
-                          <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight drop-shadow-md">
+                          <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-2 tracking-tight drop-shadow-md">
                               {work.title}
                           </h3>
                           
-                          <div className="flex flex-wrap gap-2 mb-6">
+                          <p className="text-xs sm:text-sm md:text-base text-neutral-300 mb-3 font-light max-w-lg leading-relaxed">
+                              {work.description}
+                          </p>
+
+                          {work.metric && (
+                            <div className="flex items-center gap-2 mb-4 px-3.5 py-1.5 bg-primary/10 border border-primary/20 rounded-xl text-primary font-medium text-[11px] sm:text-xs w-max max-w-lg backdrop-blur-sm shadow-lg shadow-primary/5">
+                              <Sparkles className="w-3.5 h-3.5 shrink-0" />
+                              <span>{work.metric}</span>
+                            </div>
+                          )}
+
+                          <div className="flex flex-wrap gap-1.5 mb-5">
                             {work.technologies.slice(0,3).map((tech) => (
-                                <span key={tech} className="px-4 py-1.5 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full text-xs sm:text-sm text-neutral-200 shadow-sm">
+                                <span key={tech} className="px-3 py-1 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-[10px] sm:text-xs text-neutral-300 shadow-sm">
                                     {tech}
                                 </span>
                             ))}
@@ -189,11 +204,11 @@ const WorksSection = () => {
                           {/* View Project Link inside the stack */}
                           <div className={`transition-all duration-700 delay-75 ease-[cubic-bezier(0.16,1,0.3,1)] transform ${isActive ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-6 pointer-events-none'}`}>
                               {work.link !== "#contact" ? (
-                                <Link href={work.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black hover:bg-neutral-200 transition-all text-sm font-bold tracking-wide shadow-xl w-max">
-                                  View Project <ExternalLink className="w-4 h-4 ml-1" />
+                                <Link href={work.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-black hover:bg-neutral-200 transition-all text-xs sm:text-sm font-bold tracking-wide shadow-xl w-max">
+                                  View Project <ExternalLink className="w-3.5 h-3.5 ml-1" />
                                 </Link>
                               ) : (
-                                <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 text-white/70 text-sm font-medium w-max border border-white/10 backdrop-blur-md">
+                                <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 text-white/70 text-xs sm:text-sm font-medium w-max border border-white/10 backdrop-blur-md">
                                   Internal Project
                                 </span>
                               )}
