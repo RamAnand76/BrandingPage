@@ -2,125 +2,234 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Search, Code2, BrainCircuit, Rocket, ArrowRight } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 const steps = [
   {
     num: "01",
-    title: "Strategy & Architecture",
+    title: "Define",
     description: "Deep scoping sessions, technical blueprinting, database schema modeling, and detailed API cost/latency estimations for LLM services.",
-    icon: <Search className="w-6 h-6 text-primary" />,
-    color: "from-primary/20 to-transparent",
-    borderColor: "group-hover:border-primary/30"
+    color: "from-[#22c55e]/15 to-transparent",
+    textColor: "text-[#22c55e]",
+    ledColor: "bg-[#22c55e] shadow-[0_0_12px_#22c55e]",
+    borderColor: "hover:border-[#22c55e]/30",
+    shadowColor: "shadow-[#22c55e]/5 hover:shadow-[#22c55e]/15",
+    rotate: -3,
   },
   {
     num: "02",
-    title: "Agile Development",
-    description: "Rapid development in bi-weekly sprints. We deliver staging site builds continuously, keeping you close to the codebase and in absolute control.",
-    icon: <Code2 className="w-6 h-6 text-blue-500" />,
-    color: "from-blue-500/10 to-transparent",
-    borderColor: "group-hover:border-blue-500/30"
+    title: "Design",
+    description: "Crafting modern user experiences, high-fidelity interactive prototypes, and custom interface layouts tailored to your unique brand identity.",
+    color: "from-[#3b82f6]/10 to-transparent",
+    textColor: "text-[#3b82f6]",
+    ledColor: "bg-[#3b82f6] shadow-[0_0_12px_#3b82f6]",
+    borderColor: "hover:border-[#3b82f6]/30",
+    shadowColor: "shadow-[#3b82f6]/5 hover:shadow-[#3b82f6]/15",
+    rotate: 2,
   },
   {
     num: "03",
-    title: "AI Integration & QA",
-    description: "Model fine-tuning, prompt engineering optimization, fallback routing, and rigorous latency testing to ensure zero bottleneck outputs.",
-    icon: <BrainCircuit className="w-6 h-6 text-purple-500" />,
-    color: "from-purple-500/10 to-transparent",
-    borderColor: "group-hover:border-purple-500/30"
+    title: "Build",
+    description: "Developing with clean, typed code in two-week agile cycles. Integrating scalable backend services and responsive client UI components.",
+    color: "from-[#a855f7]/10 to-transparent",
+    textColor: "text-[#a855f7]",
+    ledColor: "bg-[#a855f7] shadow-[0_0_12px_#a855f7]",
+    borderColor: "hover:border-[#a855f7]/30",
+    shadowColor: "shadow-[#a855f7]/5 hover:shadow-[#a855f7]/15",
+    rotate: -2,
   },
   {
     num: "04",
-    title: "Launch & Support",
-    description: "Deploying via optimized CI/CD pipelines, handing over full documentation, and providing SLA-backed post-launch maintenance packages.",
-    icon: <Rocket className="w-6 h-6 text-emerald-500" />,
-    color: "from-emerald-500/10 to-transparent",
-    borderColor: "group-hover:border-emerald-500/30"
+    title: "Launch",
+    description: "Deploying through robust automated CI/CD pipelines, handing over full credentials, and establishing post-launch support SLA agreements.",
+    color: "from-[#06b6d4]/10 to-transparent",
+    textColor: "text-[#06b6d4]",
+    ledColor: "bg-[#06b6d4] shadow-[0_0_12px_#06b6d4]",
+    borderColor: "hover:border-[#06b6d4]/30",
+    shadowColor: "shadow-[#06b6d4]/5 hover:shadow-[#06b6d4]/15",
+    rotate: 3,
   }
 ];
 
 export const ProcessSection = () => {
   return (
     <section id="process" className="py-24 bg-black relative overflow-hidden">
+      {/* Inline styles for continuous dashed line flow */}
+      <style>{`
+        @keyframes dashed-flow {
+          from {
+            stroke-dashoffset: 120;
+          }
+          to {
+            stroke-dashoffset: 0;
+          }
+        }
+        .flowing-dashed-path {
+          animation: dashed-flow 25s linear infinite;
+        }
+      `}</style>
+
       {/* Background radial highlight */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/[0.02] rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/[0.02] rounded-full blur-[140px] pointer-events-none" />
+
+      {/* SVG Connecting Timeline Path (Desktop Only) */}
+      <div className="absolute inset-0 max-w-[1240px] mx-auto px-6 md:px-8 pointer-events-none z-0 hidden lg:block">
+        <svg className="w-full h-full stroke-neutral-800/60 fill-none" viewBox="0 0 1200 1350" preserveAspectRatio="none">
+          <path
+            d="M 900,280 C 900,450 300,380 300,580 C 300,780 900,720 900,900 C 900,1080 300,1020 300,1180"
+            stroke="url(#path-glow-gradient)"
+            strokeWidth="3"
+            strokeDasharray="10 10"
+            className="flowing-dashed-path"
+          />
+          <defs>
+            <linearGradient id="path-glow-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#22c55e" stopOpacity="0.8" />
+              <stop offset="35%" stopColor="#3b82f6" stopOpacity="0.8" />
+              <stop offset="70%" stopColor="#a855f7" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.8" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
 
       <div className="max-w-[1240px] mx-auto px-6 md:px-8 relative z-10">
         
-        {/* Header */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.05] mb-4"
-          >
-            <span className="text-[11px] font-medium text-primary">🛠️ Our Process</span>
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-medium tracking-tight text-white/95"
-          >
-            How We Work
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-neutral-400 text-xs sm:text-sm md:text-base max-w-xl mt-3 font-light leading-relaxed"
-          >
-            A clear, battle-tested framework structured to eliminate risk and deliver production-grade software.
-          </motion.p>
-        </div>
-
-        {/* Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
-          {steps.map((step, idx) => (
+        {/* Responsive Staggered Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-16 lg:gap-y-24 gap-x-12 items-stretch">
+          
+          {/* Row 1: Left - Header Block */}
+          <div className="flex flex-col justify-center relative">
             <motion.div
-              key={step.num}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.05] mb-5 w-max"
+            >
+              <span className="text-[10px] sm:text-[11px] font-medium text-primary uppercase tracking-wider">How we work</span>
+            </motion.div>
+            
+            <div className="relative max-w-lg">
+              <motion.h2
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-3xl md:text-5xl lg:text-[46px] font-medium tracking-tight text-white leading-tight"
+              >
+                Let us show you how we drive your brand to new heights
+              </motion.h2>
+
+              {/* Hand-drawn Mockup Arrow */}
+              <svg className="absolute -right-8 -bottom-14 w-14 h-14 text-primary/45 hidden lg:block transform rotate-12" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <path d="M 15,15 C 45,15 75,35 65,70" strokeDasharray="3 3" />
+                <path d="M 52,62 L 65,70 L 73,56" />
+              </svg>
+            </div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1, duration: 0.5 }}
-              className="group relative bg-[#090909] border border-white/[0.04] rounded-3xl p-6 md:p-8 hover:bg-[#0c0c0c] hover:border-white/[0.08] transition-all duration-300 flex flex-col justify-between min-h-[280px]"
+              transition={{ delay: 0.1 }}
+              className="text-neutral-400 text-sm md:text-base mt-6 font-light leading-relaxed max-w-md"
             >
-              {/* Top Gradient Glow */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none`} />
+              A clear, collaborative roadmap mapped out to transform concepts into highly scalable, production-ready systems.
+            </motion.p>
+          </div>
 
-              <div>
-                {/* Step Icon and Number */}
-                <div className="flex justify-between items-center mb-6 relative z-10">
-                  <div className="w-12 h-12 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform">
-                    {step.icon}
-                  </div>
-                  <span className="text-3xl font-bold font-mono text-white/10 group-hover:text-white/20 transition-colors">
-                    {step.num}
-                  </span>
-                </div>
+          {/* Row 1: Right - Card 1: Define */}
+          <div className="flex justify-center lg:justify-end items-center">
+            <ProcessCard step={steps[0]} idx={0} />
+          </div>
 
-                {/* Step Title & Description */}
-                <h3 className="text-xl font-medium text-white mb-3 relative z-10 group-hover:text-primary-foreground transition-colors">
-                  {step.title}
-                </h3>
-                <p className="text-xs sm:text-[13px] text-neutral-400 leading-relaxed font-light relative z-10 group-hover:text-neutral-300 transition-colors">
-                  {step.description}
-                </p>
-              </div>
+          {/* Row 2: Left - Card 2: Design */}
+          <div className="flex justify-center lg:justify-start items-center">
+            <ProcessCard step={steps[1]} idx={1} />
+          </div>
 
-              {/* Decorative line linking to next step on large screens */}
-              {idx < steps.length - 1 && (
-                <div className="hidden lg:flex items-center absolute -right-3 top-1/2 -translate-y-1/2 z-20 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity">
-                  <ArrowRight className="w-4 h-4 text-white" />
-                </div>
-              )}
+          {/* Row 2: Right - Spacer */}
+          <div className="hidden lg:block" />
+
+          {/* Row 3: Left - Spacer */}
+          <div className="hidden lg:block" />
+
+          {/* Row 3: Right - Card 3: Build */}
+          <div className="flex justify-center lg:justify-end items-center">
+            <ProcessCard step={steps[2]} idx={2} />
+          </div>
+
+          {/* Row 4: Left - Card 4: Launch */}
+          <div className="flex justify-center lg:justify-start items-center">
+            <ProcessCard step={steps[3]} idx={3} />
+          </div>
+
+          {/* Row 4: Right - Ready to be delivered! */}
+          <div className="flex items-center justify-center lg:justify-start">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="flex items-center gap-2.5 font-serif italic text-xl md:text-2xl text-cyan-400 tracking-wide pt-8 lg:pt-0 lg:pl-16 relative"
+            >
+              <Sparkles className="w-5 h-5 text-cyan-400/80 animate-pulse" />
+              <span>Ready to be delivered!</span>
             </motion.div>
-          ))}
+          </div>
+
         </div>
 
       </div>
     </section>
+  );
+};
+
+interface ProcessCardProps {
+  step: typeof steps[0];
+  idx: number;
+}
+
+const ProcessCard: React.FC<ProcessCardProps> = ({ step, idx }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30, rotate: step.rotate }}
+      whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ 
+        scale: 1.03, 
+        rotate: step.rotate * 0.4,
+        y: -4,
+        transition: { duration: 0.25 }
+      }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className={`relative w-full max-w-[420px] bg-[#090909]/95 border border-white/[0.04] rounded-[2.5rem] p-7 md:p-8 flex flex-col justify-between min-h-[260px] shadow-2xl pt-14 transform-gpu backdrop-blur-md transition-all duration-300 ${step.borderColor} ${step.shadowColor}`}
+    >
+      {/* Top Center Grommet Ring */}
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-black border border-white/10 flex items-center justify-center shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)] z-20">
+        <div className={`w-2.5 h-2.5 rounded-full ${step.ledColor} animate-pulse`} />
+      </div>
+
+      {/* Top Gradient Inner Shadow */}
+      <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[2.5rem] pointer-events-none`} />
+
+      <div className="relative z-10">
+        {/* Step Info */}
+        <div className="flex items-baseline gap-2 mb-3">
+          <span className={`text-sm font-bold font-mono ${step.textColor}`}>
+            {step.num}
+          </span>
+          <h3 className="text-2xl font-medium text-white tracking-tight">
+            {step.title}
+          </h3>
+        </div>
+
+        {/* Lighter Labeled Description Frame */}
+        <div className="bg-white/[0.02] border border-white/[0.03] rounded-2xl p-4 mt-2">
+          <p className="text-xs sm:text-[13px] text-neutral-400 leading-relaxed font-light">
+            {step.description}
+          </p>
+        </div>
+      </div>
+    </motion.div>
   );
 };

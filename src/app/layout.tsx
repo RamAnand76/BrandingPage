@@ -6,6 +6,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import QueryProvider from "@/components/QueryProvider";
 import SmoothScrolling from "@/components/SmoothScrolling";
+import PageTransition from "@/components/ui/PageTransition";
 import { ContactModalProvider } from "@/context/ContactModalContext";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -87,7 +88,7 @@ export default function RootLayout({
                 <div className="min-h-screen bg-background w-full">
                   <Toaster />
                   <Sonner />
-                  {children}
+                  <PageTransition>{children}</PageTransition>
                 </div>
               </SmoothScrolling>
             </ContactModalProvider>
