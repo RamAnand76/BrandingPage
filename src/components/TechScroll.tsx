@@ -4,6 +4,13 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion, useTransform, MotionValue, useMotionValueEvent, useMotionValue, useSpring } from 'motion/react';
 import { TECH_DATA, TechItem } from '../constants';
 
+interface TechScrollItem {
+    id: string;
+    name: string;
+    icon: React.ReactNode;
+    color: string;
+}
+
 interface TechScrollProps {
     items?: TechItem[];
 }
@@ -11,7 +18,20 @@ interface TechScrollProps {
 export const TechScroll: React.FC<TechScrollProps> = ({ items = TECH_DATA }) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [activeIdx, setActiveIdx] = useState(0);
-    const total = items.length;
+    
+    // Flatten categories into individual technology items for the scroll animation
+    const flattenedItems: TechScrollItem[] = React.useMemo(() => {
+        return items.flatMap(category => 
+            category.technologies.map(tech => ({
+                id: `${category.id}-${tech.name}`,
+                name: tech.name,
+                icon: tech.icon,
+                color: tech.color
+            }))
+        );
+    }, [items]);
+
+    const total = flattenedItems.length;
 
     // Give each item ~145vh of scroll to pad out more animation completion time
     const scrollPerItem = 145;
@@ -83,7 +103,7 @@ export const TechScroll: React.FC<TechScrollProps> = ({ items = TECH_DATA }) => 
         >
             {/* Snap Points - positioned so browser snaps exactly when each icon centers */}
             <div className="absolute inset-0 pointer-events-none z-50">
-                {items.map((_, i) => {
+                {flattenedItems.map((_, i) => {
                     const step = 1 / (total > 1 ? total - 1 : 1);
                     const centerProgress = i * step;
 
@@ -154,7 +174,7 @@ export const TechScroll: React.FC<TechScrollProps> = ({ items = TECH_DATA }) => 
 
                         {/* Icons Carousel */}
                         <div className="relative h-full w-full max-w-5xl">
-                            {items.map((item, index) => (
+                            {flattenedItems.map((item, index) => (
                                 <TechIcon
                                     key={item.id}
                                     item={item}
@@ -167,7 +187,7 @@ export const TechScroll: React.FC<TechScrollProps> = ({ items = TECH_DATA }) => 
 
                         {/* Active Item Label perfectly aligned below center */}
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-full mt-[88px] z-30 h-40 pointer-events-none">
-                            {items.map((item, index) => (
+                            {flattenedItems.map((item, index) => (
                                 <TechLabel
                                     key={item.id}
                                     item={item}
@@ -185,7 +205,7 @@ export const TechScroll: React.FC<TechScrollProps> = ({ items = TECH_DATA }) => 
 };
 
 interface TechIconProps {
-    item: TechItem;
+    item: TechScrollItem;
     index: number;
     total: number;
     scrollYProgress: MotionValue<number>;
