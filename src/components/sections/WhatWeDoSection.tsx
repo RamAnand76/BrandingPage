@@ -31,18 +31,18 @@ export const WhatWeDoSection = () => {
             </h2>
           </div>
 
-          {/* Navigation Buttons for Desktop */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* Navigation Buttons for Desktop & Mobile */}
+          <div className="flex items-center gap-3 mt-4 md:mt-0">
             <button
               onClick={scrollLeft}
-              className="p-3 rounded-full hover:bg-white/5 transition-colors border border-transparent hover:border-white/10"
+              className="p-3 rounded-full hover:bg-white/5 transition-colors border border-white/5 bg-[#0A0A0A]/40 backdrop-blur-md hover:border-white/10"
               aria-label="Scroll left"
             >
               <ArrowLeft className="w-5 h-5" />
             </button>
             <button
               onClick={scrollRight}
-              className="p-3 rounded-full hover:bg-white/5 transition-colors border border-transparent hover:border-white/10"
+              className="p-3 rounded-full hover:bg-white/5 transition-colors border border-white/5 bg-[#0A0A0A]/40 backdrop-blur-md hover:border-white/10"
               aria-label="Scroll right"
             >
               <ArrowRight className="w-5 h-5" />
