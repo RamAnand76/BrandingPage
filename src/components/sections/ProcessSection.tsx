@@ -12,8 +12,9 @@ const steps = [
     color: "from-[#22c55e]/15 to-transparent",
     textColor: "text-[#22c55e]",
     ledColor: "bg-[#22c55e] shadow-[0_0_12px_#22c55e]",
-    borderColor: "hover:border-[#22c55e]/30",
-    shadowColor: "shadow-[#22c55e]/5 hover:shadow-[#22c55e]/15",
+    borderColor: "border-[#22c55e]/20 hover:border-[#22c55e]/50",
+    shadowColor: "shadow-2xl shadow-[#22c55e]/5 hover:shadow-[#22c55e]/15",
+    bgColor: "bg-[#F0FDF4]", // Soft light mint green
     rotate: -3,
   },
   {
@@ -23,8 +24,9 @@ const steps = [
     color: "from-[#3b82f6]/10 to-transparent",
     textColor: "text-[#3b82f6]",
     ledColor: "bg-[#3b82f6] shadow-[0_0_12px_#3b82f6]",
-    borderColor: "hover:border-[#3b82f6]/30",
-    shadowColor: "shadow-[#3b82f6]/5 hover:shadow-[#3b82f6]/15",
+    borderColor: "border-[#3b82f6]/20 hover:border-[#3b82f6]/50",
+    shadowColor: "shadow-2xl shadow-[#3b82f6]/5 hover:shadow-[#3b82f6]/15",
+    bgColor: "bg-[#EFF6FF]", // Soft light blue
     rotate: 2,
   },
   {
@@ -34,8 +36,9 @@ const steps = [
     color: "from-[#a855f7]/10 to-transparent",
     textColor: "text-[#a855f7]",
     ledColor: "bg-[#a855f7] shadow-[0_0_12px_#a855f7]",
-    borderColor: "hover:border-[#a855f7]/30",
-    shadowColor: "shadow-[#a855f7]/5 hover:shadow-[#a855f7]/15",
+    borderColor: "border-[#a855f7]/20 hover:border-[#a855f7]/50",
+    shadowColor: "shadow-2xl shadow-[#a855f7]/5 hover:shadow-[#a855f7]/15",
+    bgColor: "bg-[#FAF5FF]", // Soft light purple
     rotate: -2,
   },
   {
@@ -45,8 +48,9 @@ const steps = [
     color: "from-[#06b6d4]/10 to-transparent",
     textColor: "text-[#06b6d4]",
     ledColor: "bg-[#06b6d4] shadow-[0_0_12px_#06b6d4]",
-    borderColor: "hover:border-[#06b6d4]/30",
-    shadowColor: "shadow-[#06b6d4]/5 hover:shadow-[#06b6d4]/15",
+    borderColor: "border-[#06b6d4]/20 hover:border-[#06b6d4]/50",
+    shadowColor: "shadow-2xl shadow-[#06b6d4]/5 hover:shadow-[#06b6d4]/15",
+    bgColor: "bg-[#ECFEFF]", // Soft light cyan
     rotate: 3,
   }
 ];
@@ -54,7 +58,7 @@ const steps = [
 export const ProcessSection = () => {
   return (
     <section id="process" className="py-24 bg-black relative overflow-hidden">
-      {/* Inline styles for continuous dashed line flow */}
+      {/* Dashed flow animation style wrapper */}
       <style>{`
         @keyframes dashed-flow {
           from {
@@ -67,16 +71,19 @@ export const ProcessSection = () => {
         .flowing-dashed-path {
           animation: dashed-flow 25s linear infinite;
         }
+        .font-caveat {
+          font-family: 'Caveat', cursive;
+        }
       `}</style>
 
       {/* Background radial highlight */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/[0.02] rounded-full blur-[140px] pointer-events-none" />
 
-      {/* SVG Connecting Timeline Path (Desktop Only) */}
+      {/* SVG Connecting Timeline Path matching the reference spline curve perfectly */}
       <div className="absolute inset-0 max-w-[1240px] mx-auto px-6 md:px-8 pointer-events-none z-0 hidden lg:block">
-        <svg className="w-full h-full stroke-neutral-800/60 fill-none" viewBox="0 0 1200 1350" preserveAspectRatio="none">
+        <svg className="w-full h-full stroke-neutral-800/80 fill-none" viewBox="0 0 1200 1350" preserveAspectRatio="none">
           <path
-            d="M 900,280 C 900,450 300,380 300,580 C 300,780 900,720 900,900 C 900,1080 300,1020 300,1180"
+            d="M 250,180 C 600,100 950,120 950,220 C 950,420 250,380 250,580 C 250,780 950,720 950,920 C 950,1120 250,1060 250,1220 C 250,1280 400,1280 650,1280"
             stroke="url(#path-glow-gradient)"
             strokeWidth="3"
             strokeDasharray="10 10"
@@ -170,9 +177,8 @@ export const ProcessSection = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="flex items-center gap-2.5 font-serif italic text-xl md:text-2xl text-cyan-400 tracking-wide pt-8 lg:pt-0 lg:pl-16 relative"
+              className="flex items-center gap-2.5 font-caveat text-3xl md:text-4xl text-neutral-400 tracking-wide pt-8 lg:pt-0 lg:pl-16 relative"
             >
-              <Sparkles className="w-5 h-5 text-cyan-400/80 animate-pulse" />
               <span>Ready to be delivered!</span>
             </motion.div>
           </div>
@@ -202,9 +208,9 @@ const ProcessCard: React.FC<ProcessCardProps> = ({ step, idx }) => {
       }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className={`relative w-full max-w-[420px] bg-[#090909]/95 border border-white/[0.04] rounded-[2.5rem] p-7 md:p-8 flex flex-col justify-between min-h-[260px] shadow-2xl pt-14 transform-gpu backdrop-blur-md transition-all duration-300 ${step.borderColor} ${step.shadowColor}`}
+      className={`relative w-full max-w-[420px] ${step.bgColor} border rounded-[2.5rem] p-7 md:p-8 flex flex-col justify-between min-h-[260px] shadow-2xl pt-14 transform-gpu transition-all duration-300 ${step.borderColor} ${step.shadowColor}`}
     >
-      {/* Top Center Grommet Ring */}
+      {/* Top Center Grommet Ring - Dark to contrast with the light card */}
       <div className="absolute top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-black border border-white/10 flex items-center justify-center shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)] z-20">
         <div className={`w-2.5 h-2.5 rounded-full ${step.ledColor} animate-pulse`} />
       </div>
@@ -218,14 +224,14 @@ const ProcessCard: React.FC<ProcessCardProps> = ({ step, idx }) => {
           <span className={`text-sm font-bold font-mono ${step.textColor}`}>
             {step.num}
           </span>
-          <h3 className="text-2xl font-medium text-white tracking-tight">
+          <h3 className="text-2xl font-medium text-neutral-900 tracking-tight">
             {step.title}
           </h3>
         </div>
 
         {/* Lighter Labeled Description Frame */}
-        <div className="bg-white/[0.02] border border-white/[0.03] rounded-2xl p-4 mt-2">
-          <p className="text-xs sm:text-[13px] text-neutral-400 leading-relaxed font-light">
+        <div className="bg-white/60 border border-white/80 rounded-2xl p-4 mt-2">
+          <p className="text-xs sm:text-[13px] text-neutral-700 leading-relaxed font-normal">
             {step.description}
           </p>
         </div>
