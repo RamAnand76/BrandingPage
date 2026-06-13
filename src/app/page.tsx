@@ -8,6 +8,8 @@ import { ExpertServices } from "@/components/sections/ExpertServices";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { WhatWeDoSection } from "@/components/sections/WhatWeDoSection";
 import { PricingSection } from "@/components/pricing/PricingSection";
+import { ProcessSection } from "@/components/sections/ProcessSection";
+import { FaqSection } from "@/components/sections/FaqSection";
 
 const Index = () => {
   const showPricing = process.env.NEXT_PUBLIC_SHOW_PRICING === 'true';
@@ -41,9 +43,19 @@ const Index = () => {
         <WorksSection />
       </div>
 
+      {/* Process Section */}
+      <div id="process" className="bg-black">
+        <ProcessSection />
+      </div>
+
       {/* Testimonials Section */}
       <div className="bg-black">
         <TestimonialsSection />
+      </div>
+
+      {/* Faq Section */}
+      <div id="faq" className="bg-black">
+        <FaqSection />
       </div>
 
       {/* Footer */}
