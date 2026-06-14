@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   motion,
   AnimatePresence,
@@ -8,6 +8,7 @@ import {
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from 'next/link';
+import { usePathname } from "next/navigation";
 import { useContactModal } from "@/context/ContactModalContext";
 
 export const FloatingNav = ({
@@ -23,8 +24,10 @@ export const FloatingNav = ({
 }) => {
   const { scrollYProgress } = useScroll();
   const { setContactModalOpen } = useContactModal();
+  const pathname = usePathname();
 
   const [visible, setVisible] = useState(true);
+  const [activeSection, setActiveSection] = useState<string>("");
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     // Check if current is not undefined and is a number
@@ -42,6 +45,53 @@ export const FloatingNav = ({
       }
     }
   });
+
+  // Track active section on scroll for home page, or match page path for subpages
+  useEffect(() => {
+    if (pathname !== "/") {
+      setActiveSection(pathname);
+      return;
+    }
+
+    // Default to first hash section if scroll is close to top
+    if (window.scrollY < 200) {
+      setActiveSection("");
+    }
+
+    const sections = ["features", "what-we-do", "works", "process", "faq"];
+    const observerOptions = {
+      root: null,
+      rootMargin: "-25% 0px -55% 0px",
+      threshold: 0,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(`/#${entry.target.id}`);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    const handleScroll = () => {
+      if (window.scrollY < 200) {
+        setActiveSection("");
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [pathname]);
 
   return (
     <AnimatePresence mode="wait">
@@ -62,21 +112,34 @@ export const FloatingNav = ({
           className
         )}
       >
-        {navItems.map((navItem: any, idx: number) => (
-          <Link
-            key={`link=${idx}`}
-            href={navItem.link}
-            className={cn(
-              "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
-            )}
-          >
-            <span className="block sm:hidden">{navItem.icon}</span>
-            <span className="hidden sm:block text-sm">{navItem.name}</span>
-          </Link>
-        ))}
+        {navItems.map((navItem: any, idx: number) => {
+          // Check if link matches either route pathname or active section hash
+          const isActive = pathname === navItem.link || activeSection === navItem.link;
+          
+          return (
+            <Link
+              key={`link=${idx}`}
+              href={navItem.link}
+              className={cn(
+                "relative dark:text-neutral-300 items-center flex space-x-1 text-neutral-600 dark:hover:text-white hover:text-neutral-500 transition-colors py-1",
+                isActive && "text-primary dark:text-primary font-medium"
+              )}
+            >
+              <span className="block sm:hidden">{navItem.icon}</span>
+              <span className="hidden sm:block text-sm">{navItem.name}</span>
+              {isActive && (
+                <motion.span
+                  layoutId="activeNavIndicator"
+                  className="absolute inset-x-0 w-3/4 mx-auto -bottom-1 bg-gradient-to-r from-transparent via-primary to-transparent h-[2px] blur-[0.5px]"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
+            </Link>
+          );
+        })}
         <button
           onClick={() => setContactModalOpen(true)}
-          className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full"
+          className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full hover:bg-white/5 transition-colors"
         >
           <span>Contact</span>
           <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-primary to-transparent h-px" />
