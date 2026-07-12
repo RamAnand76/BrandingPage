@@ -55,7 +55,7 @@ const TeamSection = () => {
             Meet the <span className="text-gradient">Team</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            The innovative minds behind RE:INVENT&apos;s digital solutions.
+            The innovative minds behind Rhevez&apos;s digital solutions.
           </p>
         </motion.div>
 

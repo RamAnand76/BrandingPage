@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://reinvent.lovable.dev/sitemap.xml',
+    sitemap: 'https://rhevez.lovable.dev/sitemap.xml',
   };
 }

@@ -33,7 +33,7 @@ const AboutSection = () => {
             className="max-w-xs md:text-right"
           >
             <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-              Learn about our commitment to excellence, innovation, and the principles that guide our work every day at RE:INVENT.
+              Learn about our commitment to excellence, innovation, and the principles that guide our work every day at Rhevez.
             </p>
           </motion.div>
         </div>

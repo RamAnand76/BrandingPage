@@ -19,25 +19,25 @@ const testimonials = [
     name: "Alex Chen",
     role: "CTO",
     image: "https://avatars.githubusercontent.com/u/1234567?v=4",
-    content: "RE:INVENT's AI development expertise helped us transform our business processes. Their custom solutions delivered exactly what we needed with excellent performance."
+    content: "Rhevez's AI development expertise helped us transform our business processes. Their custom solutions delivered exactly what we needed with excellent performance."
   },
   {
     name: "Sarah Mitchell",
     role: "Product Manager",
     image: "https://avatars.githubusercontent.com/u/2345678?v=4",
-    content: "The web application RE:INVENT built for us exceeded expectations. Their React.js expertise and attention to detail made our project a huge success."
+    content: "The web application Rhevez built for us exceeded expectations. Their React.js expertise and attention to detail made our project a huge success."
   },
   {
     name: "Marcus Rodriguez",
     role: "Startup Founder",
     image: "https://avatars.githubusercontent.com/u/3456789?v=4",
-    content: "Outstanding mobile app development with Flutter. The team's professionalism and timely delivery made working with RE:INVENT a pleasure."
+    content: "Outstanding mobile app development with Flutter. The team's professionalism and timely delivery made working with Rhevez a pleasure."
   },
   {
     name: "Emily Foster",
     role: "Marketing Director",
     image: "https://avatars.githubusercontent.com/u/4567890?v=4",
-    content: "RE:INVENT's UI/UX design transformed our user experience completely. The designs are beautiful, intuitive, and conversion rates have improved significantly."
+    content: "Rhevez's UI/UX design transformed our user experience completely. The designs are beautiful, intuitive, and conversion rates have improved significantly."
   },
   {
     name: "David Kim",
@@ -49,7 +49,7 @@ const testimonials = [
     name: "Jessica Wright",
     role: "Innovation Director",
     image: "https://avatars.githubusercontent.com/u/6789012?v=4",
-    content: "Working with RE:INVENT on our AI integration project was fantastic. They delivered sophisticated GenAI solutions that revolutionized our workflow."
+    content: "Working with Rhevez on our AI integration project was fantastic. They delivered sophisticated GenAI solutions that revolutionized our workflow."
   }
 ];
 
@@ -103,7 +103,7 @@ const TestimonialsSection = () => {
             Trusted by <span className="text-gradient">Businesses</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Join forward-thinking companies who trust RE:INVENT for digital transformation.
+            Join forward-thinking companies who trust Rhevez for digital transformation.
           </p>
         </div>
 

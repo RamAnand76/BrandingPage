@@ -55,7 +55,7 @@ const Footer = () => {
           <div className="flex flex-col pr-0 lg:pr-12">
             <div className="relative h-12 w-48 overflow-hidden mb-6 filter drop-shadow-lg">
               <VideoText src="https://cdn.magicui.design/ocean-small.webm" className="size-full">
-                RE:INVENT
+                RHEVEZ
               </VideoText>
             </div>
             <p className="text-neutral-400 text-sm leading-relaxed mb-10 max-w-[450px]">

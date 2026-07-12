@@ -55,7 +55,7 @@ const Menu = ({ items, isOpen, setIsOpen }: MenuProps) => {
       {/* Header */}
       <div className="fixed top-0 left-0 right-0 z-40 flex justify-between items-center p-4 bg-black/50 backdrop-blur-sm">
         <Link href="/" onClick={() => setIsOpen(false)}>
-            <Image src="/lovable-uploads/logo.png" width={120} height={32} alt="RE:INVENT Logo" />
+            <Image src="/lovable-uploads/logo.png" width={36} height={36} alt="Rhevez Logo" className="object-contain" />
         </Link>
         <button onClick={toggleMenu} className="z-50 text-white focus:outline-none">
           <svg

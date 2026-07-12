@@ -26,11 +26,11 @@ const Navigation = () => {
           {
             name: (
               <div className="flex items-center gap-2">
-                <Image src="/lovable-uploads/logo.png" width={120} height={32} alt="RE:INVENT Logo" />
+                <Image src="/lovable-uploads/logo.png" width={36} height={36} alt="Rhevez Logo" className="object-contain" />
               </div>
             ),
             link: "/",
-            icon: <Image src="/lovable-uploads/logo.png" width={24} height={24} alt="RE:INVENT Logo" />
+            icon: <Image src="/lovable-uploads/logo.png" width={24} height={24} alt="Rhevez Logo" />
           },
           ...navItems
         ]} />

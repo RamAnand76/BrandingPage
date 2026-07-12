@@ -12,28 +12,28 @@ import { ContactModalProvider } from "@/context/ContactModalContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://reinvent.lovable.dev'),
+  metadataBase: new URL('https://rhevez.lovable.dev'),
   title: {
-    template: "%s | Re-Invent",
-    default: "Re-Invent: Expert Services, Delivered",
+    template: "%s | Rhevez",
+    default: "Rhevez: Expert Services, Delivered",
   },
-  description: "Re-Invent: From stunning UI/UX to powerful AI and flawless apps, we build the digital solutions of tomorrow.",
-  keywords: ["Re-Invent", "Software Development Services", "Web Development", "Mobile Apps", "AI Development", "UI/UX Design", "Digital Agency"],
-  authors: [{ name: "Re-Invent" }],
+  description: "Rhevez: From stunning UI/UX to powerful AI and flawless apps, we build the digital solutions of tomorrow.",
+  keywords: ["Rhevez", "Software Development Services", "Web Development", "Mobile Apps", "AI Development", "UI/UX Design", "Digital Agency"],
+  authors: [{ name: "Rhevez" }],
   verification: {
     google: "ia9izdQwctLX-20p5INS7Mr0rAoO-0CIQTtXvDmw70w",
   },
   openGraph: {
-    title: "Re-Invent: Premium Software Development Services",
+    title: "Rhevez: Premium Software Development Services",
     description: "Expert software development services, AI agents, and mobile apps. We transform your complex ideas into scalable digital reality.",
-    url: "https://reinvent.lovable.dev",
-    siteName: "Re-Invent",
+    url: "https://rhevez.lovable.dev",
+    siteName: "Rhevez",
     images: [
       {
-        url: "https://picsum.photos/seed/og-reinvent/1200/630",
+        url: "https://picsum.photos/seed/og-rhevez/1200/630",
         width: 1200,
         height: 630,
-        alt: "Re-Invent - Expert Software Development Services",
+        alt: "Rhevez - Expert Software Development Services",
       },
     ],
     locale: "en_US",
@@ -41,18 +41,18 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Re-Invent: Expert Software Development Services",
+    title: "Rhevez: Expert Software Development Services",
     description: "From stunning UI/UX to powerful AI and flawless apps, we build the digital solutions of tomorrow.",
-    images: ["https://picsum.photos/seed/og-reinvent/1200/630"],
+    images: ["https://picsum.photos/seed/og-rhevez/1200/630"],
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "Re-Invent Digital Solutions",
+  "name": "Rhevez Digital Solutions",
   "description": "Premium software development services including Web, Mobile, and AI solutions.",
-  "url": "https://reinvent.lovable.dev",
+  "url": "https://rhevez.lovable.dev",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "All",
   "offers": {
@@ -62,8 +62,8 @@ const jsonLd = {
   },
   "author": {
     "@type": "Organization",
-    "name": "Re-Invent",
-    "url": "https://reinvent.lovable.dev"
+    "name": "Rhevez",
+    "url": "https://rhevez.lovable.dev"
   }
 };
 

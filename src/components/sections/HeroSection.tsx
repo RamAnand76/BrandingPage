@@ -64,7 +64,7 @@ export const HeroSection = () => {
                 {/* Left Column */}
                 <div className="flex flex-col items-start text-left relative z-10 w-full">
                     <p className="hero-text text-[#98E04D] font-medium text-sm md:text-base tracking-wide mb-4 md:mb-6 uppercase">
-                        Re-Invent: Expert Services, Delivered.
+                        Rhevez: Expert Services, Delivered.
                     </p>
 
                     <h1 className="hero-text text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[68px] font-bold tracking-tighter text-white leading-[1.05] sm:leading-[0.95] mb-6 md:mb-8">
