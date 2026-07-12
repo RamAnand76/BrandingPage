@@ -29,35 +29,14 @@ const TeamSection = () => {
   return (
     <section className="py-24 md:py-32 bg-black relative overflow-hidden">
       {/* Ambient background glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/[0.03] rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#0066FF]/[0.03] rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16 md:mb-20 flex flex-col items-center"
-        >
-          {/* Section pill */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6"
-          >
-            <Users className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-gray-300">Our Squad</span>
-          </motion.div>
-
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-            Meet the <span className="text-gradient">Team</span>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white font-sans">
+            Board Of Directors
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            The innovative minds behind Rhevez&apos;s digital solutions.
-          </p>
-        </motion.div>
+        </div>
 
         <Carousel
           opts={{
@@ -69,42 +48,49 @@ const TeamSection = () => {
           <CarouselContent className="-ml-4">
             {team.map((member, idx) => (
               <CarouselItem key={idx} className="pl-4 md:basis-1/3 lg:basis-1/4">
-                <div className="h-full py-4 select-none">
-                  {/* Card Container - mimic the reference image */}
-                  <div className="relative aspect-[3/4] w-full overflow-hidden rounded-3xl bg-[#050505] border border-white/5 group transition-all duration-300 hover:border-primary/20">
-
-                    {/* Background Gradient - Green glow from bottom left */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-transparent opacity-40 transition-opacity duration-500 group-hover:opacity-60" />
-
-                    {/* Content Container */}
-                    <div className="relative h-full w-full p-6 flex flex-col items-center justify-center">
-
-                      {/* Avatar Layer */}
-                      <div className="relative mb-8">
-                        {/* Glow behind avatar */}
-                        <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl scale-110 opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
-
-                        <Avatar className="w-28 h-28 md:w-32 md:h-32 rounded-full border border-white/5 shadow-2xl grayscale-[0.3] group-hover:grayscale-0 transition-all duration-500">
-                          <AvatarImage src={member.image} className="object-cover" />
-                          <AvatarFallback className="bg-primary/10 text-primary text-xl font-bold">{member.name.charAt(0)}</AvatarFallback>
-                        </Avatar>
-                      </div>
-
+                <div className="h-full py-6 select-none relative px-2">
+                  <div className="relative aspect-[3/4.2] w-full overflow-hidden rounded-2xl group bg-[#0A0A0A] border border-white/5">
+                    
+                    {/* Left vertical banner with curved top-left corner */}
+                    <div className="absolute left-0 top-8 w-[38%] h-[82%] bg-[#0066FF] rounded-tl-[30px] z-0 overflow-hidden flex items-center justify-center">
+                      {/* Vertical rotated text */}
+                      <span 
+                        className="text-3xl font-extrabold uppercase tracking-widest text-transparent select-none whitespace-nowrap opacity-25"
+                        style={{ 
+                          transform: 'rotate(-90deg)', 
+                          WebkitTextStroke: '1.5px rgba(255, 255, 255, 0.6)' 
+                        }}
+                      >
+                        FOUNDERS
+                      </span>
                     </div>
 
-                    {/* Bottom Info Bar */}
-                    <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
-                      <div className="text-left">
-                        <h3 className="text-lg font-bold text-white leading-tight mb-1">{member.name}</h3>
-                        <p className="text-sm text-gray-500 font-medium">{member.role}</p>
-                      </div>
-
-                      {/* LinkedIn Icon */}
-                      <Link href={member.linkedin || "#"} target="_blank" rel="noopener noreferrer">
-                        <div className="p-2.5 rounded-full bg-white/5 hover:bg-white/10 hover:text-white text-gray-400 transition-colors backdrop-blur-sm border border-white/5 cursor-pointer">
-                          <Linkedin className="w-4 h-4" />
-                        </div>
-                      </Link>
+                    {/* Team Member Image */}
+                    <div className="absolute top-2 right-0 w-[78%] h-[75%] z-10 overflow-hidden">
+                      <img 
+                        src={member.image} 
+                        alt={member.name} 
+                        className="w-full h-full object-cover object-top filter grayscale contrast-[1.15] group-hover:grayscale-0 transition-all duration-500" 
+                      />
+                    </div>
+                    
+                    {/* Bottom horizontal bar for Name & Role */}
+                    <div className="absolute bottom-0 left-0 w-full h-[25%] bg-[#0066FF] z-20 px-5 py-4 flex flex-col justify-center text-left">
+                      <h3 className="text-base font-bold text-white leading-tight mb-1">{member.name}</h3>
+                      <p className="text-xs text-white/80 font-medium">Designation</p>
+                      <p className="text-[10px] text-white/60 font-medium mt-0.5">{member.role}</p>
+                      
+                      {/* LinkedIn Link */}
+                      {member.linkedin && member.linkedin !== "#" && (
+                        <Link 
+                          href={member.linkedin} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="absolute right-4 bottom-4 p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors border border-white/10"
+                        >
+                          <Linkedin className="w-3.5 h-3.5" />
+                        </Link>
+                      )}
                     </div>
 
                   </div>
@@ -112,9 +98,15 @@ const TeamSection = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="-left-4 lg:-left-12 bg-black/50 border-white/10 hover:bg-black/80" />
-          <CarouselNext className="-right-4 lg:-right-12 bg-black/50 border-white/10 hover:bg-black/80" />
+          <CarouselPrevious className="-left-4 lg:-left-12 bg-black/50 border-white/10 hover:bg-black/80 text-white" />
+          <CarouselNext className="-right-4 lg:-right-12 bg-black/50 border-white/10 hover:bg-black/80 text-white" />
         </Carousel>
+
+        <div className="mt-16 text-center max-w-4xl mx-auto px-4">
+          <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+            Our board of directors brings together a diverse group of visionary leaders, tech pioneers, and strategic advisors. Committed to driving innovation and fostering sustainable growth, they guide Rhevez&apos;s mission to shape the future of digital solutions and empower businesses worldwide.
+          </p>
+        </div>
       </div>
     </section>
   );
