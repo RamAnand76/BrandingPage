@@ -82,9 +82,9 @@ const Footer = () => {
             <h4 className="text-white font-medium mb-8 text-base tracking-wide">Navigation</h4>
             <ul className="space-y-4 flex flex-col">
               <li><Link href="#features" className="text-neutral-400 hover:text-white transition-colors text-sm">Services</Link></li>
-              <li><Link href="/products" className="text-neutral-400 hover:text-white transition-colors text-sm">Products</Link></li>
+              <li><Link href="/our-works" className="text-neutral-400 hover:text-white transition-colors text-sm">Our Works</Link></li>
               <li><Link href="/about" className="text-neutral-400 hover:text-white transition-colors text-sm">About</Link></li>
-              <li><Link href="/products" className="text-neutral-400 hover:text-white transition-colors text-sm">Resource</Link></li>
+              <li><Link href="/our-works" className="text-neutral-400 hover:text-white transition-colors text-sm">Resource</Link></li>
               <li>
                 <button 
                   onClick={() => setContactModalOpen(true)}

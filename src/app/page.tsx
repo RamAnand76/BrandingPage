@@ -3,7 +3,7 @@ import React from "react";
 import Navigation from "@/components/Navigation";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import Footer from "@/components/Footer";
-import WorksSection from "@/components/sections/WorksSection";
+
 import { ExpertServices } from "@/components/sections/ExpertServices";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { WhatWeDoSection } from "@/components/sections/WhatWeDoSection";
@@ -36,11 +36,6 @@ const Index = () => {
       {/* What We Do Section */}
       <div id="what-we-do">
         <WhatWeDoSection />
-      </div>
-
-      {/* Works Section */}
-      <div id="works" className="bg-black">
-        <WorksSection />
       </div>
 
       {/* Process Section */}

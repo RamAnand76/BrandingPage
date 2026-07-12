@@ -4,13 +4,8 @@ import { motion } from "framer-motion";
 import { FolderGit2, ExternalLink, Sparkles } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import placeholderImages from "@/app/lib/placeholder-images.json";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const WorksSection = () => {
   const works = [
@@ -60,58 +55,11 @@ const WorksSection = () => {
     }
   ];
 
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
-  // Ref to hold current activeIndex inside GSAP closure — fixes stale closure bug
-  const activeIndexRef = useRef(0);
-
-  // GSAP continuous scroll timeline
-  useGSAP(() => {
-    // Only run if we mounted cleanly
-    if (!sectionRef.current || !cardsRef.current.length) return;
-
-    // We build a timeline that maps to the entire pinned scroll duration
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "bottom bottom",
-        scrub: 1.5, // 1.5s smoothing on the scrub for an ultra-smooth buttery feeling
-        onUpdate: (self) => {
-          // Progress goes from 0.0 to 1.0
-          const numTransitions = works.length - 1;
-          const rawIndex = self.progress * numTransitions;
-          // Switch the active inner-text slightly early (when the card is halfway expanding)
-          const newIndex = Math.min(Math.floor(rawIndex + 0.4), works.length - 1);
-          // Use ref to avoid stale closure — always compares against latest activeIndex
-          if (newIndex !== activeIndexRef.current) {
-            activeIndexRef.current = newIndex;
-            setActiveIndex(newIndex);
-          }
-        }
-      }
-    });
-
-    // We chain the expansion/collapse of the cards sequentially into the timeline
-    for (let i = 0; i < works.length - 1; i++) {
-        // Time maps to sequence (0, 1, 2)
-        tl.to(cardsRef.current[i], { flex: 1, ease: "power2.inOut" }, i)
-          .to(cardsRef.current[i + 1], { flex: 16, ease: "power2.inOut" }, i);
-    }
-    
-    // Safety cleanup
-    return () => {
-      tl.kill();
-      ScrollTrigger.killAll();
-    }
-  }, { scope: sectionRef, dependencies: [works.length] });
 
   return (
-    // Create a mathematically precise scroll container length based on item count
-    <section ref={sectionRef} className="relative bg-black w-full" style={{ height: `${works.length * 100}vh` }}>
-      {/* Sticky boundary that holds the visual port in frame while scrolling */}
-      <div className="sticky top-0 h-screen w-full flex flex-col items-center pt-24 pb-4 gap-4 z-10 overflow-hidden">
+    <section className="relative bg-black w-full min-h-screen flex flex-col pt-28 pb-12">
+      <div className="flex-1 w-full flex flex-col items-center gap-8 z-10 overflow-hidden">
 
         <div className="w-full px-4 relative z-10 flex flex-col items-center shrink-0">
           <motion.div
@@ -140,16 +88,13 @@ const WorksSection = () => {
             return (
               <div
                 key={work.title}
-                ref={(el) => {
-                    // Type-safe ref assignment
-                    if (el) cardsRef.current[idx] = el;
-                }}
+                onMouseEnter={() => setActiveIndex(idx)}
+                onClick={() => setActiveIndex(idx)}
                 style={{ 
-                  flex: idx === 0 ? "16 1 0%" : "1 1 0%",
-                  WebkitTransform: "translateZ(0)" // Force GPU acceleration
-                  // Crucial: REMOVED the CSS flex transition here, letting GSAP manage inline ticks exclusively
+                  flex: isActive ? "16 1 0%" : "1 1 0%",
+                  WebkitTransform: "translateZ(0)"
                 }}
-                className={`relative rounded-[2rem] sm:rounded-[4rem] cursor-pointer group flex-shrink-0 origin-center overflow-hidden border border-white/5 transform-gpu ${isActive ? 'shadow-2xl shadow-primary/10 ring-1 ring-white/20' : 'hover:bg-white/5'}`}
+                className={`relative rounded-[2rem] sm:rounded-[4rem] cursor-pointer group flex-shrink-0 origin-center overflow-hidden border border-white/5 transform-gpu transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isActive ? 'shadow-2xl shadow-primary/10 ring-1 ring-white/20' : 'hover:bg-white/5'}`}
               >
                 {/* Background Image */}
                 <Image
