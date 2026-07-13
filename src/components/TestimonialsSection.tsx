@@ -4,6 +4,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquareHeart } from "lucide-react";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -122,7 +123,7 @@ const TestimonialsSection = () => {
                         : 'hidden md:block w-20 lg:w-24 xl:w-28 h-28 lg:h-36 opacity-50 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-300'
                     }`}
                   >
-                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                    <Image src={item.image} alt={item.name} fill className="object-cover" />
                     {isActive && (
                       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 md:p-10">
                          <h4 className="text-2xl md:text-3xl font-bold text-white mb-2">{item.name}</h4>
@@ -151,7 +152,7 @@ const TestimonialsSection = () => {
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   className="text-2xl md:text-3xl lg:text-[2rem] font-medium leading-[1.3] text-white/90"
                 >
-                  "{testimonials[activeIndex].content}"
+                  &ldquo;{testimonials[activeIndex].content}&rdquo;
                 </motion.p>
               </AnimatePresence>
             </div>

@@ -4,6 +4,7 @@
 import { motion } from "framer-motion";
 import { Users, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Carousel,
   CarouselContent,
@@ -67,10 +68,11 @@ const TeamSection = () => {
 
                     {/* Team Member Image */}
                     <div className="absolute top-2 right-0 w-[78%] h-[75%] z-10 overflow-hidden">
-                      <img 
+                      <Image 
                         src={member.image} 
-                        alt={member.name} 
-                        className="w-full h-full object-cover object-top filter grayscale contrast-[1.15] group-hover:grayscale-0 transition-all duration-500" 
+                        alt={member.name}
+                        fill
+                        className="object-cover object-top filter grayscale contrast-[1.15] group-hover:grayscale-0 transition-all duration-500" 
                       />
                     </div>
                     

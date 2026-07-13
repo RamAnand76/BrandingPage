@@ -58,21 +58,21 @@ const WorksSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative bg-black w-full min-h-screen flex flex-col pt-28 pb-12">
-      <div className="flex-1 w-full flex flex-col items-center gap-8 z-10 overflow-hidden">
+    <section className="relative bg-black w-full flex flex-col pt-32 pb-24 lg:pt-40 lg:pb-32 min-h-screen">
+      <div className="flex-1 w-full flex flex-col items-center gap-10 lg:gap-14 z-10 overflow-hidden">
 
         <div className="w-full px-4 relative z-10 flex flex-col items-center shrink-0">
 
 
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-1.5 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4 text-center">
             Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">Works</span>
           </h2>
-          <p className="text-xs text-neutral-400 max-w-xl text-center leading-relaxed hidden sm:block">
+          <p className="text-sm text-neutral-400 max-w-xl text-center leading-relaxed hidden sm:block">
             A snapshot of what we build. Scroll down to expand and explore our projects.
           </p>
         </div>
 
-        <div className="w-[94vw] max-w-[1500px] mx-auto flex-1 min-h-0 flex justify-center items-stretch gap-3 md:gap-4 relative z-10">
+        <div className="w-[94vw] max-w-[1500px] mx-auto flex-1 min-h-[500px] max-h-[80vh] flex justify-center items-stretch gap-4 relative z-10">
           {works.map((work, idx) => {
             const isActive = activeIndex === idx;
             const imageSrc = Array.isArray(work.images) ? work.images[0] : work.images;
@@ -99,27 +99,27 @@ const WorksSection = () => {
                 />
                 
                 {/* Dark overlay gradients */}
-                <div className={`absolute inset-0 transition-opacity duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none ${isActive ? 'bg-gradient-to-t from-black/90 via-black/20 to-transparent' : 'bg-black/60 group-hover:bg-black/40'}`} />
+                <div className={`absolute inset-0 transition-opacity duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none ${isActive ? 'bg-gradient-to-t from-black/95 via-black/50 to-transparent' : 'bg-black/60 group-hover:bg-black/40'}`} />
                 
                 {/* Content Container */}
-                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 md:p-8 flex flex-col justify-end pointer-events-none overflow-hidden">
-                    <div className="flex items-end overflow-visible pb-2 md:pb-4">
+                <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-end pointer-events-none overflow-hidden">
+                    <div className="flex flex-col md:flex-row md:items-end gap-6 w-full">
                       {/* Circular Icon / Number */}
                       <div 
-                        className={`flex-shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center font-bold text-lg md:text-2xl shadow-xl z-20 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isActive ? 'bg-white text-black scale-100 mb-2' : 'bg-black/60 text-white backdrop-blur-md border border-white/20 scale-95 group-hover:bg-white/20'}`}
+                        className={`flex-shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center font-bold text-lg md:text-2xl shadow-xl z-20 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isActive ? 'bg-white text-black scale-100' : 'bg-black/60 text-white backdrop-blur-md border border-white/20 scale-95 group-hover:bg-white/20'}`}
                       >
                          0{idx + 1}
                       </div>
                       
                       {/* Text details next to circle */}
                       <div
-                          className={`flex flex-col ml-4 md:ml-8 min-w-[280px] sm:min-w-[400px] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] transform ${isActive ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-6'}`}
+                          className={`flex flex-col flex-1 min-w-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] transform ${isActive ? 'opacity-100 translate-y-0 translate-x-0' : 'opacity-0 translate-y-8 md:translate-y-0 md:translate-x-8'}`}
                       >
-                          <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-2 tracking-tight drop-shadow-md">
+                          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 tracking-tight drop-shadow-md">
                               {work.title}
                           </h3>
                           
-                          <p className="text-xs sm:text-sm md:text-base text-neutral-300 mb-3 font-light max-w-lg leading-relaxed">
+                          <p className="text-sm md:text-base text-neutral-300 mb-5 font-light max-w-2xl leading-relaxed">
                               {work.description}
                           </p>
 
