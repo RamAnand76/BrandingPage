@@ -62,15 +62,7 @@ const WorksSection = () => {
       <div className="flex-1 w-full flex flex-col items-center gap-8 z-10 overflow-hidden">
 
         <div className="w-full px-4 relative z-10 flex flex-col items-center shrink-0">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 mb-3"
-          >
-            <FolderGit2 className="w-3.5 h-3.5 text-primary" />
-            <span className="text-xs font-medium text-gray-300">Our Portfolio</span>
-          </motion.div>
+
 
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-1.5 text-center">
             Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">Works</span>

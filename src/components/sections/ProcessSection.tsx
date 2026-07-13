@@ -59,7 +59,7 @@ export const ProcessSection = () => {
   return (
     <section id="process" className="py-24 bg-black relative overflow-hidden">
       {/* Dashed flow animation style wrapper */}
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @keyframes dashed-flow {
           from {
             stroke-dashoffset: 120;
@@ -74,7 +74,7 @@ export const ProcessSection = () => {
         .font-caveat {
           font-family: 'Caveat', cursive;
         }
-      `}</style>
+      `}} />
 
       {/* Background radial highlight */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/[0.02] rounded-full blur-[140px] pointer-events-none" />
@@ -107,14 +107,7 @@ export const ProcessSection = () => {
           
           {/* Row 1: Left - Header Block */}
           <div className="flex flex-col justify-center relative">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.05] mb-5 w-max"
-            >
-              <span className="text-[10px] sm:text-[11px] font-medium text-primary uppercase tracking-wider">How we work</span>
-            </motion.div>
+
             
             <div className="relative max-w-lg">
               <motion.h2

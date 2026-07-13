@@ -49,12 +49,7 @@ export const ExpertServices = () => {
             <div className="max-w-[1240px] w-full mx-auto px-4 md:px-8">
                 {/* Header */}
                 <div className="flex flex-col items-center text-center mb-8 lg:mb-6">
-                    <div className="service-header inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.05] mb-3 lg:mb-2">
-                        <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center">
-                            <div className="w-1.5 h-1.5 bg-black rounded-full" />
-                        </div>
-                        <span className="text-[11px] font-medium text-neutral-300">Software Agency</span>
-                    </div>
+
                     <h2 className="service-header text-3xl md:text-4xl lg:text-[40px] font-normal tracking-tight text-white/90">
                         Our Software Development Services
                     </h2>

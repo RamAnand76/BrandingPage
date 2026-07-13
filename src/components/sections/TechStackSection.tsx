@@ -26,13 +26,7 @@ const TechStackSection = () => {
                     viewport={{ once: true, amount: 0.1 }}
                     className="flex flex-col gap-6 items-center w-full"
                 >
-                    {/* Section pill */}
-                    <motion.div
-                        variants={itemVariants}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass"
-                    >
-                        <span className="text-sm font-medium text-gray-300">⚡ Our Stack</span>
-                    </motion.div>
+
 
                     <motion.h2
                         variants={itemVariants}

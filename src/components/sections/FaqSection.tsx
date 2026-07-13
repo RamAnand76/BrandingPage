@@ -39,15 +39,7 @@ export const FaqSection = () => {
         
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.05] mb-4"
-          >
-            <HelpCircle className="w-3.5 h-3.5 text-indigo-400" />
-            <span className="text-[11px] font-medium text-indigo-300">FAQ</span>
-          </motion.div>
+
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}

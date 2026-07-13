@@ -102,9 +102,7 @@ const AboutSection = () => {
               <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-indigo-500/20 rounded-full blur-[80px] pointer-events-none" />
 
               <div className="flex justify-end mb-12">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs font-semibold text-primary uppercase tracking-wider">
-                  About Us <Sparkles className="w-3 h-3" />
-                </div>
+
               </div>
 
               <div className="relative z-10">

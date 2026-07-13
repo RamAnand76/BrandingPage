@@ -78,11 +78,7 @@ const TestimonialsSection = () => {
           transition={{ duration: 0.8 }}
           className="testimonial-header text-center mb-16 md:mb-24 flex flex-col items-center"
         >
-          {/* Section pill */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6">
-            <MessageSquareHeart className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-gray-300">Client Love</span>
-          </div>
+
 
           <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
             Trusted by <span className="text-gradient">Businesses</span>
