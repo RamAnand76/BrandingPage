@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 export const Wordmark = () => {
   return (
     <motion.div 
-      className="relative w-full z-20 flex justify-center mt-8 md:mt-12"
+      className="relative w-full z-20 flex justify-center mt-2 md:mt-4"
       initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
       animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.9 }}
     >
-      <div className="relative w-[90%] md:w-[75%] max-w-[1200px]">
+      <div className="relative w-full md:w-[95%] max-w-[1300px]">
         <Image
           src="/text-white.png"
           alt="Rhevez Official Wordmark"

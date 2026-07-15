@@ -22,7 +22,7 @@ export const HeroSection = () => {
                 <HeroFrame>
                     <div className="w-full h-full p-8 md:p-12 lg:p-16 flex flex-col relative z-20">
                         {/* Top Label */}
-                        <div className="flex items-center gap-2 text-[10px] md:text-[11px] tracking-[0.2em] text-white/50 uppercase font-normal mb-12">
+                        <div className="flex items-center gap-2 text-[10px] md:text-[11px] tracking-[0.2em] text-white/50 uppercase font-normal mb-4">
                             (EST. <span className="text-[#3275F8]">2024</span> — VERSION <span className="text-[#00FF66]">1.0.0</span>)
                         </div>
 
@@ -30,7 +30,7 @@ export const HeroSection = () => {
                         <Wordmark />
 
                         {/* Middle Section: Description & Team Badge */}
-                        <div className="mt-12 md:mt-16 flex flex-col md:flex-row justify-between items-start md:items-center w-full relative z-20">
+                        <div className="mt-6 md:mt-8 flex flex-col md:flex-row justify-between items-start md:items-center w-full relative z-20">
                             <HeroDescription />
                             <div className="mt-8 md:mt-0 md:absolute md:left-1/2 md:-translate-x-[20%]">
                                 <TeamBadge />
