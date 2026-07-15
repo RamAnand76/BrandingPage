@@ -1,95 +1,47 @@
 "use client";
 
-import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { useContactModal } from "@/context/ContactModalContext";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
-import DarkVeil from "@/components/ui/DarkVeil";
-import Image from "next/image";
-import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
+import { HeroFrame } from "./hero/HeroFrame";
+import { GridLines } from "./hero/GridLines";
+import { BackgroundEffects } from "./hero/BackgroundEffects";
+import { Wordmark } from "./hero/Wordmark";
+import { HeroDescription } from "./hero/HeroDescription";
+import { TeamBadge } from "./hero/TeamBadge";
+import { Signature } from "./hero/Signature";
+import { BottomCategories } from "./hero/BottomCategories";
+import { HeroFooterElements } from "./hero/HeroFooterElements";
 
 export const HeroSection = () => {
-    const container = useRef<HTMLDivElement>(null);
-    const { setContactModalOpen } = useContactModal();
-
-    useGSAP(() => {
-        const tl = gsap.timeline();
-
-        // Y-axis staggered entrance for text
-        tl.from(".hero-text", {
-            y: 50,
-            opacity: 0,
-            duration: 1,
-            stagger: 0.15,
-            ease: "power4.out",
-        });
-
-        // Springy entrance for the graphic bars
-        tl.from(".hero-bar", {
-            height: 0,
-            duration: 1.5,
-            stagger: 0.1,
-            ease: "elastic.out(1, 0.5)",
-        }, "-=0.5");
-
-        // Dark card entrance
-        gsap.from(".hero-card", {
-            scale: 0.95,
-            y: 20,
-            opacity: 0,
-            duration: 1,
-            ease: "power3.out",
-            delay: 0.4
-        });
-    }, { scope: container });
-
     return (
-        <section ref={container} className="relative w-full h-[135svh] min-h-[600px] flex items-center justify-center overflow-hidden bg-black">
-            {/* Dark Veil Absolute Background Layer */}
-            <div className="absolute inset-0 z-0 pointer-events-none w-full h-full opacity-60">
-                <DarkVeil
-                    hueShift={0}
-                    noiseIntensity={0.05}
-                    scanlineIntensity={0.1}
-                    speed={0.5}
-                    scanlineFrequency={0}
-                    warpAmount={0.3}
-                />
-                {/* Abstract Ambient Glows */}
-                <div className="absolute top-1/4 right-1/4 w-[800px] h-[800px] bg-indigo-600/20 rounded-full blur-[150px] mix-blend-screen" />
-                <div className="absolute bottom-1/4 left-1/4 w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[150px] mix-blend-screen" />
-            </div>
+        <section className="relative w-full h-screen min-h-[132vh] flex flex-col items-center justify-center overflow-hidden bg-[#050505] selection:bg-[#3275F8]/30 selection:text-white font-inter">
+            <BackgroundEffects />
 
-            {/* Bottom Left Content */}
-            <div className="absolute bottom-12 left-6 md:bottom-20 md:left-12 lg:left-20 z-10 max-w-[800px]">
-                <h1 className="hero-text text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[76px] font-bold tracking-tighter text-white leading-[1.05] sm:leading-[0.95] mb-4 md:mb-6">
-                    We build complete <br className="hidden sm:block" /> 
-                    <AnimatedGradientText colorFrom="#98E04D" colorTo="#3275F8">
-                        digital products
-                    </AnimatedGradientText>
-                </h1>
+            <HeroFooterElements />
 
-                <p className="hero-text text-sm md:text-base lg:text-lg text-neutral-400 max-w-[480px] leading-relaxed font-light">
-                    Development, infrastructure, security and post-launch support.<br className="hidden sm:block" /> One team responsible for the whole thing from start to finish.
-                </p>
-            </div>
+            <div className="relative w-full flex-1 flex items-center justify-center px-4 md:px-12 z-20 mt-16">
+                <GridLines />
+                <HeroFrame>
+                    <div className="w-full h-full p-8 md:p-12 lg:p-16 flex flex-col relative z-20">
+                        {/* Top Label */}
+                        <div className="flex items-center gap-2 text-[10px] md:text-[11px] tracking-[0.2em] text-white/50 uppercase font-medium mb-12">
+                            (EST. <span className="text-[#3275F8]">2024</span> — VERSION <span className="text-[#00FF66]">1.0.0</span>)
+                        </div>
 
-            {/* Bottom Right Card: New Case */}
-            <div className="hero-card absolute bottom-12 right-6 md:bottom-20 md:right-12 lg:right-20 z-10 hidden sm:block">
-                <Link href="/our-works" className="group flex bg-[#111111]/80 backdrop-blur-md rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-white/10 h-[100px] md:h-[130px] items-center p-2 md:p-3 gap-2 md:gap-3 hover:bg-[#1a1a1a]/90 transition-colors w-[260px] md:w-[320px]">
-                    <div className="w-[130px] md:w-[160px] h-full rounded-xl overflow-hidden relative shrink-0">
-                        <Image src="/lovable-uploads/Code-editor compoennet-2.png" fill alt="New Case" className="object-cover" sizes="(max-width: 768px) 160px, 200px" />
+                        {/* Wordmark */}
+                        <Wordmark />
+
+                        {/* Middle Section: Description & Team Badge */}
+                        <div className="mt-12 md:mt-16 flex flex-col md:flex-row justify-between items-start md:items-center w-full relative z-20">
+                            <HeroDescription />
+                            <div className="mt-8 md:mt-0 md:absolute md:left-1/2 md:-translate-x-[20%]">
+                                <TeamBadge />
+                            </div>
+                        </div>
+
+                        {/* Bottom Categories */}
+                        <BottomCategories />
                     </div>
-                    <div className="flex-1 h-full bg-[#E5E5E5] rounded-xl md:rounded-2xl p-3 md:p-4 flex flex-col justify-between">
-                        <span className="text-black font-semibold text-xs md:text-sm tracking-tight">New case</span>
-                        <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-black self-end transform rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                    </div>
-                </Link>
+                </HeroFrame>
+                <Signature />
             </div>
         </section>
     );
