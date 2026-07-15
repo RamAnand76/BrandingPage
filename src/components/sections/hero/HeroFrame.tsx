@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 
-// A corner anchor: glowing dot with a full cross (horizontal + vertical lines extending to viewport edges)
 const CornerAnchor = ({
   position,
 }: {
@@ -16,16 +15,6 @@ const CornerAnchor = ({
 
   return (
     <div className={`absolute z-30 ${positionClasses}`} style={{ overflow: 'visible' }}>
-      {/* Full horizontal line passing through the dot (left + right) */}
-      <div
-        className="absolute top-1/2 -translate-y-1/2 h-[1px] bg-white/20 pointer-events-none"
-        style={{ left: '-50vw', width: '100vw' }}
-      />
-      {/* Full vertical line passing through the dot (up + down) */}
-      <div
-        className="absolute left-1/2 -translate-x-1/2 w-[1px] bg-white/20 pointer-events-none"
-        style={{ top: '-50vh', height: '100vh' }}
-      />
       {/* Glowing dot on top */}
       <div className="relative w-[8px] h-[8px] rounded-full bg-white shadow-[0_0_10px_4px_rgba(255,255,255,0.6)] z-10" />
     </div>
@@ -34,7 +23,7 @@ const CornerAnchor = ({
 
 export const HeroFrame = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="relative w-full max-w-[1400px] mx-auto z-10 overflow-visible">
+    <div className="relative w-full max-w-[950px] mx-auto z-10 overflow-visible">
       <motion.div
         className="relative w-full border border-white/10 overflow-visible"
         initial={{ opacity: 0, scale: 0.98 }}
@@ -45,6 +34,19 @@ export const HeroFrame = ({ children }: { children: ReactNode }) => {
         <CornerAnchor position="top-right" />
         <CornerAnchor position="bottom-left" />
         <CornerAnchor position="bottom-right" />
+
+        {/* Midpoint lines extending outwards */}
+        {/* Left edge middle line going outwards */}
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-full w-[50vw] h-[1px] bg-white/20 pointer-events-none" />
+        
+        {/* Right edge middle line going outwards */}
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-full w-[50vw] h-[1px] bg-white/20 pointer-events-none" />
+        
+        {/* Top edge middle line going outwards */}
+        <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-full h-[50vh] w-[1px] bg-white/20 pointer-events-none" />
+        
+        {/* Bottom edge middle line going outwards */}
+        <div className="absolute left-1/2 bottom-0 -translate-x-1/2 translate-y-full h-[50vh] w-[1px] bg-white/20 pointer-events-none" />
 
         {children}
       </motion.div>
