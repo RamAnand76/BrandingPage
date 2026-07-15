@@ -64,6 +64,11 @@ export default {
             "offset-distance": "100%",
           },
         },
+        gradient: {
+          to: {
+            backgroundPosition: "var(--bg-size, 300%) 0",
+          },
+        },
         marquee: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-100%)' }
@@ -93,6 +98,7 @@ export default {
       },
       animation: {
         "border-beam": "border-beam calc(var(--duration) * 1s) infinite linear",
+        gradient: "gradient 8s linear infinite",
         marquee: 'marquee 40s linear infinite',
         rainbow: "rainbow var(--duration, 4s) linear infinite",
         move: "move 5s linear infinite",

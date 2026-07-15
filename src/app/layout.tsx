@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -9,7 +9,7 @@ import SmoothScrolling from "@/components/SmoothScrolling";
 import PageTransition from "@/components/ui/PageTransition";
 import { ContactModalProvider } from "@/context/ContactModalContext";
 
-const inter = Inter({ subsets: ["latin"] });
+const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://rhevez.lovable.dev'),
@@ -80,7 +80,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={inter.className}>
+      <body className={jakarta.className}>
         <QueryProvider>
           <TooltipProvider>
             <ContactModalProvider>

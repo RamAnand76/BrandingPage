@@ -10,6 +10,8 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import DarkVeil from "@/components/ui/DarkVeil";
+import Image from "next/image";
+import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
 
 export const HeroSection = () => {
     const container = useRef<HTMLDivElement>(null);
@@ -38,16 +40,16 @@ export const HeroSection = () => {
         // Dark card entrance
         gsap.from(".hero-card", {
             scale: 0.95,
-            x: 20,
+            y: 20,
             opacity: 0,
             duration: 1,
             ease: "power3.out",
-            delay: 0.2
+            delay: 0.4
         });
     }, { scope: container });
 
     return (
-        <section ref={container} className="relative w-full pt-32 pb-20 md:pt-40 md:pb-32 px-4 sm:px-6 lg:px-8 flex items-center justify-center overflow-hidden bg-black">
+        <section ref={container} className="relative w-full h-[135svh] min-h-[600px] flex items-center justify-center overflow-hidden bg-black">
             {/* Dark Veil Absolute Background Layer */}
             <div className="absolute inset-0 z-0 pointer-events-none w-full h-full opacity-60">
                 <DarkVeil
@@ -58,71 +60,36 @@ export const HeroSection = () => {
                     scanlineFrequency={0}
                     warpAmount={0.3}
                 />
+                {/* Abstract Ambient Glows */}
+                <div className="absolute top-1/4 right-1/4 w-[800px] h-[800px] bg-indigo-600/20 rounded-full blur-[150px] mix-blend-screen" />
+                <div className="absolute bottom-1/4 left-1/4 w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[150px] mix-blend-screen" />
             </div>
-            <div className="max-w-[1240px] mx-auto w-full grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
 
-                {/* Left Column */}
-                <div className="flex flex-col items-start text-left relative z-10 w-full">
-                    <p className="hero-text text-[#98E04D] font-medium text-sm md:text-base tracking-wide mb-4 md:mb-6 uppercase">
-                        Rhevez: Expert Services, Delivered.
-                    </p>
+            {/* Bottom Left Content */}
+            <div className="absolute bottom-12 left-6 md:bottom-20 md:left-12 lg:left-20 z-10 max-w-[800px]">
+                <h1 className="hero-text text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[76px] font-bold tracking-tighter text-white leading-[1.05] sm:leading-[0.95] mb-4 md:mb-6">
+                    We build complete <br className="hidden sm:block" /> 
+                    <AnimatedGradientText colorFrom="#98E04D" colorTo="#3275F8">
+                        digital products
+                    </AnimatedGradientText>
+                </h1>
 
-                    <h1 className="hero-text text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[68px] font-bold tracking-tighter text-white leading-[1.05] sm:leading-[0.95] mb-6 md:mb-8">
-                        Expert Software <br className="hidden md:block" /> Development Services
-                    </h1>
+                <p className="hero-text text-sm md:text-base lg:text-lg text-neutral-400 max-w-[480px] leading-relaxed font-light">
+                    Development, infrastructure, security and post-launch support.<br className="hidden sm:block" /> One team responsible for the whole thing from start to finish.
+                </p>
+            </div>
 
-                    <p className="hero-text text-base md:text-lg text-neutral-400 mb-8 max-w-[480px] leading-relaxed font-light">
-                        From stunning UI/UX to powerful AI and flawless apps, we build the digital solutions of tomorrow. Let&apos;s create something amazing together.
-                    </p>
-
-                    <div className="hero-text flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
-                        <HoverBorderGradient
-                            containerClassName="rounded-full w-full sm:w-auto"
-                            as="button"
-                            className="bg-black/80 hover:bg-black/60 text-white text-base md:text-lg font-bold px-8 py-4 md:py-5 flex items-center justify-center gap-3 transition-all w-full shadow-[0_0_40px_rgba(50,117,248,0.5)] border border-white/10"
-                            onClick={() => setContactModalOpen(true)}
-                        >
-                            <span className="relative z-10 flex items-center gap-2">
-                                Start Your Project
-                                <ArrowRight className="w-5 h-5 ml-1" />
-                            </span>
-                        </HoverBorderGradient>
-
-                        <Link href="/products" className="w-full sm:w-auto">
-                            <Button
-                                size="lg"
-                                variant="outline"
-                                className="bg-transparent border-white/20 hover:bg-white/5 text-white text-base md:text-lg font-semibold px-8 py-7 h-auto md:h-[68px] rounded-full w-full sm:w-auto transition-all"
-                            >
-                                Discover Products
-                            </Button>
-                        </Link>
+            {/* Bottom Right Card: New Case */}
+            <div className="hero-card absolute bottom-12 right-6 md:bottom-20 md:right-12 lg:right-20 z-10 hidden sm:block">
+                <Link href="/our-works" className="group flex bg-[#111111]/80 backdrop-blur-md rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-white/10 h-[100px] md:h-[130px] items-center p-2 md:p-3 gap-2 md:gap-3 hover:bg-[#1a1a1a]/90 transition-colors w-[260px] md:w-[320px]">
+                    <div className="w-[130px] md:w-[160px] h-full rounded-xl overflow-hidden relative shrink-0">
+                        <Image src="/lovable-uploads/Code-editor compoennet-2.png" fill alt="New Case" className="object-cover" sizes="(max-width: 768px) 160px, 200px" />
                     </div>
-                </div>
-
-                {/* Right Column - Dark Card with Chart */}
-                <div className="hero-card relative w-full h-[450px] sm:h-[500px] lg:h-[600px] bg-[#0A0A0A] rounded-[32px] md:rounded-[48px] overflow-hidden flex flex-col p-8 md:p-12 shadow-2xl group border border-white/[0.05]">
-                    {/* Abstract fluid shapes inside card */}
-                    <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/[0.04] rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 transition-transform duration-1000 group-hover:scale-110" />
-                    <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-[#98E04D]/[0.05] rounded-full blur-[100px] transition-transform duration-1000 group-hover:scale-110" />
-
-                    <div className="flex items-center gap-4 mb-6 md:mb-10 relative z-10">
-                        <div className="w-12 md:w-16 h-[1px] bg-neutral-400" />
-                        <span className="text-neutral-300 font-medium text-sm md:text-base tracking-wide">Fast & Reliable</span>
+                    <div className="flex-1 h-full bg-[#E5E5E5] rounded-xl md:rounded-2xl p-3 md:p-4 flex flex-col justify-between">
+                        <span className="text-black font-semibold text-xs md:text-sm tracking-tight">New case</span>
+                        <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-black self-end transform rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </div>
-
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium text-white leading-[1.15] mb-auto relative z-10 md:max-w-[85%] tracking-tight">
-                        We build the digital solutions of tomorrow!
-                    </h3>
-
-                    {/* Bar Chart Graphic */}
-                    <div className="mt-auto flex items-end justify-end gap-3 md:gap-4 h-[150px] md:h-[220px] w-full relative z-10 bottom-0 pr-2">
-                        <div className="hero-bar w-14 sm:w-16 md:w-20 bg-[#D4F2A3] rounded-t-sm md:rounded-t-md h-[45%]" />
-                        <div className="hero-bar w-14 sm:w-16 md:w-20 bg-[#B5E973] rounded-t-sm md:rounded-t-md h-[65%]" />
-                        <div className="hero-bar w-14 sm:w-16 md:w-20 bg-[#98E04D] rounded-t-sm md:rounded-t-md h-[100%]" />
-                    </div>
-                </div>
-
+                </Link>
             </div>
         </section>
     );
