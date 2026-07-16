@@ -4,31 +4,31 @@ import { motion } from "framer-motion";
 
 export const CustomBackground = () => {
   return (
-    <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-[#020202]">
+    <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-[#030303]">
 
-      {/* ═══ HEAVY FILM GRAIN OVERLAY ═══ */}
+      {/* ═══ HEAVY BASE GRAIN (Visible on absolute black) ═══ */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          zIndex: 102,
+          mixBlendMode: "normal",
+          opacity: 0.08, // Renders noise on pure black areas
+          backgroundImage:
+            'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'g_base\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23g_base)\'/%3E%3C/svg%3E")',
+          backgroundSize: "128px 128px",
+        }}
+      />
+
+      {/* ═══ FILM GRAIN OVERLAYS (For blend highlights on beams) ═══ */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           zIndex: 100,
           mixBlendMode: "overlay",
-          opacity: 0.35,
+          opacity: 0.45,
           backgroundImage:
             'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 512 512\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'g\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.75\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23g)\'/%3E%3C/svg%3E")',
           backgroundSize: "256px 256px",
-        }}
-      />
-
-      {/* Secondary grain layer for extra crunch */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          zIndex: 101,
-          mixBlendMode: "soft-light",
-          opacity: 0.2,
-          backgroundImage:
-            'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'g2\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'1.2\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23g2)\'/%3E%3C/svg%3E")',
-          backgroundSize: "192px 192px",
         }}
       />
 
@@ -40,7 +40,7 @@ export const CustomBackground = () => {
         className="absolute inset-0"
         style={{ overflow: "hidden" }}
       >
-        {/* Solid white beam with slight edge blur */}
+        {/* Soft, wide outer glow (blurry edges) */}
         <motion.div
           animate={{
             rotate: [-32, -44, -32],
@@ -50,13 +50,33 @@ export const CustomBackground = () => {
           style={{
             position: "absolute",
             top: "-50%",
-            left: "-5%", // Shifted left for spacing
+            left: "-5%",
             width: "80%",
             height: "250%",
             transformOrigin: "50% 50%",
             background:
-              "linear-gradient(90deg, transparent 44%, rgba(255,255,255,0.05) 44.5%, rgba(255,255,255,0.4) 45%, rgba(255,255,255,0.4) 55%, rgba(255,255,255,0.05) 55.5%, transparent 56%)",
-            filter: "blur(2px)",
+              "linear-gradient(90deg, transparent 25%, rgba(255,255,255,0.01) 28%, rgba(255,255,255,0.05) 35%, rgba(255,255,255,0.2) 45%, rgba(255,255,255,0.2) 55%, rgba(255,255,255,0.05) 65%, rgba(255,255,255,0.01) 72%, transparent 75%)",
+            filter: "blur(20px)",
+          }}
+        />
+
+        {/* Partially solid core (crisper, brighter) */}
+        <motion.div
+          animate={{
+            rotate: [-32, -44, -32],
+            x: ["-10%", "5%", "-10%"],
+          }}
+          transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
+          style={{
+            position: "absolute",
+            top: "-50%",
+            left: "-5%",
+            width: "80%",
+            height: "250%",
+            transformOrigin: "50% 50%",
+            background:
+              "linear-gradient(90deg, transparent 40%, rgba(255,255,255,0.02) 42%, rgba(255,255,255,0.3) 45%, rgba(255,255,255,0.3) 55%, rgba(255,255,255,0.02) 58%, transparent 60%)",
+            filter: "blur(4px)",
           }}
         />
       </motion.div>
@@ -69,7 +89,7 @@ export const CustomBackground = () => {
         className="absolute inset-0"
         style={{ overflow: "hidden" }}
       >
-        {/* Solid blue beam with slight edge blur */}
+        {/* Soft, wide outer glow (blurry edges) */}
         <motion.div
           animate={{
             rotate: [-46, -30, -46],
@@ -83,17 +103,41 @@ export const CustomBackground = () => {
           style={{
             position: "absolute",
             top: "-60%",
-            right: "-2%", // Shifted right for spacing
+            right: "-2%",
             width: "80%",
             height: "260%",
             transformOrigin: "50% 50%",
             background:
-              "linear-gradient(90deg, transparent 44%, rgba(50,117,248,0.05) 44.5%, rgba(50,117,248,0.6) 45%, rgba(50,117,248,0.6) 55%, rgba(50,117,248,0.05) 55.5%, transparent 56%)",
-            filter: "blur(2px)",
+              "linear-gradient(90deg, transparent 25%, rgba(50,117,248,0.01) 28%, rgba(50,117,248,0.05) 35%, rgba(40,100,230,0.3) 45%, rgba(40,100,230,0.3) 55%, rgba(50,117,248,0.05) 65%, rgba(50,117,248,0.01) 72%, transparent 75%)",
+            filter: "blur(22px)",
           }}
         />
 
-        {/* Solid teal/cyan transition at the bottom */}
+        {/* Partially solid core (crisper, brighter) */}
+        <motion.div
+          animate={{
+            rotate: [-46, -30, -46],
+            x: ["5%", "-10%", "5%"],
+          }}
+          transition={{
+            duration: 28,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          style={{
+            position: "absolute",
+            top: "-60%",
+            right: "-2%",
+            width: "80%",
+            height: "260%",
+            transformOrigin: "50% 50%",
+            background:
+              "linear-gradient(90deg, transparent 40%, rgba(50,117,248,0.02) 42%, rgba(50,117,248,0.45) 45%, rgba(50,117,248,0.45) 55%, rgba(50,117,248,0.02) 58%, transparent 60%)",
+            filter: "blur(5px)",
+          }}
+        />
+
+        {/* Teal/cyan transition glow */}
         <motion.div
           animate={{
             rotate: [-48, -32, -48],
@@ -114,8 +158,8 @@ export const CustomBackground = () => {
             height: "200%",
             transformOrigin: "30% 30%",
             background:
-              "linear-gradient(90deg, transparent 44%, rgba(0,190,140,0.05) 44.5%, rgba(0,190,140,0.5) 45%, rgba(0,190,140,0.5) 55%, rgba(0,190,140,0.05) 55.5%, transparent 56%)",
-            filter: "blur(3px)",
+              "linear-gradient(90deg, transparent 32%, rgba(0,190,140,0.02) 38%, rgba(0,190,140,0.3) 45%, rgba(0,190,140,0.3) 55%, rgba(0,190,140,0.02) 62%, transparent 68%)",
+            filter: "blur(20px)",
             mixBlendMode: "screen"
           }}
         />
