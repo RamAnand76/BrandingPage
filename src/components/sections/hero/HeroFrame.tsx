@@ -25,7 +25,7 @@ export const HeroFrame = ({ children }: { children: ReactNode }) => {
   return (
     <div className="relative w-full max-w-[950px] mx-auto z-10 overflow-visible">
       <motion.div
-        className="relative w-full border border-white/10 overflow-visible"
+        className="relative w-full border border-white/20 overflow-visible"
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.45 }}
@@ -38,13 +38,13 @@ export const HeroFrame = ({ children }: { children: ReactNode }) => {
         {/* Midpoint lines extending outwards */}
         {/* Left edge middle line going outwards */}
         <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-full w-[50vw] h-[1px] bg-white/20 pointer-events-none" />
-        
+
         {/* Right edge middle line going outwards */}
         <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-full w-[50vw] h-[1px] bg-white/20 pointer-events-none" />
-        
+
         {/* Top edge middle line going outwards */}
         <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-full h-[50vh] w-[1px] bg-white/20 pointer-events-none" />
-        
+
         {/* Bottom edge middle line going outwards */}
         <div className="absolute left-1/2 bottom-0 -translate-x-1/2 translate-y-full h-[50vh] w-[1px] bg-white/20 pointer-events-none" />
 

@@ -24,27 +24,27 @@ const Navigation = () => {
         {!scrolled && (
           <motion.nav
             key="full-nav"
-            className="fixed w-full flex items-center justify-between px-6 md:px-12 py-8 top-0 left-0 z-[100]"
+            className="fixed w-full flex items-center justify-between px-6 md:px-12 py-8 top-[2%] left-0 z-[100]"
             initial={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="flex items-center gap-6">
-              <Link href="/" className="flex items-center gap-4 cursor-pointer">
-                <div className="w-8 h-8 relative flex-shrink-0">
+              <Link href="/" className="flex items-center gap-5 cursor-pointer">
+                <div className="w-11 h-11 relative flex-shrink-0">
                   <Image src="/lovable-uploads/logo.png" alt="Rhevez Logo" fill className="object-contain" />
                 </div>
-                <div className="relative hidden sm:block" style={{ height: "32px", width: "140px" }}>
+                <div className="relative hidden sm:block" style={{ height: "44px", width: "196px" }}>
                   <Image src="/text-white.png" alt="Rhevez" fill className="object-contain object-left" />
                 </div>
               </Link>
               <div className="h-4 w-[1px] bg-white/20 hidden lg:block" />
-              <span className="text-[12px] font-medium text-white/70 hidden lg:block tracking-wide">
+              <span className="text-[16px] font-medium text-white/70 hidden lg:block tracking-wide">
                 AI <span className="text-[#3275F8]">powered.</span> Human <span className="text-[#00FF66]">focused.</span>
               </span>
             </div>
 
-            <div className="hidden lg:flex items-center gap-8 text-[11px] tracking-[0.15em] font-semibold uppercase text-white/90">
+            <div className="hidden lg:flex items-center gap-10 text-[15px] tracking-[0.15em] font-semibold uppercase text-white/90">
               <Link href="/our-works" className="hover:text-white transition-colors">WORKS</Link>
               <span className="text-white/20">/</span>
               <Link href="/#features" className="hover:text-white transition-colors">SERVICES</Link>
@@ -52,10 +52,10 @@ const Navigation = () => {
               <Link href="/about" className="hover:text-white transition-colors">ABOUT</Link>
               <button
                 onClick={() => setContactModalOpen(true)}
-                className="flex items-center gap-2 ml-4 px-6 py-3 rounded-md border border-white/20 hover:border-[#3275F8]/50 hover:shadow-[0_0_15px_rgba(50,117,248,0.3)] transition-all bg-black/50 backdrop-blur-md"
+                className="flex items-center gap-3 ml-4 px-8 py-4 rounded-md border border-white/20 hover:border-[#3275F8]/50 hover:shadow-[0_0_15px_rgba(50,117,248,0.3)] transition-all bg-black/50 backdrop-blur-md"
               >
                 CONTACT US
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <ArrowUpRight className="w-5 h-5" />
               </button>
             </div>
           </motion.nav>

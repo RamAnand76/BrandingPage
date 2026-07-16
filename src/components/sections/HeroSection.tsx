@@ -2,7 +2,7 @@
 
 import { HeroFrame } from "./hero/HeroFrame";
 import { GridLines } from "./hero/GridLines";
-import { BackgroundEffects } from "./hero/BackgroundEffects";
+import { CustomBackground } from "./hero/CustomBackground";
 import { Wordmark } from "./hero/Wordmark";
 import { HeroDescription } from "./hero/HeroDescription";
 import { TeamBadge } from "./hero/TeamBadge";
@@ -13,12 +13,11 @@ import { HeroFooterElements } from "./hero/HeroFooterElements";
 export const HeroSection = () => {
     return (
         <section className="relative w-full h-screen min-h-[132vh] flex flex-col items-center justify-center overflow-hidden bg-[#050505] selection:bg-[#3275F8]/30 selection:text-white font-inter">
-            <BackgroundEffects />
+            <CustomBackground />
 
             <HeroFooterElements />
 
             <div className="relative w-full flex-1 flex items-center justify-center px-4 md:px-12 z-20 mt-16">
-                <GridLines />
                 <HeroFrame>
                     <div className="w-full h-full p-8 md:p-12 lg:p-16 flex flex-col relative z-20">
                         {/* Top Label */}
