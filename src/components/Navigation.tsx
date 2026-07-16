@@ -24,7 +24,7 @@ const Navigation = () => {
         {!scrolled && (
           <motion.nav
             key="full-nav"
-            className="fixed w-full flex items-center justify-between px-6 md:px-12 py-8 top-[2%] left-0 z-[100]"
+            className="fixed w-full flex items-center justify-between px-6 md:px-12 py-8 top-[1%] left-0 z-[100]"
             initial={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
@@ -50,12 +50,14 @@ const Navigation = () => {
               <Link href="/#features" className="hover:text-white transition-colors">SERVICES</Link>
               <span className="text-white/20">/</span>
               <Link href="/about" className="hover:text-white transition-colors">ABOUT</Link>
+              <span className="text-white/20">/</span>
+              <Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link>
               <button
                 onClick={() => setContactModalOpen(true)}
-                className="flex items-center gap-3 ml-4 px-8 py-4 rounded-md border border-white/20 hover:border-[#3275F8]/50 hover:shadow-[0_0_15px_rgba(50,117,248,0.3)] transition-all bg-black/50 backdrop-blur-md"
+                className="flex items-center gap-2 ml-4 px-5 py-2 rounded-md border border-[#3275F8] bg-[#3275F8] text-white text-[15px] tracking-[0.1em] font-semibold hover:bg-[#3275F8]/80 hover:shadow-[0_0_15px_rgba(50,117,248,0.3)] transition-all"
               >
-                CONTACT US
-                <ArrowUpRight className="w-5 h-5" />
+                Build Your Project
+                <ArrowUpRight className="w-4 h-4" />
               </button>
             </div>
           </motion.nav>
@@ -101,7 +103,7 @@ const Navigation = () => {
               {/* Contact Button */}
               <button
                 onClick={() => setContactModalOpen(true)}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-white text-black text-[10px] font-bold tracking-widest uppercase hover:bg-white/90 transition-colors"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#3275F8] text-white text-[10px] font-bold tracking-widest uppercase hover:bg-[#3275F8]/85 transition-colors"
               >
                 CONTACT
                 <ArrowUpRight className="w-3 h-3" />

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export const HeroNavbar = () => {
   return (
-    <motion.nav 
+    <motion.nav
       className="w-full flex items-center justify-between px-6 md:px-12 py-8 absolute top-0 left-0 z-50 pointer-events-auto"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -33,9 +33,9 @@ export const HeroNavbar = () => {
         <span className="cursor-pointer hover:text-white transition-colors">ABOUT</span>
         <span className="text-white/20">/</span>
         <span className="cursor-pointer hover:text-white transition-colors">INSIGHTS</span>
-        
+
         <button className="flex items-center gap-2 ml-4 px-6 py-3 rounded-md border border-white/20 hover:border-[#3275F8]/50 hover:shadow-[0_0_15px_rgba(50,117,248,0.3)] transition-all bg-black/50 backdrop-blur-md">
-          CONTACT US
+          Build Your Project
           <ArrowUpRight className="w-3.5 h-3.5" />
         </button>
       </div>
