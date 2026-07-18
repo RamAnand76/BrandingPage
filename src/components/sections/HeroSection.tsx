@@ -9,20 +9,38 @@ import { TeamBadge } from "./hero/TeamBadge";
 import { Signature } from "./hero/Signature";
 import { BottomCategories } from "./hero/BottomCategories";
 import { HeroFooterElements } from "./hero/HeroFooterElements";
-import { ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import { MobileMenuModal } from "../MobileMenuModal";
+import { Menu } from "lucide-react";
+import { motion } from "framer-motion";
 
 export const HeroSection = () => {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
     return (
-        <section className="relative w-full h-screen min-h-[132vh] flex flex-col items-center justify-center overflow-hidden bg-[#050505] selection:bg-[#3275F8]/30 selection:text-white font-inter">
+        <section className="relative w-full h-screen min-h-[100vh] md:min-h-[132vh] flex flex-col items-center justify-center overflow-hidden bg-[#050505] selection:bg-[#3275F8]/30 selection:text-white font-inter">
             <CustomBackground />
 
-            <HeroFooterElements />
+            <MobileMenuModal isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
 
-            <div className="relative w-full flex-1 flex items-start md:items-center justify-center px-4 md:px-12 z-20 mt-28 md:mt-16">
+            <HeroFooterElements onMenuClick={() => setIsMobileMenuOpen(true)} />
+
+            {/* ── Fixed hamburger button overlay (mobile only) ── */}
+            <motion.button
+                onClick={() => setIsMobileMenuOpen(true)}
+                className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[150] w-12 h-12 bg-[#111]/80 backdrop-blur-md border border-white/10 flex items-center justify-center hover:bg-[#222]/90 transition-colors md:hidden"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 2, duration: 1 }}
+            >
+                <Menu className="w-5 h-5 text-white/80" />
+            </motion.button>
+
+            <div className="relative w-full flex-1 flex items-center justify-center px-4 md:px-12 z-20 mt-20 md:mt-16">
                 <HeroFrame>
-                    <div className="w-full h-full p-4 md:p-12 lg:p-16 flex flex-col relative z-20">
+                    <div className="w-full h-full p-6 md:p-12 lg:p-16 flex flex-col relative z-20">
                         {/* Top Label */}
-                        <div className="flex items-center justify-start md:justify-center gap-2 text-[10px] md:text-[11px] tracking-[0.2em] text-white/50 uppercase font-normal mb-4">
+                        <div className="flex items-center gap-2 text-[10px] md:text-[11px] tracking-[0.2em] text-white/50 uppercase font-normal mb-4">
                             (EST. <span className="text-[#3275F8]">2024</span> — VERSION <span className="text-[#00FF66]">1.0.0</span>)
                         </div>
 
@@ -39,25 +57,14 @@ export const HeroSection = () => {
 
                         {/* Bottom Categories */}
                         <BottomCategories />
-                        
-                        {/* Mobile CTA Buttons */}
-                        <div className="flex flex-col md:hidden gap-3 w-full mt-10 mb-20 z-40">
-                            <button className="flex items-center justify-between w-full px-6 py-4 rounded-md border border-white/20 hover:border-[#3275F8]/50 transition-all bg-white text-black font-bold text-[12px] uppercase tracking-wider">
-                                START YOUR PROJECT
-                                <ArrowUpRight className="w-4 h-4" />
-                            </button>
-                            <button className="flex items-center justify-between w-full px-6 py-4 rounded-md border border-white/20 hover:border-[#3275F8]/50 hover:shadow-[0_0_15px_rgba(50,117,248,0.3)] transition-all bg-black/50 backdrop-blur-md text-white font-bold text-[12px] uppercase tracking-wider">
-                                SEE OUR WORK
-                                <ArrowUpRight className="w-4 h-4" />
-                            </button>
+
+                        {/* Mobile Footer Info (inside the frame) */}
+                        <div className="flex md:hidden items-center justify-between w-full mt-10 text-[9px] font-semibold tracking-widest text-white/60">
+                            <span>AVAILABLE FOR: <span className="text-[#00FF66]">DEC</span> PROJECTS</span>
+                            <span>JULY 18, 08:10</span>
                         </div>
                     </div>
                 </HeroFrame>
-                <div className="hidden md:block">
-                    <Signature />
-                </div>
-            </div>
-            <div className="md:hidden absolute top-[40%] left-0 w-full z-10 pointer-events-none opacity-40">
                 <Signature />
             </div>
         </section>

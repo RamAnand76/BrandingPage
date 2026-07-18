@@ -29,19 +29,28 @@ const Navigation = () => {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="flex items-center gap-6">
-              <Link href="/" className="flex items-center gap-5 cursor-pointer">
-                <div className="w-11 h-11 relative flex-shrink-0">
-                  <Image src="/lovable-uploads/logo.png" alt="Rhevez Logo" fill className="object-contain" />
-                </div>
-                <div className="relative hidden sm:block" style={{ height: "44px", width: "196px" }}>
-                  <Image src="/text-white.png" alt="Rhevez" fill className="object-contain object-left" />
-                </div>
-              </Link>
-              <div className="h-4 w-[1px] bg-white/20 hidden lg:block" />
-              <span className="text-[16px] font-medium text-white/70 hidden lg:block tracking-wide">
-                AI <span className="text-[#3275F8]">powered.</span> Human <span className="text-[#00FF66]">focused.</span>
-              </span>
+            <div className="flex items-center justify-between w-full lg:w-auto lg:gap-6">
+              <div className="flex items-center gap-6">
+                <Link href="/" className="flex items-center gap-3 lg:gap-5 cursor-pointer">
+                  <div className="w-8 h-8 lg:w-11 lg:h-11 relative flex-shrink-0">
+                    <Image src="/lovable-uploads/logo.png" alt="Rhevez Logo" fill className="object-contain" />
+                  </div>
+                  <div className="relative h-[22px] w-[90px] lg:h-[44px] lg:w-[196px]">
+                    <Image src="/text-white.png" alt="Rhevez" fill className="object-contain object-left" />
+                  </div>
+                </Link>
+                <div className="h-4 w-[1px] bg-white/20 hidden lg:block" />
+                <span className="text-[16px] font-medium text-white/70 hidden lg:block tracking-wide">
+                  AI <span className="text-[#3275F8]">powered.</span> Human <span className="text-[#00FF66]">focused.</span>
+                </span>
+              </div>
+              
+              <button
+                onClick={() => setContactModalOpen(true)}
+                className="flex lg:hidden items-center gap-2 px-3 py-1.5 rounded-sm bg-[#3275F8] text-white text-[10px] md:text-[12px] font-semibold tracking-widest uppercase hover:bg-[#3275F8]/85 transition-colors"
+              >
+                START A PROJECT
+              </button>
             </div>
 
             <div className="hidden lg:flex items-center gap-10 text-[15px] tracking-[0.15em] font-semibold uppercase text-white/90">

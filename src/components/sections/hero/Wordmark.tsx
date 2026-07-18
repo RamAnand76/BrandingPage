@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export const Wordmark = () => {
   return (
     <motion.div 
-      className="relative w-full z-20 flex justify-center mt-2 md:mt-4"
+      className="relative w-full z-20 flex justify-start md:justify-center mt-2 md:mt-4"
       initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
       animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.9 }}

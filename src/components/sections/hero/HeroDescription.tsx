@@ -8,9 +8,9 @@ export const HeroDescription = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 1.2 }}
     >
-      <p className="text-[11px] md:text-[13px] leading-[1.8] text-white/80 uppercase tracking-wide font-medium text-left md:text-center max-w-[280px] md:max-w-none">
-        We build complete digital products<br className="hidden md:block" />
-        that help businesses grow, operate<br className="hidden md:block" />
+      <p className="text-[11px] md:text-[13px] leading-[1.8] text-white/80 uppercase tracking-wide font-medium">
+        We build complete digital products<br />
+        that help businesses grow, operate<br />
         smarter and stay ahead.
       </p>
     </motion.div>
