@@ -4,7 +4,7 @@ import Image from "next/image";
 export const Signature = () => {
   return (
     <motion.div
-      className="absolute right-[2%] md:right-[5%] bottom-[15%] md:bottom-[20%] lg:bottom-[2%] z-40 pointer-events-none"
+      className="relative w-full flex justify-start mt-4 md:mt-0 md:absolute md:right-[5%] md:bottom-[20%] lg:bottom-[2%] z-40 pointer-events-none"
       initial={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)", opacity: 0 }}
       animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", opacity: 1 }}
       transition={{ duration: 2.5, ease: "easeInOut", delay: 1.0 }}

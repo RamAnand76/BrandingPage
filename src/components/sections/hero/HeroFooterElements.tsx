@@ -27,6 +27,23 @@ export const HeroFooterElements = () => {
         </button>
       </motion.div>
 
+      {/* Bottom Center Scroll Indicator (Mobile Only) */}
+      <motion.div 
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-40 flex md:hidden flex-col items-center gap-2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2, duration: 1 }}
+      >
+        <div className="w-5 h-8 border border-white/30 rounded-full flex justify-center p-1">
+          <motion.div 
+            className="w-1 h-2 bg-white/60 rounded-full"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+          />
+        </div>
+        <span className="text-[8px] uppercase tracking-widest text-white/50 font-semibold">Scroll to Explore</span>
+      </motion.div>
+
       {/* Bottom Right Card */}
       <motion.div 
         className="absolute bottom-6 md:bottom-10 right-6 md:right-12 z-40 hidden lg:block"
