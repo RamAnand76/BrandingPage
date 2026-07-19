@@ -118,9 +118,9 @@ export function ContactForm({
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Full Name</FormLabel>
+                <FormLabel className="text-xs md:text-sm uppercase tracking-wider text-white/70">Full Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="John Doe" {...field} className="bg-background/50" />
+                  <Input placeholder="John Doe" {...field} className="bg-black/40 border border-white/10 text-white placeholder:text-white/20 focus:border-[#3275F8]/50 focus:ring-[#3275F8]/50 rounded-md py-5" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -134,12 +134,12 @@ export function ContactForm({
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email Address</FormLabel>
+                <FormLabel className="text-xs md:text-sm uppercase tracking-wider text-white/70">Email Address</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="john.doe@example.com"
                     {...field}
-                    className="bg-background/50"
+                    className="bg-black/40 border border-white/10 text-white placeholder:text-white/20 focus:border-[#3275F8]/50 focus:ring-[#3275F8]/50 rounded-md py-5"
                   />
                 </FormControl>
                 <FormMessage />
@@ -154,12 +154,12 @@ export function ContactForm({
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Your Message</FormLabel>
+                <FormLabel className="text-xs md:text-sm uppercase tracking-wider text-white/70">Your Message</FormLabel>
                 <FormControl>
                   <Textarea
                     placeholder="Tell us about your project..."
                     {...field}
-                    className="bg-background/50 min-h-[120px]"
+                    className="bg-black/40 border border-white/10 text-white placeholder:text-white/20 focus:border-[#3275F8]/50 focus:ring-[#3275F8]/50 rounded-md min-h-[140px]"
                   />
                 </FormControl>
                 <FormMessage />
@@ -169,7 +169,7 @@ export function ContactForm({
         </motion.div>
 
         <motion.div custom={3} initial="hidden" animate="visible" variants={fieldVariants}>
-          <Button type="submit" disabled={isSubmitting} className="button-gradient w-full py-6 text-base">
+          <Button type="submit" disabled={isSubmitting} className="w-full py-5 rounded-md bg-[#3275F8] text-white font-semibold uppercase tracking-[0.12em] text-sm md:text-base hover:bg-[#3275F8]/85 hover:shadow-[0_0_15px_rgba(50,117,248,0.3)] transition-all">
             {isSubmitting ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
