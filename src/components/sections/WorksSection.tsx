@@ -1,168 +1,196 @@
 "use client";
 
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
-import { FolderGit2, ExternalLink, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import placeholderImages from "@/app/lib/placeholder-images.json";
 
-const WorksSection = () => {
-  const works = [
-    {
-      title: "Interactive Code Editor Component",
-      description: "A professional-grade React software solution replicating advanced code editing environments.",
-      images: [
-        "/lovable-uploads/Code-editor compoennet-2.png",
-      ],
-      alt: "Custom React Software Development - Code Editor",
-      technologies: ["React", "TypeScript", "Tailwind CSS"],
-      isOpenSource: true,
-      dataAiHint: "code editor",
-      link: "https://v0-primitive-react-sandpack-compone.vercel.app/",
-      metric: "10x faster load times compared to standard embeds",
-    },
-    {
-      title: "ScriptForge AI Platform",
-      description: "A complex AI-driven software development project for the entertainment industry.",
-      images: ["/lovable-uploads/script-forge.png"],
-      dataAiHint: "screenwriting application",
-      alt: "AI Software Development Services - ScriptForge",
-      technologies: ["Next.JS", "Supabase", "GenAI"],
-      link: "https://script-forge-two.vercel.app/",
-      metric: "Launched in 4 weeks; 45% reduction in formatting errors",
-    },
-    {
-      title: "Enterprise Laundry Backend",
-      description: "A sophisticated multi-tenant software architecture for large-scale operations.",
-      images: [placeholderImages.works[2].src],
-      dataAiHint: "backend dashboard",
-      alt: "Enterprise Software Solution - Backend Dashboard",
-      technologies: ["Django", "Python", "PostgreSQL"],
-      link: "#contact",
-      metric: "Scaled to 10k+ daily transactions; 99.9% uptime",
-    },
-    {
-      title: "SMB Billing & Invoicing App",
-      description: "A mobile-first custom software development for small businesses.",
-      images: ["/lovable-uploads/billin-software.png"],
-      alt: "Mobile App Development Services - Billing Software",
-      technologies: ["Go", "Flutter", "PostgreSQL"],
-      isOpenSource: false,
-      dataAiHint: "mobile billing application",
-      link: "#contact",
-      metric: "50% faster invoicing lifecycle; 4.9 App Store rating",
-    }
-  ];
+gsap.registerPlugin(ScrollTrigger);
 
-  const [activeIndex, setActiveIndex] = useState(0);
+const works = [
+  {
+    title: "Interactive Code Editor Component",
+    description: "A professional-grade React software solution replicating advanced code editing environments.",
+    image: "/lovable-uploads/Code-editor compoennet-2.png",
+    alt: "Custom React Software Development - Code Editor",
+    tags: ["React", "Web", "TypeScript"],
+    link: "https://v0-primitive-react-sandpack-compone.vercel.app/",
+  },
+  {
+    title: "ScriptForge AI Platform",
+    description: "A complex AI-driven software development project for the entertainment industry.",
+    image: "/lovable-uploads/script-forge.png",
+    alt: "AI Software Development Services - ScriptForge",
+    tags: ["Next.JS", "AI Development", "Supabase"],
+    link: "https://script-forge-two.vercel.app/",
+  },
+  {
+    title: "Enterprise Laundry Backend",
+    description: "A sophisticated multi-tenant software architecture for large-scale operations.",
+    image: placeholderImages.works[2].src,
+    alt: "Enterprise Software Solution - Backend Dashboard",
+    tags: ["Backend", "Python", "PostgreSQL"],
+    link: "#contact",
+  },
+  {
+    title: "SMB Billing & Invoicing App",
+    description: "A mobile-first custom software development for small businesses.",
+    image: "/lovable-uploads/billin-software.png",
+    alt: "Mobile App Development Services - Billing Software",
+    tags: ["Mobile App", "Go", "Flutter"],
+    link: "#contact",
+  }
+];
+
+const WorksSection = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    // GSAP ScrollTrigger for cards
+    const cards = gsap.utils.toArray(".work-card");
+    cards.forEach((card: any) => {
+      gsap.fromTo(
+        card,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    });
+  }, { scope: containerRef });
 
   return (
-    <section className="relative bg-black w-full flex flex-col pt-32 pb-24 lg:pt-40 lg:pb-32 min-h-screen">
-      <div className="flex-1 w-full flex flex-col items-center gap-10 lg:gap-14 z-10 overflow-hidden">
+    <section 
+      ref={containerRef}
+      id="works" 
+      className="relative bg-black w-full pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden font-sans"
+    >
+      <div className="max-w-[1240px] mx-auto px-6 md:px-8 relative z-10">
+        
+        {/* Header Block */}
+        <div className="w-full mb-16 md:mb-24">
+          {/* Giant "Works" title */}
+          <motion.h1
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="text-[14vw] md:text-[180px] font-extrabold tracking-tighter text-white leading-none select-none font-sans"
+          >
+            Works
+          </motion.h1>
 
-        <div className="w-full px-4 relative z-10 flex flex-col items-center shrink-0">
+          {/* Sub-header details grid */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mt-4 pt-8 border-t border-white/10 w-full">
+            <motion.h3 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-lg md:text-xl font-semibold text-white/95 uppercase tracking-wide"
+            >
+              Our Work That Tells Stories
+            </motion.h3>
 
+            {/* Tiny spacer plus elements */}
+            <div className="hidden lg:flex gap-16 text-neutral-600 font-light text-base select-none">
+              <span>+</span>
+              <span>+</span>
+              <span>+</span>
+            </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4 text-center">
-            Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">Works</span>
-          </h2>
-          <p className="text-sm text-neutral-400 max-w-xl text-center leading-relaxed hidden sm:block">
-            A snapshot of what we build. Scroll down to expand and explore our projects.
-          </p>
+            <motion.p
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-xs md:text-sm text-neutral-400 font-light max-w-[260px] md:text-right leading-relaxed"
+            >
+              A showcase of projects crafted with strategy, creativity, Trend and precision.
+            </motion.p>
+          </div>
         </div>
 
-        <div className="w-[94vw] max-w-[1500px] mx-auto flex-1 min-h-[500px] max-h-[80vh] flex justify-center items-stretch gap-4 relative z-10">
-          {works.map((work, idx) => {
-            const isActive = activeIndex === idx;
-            const imageSrc = Array.isArray(work.images) ? work.images[0] : work.images;
-            
-            return (
-              <div
-                key={work.title}
-                onMouseEnter={() => setActiveIndex(idx)}
-                onClick={() => setActiveIndex(idx)}
-                style={{ 
-                  flex: isActive ? "16 1 0%" : "1 1 0%",
-                  WebkitTransform: "translateZ(0)"
-                }}
-                className={`relative rounded-[2rem] sm:rounded-[4rem] cursor-pointer group flex-shrink-0 origin-center overflow-hidden border border-white/5 transform-gpu transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isActive ? 'shadow-2xl shadow-primary/10 ring-1 ring-white/20' : 'hover:bg-white/5'}`}
-              >
-                {/* Background Image */}
-                <Image
-                  src={imageSrc}
-                  alt={work.alt}
-                  fill
-                  className={`object-cover pointer-events-none transition-opacity duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] origin-center ${isActive ? 'opacity-100' : 'opacity-40'}`}
-                  sizes="(max-width: 768px) 100vw, 1000px"
-                  priority={idx === 0}
-                />
-                
-                {/* Dark overlay gradients */}
-                <div className={`absolute inset-0 transition-opacity duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none ${isActive ? 'bg-gradient-to-t from-black/95 via-black/50 to-transparent' : 'bg-black/60 group-hover:bg-black/40'}`} />
-                
-                {/* Content Container */}
-                <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-end pointer-events-none overflow-hidden">
-                    <div className="flex flex-col md:flex-row md:items-end gap-6 w-full">
-                      {/* Circular Icon / Number */}
-                      <div 
-                        className={`flex-shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center font-bold text-lg md:text-2xl shadow-xl z-20 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isActive ? 'bg-white text-black scale-100' : 'bg-black/60 text-white backdrop-blur-md border border-white/20 scale-95 group-hover:bg-white/20'}`}
-                      >
-                         0{idx + 1}
-                      </div>
-                      
-                      {/* Text details next to circle */}
-                      <div
-                          className={`flex flex-col flex-1 min-w-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] transform ${isActive ? 'opacity-100 translate-y-0 translate-x-0' : 'opacity-0 translate-y-8 md:translate-y-0 md:translate-x-8'}`}
-                      >
-                          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 tracking-tight drop-shadow-md">
-                              {work.title}
-                          </h3>
-                          
-                          <p className="text-sm md:text-base text-neutral-300 mb-5 font-light max-w-2xl leading-relaxed">
-                              {work.description}
-                          </p>
+        {/* 2-Column Works Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 w-full">
+          {works.map((work) => (
+            <div
+              key={work.title}
+              className="work-card group bg-[#09090b] border border-white/[0.05] rounded-[24px] p-5 lg:p-6 flex flex-col justify-between hover:border-white/[0.12] transition-colors duration-500 relative overflow-hidden"
+            >
+              <div>
+                {/* Tags Row */}
+                <div className="flex flex-wrap items-center gap-2 mb-6">
+                  {work.tags.map((tag, idx) => (
+                    <React.Fragment key={tag}>
+                      <span className="text-[10px] uppercase font-semibold tracking-widest text-neutral-400">
+                        {tag}
+                      </span>
+                      {idx < work.tags.length - 1 && (
+                        <span className="w-1 h-1 rounded-full bg-neutral-600" />
+                      )}
+                    </React.Fragment>
+                  ))}
+                </div>
 
-                          {work.metric && (
-                            <div className="flex items-center gap-2 mb-4 px-3.5 py-1.5 bg-primary/10 border border-primary/20 rounded-xl text-primary font-medium text-[11px] sm:text-xs w-max max-w-lg backdrop-blur-sm shadow-lg shadow-primary/5">
-                              <Sparkles className="w-3.5 h-3.5 shrink-0" />
-                              <span>{work.metric}</span>
-                            </div>
-                          )}
-
-                          <div className="flex flex-wrap gap-1.5 mb-5">
-                            {work.technologies.slice(0,3).map((tech) => (
-                                <span key={tech} className="px-3 py-1 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-[10px] sm:text-xs text-neutral-300 shadow-sm">
-                                    {tech}
-                                </span>
-                            ))}
-                          </div>
-
-                          {/* View Project Link inside the stack */}
-                          <div className={`transition-all duration-700 delay-75 ease-[cubic-bezier(0.16,1,0.3,1)] transform ${isActive ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-6 pointer-events-none'}`}>
-                              {work.link !== "#contact" ? (
-                                <Link href={work.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-black hover:bg-neutral-200 transition-all text-xs sm:text-sm font-bold tracking-wide shadow-xl w-max">
-                                  View Project <ExternalLink className="w-3.5 h-3.5 ml-1" />
-                                </Link>
-                              ) : (
-                                <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 text-white/70 text-xs sm:text-sm font-medium w-max border border-white/10 backdrop-blur-md">
-                                  Internal Project
-                                </span>
-                              )}
-                          </div>
-                      </div>
-                    </div>
+                {/* Aspect Ratio Image Container */}
+                <div className="relative w-full aspect-[16/10] rounded-[16px] overflow-hidden mb-6 bg-neutral-900 border border-white/5">
+                  <Image
+                    src={work.image}
+                    alt={work.alt}
+                    fill
+                    className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 600px"
+                  />
                 </div>
               </div>
-            );
-          })}
+
+              {/* Title, description & link action button */}
+              <div className="flex justify-between items-end gap-6 pt-2">
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-xl md:text-2xl font-semibold text-white tracking-tight group-hover:text-[#3275F8] transition-colors duration-300">
+                    {work.title}
+                  </h4>
+                  <p className="text-xs md:text-sm text-neutral-400 font-light mt-2 leading-relaxed max-w-[90%]">
+                    {work.description}
+                  </p>
+                </div>
+
+                {work.link !== "#contact" ? (
+                  <Link
+                    href={work.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white shrink-0 group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-300 hover:scale-105"
+                  >
+                    <ArrowUpRight className="w-5 h-5" />
+                  </Link>
+                ) : (
+                  <Link
+                    href="#contact"
+                    className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white shrink-0 group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-300 hover:scale-105"
+                  >
+                    <ArrowUpRight className="w-5 h-5" />
+                  </Link>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
+
       </div>
     </section>
   );
 };
 
 export default WorksSection;
-
-
-
