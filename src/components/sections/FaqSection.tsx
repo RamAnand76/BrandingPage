@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "react-serif"; // wait, the original used motion from "framer-motion"
-import { motion as motionBase, AnimatePresence as AnimatePresenceBase } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+const motionBase = motion;
+const AnimatePresenceBase = AnimatePresence;
 import { Plus, Minus } from "lucide-react";
 
 // Categorized FAQs Data
