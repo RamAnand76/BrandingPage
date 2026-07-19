@@ -22,6 +22,11 @@ export const metadata: Metadata = {
   verification: {
     google: "ia9izdQwctLX-20p5INS7Mr0rAoO-0CIQTtXvDmw70w",
   },
+  icons: {
+    icon: "/lovable-uploads/logo.png",
+    shortcut: "/lovable-uploads/logo.png",
+    apple: "/lovable-uploads/logo.png",
+  },
   openGraph: {
     title: "Rhevez: Premium Software Development Services",
     description: "Expert software development services, AI agents, and mobile apps. We transform your complex ideas into scalable digital reality.",
