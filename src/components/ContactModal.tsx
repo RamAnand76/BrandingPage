@@ -27,7 +27,7 @@ export function ContactModal({ isOpen, onOpenChange }: ContactModalProps) {
         >
           <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#3275F8]/15 to-transparent pointer-events-none" />
           <DialogHeader className="p-8 pb-4 text-center">
-            <DialogTitle className="text-xl md:text-2xl font-bold tracking-[0.08em] text-white uppercase font-inter">
+            <DialogTitle className="text-xl md:text-2xl font-bold tracking-[0.08em] text-white uppercase">
               Let&apos;s Build Something Great
             </DialogTitle>
             <DialogDescription className="text-white/50 pt-2 text-xs md:text-sm font-normal max-w-[85%] mx-auto leading-relaxed">

@@ -86,7 +86,7 @@ const Footer = () => {
               <li><Link href="/about" className="text-neutral-400 hover:text-white transition-colors text-sm">About</Link></li>
               <li><Link href="/our-works" className="text-neutral-400 hover:text-white transition-colors text-sm">Resource</Link></li>
               <li>
-                <button 
+                <button
                   onClick={() => setContactModalOpen(true)}
                   className="text-neutral-400 hover:text-white transition-colors text-sm text-left"
                 >
@@ -103,7 +103,7 @@ const Footer = () => {
               <li><Link href="/privacy-policy" className="text-neutral-400 hover:text-white transition-colors text-sm">Privacy Policy</Link></li>
               <li><Link href="/terms-of-service" className="text-neutral-400 hover:text-white transition-colors text-sm">Terms of Service</Link></li>
               <li>
-                <button 
+                <button
                   onClick={() => setContactModalOpen(true)}
                   className="text-neutral-400 hover:text-white transition-colors text-sm text-left"
                 >

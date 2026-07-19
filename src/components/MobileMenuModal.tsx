@@ -21,10 +21,10 @@ export const MobileMenuModal = ({ isOpen, setIsOpen }: MobileMenuModalProps) => 
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: "100%" }}
           transition={{ type: "spring", damping: 25, stiffness: 200 }}
-          className="fixed inset-x-0 bottom-0 z-[200] h-[85vh] bg-[#111111] rounded-t-[20px] shadow-[0_-10px_40px_rgba(0,0,0,0.5)] flex flex-col md:hidden border-t border-white/10"
+          className="fixed inset-x-0 bottom-0 z-[200] h-auto max-h-[85vh] bg-[#111111] rounded-t-[20px] shadow-[0_-10px_40px_rgba(0,0,0,0.5)] flex flex-col md:hidden border-t border-white/10"
         >
-          <div className="flex-1 p-8 overflow-y-auto">
-            <div className="grid grid-cols-2 gap-8 h-full">
+          <div className="p-8 overflow-y-auto">
+            <div className="grid grid-cols-2 gap-8">
               {/* Left Column */}
               <div className="flex flex-col">
                 <span className="text-[10px] text-white/50 tracking-widest uppercase mb-6">Menu</span>

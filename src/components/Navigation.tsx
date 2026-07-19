@@ -44,7 +44,7 @@ const Navigation = () => {
                   AI <span className="text-[#3275F8]">powered.</span> Human <span className="text-[#00FF66]">focused.</span>
                 </span>
               </div>
-              
+
               <button
                 onClick={() => setContactModalOpen(true)}
                 className="flex lg:hidden items-center gap-2 px-3 py-1.5 rounded-sm bg-[#3275F8] text-white text-[10px] md:text-[12px] font-semibold tracking-widest uppercase hover:bg-[#3275F8]/85 transition-colors"
@@ -53,17 +53,17 @@ const Navigation = () => {
               </button>
             </div>
 
-            <div className="hidden lg:flex items-center gap-10 text-[15px] tracking-[0.15em] font-semibold uppercase text-white/90">
+            <div className="hidden lg:flex items-center gap-5 text-[13px] tracking-[0.05em] font-semibold uppercase text-white/90">
               <Link href="/our-works" className="hover:text-white transition-colors">WORKS</Link>
               <span className="text-white/20">/</span>
               <Link href="/#features" className="hover:text-white transition-colors">SERVICES</Link>
               <span className="text-white/20">/</span>
               <Link href="/about" className="hover:text-white transition-colors">ABOUT</Link>
               <span className="text-white/20">/</span>
-              <Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link>
+              <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
               <button
                 onClick={() => setContactModalOpen(true)}
-                className="flex items-center gap-2 ml-4 px-5 py-2 rounded-md border border-[#3275F8] bg-[#3275F8] text-white text-[15px] tracking-[0.1em] font-semibold hover:bg-[#3275F8]/80 hover:shadow-[0_0_15px_rgba(50,117,248,0.3)] transition-all"
+                className="flex items-center gap-2 ml-4 px-5 py-2 rounded-md border border-[#3275F8] bg-[#3275F8] text-white text-[13px] tracking-[0.05em] font-semibold hover:bg-[#3275F8]/80 hover:shadow-[0_0_15px_rgba(50,117,248,0.3)] transition-all"
               >
                 Build Your Project
                 <ArrowUpRight className="w-4 h-4" />
