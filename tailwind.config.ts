@@ -20,7 +20,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Geist', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
       },
       colors: {

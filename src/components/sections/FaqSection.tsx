@@ -178,7 +178,7 @@ export const FaqSection = () => {
                       className="w-full flex items-center justify-between text-left p-5 md:p-6 gap-4"
                     >
                       <div className="flex items-center gap-5 md:gap-8 flex-1 pr-4">
-                        <span className="text-neutral-600 font-mono text-sm md:text-base shrink-0 select-none">
+                        <span className="text-neutral-600 text-sm md:text-base shrink-0 select-none">
                           {faq.num}
                         </span>
                         <span className={`text-base md:text-lg font-medium transition-colors duration-300 ${isOpen ? "text-white" : "text-white/80"}`}>
