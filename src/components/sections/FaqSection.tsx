@@ -236,7 +236,7 @@ export const FaqSection = () => {
         >
           <div className="text-center sm:text-left">
             <h4 className="text-white font-medium text-lg mb-1 tracking-tight">Still have questions?</h4>
-            <p className="text-neutral-400 text-sm md:text-base font-light">We're here to help.</p>
+            <p className="text-neutral-400 text-sm md:text-base font-light">We&apos;re here to help.</p>
           </div>
           <Link 
             href="#contact" 
