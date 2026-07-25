@@ -93,31 +93,35 @@ const WorksSection = () => {
           </motion.h1>
 
           {/* Sub-header details grid */}
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mt-4 pt-8 border-t border-white/10 w-full">
-            <motion.h3 
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mt-4 pt-8 border-t border-white/10 w-full relative">
+            <motion.div 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-lg md:text-xl font-semibold text-white/95 uppercase tracking-wide"
+              className="flex-1"
             >
-              Our Work That Tells Stories
-            </motion.h3>
+              <h3 className="text-lg md:text-xl font-semibold text-white/95 uppercase tracking-wide">
+                Our Work That Tells Stories
+              </h3>
+            </motion.div>
 
             {/* Tiny spacer plus elements */}
-            <div className="hidden lg:flex gap-16 text-neutral-600 font-light text-base select-none">
+            <div className="hidden lg:flex gap-16 text-neutral-600 font-light text-base select-none flex-1 justify-center">
               <span>+</span>
               <span>+</span>
               <span>+</span>
             </div>
 
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-xs md:text-sm text-neutral-400 font-light max-w-[260px] md:text-right leading-relaxed"
+              className="flex-1 flex justify-start md:justify-end"
             >
-              A showcase of projects crafted with strategy, creativity, Trend and precision.
-            </motion.p>
+              <p className="text-xs md:text-sm text-neutral-400 font-light max-w-[260px] md:text-right leading-relaxed">
+                A showcase of projects crafted with strategy, creativity, trend and precision.
+              </p>
+            </motion.div>
           </div>
         </div>
 
