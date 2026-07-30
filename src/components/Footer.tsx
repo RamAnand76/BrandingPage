@@ -1,6 +1,7 @@
 import { Twitter, Instagram, Linkedin, Github } from "lucide-react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useContactModal } from "@/context/ContactModalContext";
 import { motion } from "framer-motion";
 
@@ -71,10 +72,10 @@ const Footer = () => {
           <div className="flex flex-col">
             <div className="flex items-center gap-3.5 mb-6">
               <div className="w-8 h-8 relative flex-shrink-0">
-                <img src="/lovable-uploads/logo.png" alt="Rhevez Logo" className="object-contain w-full h-full" />
+                <Image src="/lovable-uploads/logo.png" alt="Rhevez Logo" fill className="object-contain" />
               </div>
               <div className="relative h-[26px] w-[110px]">
-                <img src="/text-white.png" alt="Rhevez" className="object-contain object-left w-full h-full" />
+                <Image src="/text-white.png" alt="Rhevez" fill className="object-contain object-left" />
               </div>
             </div>
             <p className="text-neutral-400 text-sm leading-relaxed max-w-[310px]">

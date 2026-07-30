@@ -4,6 +4,7 @@ import React, { useRef, useState } from "react";
 import { Plus, Minus } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -170,10 +171,12 @@ export const ExpertServices = () => {
                                                 
                                                 {/* Image */}
                                                 <div className="w-full h-[250px] md:h-[400px] lg:h-[500px] rounded-3xl overflow-hidden relative">
-                                                    <img 
+                                                    <Image 
                                                         src={service.image} 
                                                         alt={service.title}
-                                                        className="w-full h-full object-cover object-center"
+                                                        fill
+                                                        className="object-cover object-center"
+                                                        sizes="(max-width: 768px) 100vw, 50vw"
                                                     />
                                                 </div>
                                             </div>
