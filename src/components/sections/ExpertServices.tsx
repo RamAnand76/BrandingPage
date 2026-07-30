@@ -46,7 +46,7 @@ export const ExpertServices = () => {
 
     return (
         <section ref={container} className="py-12 lg:py-6 bg-black relative px-4 md:px-0 flex flex-col justify-center min-h-[100svh] overflow-hidden">
-            <div className="max-w-[1240px] w-full mx-auto px-4 md:px-8">
+            <div className="max-w-[1240px] w-full mx-auto px-6 md:px-12">
                 {/* Header */}
                 <div className="flex flex-col items-center text-center mb-8 lg:mb-6">
 

@@ -12,7 +12,7 @@ const AboutSection = () => {
       {/* Background Gradients */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/[0.03] rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="container px-4 mx-auto max-w-6xl">
+      <div className="container px-6 md:px-12 mx-auto max-w-[1240px]">
 
         {/* 1. Header Area: Heading Left, Text Right */}
         <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-12">

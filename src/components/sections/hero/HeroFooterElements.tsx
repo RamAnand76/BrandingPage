@@ -14,39 +14,6 @@ export const HeroFooterElements = ({ onMenuClick }: { onMenuClick?: () => void }
       >
         AVAILABLE FOR: <span className="text-[#00FF66]">DEC</span> PROJECTS
       </motion.div>
-
-      {/* Bottom Center Menu Button - Desktop only (mobile uses fixed overlay in HeroSection) */}
-      <motion.div 
-        className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-40 hidden md:block"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-      >
-        <button 
-          onClick={onMenuClick}
-          className="w-12 h-12 bg-[#111]/80 backdrop-blur-md border border-white/10 flex items-center justify-center hover:bg-[#222]/90 transition-colors"
-        >
-          <Menu className="w-5 h-5 text-white/80" />
-        </button>
-      </motion.div>
-
-      {/* Bottom Right Card */}
-      <motion.div 
-        className="absolute bottom-6 md:bottom-10 right-6 md:right-12 z-40 hidden lg:block"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-      >
-        <div className="flex bg-[#111]/80 backdrop-blur-md rounded-2xl overflow-hidden border border-white/10 h-[90px] items-center p-2 gap-2 cursor-pointer hover:bg-[#1a1a1a]/90 transition-colors w-[260px]">
-          <div className="w-[100px] h-full rounded-xl overflow-hidden relative shrink-0">
-            <Image src="/lovable-uploads/Code-editor compoennet-2.png" fill alt="New Project" className="object-cover opacity-50" />
-          </div>
-          <div className="flex-1 h-full bg-[#E5E5E5] rounded-xl p-3 flex flex-col justify-between">
-            <span className="text-black font-semibold text-[11px] tracking-tight">New Project</span>
-            <ArrowUpRight className="w-4 h-4 text-black self-end" />
-          </div>
-        </div>
-      </motion.div>
     </>
   );
 };
