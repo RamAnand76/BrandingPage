@@ -78,7 +78,7 @@ const WorksSection = () => {
       id="works" 
       className="relative bg-black w-full pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden font-sans"
     >
-      <div className="max-w-[1240px] mx-auto px-6 md:px-8 relative z-10">
+      <div className="max-w-[1240px] mx-auto px-6 md:px-12 relative z-10">
         
         {/* Header Block */}
         <div className="w-full mb-16 md:mb-24">

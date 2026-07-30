@@ -52,7 +52,7 @@ export const ProcessSection = () => {
       <div className="absolute top-0 left-[20%] w-[500px] h-[500px] bg-[#3275F8]/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-[20%] w-[600px] h-[600px] bg-[#3275F8]/5 rounded-full blur-[150px] pointer-events-none" />
 
-      <div className="max-w-[1300px] mx-auto px-6 md:px-12 relative z-10">
+      <div className="max-w-[1240px] mx-auto px-6 md:px-12 relative z-10">
         
         {/* Header Section */}
         <div className="max-w-3xl mb-24 md:mb-32">

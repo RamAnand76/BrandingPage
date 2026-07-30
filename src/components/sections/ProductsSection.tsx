@@ -83,7 +83,7 @@ const ProductsSection = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="product-grid grid grid-cols-1 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+        <div className="product-grid grid grid-cols-1 lg:grid-cols-5 gap-6 max-w-[1240px] px-6 md:px-12 mx-auto">
           {/* Featured Product — FLO.io */}
           <div className="product-card lg:col-span-3">
             <div className="group relative rounded-2xl overflow-hidden h-full">

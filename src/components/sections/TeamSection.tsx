@@ -44,7 +44,7 @@ const TeamSection = () => {
             align: "start",
             loop: true,
           }}
-          className="w-full max-w-6xl mx-auto"
+          className="w-full max-w-[1240px] mx-auto px-6 md:px-12"
         >
           <CarouselContent className="-ml-4">
             {team.map((member, idx) => (

@@ -23,7 +23,7 @@ const CornerAnchor = ({
 
 export const HeroFrame = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="relative w-full max-w-[950px] mx-auto z-10 overflow-visible">
+    <div className="relative w-full max-w-[1240px] mx-auto z-10 overflow-visible">
       <motion.div
         className="relative w-full border border-white/20 overflow-visible"
         initial={{ opacity: 0, scale: 0.98 }}

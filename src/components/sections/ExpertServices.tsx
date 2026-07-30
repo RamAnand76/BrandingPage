@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useRef } from "react";
-import { ArrowRight, Bot, Smartphone, Globe, Palette, Sparkles, MessageSquare } from "lucide-react";
+import React, { useRef, useState } from "react";
+import { Plus, Minus } from "lucide-react";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -13,306 +13,182 @@ if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
 }
 
+const servicesData = [
+    {
+        id: "01",
+        title: "PRODUCT ENGINEERING",
+        tags: ["Web App Development", "Mobile App Development", "End to End Product Engineering"],
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+        hoverGradient: "from-blue-600 to-cyan-400",
+        activeGradient: "from-cyan-400 to-blue-500",
+        iconHover: "group-hover:text-blue-400",
+        iconActive: "text-blue-500",
+        borderHover: "group-hover:border-blue-500/50"
+    },
+    {
+        id: "02",
+        title: "ARTIFICIAL INTELLIGENCE",
+        tags: ["AI Engineering Services", "Automation Services", "AIOps"],
+        image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop",
+        hoverGradient: "from-green-400 to-emerald-600",
+        activeGradient: "from-emerald-500 to-green-400",
+        iconHover: "group-hover:text-green-400",
+        iconActive: "text-green-500",
+        borderHover: "group-hover:border-green-500/50"
+    },
+    {
+        id: "03",
+        title: "CYBER SECURITY",
+        tags: ["Cyber Security Services", "Penetration Testing", "Vulnerability Assessment"],
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop",
+        hoverGradient: "from-blue-500 via-emerald-400 to-green-400",
+        activeGradient: "from-green-400 via-blue-500 to-cyan-400",
+        iconHover: "group-hover:text-emerald-400",
+        iconActive: "text-emerald-500",
+        borderHover: "group-hover:border-emerald-500/50"
+    }
+];
+
 export const ExpertServices = () => {
-    const container = useRef<HTMLSelectElement>(null);
+    const container = useRef<HTMLElement>(null);
+    const [expandedId, setExpandedId] = useState<string | null>("01");
 
     useGSAP(() => {
-        // Headers sliding from Left (-X)
-        gsap.from(".service-header", {
+        gsap.from(".service-item", {
             scrollTrigger: {
                 trigger: container.current,
                 start: "top 80%",
             },
-            x: -100,
+            y: 50,
             opacity: 0,
-            duration: 1,
-            stagger: 0.2,
-            ease: "power3.out"
-        });
-
-        // Cards sliding from Right (+X)
-        gsap.from(".service-card", {
-            scrollTrigger: {
-                trigger: ".service-grid",
-                start: "top 85%",
-            },
-            x: 100,
-            opacity: 0,
-            duration: 1,
+            duration: 0.8,
             stagger: 0.15,
-            ease: "back.out(1.2)"
+            ease: "power3.out"
         });
     }, { scope: container });
 
+    const toggleAccordion = (id: string) => {
+        setExpandedId(prev => prev === id ? null : id);
+    };
+
     return (
-        <section ref={container} className="py-12 lg:py-6 bg-black relative px-4 md:px-0 flex flex-col justify-center min-h-[100svh] overflow-hidden">
-            <div className="max-w-[1240px] w-full mx-auto px-4 md:px-8">
-                {/* Header */}
-                <div className="flex flex-col items-center text-center mb-8 lg:mb-6">
-
-                    <h2 className="service-header text-3xl md:text-4xl lg:text-[40px] font-normal tracking-tight text-white/90">
-                        Our Software Development Services
+        <section ref={container} className="py-20 bg-black relative px-4 md:px-0 flex flex-col justify-center min-h-[100svh] overflow-hidden">
+            <div className="max-w-[1240px] w-full mx-auto px-6 md:px-12">
+                
+                {/* Section Header */}
+                <div className="mb-12 md:mb-16">
+                    <h2 className="text-sm md:text-base font-medium tracking-[0.2em] text-neutral-400 uppercase mb-4">
+                        What We Do
                     </h2>
+                    <h3 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white tracking-tight">
+                        Our Expert Services
+                    </h3>
                 </div>
 
-                {/* Bento Grid */}
-                <div className="service-grid grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-3.5 md:grid-rows-[auto_auto]">
+                <motion.div layout className="flex flex-col w-full border-t border-white/20">
+                    {servicesData.map((service, index) => {
+                        const isExpanded = expandedId === service.id;
 
-                    {/* Card A: Web Development */}
-                    <div className="service-card md:col-span-2 bg-[#0c0c0c] border border-white/[0.05] rounded-3xl relative overflow-hidden group shadow-2xl min-h-[260px] lg:min-h-[210px]">
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-indigo-500/10 blur-[120px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-
-                        <div className="p-6 md:p-8 lg:p-7 relative z-10 w-full md:w-[55%] flex flex-col h-full justify-between">
-                            <div>
-                                <Globe className="w-5 h-5 text-neutral-400 mb-4 group-hover:text-white transition-colors" />
-                                <h3 className="text-xl md:text-2xl font-medium text-white mb-2">Web Development</h3>
-                                <p className="text-xs lg:text-[13px] text-neutral-400 leading-relaxed font-light">
-                                    Professional-grade web applications using React.js, Next.js with modern development practices.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Animated Code Mock */}
-                        <div className="hidden md:block absolute -right-4 -bottom-4 top-4 w-[46%] bg-[#111] border border-white/[0.05] rounded-tl-2xl rounded-tr-2xl p-4 overflow-hidden transform group-hover:-translate-x-2 transition-transform duration-500 shadow-2xl">
-                            <motion.div
-                                animate={{ y: [0, -40, 0] }}
-                                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                                className="text-[10px] leading-relaxed text-neutral-500 font-mono flex flex-col gap-0.5"
+                        return (
+                            <motion.div 
+                                layout
+                                key={service.id} 
+                                className="service-item border-b border-white/20 last:border-b-0 py-8 flex flex-col"
                             >
-                                <div><span className="text-purple-400">import</span> {'{'} useState {'}'} <span className="text-purple-400">from</span> <span className="text-green-400">&apos;react&apos;</span>;</div>
-                                <div><span className="text-purple-400">import</span> {'{'} motion {'}'} <span className="text-purple-400">from</span> <span className="text-green-400">&apos;framer-motion&apos;</span>;</div>
-                                <br />
-                                <div><span className="text-purple-400">export default function</span> <span className="text-blue-400">App</span>() {'{'}</div>
-                                <div className="pl-3"><span className="text-purple-400">return</span> (</div>
-                                <div className="pl-6 text-neutral-400">{'<main className="flex">'}</div>
-                                <motion.div
-                                    animate={{ opacity: [0.5, 1, 0.5] }}
-                                    transition={{ duration: 2, repeat: Infinity }}
-                                    className="pl-9 text-blue-300"
+                                {/* Header / Toggle */}
+                                <motion.div 
+                                    layout
+                                    className="flex justify-between items-center cursor-pointer group"
+                                    onClick={() => toggleAccordion(service.id)}
                                 >
-                                    {'<HeroSection />'}
-                                </motion.div>
-                                <div className="pl-9 text-blue-300">{'<FeaturesGrid />'}</div>
-                                <div className="pl-9 text-blue-300">{'<InteractiveUI />'}</div>
-                                <div className="pl-6 text-neutral-400">{'</main>'}</div>
-                                <div className="pl-3">);</div>
-                                <div>{'}'}</div>
-                            </motion.div>
-                        </div>
-                    </div>
-
-                    {/* Card B: AI Agent Building */}
-                    <div className="service-card md:col-span-1 md:row-span-2 bg-[#0c0c0c] border border-white/[0.05] rounded-3xl relative overflow-hidden group shadow-2xl">
-                        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-purple-500/10 blur-[100px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-
-                        <div className="p-6 md:p-8 lg:p-7 relative z-10 flex flex-col h-full justify-between">
-                            <div>
-                                <Bot className="w-5 h-5 text-neutral-400 mb-4 group-hover:text-white transition-colors" />
-                                <h3 className="text-xl md:text-2xl font-medium text-white mb-2">AI Agent Building</h3>
-                                <p className="text-xs lg:text-[13px] text-neutral-400 leading-relaxed font-light">
-                                    Intelligent AI agents and chatbots powered by cutting-edge machine learning technologies.
-                                </p>
-                            </div>
-
-                            {/* Animated AI Chat Mock */}
-                            <div className="mt-6 h-[170px] lg:h-[140px] w-full flex flex-col justify-end relative z-20">
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0c] via-transparent to-transparent pointer-events-none z-10" />
-
-                                <motion.div
-                                    variants={{
-                                        hidden: { opacity: 1 },
-                                        visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.3 } }
-                                    }}
-                                    className="space-y-2 pb-4 px-1 sm:px-0 relative z-0 flex flex-col w-full"
-                                >
-                                    {/* Message 1 */}
-                                    <motion.div
-                                        variants={{
-                                            hidden: { opacity: 0, y: 10, scale: 0.95 },
-                                            visible: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 300, damping: 20 } }
-                                        }}
-                                        className="flex items-end gap-1.5 w-full"
-                                    >
-                                        <div className="w-6 h-6 rounded-full shrink-0 overflow-hidden bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center border border-white/10 shadow-sm">
-                                            <span className="text-[9px] font-bold text-white">U</span>
-                                        </div>
-                                        <div className="bg-[#222222] p-2 px-3 rounded-2xl rounded-bl-none text-[11px] text-white/90 shadow-sm border border-white/[0.05] tracking-wide max-w-[80%]">
-                                            Hey! Are you free for a quick call?
-                                        </div>
-                                    </motion.div>
-
-                                    {/* Message 2 */}
-                                    <motion.div
-                                        variants={{
-                                            hidden: { opacity: 0, y: 10, scale: 0.95 },
-                                            visible: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 300, damping: 20 } }
-                                        }}
-                                        className="flex items-end gap-1.5 w-full justify-end"
-                                    >
-                                        <div className="bg-[#333333] p-2 px-3 rounded-2xl rounded-br-none text-[11px] text-white/90 shadow-sm border border-white/[0.05] tracking-wide max-w-[80%]">
-                                            Sure, give me 5 minutes!
-                                        </div>
-                                        <div className="w-6 h-6 rounded-full shrink-0 overflow-hidden bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center border border-white/10 shadow-sm">
-                                            <span className="text-[9px] font-bold text-white">A</span>
-                                        </div>
-                                    </motion.div>
-
-                                    {/* Message 3 */}
-                                    <motion.div
-                                        variants={{
-                                            hidden: { opacity: 0, y: 10, scale: 0.95 },
-                                            visible: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 300, damping: 20 } }
-                                        }}
-                                        className="flex items-end gap-1.5 w-full"
-                                    >
-                                        <div className="w-6 h-6 rounded-full shrink-0 overflow-hidden bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center border border-white/10 shadow-sm">
-                                            <span className="text-[9px] font-bold text-white">C</span>
-                                        </div>
-                                        <div className="bg-[#222222] p-2 px-3 rounded-2xl rounded-bl-none text-[11px] text-white/90 shadow-sm border border-white/[0.05] tracking-wide max-w-[80%]">
-                                            Sounds good 👍
-                                        </div>
-                                    </motion.div>
-                                </motion.div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Card C: Branding */}
-                    <div className="service-card md:col-span-1 md:row-span-2 bg-[#0c0c0c] border border-white/[0.05] rounded-3xl relative overflow-hidden group shadow-2xl">
-                        <div className="absolute -bottom-20 -left-20 w-[300px] h-[300px] bg-indigo-500/10 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-
-                        <div className="p-6 md:p-8 lg:p-7 relative z-10 flex flex-col h-full justify-between">
-                            <div>
-                                <Palette className="w-5 h-5 text-neutral-400 mb-4 group-hover:text-white transition-colors" />
-                                <h3 className="text-xl md:text-2xl font-medium text-white mb-2">Branding</h3>
-                                <p className="text-xs lg:text-[13px] text-neutral-400 leading-relaxed font-light">
-                                    Complete brand identity solutions including logo design, color schemes, and brand guidelines.
-                                </p>
-                            </div>
-
-                            {/* Animated Branding Mock */}
-                            <div className="mt-6 flex flex-row items-center gap-2 overflow-visible">
-                                <motion.div
-                                    whileHover={{ scale: 1.05, boxShadow: "0px 0px 20px 0px rgba(255,255,255,0.15)" }}
-                                    transition={{ duration: 0.2 }}
-                                    className="bg-[#121212] border border-white/[0.05] rounded-[15px] p-3 flex flex-col justify-center shadow-lg h-[95px] shrink-0"
-                                >
-                                    <span className="text-[8px] text-neutral-400 leading-[1.5] font-light tracking-wide pt-0.5">Aa Bb Cc Dd<br />Ee Ff Gg<br />Ii Jj Kk<br />Mm Nn Oo</span>
-                                </motion.div>
-
-                                <motion.div
-                                    whileHover={{ scale: 1.05, boxShadow: "0px 0px 20px 0px rgba(255,255,255,0.15)" }}
-                                    transition={{ duration: 0.2 }}
-                                    className="w-[75px] h-[75px] shrink-0 bg-[#0a0a0a] border border-white/[0.05] rounded-[15px] flex items-center justify-center shadow-lg relative overflow-hidden"
-                                >
-                                    {/* Continuously Rotating Abstract Logo */}
-                                    <motion.svg
-                                        animate={{ rotate: 360 }}
-                                        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                                        className="w-8 h-8 text-white relative z-10"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
-                                    >
-                                        <path d="M12 2v20 M2 12h20 M4.93 4.93l14.14 14.14 M4.93 19.07L19.07 4.93" className="opacity-90" />
-                                        <circle cx="12" cy="12" r="3.5" fill="currentColor" />
-                                    </motion.svg>
-                                </motion.div>
-
-                                <motion.div
-                                    whileHover={{ scale: 1.05, boxShadow: "0px 0px 20px 0px rgba(255,255,255,0.15)" }}
-                                    transition={{ duration: 0.2 }}
-                                    className="w-[75px] h-[75px] shrink-0 bg-[#121212] border border-white/[0.05] rounded-[15px] p-2 flex-col flex items-center justify-center gap-2 shadow-lg"
-                                >
-                                    <div className="w-full flex justify-around">
-                                        <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 0 }} className="w-3.5 h-3.5 rounded-full bg-indigo-500" />
-                                        <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }} className="w-3.5 h-3.5 rounded-full bg-purple-500" />
+                                    <div className="relative inline-block w-full">
+                                        {/* Base text */}
+                                        <h2 className={cn(
+                                            "text-3xl md:text-5xl lg:text-7xl font-bold uppercase tracking-tight text-white transition-opacity duration-500",
+                                            isExpanded ? "opacity-0" : "opacity-100"
+                                        )}>
+                                            {service.title}
+                                        </h2>
+                                        
+                                        {/* Outward Gradient Overlay */}
+                                        <h2 className={cn(
+                                            "absolute top-0 left-0 text-3xl md:text-5xl lg:text-7xl font-bold uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-r transition-all duration-700 ease-in-out w-full",
+                                            isExpanded ? service.activeGradient : service.hoverGradient,
+                                            isExpanded 
+                                                ? "[clip-path:circle(150%_at_50%_50%)]" 
+                                                : "[clip-path:circle(0%_at_50%_50%)] group-hover:[clip-path:circle(150%_at_50%_50%)]"
+                                        )}>
+                                            {service.title}
+                                        </h2>
                                     </div>
-                                    <div className="w-full flex justify-around">
-                                        <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 1 }} className="w-3.5 h-3.5 rounded-full bg-blue-500" />
-                                        <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 1.5 }} className="w-3.5 h-3.5 rounded-full bg-pink-500" />
-                                    </div>
+                                    
+                                    <motion.div 
+                                        layout
+                                        className={cn(
+                                            "w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-full border border-white/20 flex items-center justify-center bg-transparent transition-colors duration-500 ml-4",
+                                            service.borderHover
+                                        )}
+                                        animate={{ rotate: isExpanded ? 180 : 0 }}
+                                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                                    >
+                                        {isExpanded ? (
+                                            <Minus className={cn("w-6 h-6 md:w-8 md:h-8 transition-colors", service.iconActive)} />
+                                        ) : (
+                                            <Plus className={cn("text-white transition-colors w-6 h-6 md:w-8 md:h-8", service.iconHover)} />
+                                        )}
+                                    </motion.div>
                                 </motion.div>
-                            </div>
-                        </div>
-                    </div>
 
-                    {/* Card D: Everything in One Place */}
-                    <div className="service-card md:col-span-1 rounded-3xl bg-gradient-to-br from-[#8ba1ce] via-[#526a9a] to-[#253255] border border-white/20 relative overflow-hidden flex items-center justify-center group p-5 shadow-2xl min-h-[140px] lg:min-h-[105px]">
-                        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
-                        {/* Floating abstract structural shapes */}
-                        <motion.div
-                            animate={{ y: [-10, 10, -10], rotate: [12, 15, 12] }}
-                            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -right-4 -bottom-4 w-24 h-36 bg-white/10 backdrop-blur-md"
-                        />
-                        <motion.div
-                            animate={{ y: [10, -10, 10], rotate: [-12, -15, -12] }}
-                            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -left-4 -top-4 w-20 h-36 bg-white/10 backdrop-blur-md"
-                        />
-
-                        <h3 className="text-xl md:text-2xl leading-[1.15] font-medium text-white text-center relative z-10 drop-shadow-xl">
-                            Everything<br />in One Place
-                        </h3>
-                    </div>
-
-                    {/* Card E: Mobile App Building */}
-                    <div className="service-card md:col-span-2 bg-[#0c0c0c] border border-white/[0.05] rounded-3xl relative overflow-hidden group shadow-2xl min-h-[260px] lg:min-h-[210px]">
-                        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-sky-500/10 blur-[100px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-
-                        <div className="p-6 md:p-8 lg:p-7 relative z-10 w-full md:w-[45%] flex flex-col h-full justify-between">
-                            <div>
-                                <Smartphone className="w-5 h-5 text-neutral-400 mb-4 group-hover:text-white transition-colors" />
-                                <h3 className="text-xl md:text-2xl font-medium text-white mb-2">Mobile App Building</h3>
-                                <p className="text-xs lg:text-[13px] text-neutral-400 leading-relaxed font-light">
-                                    Native and cross-platform mobile applications for iOS and Android using Flutter and React Native.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Animated Mobile Device Mock UI */}
-                        <div className="hidden md:flex absolute right-8 -bottom-16 top-4 w-[40%] justify-center overflow-hidden transform group-hover:-translate-y-2 transition-transform duration-500">
-                            <div className="w-[85%] max-w-[210px] h-[360px] lg:h-[300px] bg-black border-[5px] border-[#222] rounded-[28px] overflow-hidden relative shadow-2xl flex flex-col pt-4 px-3">
-                                {/* Phone Notch/Dynamic Island */}
-                                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[35%] h-4 bg-[#222] rounded-b-xl z-20" />
-
-                                {/* App header */}
-                                <div className="flex justify-between items-center mb-4 relative z-10">
-                                    <div className="w-6 h-6 rounded-full bg-white/10" />
-                                    <div className="w-16 h-2.5 rounded-full bg-white/5" />
-                                </div>
-
-                                {/* Scrolling Content Feed */}
-                                <motion.div
-                                    animate={{ y: [0, -180, 0] }}
-                                    transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                                    className="flex flex-col gap-3 relative z-10"
-                                >
-                                    {[1, 2, 3].map((i) => (
-                                        <div key={i} className="w-full bg-[#161616] border border-white/[0.05] rounded-xl p-3 shrink-0">
-                                            <div className="w-full h-20 bg-white/[0.02] rounded-lg mb-2 overflow-hidden relative">
-                                                {/* Mock skeleton image block */}
-                                                <motion.div
-                                                    animate={{
-                                                        backgroundPosition: ["200% 0", "-200% 0"],
-                                                    }}
-                                                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                                                    className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.05),transparent)] bg-[length:200%_100%]"
-                                                />
+                                {/* Expandable Content */}
+                                <AnimatePresence initial={false}>
+                                    {isExpanded && (
+                                        <motion.div
+                                            key={`content-${service.id}`}
+                                            layout
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: "auto", opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+                                            className="overflow-hidden origin-top"
+                                        >
+                                            <div className="pt-8 md:pt-12 pb-4 flex flex-col gap-6 md:gap-10">
+                                                {/* Tags */}
+                                                <div className="flex flex-wrap items-center gap-4 text-sm md:text-base text-neutral-400 font-medium uppercase tracking-widest">
+                                                    {service.tags.map((tag, tagIndex) => (
+                                                        <React.Fragment key={tag}>
+                                                            <span className={cn(
+                                                                "hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r transition-all cursor-default duration-300",
+                                                                service.hoverGradient
+                                                            )}>
+                                                                {tag}
+                                                            </span>
+                                                            {tagIndex < service.tags.length - 1 && (
+                                                                <span className="text-white/10">----</span>
+                                                            )}
+                                                        </React.Fragment>
+                                                    ))}
+                                                </div>
+                                                
+                                                {/* Image */}
+                                                <div className="w-full h-[250px] md:h-[400px] lg:h-[500px] rounded-3xl overflow-hidden relative">
+                                                    <Image 
+                                                        src={service.image} 
+                                                        alt={service.title}
+                                                        fill
+                                                        className="object-cover object-center"
+                                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                                    />
+                                                </div>
                                             </div>
-                                            <div className="w-3/4 h-2 bg-white/10 rounded-full mb-1.5" />
-                                            <div className="w-1/2 h-1.5 bg-white/5 rounded-full" />
-                                        </div>
-                                    ))}
-                                </motion.div>
-
-                                {/* Bottom Gradient Fade */}
-                                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black via-black/80 to-transparent z-20 pointer-events-none" />
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </motion.div>
+                        );
+                    })}
+                </motion.div>
             </div>
         </section>
     );
 };
+

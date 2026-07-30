@@ -22,7 +22,7 @@ export const WhatWeDoSection = () => {
 
   return (
     <section className="py-24 md:py-32 bg-black text-white overflow-hidden relative">
-      <div className="container px-4 md:px-8 mx-auto max-w-[1400px]">
+      <div className="container px-6 md:px-12 mx-auto max-w-[1240px]">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6">
           <div className="flex flex-col gap-4">

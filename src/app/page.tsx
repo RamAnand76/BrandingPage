@@ -5,6 +5,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import Footer from "@/components/Footer";
 
 import { ExpertServices } from "@/components/sections/ExpertServices";
+import { BenefitsSection } from "@/components/sections/BenefitsSection";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { WhatWeDoSection } from "@/components/sections/WhatWeDoSection";
 import { PricingSection } from "@/components/pricing/PricingSection";
@@ -25,6 +26,9 @@ const Index = () => {
       <div id="features" className="pt-20">
         <ExpertServices />
       </div>
+
+      {/* Benefits Section */}
+      <BenefitsSection />
 
       {/* Pricing Section */}
       {showPricing && (

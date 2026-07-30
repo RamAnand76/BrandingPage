@@ -78,7 +78,7 @@ const TechnologyCards = () => {
   };
 
   return (
-    <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto pb-8 md:pb-0">
+    <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1240px] mx-auto px-6 md:px-12 pb-8 md:pb-0">
       {techCategories.map((category, index) => (
         <motion.div
           key={category.title}

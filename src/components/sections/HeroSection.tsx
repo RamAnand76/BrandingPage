@@ -41,7 +41,7 @@ export const HeroSection = () => {
                     <div className="w-full h-full p-6 md:p-12 lg:p-16 flex flex-col relative z-20">
                         {/* Top Label */}
                         <div className="flex items-center gap-2 text-[10px] md:text-[11px] tracking-[0.2em] text-white/50 uppercase font-normal mb-4">
-                            (EST. <span className="text-[#3275F8]">2024</span> — VERSION <span className="text-[#00FF66]">1.0.0</span>)
+                            (EST. <span className="text-[#3275F8]">2025</span> — VERSION <span className="text-[#00FF66]">1.0.0</span>)
                         </div>
 
                         {/* Wordmark */}
