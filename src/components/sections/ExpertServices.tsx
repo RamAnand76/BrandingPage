@@ -84,17 +84,19 @@ export const ExpertServices = () => {
                     </h3>
                 </div>
 
-                <div className="flex flex-col w-full border-t border-white/20">
+                <motion.div layout className="flex flex-col w-full border-t border-white/20">
                     {servicesData.map((service, index) => {
                         const isExpanded = expandedId === service.id;
 
                         return (
-                            <div 
+                            <motion.div 
+                                layout
                                 key={service.id} 
                                 className="service-item border-b border-white/20 last:border-b-0 py-8 flex flex-col"
                             >
                                 {/* Header / Toggle */}
-                                <div 
+                                <motion.div 
+                                    layout
                                     className="flex justify-between items-center cursor-pointer group"
                                     onClick={() => toggleAccordion(service.id)}
                                 >
@@ -120,6 +122,7 @@ export const ExpertServices = () => {
                                     </div>
                                     
                                     <motion.div 
+                                        layout
                                         className={cn(
                                             "w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-full border border-white/20 flex items-center justify-center bg-transparent transition-colors duration-500 ml-4",
                                             service.borderHover
@@ -133,17 +136,19 @@ export const ExpertServices = () => {
                                             <Plus className={cn("text-white transition-colors w-6 h-6 md:w-8 md:h-8", service.iconHover)} />
                                         )}
                                     </motion.div>
-                                </div>
+                                </motion.div>
 
                                 {/* Expandable Content */}
                                 <AnimatePresence initial={false}>
                                     {isExpanded && (
                                         <motion.div
+                                            key={`content-${service.id}`}
+                                            layout
                                             initial={{ height: 0, opacity: 0 }}
                                             animate={{ height: "auto", opacity: 1 }}
                                             exit={{ height: 0, opacity: 0 }}
-                                            transition={{ duration: 0.5, ease: [0.19, 1.0, 0.22, 1.0] }}
-                                            className="overflow-hidden"
+                                            transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+                                            className="overflow-hidden origin-top"
                                         >
                                             <div className="pt-8 md:pt-12 pb-4 flex flex-col gap-6 md:gap-10">
                                                 {/* Tags */}
@@ -175,10 +180,10 @@ export const ExpertServices = () => {
                                         </motion.div>
                                     )}
                                 </AnimatePresence>
-                            </div>
+                            </motion.div>
                         );
                     })}
-                </div>
+                </motion.div>
             </div>
         </section>
     );
