@@ -2,45 +2,54 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Hexagon, Flag, PenTool, Code2, Rocket } from "lucide-react";
+import { Hexagon, Flag, PenTool, Code2, Shield, Rocket } from "lucide-react";
 
 const steps = [
   {
     num: "1",
-    title: "General concept",
-    description: "Deep scoping sessions, technical blueprinting, and detailed estimations.",
+    title: "Discovery & Alignment",
+    description: "Deep value workshops and scope mapping to lock down exact objectives.",
     icon: Flag,
     // Desktop positioning
-    left: "12.5%",
+    left: "10%",
     top: "62.5%",
     textPosition: "bottom", // Text below the point
   },
   {
     num: "2",
-    title: "Design process",
-    description: "Crafting modern user experiences and high-fidelity interactive prototypes.",
+    title: "Strategy & Architecture",
+    description: "Creating custom technical blueprints, API designs, and database structures.",
     icon: PenTool,
-    left: "37.5%",
+    left: "30%",
     top: "37.5%",
     textPosition: "top", // Text above the point
   },
   {
     num: "3",
-    title: "Build phase",
-    description: "Developing with clean code in two-week agile cycles. Integrating scalable systems.",
+    title: "Bespoke Production",
+    description: "Rapid, high-fidelity engineering cycles with continuous designer-led reviews.",
     icon: Code2,
-    left: "62.5%",
+    left: "50%",
     top: "62.5%",
     textPosition: "bottom",
   },
   {
     num: "4",
-    title: "Post product",
-    description: "Deploying through robust CI/CD, handing over credentials, and post-launch support.",
-    icon: Rocket,
-    left: "87.5%",
+    title: "Hardening & Auditing",
+    description: "Rigid security penetration tests, performance testing, and QA validation.",
+    icon: Shield,
+    left: "70%",
     top: "37.5%",
     textPosition: "top",
+  },
+  {
+    num: "5",
+    title: "Launch & Scaling",
+    description: "Deployment via stable CI/CD pipelines, handover, and real-time monitoring.",
+    icon: Rocket,
+    left: "90%",
+    top: "62.5%",
+    textPosition: "bottom",
   }
 ];
 
@@ -63,7 +72,7 @@ export const ProcessSection = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-3xl md:text-5xl lg:text-[52px] font-medium tracking-tight text-white/90 leading-[1.2]"
           >
-            Let us show you how we drive your brand, <span className="text-[#3275F8]">vision and missions</span> to new heights.
+            Our formula for <span className="text-[#3275F8]">predictable scale.</span>
           </motion.h2>
         </div>
 

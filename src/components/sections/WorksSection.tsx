@@ -153,7 +153,7 @@ const WorksSection = () => {
                     src={work.image}
                     alt={work.alt}
                     fill
-                    className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                    className="object-cover transition-transform duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 600px"
                   />
                 </div>

@@ -84,12 +84,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased">
+      <body className="antialiased overflow-x-hidden">
         <QueryProvider>
           <TooltipProvider>
             <ContactModalProvider>
               <SmoothScrolling>
-                <div className="min-h-screen bg-background w-full">
+                <div className="min-h-screen bg-background w-full overflow-x-hidden">
                   <Toaster />
                   <Sonner />
                   <PageTransition>{children}</PageTransition>
