@@ -23,7 +23,7 @@ const AboutSection = () => {
             className="max-w-2xl"
           >
             <h2 className="text-5xl md:text-7xl font-medium tracking-tight text-white leading-[1.1]">
-              Our Story, Vision, <br /> and <span className="text-gray-500">Values</span>
+              The Standard is Broken. <br /> We <span className="text-gray-500">Rebuilt It.</span>
             </h2>
           </motion.div>
           <motion.div
@@ -33,7 +33,7 @@ const AboutSection = () => {
             className="max-w-xs md:text-right"
           >
             <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-              Learn about our commitment to excellence, innovation, and the principles that guide our work every day at Rhevez.
+              Most agencies sell hours; we deliver market dominance. Rhevez was founded on a simple truth: premium engineering and world-class design must live under one roof.
             </p>
           </motion.div>
         </div>
@@ -73,11 +73,11 @@ const AboutSection = () => {
             <Quote className="w-10 h-10 text-gray-600 fill-gray-600/20" />
 
             <h3 className="text-2xl md:text-3xl font-light text-gray-200 leading-snug">
-              Our team of experts works tirelessly to bring your vision to life, ensuring every project we undertake not only meets but exceeds expectations.
+              In a world flooded with generic software and AI hype, execution is the only differentiator.
             </h3>
 
             <p className="text-gray-400 leading-relaxed">
-              We are dedicated to transforming your ideas into impactful digital experiences that resonate with your audience and drive success. From the initial concept to the final deployment, we stick to our core values of transparency and quality.
+              We eliminate communication layers, bloated timelines, and generic code. By partnering directly with founders and enterprise leaders, we construct high-speed, design-first digital products that command market attention.
             </p>
 
             {/* Small Image */}
@@ -148,7 +148,7 @@ const AboutSection = () => {
             <div>
               <h3 className="text-4xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#22c55e] mb-6">VISION</h3>
               <p className="text-gray-300 text-lg leading-relaxed max-w-sm">
-                To be the catalyst for digital evolution, empowering businesses to reach their full potential through technology.
+                To define the gold standard of product execution—where advanced technology meets luxury brand design.
               </p>
             </div>
             {/* Icon Notch Top Right */}
@@ -169,7 +169,7 @@ const AboutSection = () => {
             <div>
               <h3 className="text-4xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-[#6366f1] mb-6">MISSION</h3>
               <p className="text-gray-300 text-lg leading-relaxed max-w-sm">
-                Combining innovation with reliability to deliver expert services and products that redefine industry standards.
+                Equipping hyper-growth teams with premium digital systems, bespoke AI agents, and identity frameworks that accelerate valuation.
               </p>
             </div>
             {/* Icon Notch Top Right */}

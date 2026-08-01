@@ -18,6 +18,7 @@ const servicesData = [
         id: "01",
         title: "PRODUCT ENGINEERING",
         tags: ["Web App Development", "Mobile App Development", "End to End Product Engineering"],
+        description: "We construct high-speed, design-first digital applications. From next-gen web platforms to native mobile experiences, we build for high retention, zero friction, and infinite scale.",
         image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
         hoverGradient: "from-blue-600 to-cyan-400",
         activeGradient: "from-cyan-400 to-blue-500",
@@ -29,6 +30,7 @@ const servicesData = [
         id: "02",
         title: "ARTIFICIAL INTELLIGENCE",
         tags: ["AI Engineering Services", "Automation Services", "AIOps"],
+        description: "Deploy autonomous agents and custom intelligence layers that reclaim operational hours. We convert complex manual workflows into automated revenue generators.",
         image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop",
         hoverGradient: "from-green-400 to-emerald-600",
         activeGradient: "from-emerald-500 to-green-400",
@@ -40,6 +42,7 @@ const servicesData = [
         id: "03",
         title: "CYBER SECURITY",
         tags: ["Cyber Security Services", "Penetration Testing", "Vulnerability Assessment"],
+        description: "Command premium positioning. We design bespoke visual identities and defend them with bulletproof security architectures, penetration testing, and risk assessments.",
         image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop",
         hoverGradient: "from-blue-500 via-emerald-400 to-green-400",
         activeGradient: "from-green-400 via-blue-500 to-cyan-400",
@@ -168,6 +171,11 @@ export const ExpertServices = () => {
                                                         </React.Fragment>
                                                     ))}
                                                 </div>
+                                                
+                                                {/* Description */}
+                                                <p className="text-neutral-300 text-base md:text-lg font-light leading-relaxed max-w-3xl">
+                                                    {service.description}
+                                                </p>
                                                 
                                                 {/* Image */}
                                                 <div className="w-full h-[250px] md:h-[400px] lg:h-[500px] rounded-3xl overflow-hidden relative">
