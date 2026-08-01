@@ -37,10 +37,10 @@ export const HeroFrame = ({ children }: { children: ReactNode }) => {
 
         {/* Midpoint lines extending outwards */}
         {/* Left edge middle line going outwards */}
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-full w-[50vw] h-[1px] bg-white/20 pointer-events-none" />
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-full w-[50vw] h-[1px] bg-white/20 pointer-events-none hidden md:block" />
 
         {/* Right edge middle line going outwards */}
-        <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-full w-[50vw] h-[1px] bg-white/20 pointer-events-none" />
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-full w-[50vw] h-[1px] bg-white/20 pointer-events-none hidden md:block" />
 
         {/* Top edge middle line going outwards */}
         <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-full h-[50vh] w-[1px] bg-white/20 pointer-events-none" />
