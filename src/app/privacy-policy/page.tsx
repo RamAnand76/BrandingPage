@@ -59,7 +59,7 @@ const PrivacyPolicyPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl font-bold mb-4 text-gradient"
+            className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#3275F8] to-white"
         >
             Privacy Policy
         </motion.h1>
@@ -84,7 +84,7 @@ const PrivacyPolicyPage = () => {
                       className={cn(
                         "block py-2 px-3 rounded-md transition-colors",
                         activeSection === section.id
-                          ? "bg-primary/10 text-primary font-medium"
+                          ? "bg-[#3275F8]/10 text-[#3275F8] font-medium"
                           : "text-muted-foreground hover:bg-neutral-900"
                       )}
                     >
