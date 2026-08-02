@@ -7,17 +7,16 @@ import QueryProvider from "@/components/QueryProvider";
 import SmoothScrolling from "@/components/SmoothScrolling";
 import PageTransition from "@/components/ui/PageTransition";
 import { ContactModalProvider } from "@/context/ContactModalContext";
-
-
+import { CookieConsent } from "@/components/privacy/CookieConsent";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://rhevez.lovable.dev'),
+  metadataBase: new URL('https://rhevez.com'),
   title: {
     template: "%s | Rhevez",
-    default: "Rhevez: Expert Services, Delivered",
+    default: "Rhevez: Premium Product Engineering & AI Solutions",
   },
-  description: "Rhevez: From stunning UI/UX to powerful AI and flawless apps, we build the digital solutions of tomorrow.",
-  keywords: ["Rhevez", "Software Development Services", "Web Development", "Mobile Apps", "AI Development", "UI/UX Design", "Digital Agency"],
+  description: "Rhevez delivers design-first Product Engineering, custom AI systems, and premium Brand Identity services for scaling companies.",
+  keywords: ["Rhevez", "Software Engineering Services", "AI Engineers", "Web Development", "Mobile Applications", "AI Agents", "UI/UX Design", "Brand Identity"],
   authors: [{ name: "Rhevez" }],
   verification: {
     google: "ia9izdQwctLX-20p5INS7Mr0rAoO-0CIQTtXvDmw70w",
@@ -28,16 +27,16 @@ export const metadata: Metadata = {
     apple: "/lovable-uploads/logo.png",
   },
   openGraph: {
-    title: "Rhevez: Premium Software Development Services",
-    description: "Expert software development services, AI agents, and mobile apps. We transform your complex ideas into scalable digital reality.",
-    url: "https://rhevez.lovable.dev",
+    title: "Rhevez: Premium Product Engineering & AI Solutions",
+    description: "Design-first product development, custom autonomous agents, and strategic brand identity for high-growth enterprises.",
+    url: "https://rhevez.com",
     siteName: "Rhevez",
     images: [
       {
-        url: "https://picsum.photos/seed/og-rhevez/1200/630",
+        url: "https://rhevez.com/careers-hero-bg.png",
         width: 1200,
         height: 630,
-        alt: "Rhevez - Expert Software Development Services",
+        alt: "Rhevez - Premium Product Engineering & AI Solutions",
       },
     ],
     locale: "en_US",
@@ -45,31 +44,83 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rhevez: Expert Software Development Services",
-    description: "From stunning UI/UX to powerful AI and flawless apps, we build the digital solutions of tomorrow.",
-    images: ["https://picsum.photos/seed/og-rhevez/1200/630"],
+    title: "Rhevez: Premium Product Engineering & AI Solutions",
+    description: "Design-first product development, custom autonomous agents, and strategic brand identity for high-growth enterprises.",
+    images: ["https://rhevez.com/careers-hero-bg.png"],
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Rhevez Digital Solutions",
-  "description": "Premium software development services including Web, Mobile, and AI solutions.",
-  "url": "https://rhevez.lovable.dev",
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "All",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "author": {
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Rhevez",
-    "url": "https://rhevez.lovable.dev"
+    "url": "https://rhevez.com",
+    "logo": "https://rhevez.com/lovable-uploads/logo.png",
+    "description": "Premium product engineering, autonomous AI agent systems, and luxury brand design.",
+    "founder": [
+      { "@type": "Person", "name": "Ram Anand", "jobTitle": "Co-Founder" },
+      { "@type": "Person", "name": "Jithu Francis", "jobTitle": "Co-Founder" },
+      { "@type": "Person", "name": "Thejas Somarajan", "jobTitle": "Co-Founder" },
+      { "@type": "Person", "name": "Kesavadas", "jobTitle": "Co-Founder" },
+      { "@type": "Person", "name": "Kiran Rajeev", "jobTitle": "Co-Founder" },
+      { "@type": "Person", "name": "B. VishnuNarayanan", "jobTitle": "Co-Founder" },
+      { "@type": "Person", "name": "Arjun Kumar VS", "jobTitle": "Co-Founder" }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Rhevez Core Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Product Engineering",
+            "description": "Premium software development services including Next.js web applications, mobile apps, and robust API architectures."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "AI & Autonomous Agents",
+            "description": "Custom agentic intelligence pipelines, LLM fine-tuning, and automated operational orchestration."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Brand Identity Design",
+            "description": "Visionary visual direction, guidelines, typography packages, and custom logo systems for scaling startups."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What services does Rhevez offer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Rhevez specializes in high-fidelity Product Engineering, autonomous AI & Machine Learning workflow designs, and modern Brand Identity systems."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Rhevez collaborate with startups?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We operate in a 5-step collaboration timeline including Discovery, Strategy & blueprinting, Bespoke Production, rigid Security Hardening, and Launch & Scaling."
+        }
+      }
+    ]
   }
-};
+];
 
 export default function RootLayout({
   children,
@@ -92,6 +143,7 @@ export default function RootLayout({
                 <div className="min-h-screen bg-background w-full overflow-x-hidden">
                   <Toaster />
                   <Sonner />
+                  <CookieConsent />
                   <PageTransition>{children}</PageTransition>
                 </div>
               </SmoothScrolling>
