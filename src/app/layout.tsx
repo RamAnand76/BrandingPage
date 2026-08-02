@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "Rhevez",
     images: [
       {
-        url: "https://rhevez.com/careers-hero-bg.png",
+        url: "https://rhevez.com/lovable-uploads/link-preview.png",
         width: 1200,
         height: 630,
         alt: "Rhevez - Premium Product Engineering & AI Solutions",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Rhevez: Premium Product Engineering & AI Solutions",
     description: "Design-first product development, custom autonomous agents, and strategic brand identity for high-growth enterprises.",
-    images: ["https://rhevez.com/careers-hero-bg.png"],
+    images: ["https://rhevez.com/lovable-uploads/link-preview.png"],
   },
 };
 
