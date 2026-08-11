@@ -5,7 +5,8 @@
     "title": "Senior AI / ML Engineer",
     "department": "AI Engineering Services",
     "type": "Full-Time",
-    "location": "Remote / Hybrid",
+    "location": "Hybrid",
+    "experience": "Senior",
     "description": "We are looking for an AI Engineer to design, build, and deploy custom agentic intelligence systems, LLM orchestration layers, and custom fine-tuned models for our clients.",
     "responsibilities": [
       "Design and implement robust LLM pipelines and autonomous agentic workflows.",
@@ -27,6 +28,7 @@
     "department": "Product Engineering",
     "type": "Full-Time",
     "location": "Remote",
+    "experience": "Junior",
     "description": "Join us to build high-performance web applications and responsive client dashboards utilizing Next.js, Framer Motion, and robust serverless backends.",
     "responsibilities": [
       "Develop clean, modular, and reusable UI components in React, TypeScript, and TailwindCSS.",
@@ -48,6 +50,7 @@
     "department": "Branding & Creative",
     "type": "Part-Time / Contract",
     "location": "Remote",
+    "experience": "Senior",
     "description": "We are seeking a visionary Brand Designer to shape the visual narratives, identity systems, and digital aesthetics of next-generation startups and enterprises.",
     "responsibilities": [
       "Create cohesive brand books, design guidelines, typography packages, and custom logo systems.",

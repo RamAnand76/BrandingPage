@@ -7,6 +7,7 @@ export interface Position {
   department: string;
   type: string;
   location: string;
+  experience: string;
   description: string;
   responsibilities: string[];
   requirements: string[];
