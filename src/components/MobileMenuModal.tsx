@@ -42,7 +42,7 @@ export const MobileMenuModal = ({ isOpen, setIsOpen }: MobileMenuModalProps) => 
                 <div>
                   <span className="text-[10px] text-white/50 tracking-widest uppercase mb-6 block">Contact</span>
                   <div className="flex flex-col gap-2">
-                    <a href="mailto:hello@rhevez.com" className="text-xs text-white hover:text-[#3275F8] transition-colors break-all">hello@rhevez.com</a>
+                    <a href="mailto:info@rhevez.com" className="text-xs text-white hover:text-[#3275F8] transition-colors break-all">info@rhevez.com</a>
                     <a href="tel:+15554000123" className="text-xs text-white hover:text-[#3275F8] transition-colors">+1 (555) 400 0123</a>
                   </div>
                 </div>

@@ -1,68 +1,90 @@
 [
   {
-    "id": "senior-ai-engineer",
-    "slug": "senior-ai-ml-engineer",
-    "title": "Senior AI / ML Engineer",
+    "id": "intern-ml-engineer",
+    "slug": "ml-engineer-intern",
+    "title": "ML Engineer - Intern",
     "department": "AI Engineering Services",
-    "type": "Full-Time",
-    "location": "Hybrid",
-    "experience": "Senior",
-    "description": "We are looking for an AI Engineer to design, build, and deploy custom agentic intelligence systems, LLM orchestration layers, and custom fine-tuned models for our clients.",
+    "type": "Internship",
+    "location": "Remote",
+    "experience": "Intern",
+    "description": "We are looking for a curious and driven ML Engineering Intern to support our AI team in building, evaluating, and deploying machine learning models and data pipelines.",
     "responsibilities": [
-      "Design and implement robust LLM pipelines and autonomous agentic workflows.",
-      "Integrate vector databases and build highly optimized RAG/hybrid search architectures.",
-      "Collaborate with product managers and designers to translate business requirements into intelligent features.",
-      "Optimize model inference times and compute costs in production settings."
+      "Assist in preprocessing, cleaning, and analyzing datasets for model training and evaluation.",
+      "Support the development and fine-tuning of ML models under the guidance of senior engineers.",
+      "Document experiments, results, and model performance metrics for internal knowledge sharing.",
+      "Collaborate with cross-functional teams to integrate ML solutions into production workflows."
     ],
     "requirements": [
-      "4+ years of professional experience in software engineering and Machine Learning.",
-      "Deep understanding of modern LLMs, Transformers, and frameworks (LangChain, LlamaIndex, LangGraph).",
-      "Proficiency with Python, TypeScript, and cloud deployment engines.",
-      "Strong product mindset and experience working in fast-paced startup teams."
+      "Currently pursuing or recently completed a degree in Computer Science, Data Science, or a related field.",
+      "Familiarity with Python and ML libraries such as scikit-learn, TensorFlow, or PyTorch.",
+      "Basic understanding of data structures, algorithms, and statistical concepts.",
+      "Strong willingness to learn, problem-solve, and contribute in a fast-paced environment."
     ]
   },
   {
-    "id": "full-stack-engineer",
-    "slug": "full-stack-product-engineer",
-    "title": "Full Stack Product Engineer",
+    "id": "intern-backend-engineer",
+    "slug": "backend-engineer-intern-python",
+    "title": "Backend Engineer - Intern (Python / FastAPI / Django REST)",
     "department": "Product Engineering",
-    "type": "Full-Time",
+    "type": "Internship",
     "location": "Remote",
-    "experience": "Junior",
-    "description": "Join us to build high-performance web applications and responsive client dashboards utilizing Next.js, Framer Motion, and robust serverless backends.",
+    "experience": "Intern",
+    "description": "Join our backend team as an intern to help build scalable REST APIs, server-side logic, and database architectures using Python, FastAPI, and Django REST Framework.",
     "responsibilities": [
-      "Develop clean, modular, and reusable UI components in React, TypeScript, and TailwindCSS.",
-      "Build scalable server-side systems, APIs, and real-time synchronization layers.",
-      "Ensure all user interfaces are visually premium, highly interactive, and optimized for mobile devices.",
-      "Optimize frontend performance, layout shift metrics (CLS), and Lighthouse scores."
+      "Develop and maintain RESTful APIs and backend services using FastAPI and Django REST Framework.",
+      "Design and optimize database schemas using PostgreSQL and work with ORMs like SQLAlchemy or Django ORM.",
+      "Write clean, testable code and participate in code reviews with senior engineers.",
+      "Debug, document, and improve existing backend systems and microservices."
     ],
     "requirements": [
-      "3+ years of experience with React, Next.js (App Router), and TypeScript.",
-      "Strong eye for design, animations (Framer Motion, GSAP), and detail-oriented styling.",
-      "Experience with PostgreSQL, Prisma/Drizzle ORM, and serverless architectures.",
-      "High agency, self-directed, and passion for crafting world-class products."
+      "Currently pursuing or recently completed a degree in Computer Science, Software Engineering, or a related field.",
+      "Solid understanding of Python and hands-on experience with FastAPI or Django REST Framework.",
+      "Basic knowledge of relational databases (PostgreSQL / MySQL) and REST API design principles.",
+      "Familiarity with Git, Docker, and CI/CD pipelines is a plus."
     ]
   },
   {
-    "id": "brand-designer",
-    "slug": "senior-brand-identity-designer",
-    "title": "Senior Brand Identity Designer",
-    "department": "Branding & Creative",
-    "type": "Part-Time / Contract",
+    "id": "intern-mobile-developer",
+    "slug": "mobile-app-developer-intern-flutter",
+    "title": "Mobile App Developer - Intern (Flutter)",
+    "department": "Product Engineering",
+    "type": "Internship",
     "location": "Remote",
-    "experience": "Senior",
-    "description": "We are seeking a visionary Brand Designer to shape the visual narratives, identity systems, and digital aesthetics of next-generation startups and enterprises.",
+    "experience": "Intern",
+    "description": "We are seeking a passionate Mobile App Developer Intern to build beautiful, performant cross-platform mobile applications using Flutter and Dart.",
     "responsibilities": [
-      "Create cohesive brand books, design guidelines, typography packages, and custom logo systems.",
-      "Design digital brand assets, web graphics, and interactive design prototypes.",
-      "Collaborate with frontend developers to ensure accurate translation of creative concepts into code.",
-      "Establish unique, high-end artistic directions for global brand launches."
+      "Develop and maintain cross-platform mobile applications using Flutter and Dart.",
+      "Implement responsive UI components and ensure smooth user experiences across iOS and Android.",
+      "Integrate REST APIs, manage local state, and handle asynchronous data flows.",
+      "Write unit and widget tests, debug issues, and optimize app performance."
     ],
     "requirements": [
-      "Portfolio demonstrating exceptional craft in modern typography, layout, and visual systems.",
-      "Expertise in Figma, Illustrator, Photoshop, and 3D modeling tools (Spline/Blender is a big plus).",
-      "Ability to articulate design rationale and present directly to enterprise stakeholders.",
-      "Strong understanding of modern web trends, minimalism, and luxury aesthetics."
+      "Currently pursuing or recently completed a degree in Computer Science, Mobile Development, or a related field.",
+      "Hands-on experience with Flutter, Dart, and state management solutions (Provider, Riverpod, Bloc).",
+      "Understanding of mobile UI/UX principles and platform-specific design guidelines.",
+      "Familiarity with Firebase, REST APIs, and version control (Git) is a plus."
+    ]
+  },
+  {
+    "id": "intern-digital-marketing",
+    "slug": "digital-marketing-intern",
+    "title": "Digital Marketing - Intern",
+    "department": "Marketing & Growth",
+    "type": "Internship",
+    "location": "Remote",
+    "experience": "Intern",
+    "description": "We are looking for a creative and analytical Digital Marketing Intern to support our growth team in executing campaigns, managing social media, and analyzing performance metrics.",
+    "responsibilities": [
+      "Assist in planning and executing digital marketing campaigns across social media, email, and paid channels.",
+      "Create engaging content for blogs, social posts, newsletters, and landing pages.",
+      "Monitor, analyze, and report on campaign performance using tools like Google Analytics and Meta Business Suite.",
+      "Conduct market research and competitor analysis to identify growth opportunities."
+    ],
+    "requirements": [
+      "Currently pursuing or recently completed a degree in Marketing, Communications, Business, or a related field.",
+      "Familiarity with social media platforms, content creation tools, and basic SEO/SEM concepts.",
+      "Strong written and verbal communication skills with an eye for detail.",
+      "Experience with Canva, Figma, or analytics tools is a plus."
     ]
   }
 ]
