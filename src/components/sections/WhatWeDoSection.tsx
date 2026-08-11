@@ -7,8 +7,8 @@ export const WhatWeDoSection = () => {
   // Flatten all technologies to create a single array
   const technologies = TECH_DATA.flatMap((item) => item.technologies);
 
-  // Duplicate items to ensure seamless infinite scrolling
-  const marqueeItems = [...technologies, ...technologies, ...technologies, ...technologies];
+  // Duplicate items to ensure seamless infinite scrolling without overloading the DOM
+  const marqueeItems = [...technologies, ...technologies, ...technologies];
 
   return (
     <section className="py-24 md:py-32 bg-black text-white overflow-hidden relative flex flex-col items-center justify-center min-h-[50vh]">
@@ -21,11 +21,11 @@ export const WhatWeDoSection = () => {
       {/* Marquee Container */}
       <div className="relative flex overflow-x-hidden group w-full max-w-[100vw]">
         {/* Original Marquee */}
-        <div className="animate-marquee whitespace-nowrap flex shrink-0 justify-around gap-4 pr-4 min-w-full">
+        <div className="animate-marquee whitespace-nowrap flex shrink-0 justify-around gap-4 pr-4 min-w-full will-change-transform group-hover:[animation-play-state:paused]">
           {marqueeItems.map((tech, i) => (
             <div 
               key={`tech-1-${i}`}
-              className="flex items-center gap-3 bg-[#0B1324] bg-gradient-to-b from-[#111C33] to-[#080D1A] border border-white/[0.03] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] rounded-[8px] px-6 py-4 min-w-fit hover:border-white/10 transition-colors duration-300"
+              className="flex items-center gap-3 bg-[#0B1324] bg-gradient-to-b from-[#111C33] to-[#080D1A] border border-white/[0.03] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] rounded-[8px] px-6 py-4 min-w-fit hover:border-white/10 transition-colors duration-300 transform-gpu"
             >
               <div className="w-[22px] h-[22px] flex items-center justify-center shrink-0" style={{ color: tech.color }}>
                 {tech.icon}
@@ -36,11 +36,11 @@ export const WhatWeDoSection = () => {
         </div>
         
         {/* Clone Marquee for seamless loop */}
-        <div className="animate-marquee whitespace-nowrap flex shrink-0 justify-around gap-4 pr-4 min-w-full" aria-hidden="true">
+        <div className="animate-marquee whitespace-nowrap flex shrink-0 justify-around gap-4 pr-4 min-w-full will-change-transform group-hover:[animation-play-state:paused]" aria-hidden="true">
           {marqueeItems.map((tech, i) => (
             <div 
               key={`tech-2-${i}`}
-              className="flex items-center gap-3 bg-[#0B1324] bg-gradient-to-b from-[#111C33] to-[#080D1A] border border-white/[0.03] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] rounded-[8px] px-6 py-4 min-w-fit hover:border-white/10 transition-colors duration-300"
+              className="flex items-center gap-3 bg-[#0B1324] bg-gradient-to-b from-[#111C33] to-[#080D1A] border border-white/[0.03] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] rounded-[8px] px-6 py-4 min-w-fit hover:border-white/10 transition-colors duration-300 transform-gpu"
             >
               <div className="w-[22px] h-[22px] flex items-center justify-center shrink-0" style={{ color: tech.color }}>
                 {tech.icon}

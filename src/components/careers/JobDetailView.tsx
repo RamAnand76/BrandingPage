@@ -2,9 +2,10 @@
 
 import React, { useState } from "react";
 import { Position } from "@/lib/careersData";
-import { Clock, MapPin, Paperclip, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Clock, MapPin, Paperclip, ArrowRight, CheckCircle2, ArrowLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useToast } from "@/components/ui/use-toast";
+import Link from "next/link";
 
 interface JobDetailViewProps {
   job: Position;
@@ -54,6 +55,13 @@ export const JobDetailView = ({ job }: JobDetailViewProps) => {
       
       {/* ── JOB HEADER ── */}
       <div className="border-b border-white/10 pb-8 mb-12">
+        <Link 
+          href="/careers" 
+          className="inline-flex items-center gap-2 text-neutral-400 hover:text-white transition-colors text-sm font-medium mb-8"
+        >
+          <ArrowLeft className="w-4 h-4" /> Back to Careers
+        </Link>
+        
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight mb-6 text-white leading-tight">
           {job.title}
         </h1>
