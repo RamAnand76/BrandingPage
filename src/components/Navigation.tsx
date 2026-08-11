@@ -78,7 +78,7 @@ const Navigation = () => {
         {scrolled && (
           <motion.div
             key="dynamic-island"
-            className="fixed top-4 left-1/2 z-[100] flex items-center"
+            className="fixed top-4 left-1/2 z-[100] hidden md:flex items-center"
             style={{ x: "-50%" }}
             initial={{ opacity: 0, y: -30, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
