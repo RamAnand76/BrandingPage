@@ -17,12 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/careers`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/privacy-policy`,
       lastModified: new Date(),
       changeFrequency: 'yearly' as const,
@@ -36,6 +30,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  // Temporarily excluded careers routes until fully ready for publishing
+  /*
   const dynamicCareers = [
     'senior-ai-ml-engineer',
     'full-stack-product-engineer',
@@ -46,6 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));
+  */
 
-  return [...staticRoutes, ...dynamicCareers];
+  return staticRoutes;
 }

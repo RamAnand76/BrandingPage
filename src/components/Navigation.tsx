@@ -32,6 +32,7 @@ const Navigation = () => {
             <div className="flex items-center justify-between w-full lg:w-auto lg:gap-6">
               <div className="flex items-center gap-6">
                 <Link href="/" className="flex items-center gap-3 lg:gap-5 cursor-pointer">
+                  <h1 className="sr-only">Rhevez LLP - AI powered. Human focused. Custom software development and luxury branding.</h1>
                   <div className="w-8 h-8 lg:w-11 lg:h-11 relative flex-shrink-0">
                     <Image src="/lovable-uploads/logo.png" alt="Rhevez Logo" fill className="object-contain" />
                   </div>
