@@ -54,7 +54,7 @@ const servicesData = [
 
 export const ExpertServices = () => {
     const container = useRef<HTMLElement>(null);
-    const [expandedId, setExpandedId] = useState<string | null>("01");
+    const [expandedId, setExpandedId] = useState<string | null>(null);
 
     useGSAP(() => {
         gsap.from(".service-item", {

@@ -18,12 +18,12 @@ import { StripedPattern } from "@/components/ui/striped-pattern";
 
 const TeamSection = () => {
   const team = [
-    { name: "Ram", role: "Co-Founder", image: "/lovable-uploads/Ramanand.png", linkedin: "https://www.linkedin.com/in/ramanand-r-53919821b/" },
-    { name: "Thejas", role: "Co-Founder", image: "/lovable-uploads/Thejas.png", linkedin: "https://www.linkedin.com/in/thejas-somarajan/" },
-    { name: "Jithu Francis", role: "Co-Founder", image: "/lovable-uploads/Jithu.png", linkedin: "https://www.linkedin.com/in/jithu-francis-958aa81a0/" },
-    { name: "Kesavadas", role: "Co-Founder", image: "/lovable-uploads/Kesavadas.png", linkedin: "https://www.linkedin.com/in/kesavadas3/" },
-    { name: "Kiran Rajeev", role: "Co-Founder", image: "/lovable-uploads/Kiran.png", linkedin: "#" },
-    { name: "B. VishnuNarayanan", role: "Co-Founder", image: "/lovable-uploads/Vishnu.png", linkedin: "https://www.linkedin.com/in/vishnu-narayanan-b-643aa7202/" },
+    { name: "Ram", role: "CEO", image: "/lovable-uploads/Ramanand.png", linkedin: "https://www.linkedin.com/in/ramanand-r-53919821b/" },
+    { name: "Thejas", role: "COO", image: "/lovable-uploads/Thejas.png", linkedin: "https://www.linkedin.com/in/thejas-somarajan/" },
+    { name: "Jithu Francis", role: "CTO", image: "/lovable-uploads/Jithu.png", linkedin: "https://www.linkedin.com/in/jithu-francis-958aa81a0/" },
+    { name: "Kesavadas", role: "CAIO", image: "/lovable-uploads/Kesavadas.png", linkedin: "https://www.linkedin.com/in/kesavadas3/" },
+    { name: "Kiran Rajeev", role: "CQO", image: "/lovable-uploads/Kiran.png", linkedin: "#" },
+    { name: "B. VishnuNarayanan", role: "CMO", image: "/lovable-uploads/Vishnu.png", linkedin: "https://www.linkedin.com/in/vishnu-narayanan-b-643aa7202/" },
     { name: "Arjun Kumar VS", role: "Co-Founder", image: "/lovable-uploads/Arjun.png", linkedin: "https://www.linkedin.com/in/arjun-kumar-v-s/" },
   ];
 
@@ -79,8 +79,8 @@ const TeamSection = () => {
                     {/* Bottom horizontal bar for Name & Role */}
                     <div className="absolute bottom-0 left-0 w-full h-[25%] bg-[#0066FF] z-20 px-5 py-4 flex flex-col justify-center text-left">
                       <h3 className="text-base font-bold text-white leading-tight mb-1">{member.name}</h3>
-                      <p className="text-xs text-white/80 font-medium">Designation</p>
-                      <p className="text-[10px] text-white/60 font-medium mt-0.5">{member.role}</p>
+                      <p className="text-xs text-white/80 font-medium">{member.role}</p>
+                      <p className="text-[10px] text-white/60 font-medium mt-0.5">Co-Founder</p>
 
                       {/* LinkedIn Link */}
                       {member.linkedin && member.linkedin !== "#" && (
