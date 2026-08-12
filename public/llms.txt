@@ -1,0 +1,27 @@
+# Rhevez (Rhevez LLP)
+
+AI powered. Human focused. We build complete digital products that help businesses grow, operate smarter, and stay ahead. Empowering businesses with custom software development and luxury branding.
+
+Also searched/known as: Rhevez LLP, Rhevez company, Rhevez India, Rhevez AI, revez.
+
+## Core Services
+
+- **Product Engineering**: High-fidelity, design-first custom software development. We build custom Next.js web applications, mobile apps, and robust API architectures.
+- **AI & Autonomous Agents**: Deploying autonomous agentic intelligence pipelines, custom LLM orchestration layers, and custom fine-tuned machine learning models.
+- **Brand Identity Design**: Visionary visual direction, style guidelines, typography packages, and custom logo systems.
+
+## Team & Leadership
+
+- **Ram Anand**: CEO & Co-Founder
+- **Thejas Somarajan**: COO & Co-Founder
+- **Jithu Francis**: CTO & Co-Founder
+- **Kesavadas**: CAIO (Chief AI Officer) & Co-Founder
+- **Kiran Rajeev**: CQO & Co-Founder
+- **B. VishnuNarayanan**: CMO & Co-Founder
+- **Arjun Kumar VS**: Co-Founder
+
+## Contact Information
+
+- **Website**: https://rhevez.com
+- **Email**: info@rhevez.com
+- **Locations**: India / Remote
