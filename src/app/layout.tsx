@@ -15,8 +15,25 @@ export const metadata: Metadata = {
     template: "%s | Rhevez",
     default: "Rhevez: Premium Product Engineering & AI Solutions",
   },
-  description: "Rhevez delivers design-first Product Engineering, custom AI systems, and premium Brand Identity services for scaling companies.",
-  keywords: ["Rhevez", "Software Engineering Services", "AI Engineers", "Web Development", "Mobile Applications", "AI Agents", "UI/UX Design", "Brand Identity"],
+  description: "Rhevez (Rhevez LLP) delivers design-first Product Engineering, custom AI systems, and premium Brand Identity services. Empowering businesses with custom software development and luxury branding to help them grow, operate smarter, and stay ahead.",
+  keywords: [
+    "Rhevez",
+    "Rhevez LLP",
+    "Rhevez company",
+    "Rhevez India",
+    "Rhevez AI",
+    "revez",
+    "AI powered. Human focused.",
+    "We build complete digital products that help businesses grow",
+    "Empowering businesses with custom software development and luxury branding",
+    "Software Engineering Services",
+    "AI Engineers",
+    "Web Development",
+    "Mobile Applications",
+    "AI Agents",
+    "UI/UX Design",
+    "Brand Identity"
+  ],
   authors: [{ name: "Rhevez" }],
   verification: {
     google: "ia9izdQwctLX-20p5INS7Mr0rAoO-0CIQTtXvDmw70w",
@@ -28,7 +45,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Rhevez: Premium Product Engineering & AI Solutions",
-    description: "Design-first product development, custom autonomous agents, and strategic brand identity for high-growth enterprises.",
+    description: "Empowering businesses with custom software development and luxury branding. We build complete digital products that help businesses grow, operate smarter, and stay ahead. AI powered. Human focused.",
     url: "https://rhevez.com",
     siteName: "Rhevez",
     images: [
@@ -45,7 +62,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Rhevez: Premium Product Engineering & AI Solutions",
-    description: "Design-first product development, custom autonomous agents, and strategic brand identity for high-growth enterprises.",
+    description: "Empowering businesses with custom software development and luxury branding. We build complete digital products that help businesses grow, operate smarter, and stay ahead. AI powered. Human focused.",
     images: ["https://rhevez.com/lovable-uploads/link-preview.png"],
   },
 };
@@ -55,9 +72,15 @@ const jsonLd = [
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Rhevez",
+    "alternateName": ["Rhevez LLP", "Rhevez company", "Rhevez India", "Rhevez AI", "revez"],
+    "legalName": "Rhevez LLP",
     "url": "https://rhevez.com",
     "logo": "https://rhevez.com/lovable-uploads/logo.png",
-    "description": "Premium product engineering, autonomous AI agent systems, and luxury brand design.",
+    "description": "Empowering businesses with custom software development and luxury branding. We build complete digital products that help businesses grow, operate smarter, and stay ahead. AI powered. Human focused.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "India"
+    },
     "founder": [
       { "@type": "Person", "name": "Ram Anand", "jobTitle": "Co-Founder" },
       { "@type": "Person", "name": "Jithu Francis", "jobTitle": "Co-Founder" },
