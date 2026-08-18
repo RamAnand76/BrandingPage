@@ -64,8 +64,8 @@ export const HeroSection = () => {
                             <span>JULY 18, 08:10</span>
                         </div>
                     </div>
+                    <Signature />
                 </HeroFrame>
-                <Signature />
             </div>
         </section>
     );
