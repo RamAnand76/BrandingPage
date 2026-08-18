@@ -8,7 +8,7 @@ export const WhatWeDoSection = () => {
   const technologies = TECH_DATA.flatMap((item) => item.technologies);
 
   // Duplicate items to ensure seamless infinite scrolling without overloading the DOM
-  const marqueeItems = [...technologies, ...technologies, ...technologies];
+  const marqueeItems = [...technologies, ...technologies];
 
   return (
     <section className="py-24 md:py-32 bg-black text-white overflow-hidden relative flex flex-col items-center justify-center min-h-[50vh]">

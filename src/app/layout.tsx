@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://rhevez.com'),
   title: {
     template: "%s | Rhevez",
-    default: "Rhevez: Premium Product Engineering & AI Solutions",
+    default: "Rhevez — Premium Product Engineering & AI Solutions",
   },
   description: "Rhevez (Rhevez LLP) delivers design-first Product Engineering, custom AI systems, and premium Brand Identity services. Empowering businesses with custom software development and luxury branding to help them grow, operate smarter, and stay ahead.",
   keywords: [
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     apple: "/lovable-uploads/logo.png",
   },
   openGraph: {
-    title: "Rhevez: Premium Product Engineering & AI Solutions",
+    title: "Rhevez — Premium Product Engineering & AI Solutions",
     description: "Empowering businesses with custom software development and luxury branding. We build complete digital products that help businesses grow, operate smarter, and stay ahead. AI powered. Human focused.",
     url: "https://rhevez.com",
     siteName: "Rhevez",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rhevez: Premium Product Engineering & AI Solutions",
+    title: "Rhevez — Premium Product Engineering & AI Solutions",
     description: "Empowering businesses with custom software development and luxury branding. We build complete digital products that help businesses grow, operate smarter, and stay ahead. AI powered. Human focused.",
     images: ["https://rhevez.com/lovable-uploads/link-preview.png"],
   },
@@ -71,6 +71,7 @@ const jsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": "https://rhevez.com/#organization",
     "name": "Rhevez",
     "alternateName": ["Rhevez LLP", "Rhevez company", "Rhevez India", "Rhevez AI", "revez"],
     "legalName": "Rhevez LLP",
@@ -81,6 +82,11 @@ const jsonLd = [
       "@type": "PostalAddress",
       "addressCountry": "India"
     },
+    "sameAs": [
+      "https://www.linkedin.com/company/rhevez",
+      "https://www.instagram.com/rhevez",
+      "https://x.com/rhevez"
+    ],
     "founder": [
       { "@type": "Person", "name": "Ram Anand", "jobTitle": "Co-Founder" },
       { "@type": "Person", "name": "Jithu Francis", "jobTitle": "Co-Founder" },
@@ -119,6 +125,17 @@ const jsonLd = [
           }
         }
       ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://rhevez.com/#website",
+    "name": "Rhevez",
+    "alternateName": "Rhevez LLP",
+    "url": "https://rhevez.com/",
+    "publisher": {
+      "@id": "https://rhevez.com/#organization"
     }
   },
   {
@@ -163,7 +180,7 @@ export default function RootLayout({
           <TooltipProvider>
             <ContactModalProvider>
               <SmoothScrolling>
-                <div className="min-h-screen bg-background w-full overflow-x-hidden">
+                <div className="min-h-screen bg-background w-full overflow-visible">
                   <Toaster />
                   <Sonner />
                   <CookieConsent />
