@@ -180,7 +180,7 @@ export default function RootLayout({
           <TooltipProvider>
             <ContactModalProvider>
               <SmoothScrolling>
-                <div className="min-h-screen bg-background w-full overflow-visible">
+                <div className="min-h-screen bg-background w-full overflow-x-clip">
                   <Toaster />
                   <Sonner />
                   <CookieConsent />
