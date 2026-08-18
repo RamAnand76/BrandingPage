@@ -18,7 +18,7 @@ export const HeroSection = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
-        <section className="relative w-full h-screen min-h-[100vh] md:min-h-[132vh] flex flex-col items-center justify-center overflow-hidden bg-[#050505] selection:bg-[#3275F8]/30 selection:text-white">
+        <section className="relative w-full h-screen min-h-[100svh] md:min-h-[132vh] flex flex-col items-center justify-center overflow-hidden bg-[#050505] selection:bg-[#3275F8]/30 selection:text-white">
             <CustomBackground />
 
             <MobileMenuModal isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
