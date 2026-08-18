@@ -29,7 +29,7 @@ export async function POST(request: Request) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: 'Rhevez <onboarding@resend.dev>',
+      from: process.env.FROM_EMAIL || 'Rhevez <info@rhevez.com>',
       to: [toEmail],
       subject: `New Message from ${name}`,
       react: EmailTemplate({ name, email, message }) as React.ReactElement,

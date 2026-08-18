@@ -19,7 +19,7 @@ const works = [
     image: "/lovable-uploads/Code-editor compoennet-2.png",
     alt: "Custom React Software Development - Code Editor",
     tags: ["React", "Web", "TypeScript"],
-    link: "https://v0-primitive-react-sandpack-compone.vercel.app/",
+    link: "https://v0-primitive-react-sandpack-components.vercel.app/",
   },
   {
     title: "ScriptForge AI Platform",
@@ -130,7 +130,7 @@ const WorksSection = () => {
           {works.map((work) => (
             <div
               key={work.title}
-              className="work-card group bg-[#09090b] border border-white/[0.05] rounded-[24px] p-5 lg:p-6 flex flex-col justify-between hover:border-white/[0.12] transition-colors duration-500 relative overflow-hidden"
+              className="work-card group bg-[#09090b] border border-white/[0.05] rounded-[24px] p-5 lg:p-6 flex flex-col justify-between hover:border-[#3275F8]/30 hover:shadow-[0_0_20px_rgba(50,117,248,0.15)] transition-all duration-500 relative overflow-hidden"
             >
               <div>
                 {/* Tags Row */}

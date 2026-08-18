@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export const HeroNavbar = () => {
   return (
@@ -26,13 +27,13 @@ export const HeroNavbar = () => {
       </div>
 
       <div className="hidden lg:flex items-center gap-8 text-[11px] tracking-[0.15em] font-semibold uppercase text-white/90">
-        <span className="cursor-pointer hover:text-white transition-colors">WORKS</span>
+        <Link href="/our-works" className="cursor-pointer hover:text-white transition-colors">WORKS</Link>
         <span className="text-white/20">/</span>
-        <span className="cursor-pointer hover:text-white transition-colors">SERVICES</span>
+        <Link href="/#features" className="cursor-pointer hover:text-white transition-colors">SERVICES</Link>
         <span className="text-white/20">/</span>
-        <span className="cursor-pointer hover:text-white transition-colors">ABOUT</span>
+        <Link href="/about" className="cursor-pointer hover:text-white transition-colors">ABOUT</Link>
         <span className="text-white/20">/</span>
-        <span className="cursor-pointer hover:text-white transition-colors">INSIGHTS</span>
+        <Link href="/careers" className="cursor-pointer hover:text-white transition-colors">INSIGHTS</Link>
 
         <button className="flex items-center gap-2 ml-4 px-6 py-3 rounded-md border border-white/20 hover:border-[#3275F8]/50 hover:shadow-[0_0_15px_rgba(50,117,248,0.3)] transition-all bg-black/50 backdrop-blur-md">
           Build Your Project
