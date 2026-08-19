@@ -14,6 +14,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 const works = [
   {
+    title: "Rhevez OS — Run Your Whole Business from One Screen",
+    description: "Everything a freelancer or small studio needs to run client work — pipeline, projects, invoicing, and a client portal that makes you look twice your size.",
+    image: "/lovable-uploads/billin-software.png",
+    alt: "Rhevez OS - Business Management Platform",
+    tags: ["Web App", "PWA", "SaaS"],
+    link: "#contact",
+  },
+  {
     title: "Interactive Code Editor Component",
     description: "A professional-grade React software solution replicating advanced code editing environments.",
     image: "/lovable-uploads/Code-editor compoennet-2.png",
