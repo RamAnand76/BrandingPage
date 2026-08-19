@@ -47,10 +47,12 @@ const Index = () => {
         <ProcessSection />
       </div>
 
-      {/* Testimonials Section */}
-      <div className="bg-black">
-        <TestimonialsSection />
-      </div>
+      {/* Testimonials Section — temporarily hidden */}
+      {false && (
+        <div className="bg-black">
+          <TestimonialsSection />
+        </div>
+      )}
 
       {/* Faq Section */}
       <div id="faq" className="bg-black">
