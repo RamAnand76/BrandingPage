@@ -14,6 +14,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 const works = [
   {
+    title: "Rhevez OS — Run Your Whole Business from One Screen",
+    description: "Everything a freelancer or small studio needs to run client work — pipeline, projects, invoicing, and a client portal that makes you look twice your size.\n\nRhevezOS is a complete business management platform built for freelancers, small startups, and agencies that are tired of juggling five tools and a spreadsheet. It carries a client relationship from the first enquiry to the final invoice in one place: capture leads on a visual pipeline, convert them to clients and projects, plan the work with tasks and milestones, and get paid with GST-ready invoices, stage-wise billing, and recurring retainers — with every rupee reconciled against a real money ledger, so the dashboard's revenue figures are facts, not estimates.\n\nWhat sets it apart is the client portal. Every client gets a secure, passwordless workspace of their own — no accounts to create, just a magic link — where they can track project progress live, view and download invoices, sign agreements, share files, approve milestones, request changes with costs agreed up front, message the team, and even leave testimonials that flow straight back into your marketing. It's the polish of a big-agency experience, delivered by a team of one or five.\n\nBuilt as a fast, installable web app with meticulous dark and light themes, fully responsive from desktop to phone, and designed with security first: server-enforced permissions, audit-logged actions, and immutable issued invoices.\n\nFeature list:\n- Sales pipeline with leads, follow-ups & conversion tracking\n- ⁠Projects, tasks & milestone approvals\n- ⁠GST-compliant invoicing, installment billing & recurring retainers\n- ⁠Unified money ledger — payments in, payouts & expenses out\n- ⁠E-signable agreements, proposals & NDAs\n- ⁠File sharing with previews and client uploads\n- ⁠Passwordless client portal with live progress, billing & messaging\n- ⁠Meetings, announcements & client testimonials\n- ⁠Team roles & granular permissions\n- ⁠Installable PWA · dark & light · mobile-first",
+    image: "/lovable-uploads/rhevez-os.jpg",
+    alt: "Rhevez OS - Business Management Platform",
+    tags: ["Web App", "PWA", "SaaS"],
+    link: "#contact",
+  },
+  {
     title: "Interactive Code Editor Component",
     description: "A professional-grade React software solution replicating advanced code editing environments.",
     image: "/lovable-uploads/Code-editor compoennet-2.png",
@@ -165,9 +173,9 @@ const WorksSection = () => {
                   <h4 className="text-xl md:text-2xl font-semibold text-white tracking-tight group-hover:text-[#3275F8] transition-colors duration-300">
                     {work.title}
                   </h4>
-                  <p className="text-xs md:text-sm text-neutral-400 font-light mt-2 leading-relaxed max-w-[90%]">
+                  <div className="text-xs md:text-sm text-neutral-400 font-light mt-2 leading-relaxed max-w-[90%] whitespace-pre-wrap">
                     {work.description}
-                  </p>
+                  </div>
                 </div>
 
                 {work.link !== "#contact" ? (
