@@ -22,9 +22,9 @@ const TeamSection = () => {
     { name: "Thejas", role: "COO", image: "/lovable-uploads/Thejas.png", linkedin: "https://www.linkedin.com/in/thejas-somarajan/" },
     { name: "Jithu Francis", role: "CTO", image: "/lovable-uploads/Jithu.png", linkedin: "https://www.linkedin.com/in/jithu-francis-958aa81a0/" },
     { name: "Kesavadas", role: "CAIO", image: "/lovable-uploads/Kesavadas.png", linkedin: "https://www.linkedin.com/in/kesavadas3/" },
-    { name: "Kiran Rajeev", role: "CQO", image: "/lovable-uploads/Kiran.png", linkedin: "#" },
+    { name: "Kiran Rajeev", role: "CQO", image: "/lovable-uploads/Kiran.png", linkedin: "https://www.linkedin.com/in/kiran-rajeev-1o" },
     { name: "B. VishnuNarayanan", role: "CMO", image: "/lovable-uploads/Vishnu.png", linkedin: "https://www.linkedin.com/in/vishnu-narayanan-b-643aa7202/" },
-    { name: "Arjun Kumar VS", role: "Co-Founder", image: "/lovable-uploads/Arjun.png", linkedin: "https://www.linkedin.com/in/arjun-kumar-v-s/" },
+    { name: "Arjun Kumar VS", role: "Partner", image: "/lovable-uploads/Arjun.png", linkedin: "https://www.linkedin.com/in/arjun-kumar-v-s/" },
   ];
 
   return (
