@@ -100,7 +100,7 @@ export default function DarkVeil({
         const parent = canvas.parentElement as HTMLElement;
 
         const renderer = new Renderer({
-            dpr: Math.min(window.devicePixelRatio, 2),
+            dpr: Math.min(window.devicePixelRatio, 1),
             canvas
         });
 
@@ -155,5 +155,5 @@ export default function DarkVeil({
         };
     }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount, resolutionScale]);
 
-    return <canvas ref={ref} className="w-full h-full block" />;
+    return <canvas ref={ref} className="w-full h-full block" style={{ willChange: 'transform' }} />;
 }

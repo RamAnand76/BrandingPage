@@ -57,6 +57,7 @@ export const CustomBackground = () => {
             background:
               "linear-gradient(90deg, transparent 25%, rgba(255,255,255,0.01) 28%, rgba(255,255,255,0.05) 35%, rgba(255,255,255,0.2) 45%, rgba(255,255,255,0.2) 55%, rgba(255,255,255,0.05) 65%, rgba(255,255,255,0.01) 72%, transparent 75%)",
             filter: "blur(20px)",
+            willChange: "transform",
           }}
         />
 
@@ -77,6 +78,7 @@ export const CustomBackground = () => {
             background:
               "linear-gradient(90deg, transparent 40%, rgba(255,255,255,0.02) 42%, rgba(255,255,255,0.3) 45%, rgba(255,255,255,0.3) 55%, rgba(255,255,255,0.02) 58%, transparent 60%)",
             filter: "blur(4px)",
+            willChange: "transform",
           }}
         />
       </motion.div>
@@ -110,6 +112,7 @@ export const CustomBackground = () => {
             background:
               "linear-gradient(90deg, transparent 25%, rgba(50,117,248,0.01) 28%, rgba(50,117,248,0.05) 35%, rgba(40,100,230,0.3) 45%, rgba(40,100,230,0.3) 55%, rgba(50,117,248,0.05) 65%, rgba(50,117,248,0.01) 72%, transparent 75%)",
             filter: "blur(22px)",
+            willChange: "transform",
           }}
         />
 
@@ -134,6 +137,7 @@ export const CustomBackground = () => {
             background:
               "linear-gradient(90deg, transparent 40%, rgba(50,117,248,0.02) 42%, rgba(50,117,248,0.45) 45%, rgba(50,117,248,0.45) 55%, rgba(50,117,248,0.02) 58%, transparent 60%)",
             filter: "blur(5px)",
+            willChange: "transform",
           }}
         />
 
@@ -160,6 +164,7 @@ export const CustomBackground = () => {
             background:
               "linear-gradient(90deg, transparent 32%, rgba(0,190,140,0.02) 38%, rgba(0,190,140,0.3) 45%, rgba(0,190,140,0.3) 55%, rgba(0,190,140,0.02) 62%, transparent 68%)",
             filter: "blur(20px)",
+            willChange: "transform",
             mixBlendMode: "screen"
           }}
         />

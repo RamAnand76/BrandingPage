@@ -88,19 +88,17 @@ export const ExpertServices = () => {
                     </h3>
                 </div>
 
-                <motion.div layout className="flex flex-col w-full border-t border-white/20">
+                <motion.div className="flex flex-col w-full border-t border-white/20">
                     {servicesData.map((service, index) => {
                         const isExpanded = expandedId === service.id;
 
                         return (
                             <motion.div 
-                                layout
                                 key={service.id} 
                                 className="service-item border-b border-white/20 last:border-b-0 py-8 flex flex-col"
                             >
                                 {/* Header / Toggle */}
                                 <motion.div 
-                                    layout
                                     className="flex justify-between items-center cursor-pointer group"
                                     onClick={() => toggleAccordion(service.id)}
                                 >
@@ -126,7 +124,6 @@ export const ExpertServices = () => {
                                     </div>
                                     
                                     <motion.div 
-                                        layout
                                         className={cn(
                                             "w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-full border border-white/20 flex items-center justify-center bg-transparent transition-colors duration-500 ml-4",
                                             service.borderHover
@@ -147,7 +144,6 @@ export const ExpertServices = () => {
                                     {isExpanded && (
                                         <motion.div
                                             key={`content-${service.id}`}
-                                            layout
                                             initial={{ height: 0, opacity: 0 }}
                                             animate={{ height: "auto", opacity: 1 }}
                                             exit={{ height: 0, opacity: 0 }}
