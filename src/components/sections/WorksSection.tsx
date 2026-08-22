@@ -44,6 +44,14 @@ const works = [
     alt: "Mobile App Development Services - Billing Software",
     tags: ["Mobile App", "Go", "Flutter"],
     link: "#contact",
+  },
+  {
+    title: "Rhevez OS",
+    description: "Everything a freelancer or small studio needs to run client work — pipeline, projects, invoicing, and a client portal that makes you look twice your size.",
+    image: "/lovable-uploads/billin-software.png", // Temporary image
+    alt: "Business Management Platform - Rhevez OS",
+    tags: ["Web App", "PWA", "SaaS"],
+    link: "/our-works/rhevez-os",
   }
 ];
 

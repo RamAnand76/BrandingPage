@@ -33,7 +33,7 @@ export const BackgroundEffects = () => {
             opacity: [0.06, 0.08, 0.06]
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[-20%] left-[-10%] w-[150%] h-[40%] bg-gradient-to-b from-white/20 via-white/5 to-transparent blur-[120px] origin-top-left rotate-[35deg]"
+          className="absolute top-[-20%] left-[-10%] w-[150%] h-[40%] bg-gradient-to-b from-white/20 via-white/5 to-transparent blur-[80px] origin-top-left rotate-[35deg] will-change-transform"
         />
 
         {/* Vertical Blue Beam */}
@@ -43,7 +43,7 @@ export const BackgroundEffects = () => {
             opacity: [0.08, 0.12, 0.08]
           }}
           transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-0 right-[20%] w-[15%] h-[120%] bg-gradient-to-r from-transparent via-[#3275F8]/40 to-transparent blur-[100px]"
+          className="absolute top-0 right-[20%] w-[15%] h-[120%] bg-gradient-to-r from-transparent via-[#3275F8]/40 to-transparent blur-[60px] will-change-transform"
         />
       </motion.div>
     </div>

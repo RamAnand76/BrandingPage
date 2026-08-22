@@ -32,8 +32,30 @@
     --radius: 0.75rem;
   }
 
-  html {
-    scroll-behavior: smooth;
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+
+  @media (min-width: 1024px) {
+    html {
+      zoom: 0.75;
+    }
   }
 }
 
@@ -45,12 +67,6 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
-  }
-
-  @media (min-width: 1024px) {
-    body {
-      zoom: 0.75;
-    }
   }
 }
 
