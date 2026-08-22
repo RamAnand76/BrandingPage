@@ -9,7 +9,7 @@ import Image from "next/image";
 export interface Project {
   title: string;
   description: string;
-  image: string;
+  image: string | string[];
   alt: string;
   tags: string[];
   link: string;
@@ -126,15 +126,19 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
               </button>
 
               <div className="md:mt-4 flex-1 flex flex-col">
-                {/* Media Container */}
-                <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-[#111] border border-white/5 mb-8 flex-shrink-0">
-                  <Image 
-                    src={project.image}
-                    alt={project.alt || project.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
+                {/* Media Container(s) */}
+                <div className="flex flex-col gap-4 mb-8 flex-shrink-0">
+                  {(Array.isArray(project.image) ? project.image : [project.image]).map((imgSrc, idx) => (
+                    <div key={idx} className="relative w-full aspect-video rounded-xl overflow-hidden bg-[#111] border border-white/5">
+                      <Image 
+                        src={imgSrc}
+                        alt={`${project.alt || project.title} - Image ${idx + 1}`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                  ))}
                 </div>
 
                 <h3 className="text-xl md:text-2xl font-medium text-white mb-4">

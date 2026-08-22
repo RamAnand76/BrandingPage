@@ -48,7 +48,10 @@ const works = [
   {
     title: "Rhevez OS",
     description: "Everything a freelancer or small studio needs to run client work — pipeline, projects, invoicing, and a client portal that makes you look twice your size.",
-    image: "/lovable-uploads/billin-software.png", // Temporary image
+    image: [
+      "/lovable-uploads/RhevezOS-Dashboard.png",
+      "/lovable-uploads/RhevezOS-Leads.png"
+    ],
     alt: "Business Management Platform - Rhevez OS",
     tags: ["Web App", "PWA", "SaaS"],
     link: "/our-works/rhevez-os",
@@ -160,7 +163,7 @@ const WorksSection = () => {
                 {/* Aspect Ratio Image Container */}
                 <div className="relative w-full aspect-[16/10] rounded-[16px] overflow-hidden mb-6 bg-neutral-900 border border-white/5">
                   <Image
-                    src={work.image}
+                    src={Array.isArray(work.image) ? work.image[0] : work.image}
                     alt={work.alt}
                     fill
                     className="object-cover transition-transform duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
