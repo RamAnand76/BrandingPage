@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { ProjectModal, Project } from "../ui/ProjectModal";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -57,6 +57,7 @@ const works = [
 
 const WorksSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   useGSAP(() => {
     // GSAP ScrollTrigger for cards
@@ -138,7 +139,8 @@ const WorksSection = () => {
           {works.map((work) => (
             <div
               key={work.title}
-              className="work-card group bg-[#09090b] border border-white/[0.05] rounded-[24px] p-5 lg:p-6 flex flex-col justify-between hover:border-[#3275F8]/30 hover:shadow-[0_0_20px_rgba(50,117,248,0.15)] transition-all duration-500 relative overflow-hidden"
+              onClick={() => setSelectedProject(work)}
+              className="work-card group bg-[#09090b] border border-white/[0.05] rounded-[24px] p-5 lg:p-6 flex flex-col justify-between hover:border-[#3275F8]/30 hover:shadow-[0_0_20px_rgba(50,117,248,0.15)] transition-all duration-500 relative overflow-hidden cursor-pointer"
             >
               <div>
                 {/* Tags Row */}
@@ -178,29 +180,21 @@ const WorksSection = () => {
                   </p>
                 </div>
 
-                {work.link !== "#contact" ? (
-                  <Link
-                    href={work.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white shrink-0 group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-300 hover:scale-105"
-                  >
-                    <ArrowUpRight className="w-5 h-5" />
-                  </Link>
-                ) : (
-                  <Link
-                    href="#contact"
-                    className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white shrink-0 group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-300 hover:scale-105"
-                  >
-                    <ArrowUpRight className="w-5 h-5" />
-                  </Link>
-                )}
+                <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white shrink-0 group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-300 hover:scale-105">
+                  <ArrowUpRight className="w-5 h-5" />
+                </div>
               </div>
             </div>
           ))}
         </div>
 
       </div>
+
+      {/* Render Project Modal */}
+      <ProjectModal 
+        project={selectedProject} 
+        onClose={() => setSelectedProject(null)} 
+      />
     </section>
   );
 };
