@@ -45,7 +45,10 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
   return (
     <AnimatePresence>
       {project && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-12">
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-12"
+          data-lenis-prevent="true"
+        >
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -53,7 +56,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             onClick={onClose}
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/90"
           />
 
           {/* Modal Container */}
