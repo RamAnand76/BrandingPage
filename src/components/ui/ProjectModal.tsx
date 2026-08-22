@@ -72,7 +72,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-7xl rounded-3xl border border-white/10 overflow-hidden flex flex-col md:flex-row shadow-[0_0_80px_rgba(0,0,0,0.8)] z-10 min-h-[60vh] xl:min-h-[700px]"
+              className="relative w-full max-w-7xl rounded-2xl md:rounded-3xl border border-white/10 overflow-hidden flex flex-col-reverse md:flex-row shadow-[0_0_80px_rgba(0,0,0,0.8)] z-10 max-h-[90vh] min-h-[60vh] xl:min-h-[700px]"
             >
             {/* Close Button (Mobile Absolute) */}
             <button
@@ -83,7 +83,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
             </button>
 
             {/* LEFT PANE - Dark Gray */}
-            <div className="w-full md:w-[35%] lg:w-[30%] bg-[#111111] p-8 md:p-12 flex flex-col justify-between min-h-[400px]">
+            <div className="w-full md:w-[35%] lg:w-[30%] bg-[#111111] p-6 sm:p-8 md:p-12 flex flex-col justify-between overflow-y-auto md:overflow-visible">
               <div>
                 <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight leading-tight mb-6">
                   {project.title}
@@ -128,7 +128,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
             </div>
 
             {/* RIGHT PANE - Pitch Black */}
-            <div className="w-full md:w-[65%] lg:w-[70%] bg-[#030303] flex flex-col justify-between relative border-t md:border-t-0 md:border-l border-white/5">
+            <div className="w-full md:w-[65%] lg:w-[70%] bg-[#030303] flex flex-col justify-between relative border-b md:border-b-0 md:border-l border-white/5 min-h-[280px] sm:min-h-[350px] md:min-h-0 shrink-0 md:shrink">
               
               {/* Close Button (Desktop) */}
               <button
@@ -200,7 +200,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                 </div>
 
               {/* Action Footer */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-t border-white/10 p-8 md:p-12 bg-[#030303] z-10 shrink-0">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-white/10 p-5 md:p-12 bg-[#030303] z-10 shrink-0">
                 <div className="flex items-center gap-2 text-[#3275F8] bg-[#3275F8]/10 px-4 py-2 rounded-full w-fit">
                   <CheckCircle2 className="w-4 h-4" />
                   <span className="text-sm font-medium">Completed</span>
