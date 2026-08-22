@@ -100,6 +100,13 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                     </span>
                   ))}
                 </div>
+                </div>
+                
+                <div className="flex-1 pr-2 mt-4 max-h-[300px] overflow-y-auto custom-scrollbar">
+                  <p className="text-neutral-400 text-sm md:text-base font-light leading-relaxed whitespace-pre-line">
+                    {project.description}
+                  </p>
+                </div>
               </div>
 
               {/* Bottom stats/link */}
@@ -122,19 +129,17 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
             </div>
 
             {/* RIGHT PANE - Pitch Black */}
-            <div className="w-full md:w-[55%] bg-[#030303] p-8 md:p-12 flex flex-col justify-between relative border-t md:border-t-0 md:border-l border-white/5">
+            <div className="w-full md:w-[55%] bg-[#030303] flex flex-col justify-between relative border-t md:border-t-0 md:border-l border-white/5">
               
               {/* Close Button (Desktop) */}
               <button
                 onClick={onClose}
-                className="hidden md:flex absolute top-6 right-6 p-2 text-neutral-500 hover:text-white transition-colors"
+                className="hidden md:flex absolute top-6 right-6 p-2 rounded-full bg-black/50 text-neutral-300 hover:text-white transition-colors z-20 backdrop-blur-sm border border-white/10"
               >
                 <X className="w-6 h-6" />
               </button>
 
-              <div className="md:mt-4 flex-1 flex flex-col">
-                {/* Media Carousel */}
-                <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-[#111] border border-white/5 mb-8 flex-shrink-0 group">
+              <div className="relative w-full flex-1 overflow-hidden group">
                   {project && (() => {
                     const images = Array.isArray(project.image) ? project.image : [project.image];
                     return (
@@ -195,19 +200,8 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                   })()}
                 </div>
 
-                <h3 className="text-xl md:text-2xl font-medium text-white mb-4">
-                  Project Overview
-                </h3>
-                
-                <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar">
-                  <p className="text-neutral-400 text-sm md:text-base font-light leading-relaxed whitespace-pre-line">
-                    {project.description}
-                  </p>
-                </div>
-              </div>
-
               {/* Action Footer */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-t border-white/10 pt-6 mt-8 flex-shrink-0">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-t border-white/10 p-8 md:p-12 bg-[#030303] z-10 shrink-0">
                 <div className="flex items-center gap-2 text-[#3275F8] bg-[#3275F8]/10 px-4 py-2 rounded-full w-fit">
                   <CheckCircle2 className="w-4 h-4" />
                   <span className="text-sm font-medium">Completed</span>
