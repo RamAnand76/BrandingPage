@@ -37,6 +37,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Rhevez" }],
   verification: {
     google: "ia9izdQwctLX-20p5INS7Mr0rAoO-0CIQTtXvDmw70w",
+    yandex: "cbe2282ceccbf6db",
   },
   icons: {
     icon: "/lovable-uploads/logo.png",
@@ -73,7 +74,7 @@ const jsonLd = [
     "@type": "Organization",
     "@id": "https://rhevez.com/#organization",
     "name": "Rhevez",
-    "alternateName": ["Rhevez LLP", "Rhevez company", "Rhevez India", "Rhevez AI", "revez"],
+    "alternateName": ["Rhevez LLP", "Rhevez company", "Rhevez India", "Rhevez AI", "revez", "Rheves", "Ravez", "Rhevez Tech"],
     "legalName": "Rhevez LLP",
     "url": "https://rhevez.com",
     "logo": "https://rhevez.com/lovable-uploads/logo.png",
@@ -136,6 +137,14 @@ const jsonLd = [
     "url": "https://rhevez.com/",
     "publisher": {
       "@id": "https://rhevez.com/#organization"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://rhevez.com/?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
     }
   },
   {
