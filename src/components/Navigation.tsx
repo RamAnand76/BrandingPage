@@ -60,8 +60,6 @@ const Navigation = () => {
               <Link href="/#features" className="hover:text-white transition-colors">SERVICES</Link>
               <span className="text-white/20">/</span>
               <Link href="/about" className="hover:text-white transition-colors">ABOUT</Link>
-              <span className="text-white/20">/</span>
-              <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
               <button
                 onClick={() => setContactModalOpen(true)}
                 className="flex items-center gap-2 ml-4 px-5 py-2 rounded-md border border-[#3275F8] bg-[#3275F8] text-white text-[13px] tracking-[0.05em] font-semibold hover:bg-[#3275F8]/80 hover:shadow-[0_0_15px_rgba(50,117,248,0.3)] transition-all"
