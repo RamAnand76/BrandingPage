@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { ProjectModal, Project } from "../ui/ProjectModal";
 import gsap from "gsap";
@@ -60,15 +60,7 @@ const works = [
 
 const WorksSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-
-  const scroll = (direction: "left" | "right") => {
-    if (scrollRef.current) {
-      const scrollAmount = direction === "left" ? -400 : 400;
-      scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    }
-  };
 
   useGSAP(() => {
     // GSAP ScrollTrigger for cards
@@ -101,7 +93,7 @@ const WorksSection = () => {
       <div className="max-w-[1240px] mx-auto px-6 md:px-12 relative z-10">
         
         {/* Header Block */}
-        <div className="w-full mb-12 md:mb-16">
+        <div className="w-full mb-16 md:mb-24">
           {/* Giant "Works" title */}
           <motion.h1
             initial={{ opacity: 0, y: 60 }}
@@ -125,20 +117,11 @@ const WorksSection = () => {
               </h3>
             </motion.div>
 
-            {/* Navigation Arrows */}
-            <div className="hidden md:flex gap-4 items-center justify-center flex-1">
-              <button 
-                onClick={() => scroll("left")}
-                className="p-3 rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-colors"
-              >
-                <ArrowLeft className="w-5 h-5" />
-              </button>
-              <button 
-                onClick={() => scroll("right")}
-                className="p-3 rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-colors"
-              >
-                <ArrowRight className="w-5 h-5" />
-              </button>
+            {/* Tiny spacer plus elements */}
+            <div className="hidden lg:flex gap-16 text-neutral-600 font-light text-base select-none flex-1 justify-center">
+              <span>+</span>
+              <span>+</span>
+              <span>+</span>
             </div>
 
             <motion.div
@@ -152,34 +135,15 @@ const WorksSection = () => {
               </p>
             </motion.div>
           </div>
-          
-          {/* Mobile Navigation Arrows */}
-          <div className="flex md:hidden gap-4 items-center mt-8">
-            <button 
-              onClick={() => scroll("left")}
-              className="p-3 rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-colors"
-            >
-              <ArrowLeft className="w-5 h-5" />
-            </button>
-            <button 
-              onClick={() => scroll("right")}
-              className="p-3 rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-colors"
-            >
-              <ArrowRight className="w-5 h-5" />
-            </button>
-          </div>
         </div>
 
-        {/* Horizontal Scroll Grid */}
-        <div 
-          ref={scrollRef}
-          className="flex overflow-x-auto gap-8 lg:gap-12 w-full pb-8 snap-x snap-mandatory no-scrollbar"
-        >
+        {/* 2-Column Works Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 w-full">
           {works.map((work) => (
             <div
               key={work.title}
               onClick={() => setSelectedProject(work)}
-              className="work-card group min-w-[85vw] md:min-w-[45vw] snap-center bg-[#09090b] border border-white/[0.05] rounded-[24px] p-5 lg:p-6 flex flex-col justify-between hover:border-[#3275F8]/30 hover:shadow-[0_0_20px_rgba(50,117,248,0.15)] transition-all duration-500 relative overflow-hidden cursor-pointer flex-shrink-0"
+              className="work-card group bg-[#09090b] border border-white/[0.05] rounded-[24px] p-5 lg:p-6 flex flex-col justify-between hover:border-[#3275F8]/30 hover:shadow-[0_0_20px_rgba(50,117,248,0.15)] transition-all duration-500 relative overflow-hidden cursor-pointer"
             >
               <div>
                 {/* Tags Row */}

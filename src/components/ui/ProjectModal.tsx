@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, CheckCircle2, ArrowRight } from "lucide-react";
+import { X, CheckCircle2, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -21,6 +21,13 @@ interface ProjectModalProps {
 }
 
 export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Reset index when project changes
+  useEffect(() => {
+    setCurrentImageIndex(0);
+  }, [project]);
+
   // Prevent body scroll when modal is open
   useEffect(() => {
     if (project) {
@@ -126,19 +133,66 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
               </button>
 
               <div className="md:mt-4 flex-1 flex flex-col">
-                {/* Media Container(s) */}
-                <div className="flex flex-col gap-4 mb-8 flex-shrink-0">
-                  {(Array.isArray(project.image) ? project.image : [project.image]).map((imgSrc, idx) => (
-                    <div key={idx} className="relative w-full aspect-video rounded-xl overflow-hidden bg-[#111] border border-white/5">
-                      <Image 
-                        src={imgSrc}
-                        alt={`${project.alt || project.title} - Image ${idx + 1}`}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
-                    </div>
-                  ))}
+                {/* Media Carousel */}
+                <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-[#111] border border-white/5 mb-8 flex-shrink-0 group">
+                  {project && (() => {
+                    const images = Array.isArray(project.image) ? project.image : [project.image];
+                    return (
+                      <>
+                        <AnimatePresence mode="wait">
+                          <motion.div
+                            key={currentImageIndex}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="absolute inset-0"
+                          >
+                            <Image 
+                              src={images[currentImageIndex]}
+                              alt={`${project.alt || project.title} - Image ${currentImageIndex + 1}`}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 768px) 100vw, 50vw"
+                            />
+                          </motion.div>
+                        </AnimatePresence>
+
+                        {images.length > 1 && (
+                          <>
+                            <button 
+                              onClick={(e) => { 
+                                e.stopPropagation(); 
+                                setCurrentImageIndex((prev) => prev === 0 ? images.length - 1 : prev - 1); 
+                              }}
+                              className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 md:p-2 rounded-full bg-black/50 text-white backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all hover:bg-black/80 border border-white/10"
+                            >
+                              <ChevronLeft className="w-5 h-5" />
+                            </button>
+                            <button 
+                              onClick={(e) => { 
+                                e.stopPropagation(); 
+                                setCurrentImageIndex((prev) => prev === images.length - 1 ? 0 : prev + 1); 
+                              }}
+                              className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 md:p-2 rounded-full bg-black/50 text-white backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all hover:bg-black/80 border border-white/10"
+                            >
+                              <ChevronRight className="w-5 h-5" />
+                            </button>
+                            
+                            {/* Dots */}
+                            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-10">
+                              {images.map((_, idx) => (
+                                <div 
+                                  key={idx} 
+                                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${idx === currentImageIndex ? 'bg-white scale-125' : 'bg-white/30'}`}
+                                />
+                              ))}
+                            </div>
+                          </>
+                        )}
+                      </>
+                    );
+                  })()}
                 </div>
 
                 <h3 className="text-xl md:text-2xl font-medium text-white mb-4">
