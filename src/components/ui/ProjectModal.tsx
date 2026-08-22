@@ -100,7 +100,6 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                     </span>
                   ))}
                 </div>
-                </div>
                 
                 <div className="flex-1 pr-2 mt-4 max-h-[300px] overflow-y-auto custom-scrollbar">
                   <p className="text-neutral-400 text-sm md:text-base font-light leading-relaxed whitespace-pre-line">
