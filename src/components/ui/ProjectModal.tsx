@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, CheckCircle2, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export interface Project {
   title: string;
@@ -121,18 +122,31 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                 <X className="w-6 h-6" />
               </button>
 
-              <div className="md:mt-4">
-                <h3 className="text-2xl font-medium text-white mb-6">
+              <div className="md:mt-4 flex-1 flex flex-col">
+                {/* Media Container */}
+                <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-[#111] border border-white/5 mb-8 flex-shrink-0">
+                  <Image 
+                    src={project.image}
+                    alt={project.alt || project.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+
+                <h3 className="text-xl md:text-2xl font-medium text-white mb-4">
                   Project Overview
                 </h3>
                 
-                <p className="text-neutral-400 text-base md:text-lg font-light leading-relaxed whitespace-pre-line">
-                  {project.description}
-                </p>
+                <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar">
+                  <p className="text-neutral-400 text-sm md:text-base font-light leading-relaxed whitespace-pre-line">
+                    {project.description}
+                  </p>
+                </div>
               </div>
 
               {/* Action Footer */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-t border-white/10 pt-8 mt-12">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-t border-white/10 pt-6 mt-8 flex-shrink-0">
                 <div className="flex items-center gap-2 text-[#3275F8] bg-[#3275F8]/10 px-4 py-2 rounded-full w-fit">
                   <CheckCircle2 className="w-4 h-4" />
                   <span className="text-sm font-medium">Completed</span>
