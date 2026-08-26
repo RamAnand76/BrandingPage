@@ -28,6 +28,7 @@ const formSchema = z.object({
   email: z.string().email({
     message: "Please enter a valid email address.",
   }),
+  phone: z.string().optional(),
   message: z.string().min(10, {
     message: "Message must be at least 10 characters.",
   }),
@@ -46,6 +47,7 @@ export function ContactForm({
     defaultValues: {
       name: "",
       email: "",
+      phone: "",
       message: "",
     },
   });
@@ -155,6 +157,26 @@ export function ContactForm({
         <motion.div custom={2} initial="hidden" animate="visible" variants={fieldVariants}>
           <FormField
             control={form.control}
+            name="phone"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-xs md:text-sm uppercase tracking-wider text-white/70">Contact Number (Optional)</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="+1 (555) 000-0000"
+                    {...field}
+                    className="bg-black/40 border border-white/10 text-white placeholder:text-white/20 focus:border-[#3275F8]/50 focus:ring-[#3275F8]/50 rounded-md py-5"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </motion.div>
+
+        <motion.div custom={3} initial="hidden" animate="visible" variants={fieldVariants}>
+          <FormField
+            control={form.control}
             name="message"
             render={({ field }) => (
               <FormItem>
@@ -172,7 +194,7 @@ export function ContactForm({
           />
         </motion.div>
 
-        <motion.div custom={3} initial="hidden" animate="visible" variants={fieldVariants}>
+        <motion.div custom={4} initial="hidden" animate="visible" variants={fieldVariants}>
           <Button type="submit" disabled={isSubmitting} className="w-full py-5 rounded-md bg-[#3275F8] text-white font-semibold uppercase tracking-[0.12em] text-sm md:text-base hover:bg-[#3275F8]/85 hover:shadow-[0_0_15px_rgba(50,117,248,0.3)] transition-all">
             {isSubmitting ? (
               <>
