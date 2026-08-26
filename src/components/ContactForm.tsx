@@ -53,12 +53,16 @@ export function ContactForm({
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     try {
-      const response = await fetch('/api/send', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          ...values,
+          access_key: "f87b9d51-a7d7-4517-ad85-10aa3e61da99",
+        }),
       });
 
       const data = await response.json();
