@@ -51,11 +51,17 @@ export const metadata: Metadata = {
     siteName: "Rhevez",
     images: [
       {
-        url: "https://rhevez.com/lovable-uploads/link-preview.png",
+        url: "/lovable-uploads/link-preview.png",
         width: 1200,
         height: 630,
         alt: "Rhevez - Premium Product Engineering & AI Solutions",
       },
+      {
+        url: "/lovable-uploads/logo.png",
+        width: 512,
+        height: 512,
+        alt: "Rhevez Logo",
+      }
     ],
     locale: "en_US",
     type: "website",
@@ -63,8 +69,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Rhevez — Premium Product Engineering & AI Solutions",
-    description: "Empowering businesses with custom software development and luxury branding. We build complete digital products that help businesses grow, operate smarter, and stay ahead. AI powered. Human focused.",
-    images: ["https://rhevez.com/lovable-uploads/link-preview.png"],
+    description: "Empowering businesses with custom software development and luxury branding.",
+    images: ["/lovable-uploads/link-preview.png", "/lovable-uploads/logo.png"],
   },
 };
 
