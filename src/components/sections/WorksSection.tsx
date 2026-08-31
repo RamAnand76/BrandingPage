@@ -14,6 +14,22 @@ gsap.registerPlugin(ScrollTrigger);
 
 const works = [
   {
+    title: "Sleazy",
+    description: "Slick shoes for everyday lifestyle. Sleazy designs slick everyday kicks with street-ready polish and all-day comfort. Zero dull pairs. Walk louder.",
+    image: "/lovable-uploads/Sleazy.png",
+    alt: "Branding and Web Design for Sleazy",
+    tags: ["Branding", "Web Design", "E-Commerce"],
+    link: "https://sleazy-pi.vercel.app/",
+  },
+  {
+    title: "Haven | Munnar",
+    description: "A private hillside sanctuary in Munnar — tea gardens, mountain air, and quietly luxurious stays. Not just a stay — a retreat that nurtures body and soul.",
+    image: "/lovable-uploads/haven.png",
+    alt: "Luxury Resort Website Design - Haven Munnar",
+    tags: ["Web Design", "UI/UX", "Next.JS"],
+    link: "https://haven-eight-beige.vercel.app/",
+  },
+  {
     title: "Interactive Code Editor Component",
     description: "A professional-grade React software solution replicating advanced code editing environments.",
     image: "/lovable-uploads/Code-editor compoennet-2.png",
@@ -32,7 +48,7 @@ const works = [
   {
     title: "Enterprise Laundry Backend",
     description: "A sophisticated multi-tenant software architecture for large-scale operations.",
-    image: placeholderImages.works[2].src,
+    image: "/lovable-uploads/laundry.png",
     alt: "Enterprise Software Solution - Backend Dashboard",
     tags: ["Backend", "Python", "PostgreSQL"],
     link: "#contact",
@@ -161,14 +177,16 @@ const WorksSection = () => {
                 </div>
 
                 {/* Aspect Ratio Image Container */}
-                <div className="relative w-full aspect-[16/10] rounded-[16px] overflow-hidden mb-6 bg-neutral-900 border border-white/5">
-                  <Image
-                    src={Array.isArray(work.image) ? work.image[0] : work.image}
-                    alt={work.alt}
-                    fill
-                    className="object-cover transition-transform duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 600px"
-                  />
+                <div className="relative w-full aspect-[16/10] rounded-[16px] overflow-hidden mb-6 bg-[#030303] border border-white/5 flex items-center justify-center p-2">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={Array.isArray(work.image) ? work.image[0] : work.image}
+                      alt={work.alt}
+                      fill
+                      className="object-contain transition-transform duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 600px"
+                    />
+                  </div>
                 </div>
               </div>
 
