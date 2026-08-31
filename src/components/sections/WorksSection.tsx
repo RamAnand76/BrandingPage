@@ -22,6 +22,14 @@ const works = [
     link: "https://sleazy-pi.vercel.app/",
   },
   {
+    title: "Haven | Munnar",
+    description: "A private hillside sanctuary in Munnar — tea gardens, mountain air, and quietly luxurious stays. Not just a stay — a retreat that nurtures body and soul.",
+    image: "/lovable-uploads/Haven.webp",
+    alt: "Luxury Resort Website Design - Haven Munnar",
+    tags: ["Web Design", "UI/UX", "Next.JS"],
+    link: "https://haven-eight-beige.vercel.app/",
+  },
+  {
     title: "Interactive Code Editor Component",
     description: "A professional-grade React software solution replicating advanced code editing environments.",
     image: "/lovable-uploads/Code-editor compoennet-2.png",
@@ -40,7 +48,7 @@ const works = [
   {
     title: "Enterprise Laundry Backend",
     description: "A sophisticated multi-tenant software architecture for large-scale operations.",
-    image: placeholderImages.works[2].src,
+    image: "/lovable-uploads/laundry.png",
     alt: "Enterprise Software Solution - Backend Dashboard",
     tags: ["Backend", "Python", "PostgreSQL"],
     link: "#contact",
