@@ -24,7 +24,7 @@ const works = [
   {
     title: "Haven | Munnar",
     description: "A private hillside sanctuary in Munnar — tea gardens, mountain air, and quietly luxurious stays. Not just a stay — a retreat that nurtures body and soul.",
-    image: "/lovable-uploads/Haven.webp",
+    image: "/lovable-uploads/haven.png",
     alt: "Luxury Resort Website Design - Haven Munnar",
     tags: ["Web Design", "UI/UX", "Next.JS"],
     link: "https://haven-eight-beige.vercel.app/",
