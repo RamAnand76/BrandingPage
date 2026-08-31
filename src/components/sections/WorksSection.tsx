@@ -169,14 +169,16 @@ const WorksSection = () => {
                 </div>
 
                 {/* Aspect Ratio Image Container */}
-                <div className="relative w-full aspect-[16/10] rounded-[16px] overflow-hidden mb-6 bg-neutral-900 border border-white/5">
-                  <Image
-                    src={Array.isArray(work.image) ? work.image[0] : work.image}
-                    alt={work.alt}
-                    fill
-                    className="object-cover transition-transform duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 600px"
-                  />
+                <div className="relative w-full aspect-[16/10] rounded-[16px] overflow-hidden mb-6 bg-[#030303] border border-white/5 flex items-center justify-center p-2">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={Array.isArray(work.image) ? work.image[0] : work.image}
+                      alt={work.alt}
+                      fill
+                      className="object-contain transition-transform duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 600px"
+                    />
+                  </div>
                 </div>
               </div>
 
