@@ -14,6 +14,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 const works = [
   {
+    title: "Sleazy",
+    description: "Slick shoes for everyday lifestyle. Sleazy designs slick everyday kicks with street-ready polish and all-day comfort. Zero dull pairs. Walk louder.",
+    image: "/lovable-uploads/Sleazy.png",
+    alt: "Branding and Web Design for Sleazy",
+    tags: ["Branding", "Web Design", "E-Commerce"],
+    link: "https://sleazy-pi.vercel.app/",
+  },
+  {
     title: "Interactive Code Editor Component",
     description: "A professional-grade React software solution replicating advanced code editing environments.",
     image: "/lovable-uploads/Code-editor compoennet-2.png",
