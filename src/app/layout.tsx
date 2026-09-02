@@ -35,6 +35,9 @@ export const metadata: Metadata = {
     "Brand Identity"
   ],
   authors: [{ name: "Rhevez" }],
+  alternates: {
+    canonical: "https://rhevez.com",
+  },
   verification: {
     google: "ia9izdQwctLX-20p5INS7Mr0rAoO-0CIQTtXvDmw70w",
     yandex: "cbe2282ceccbf6db",
@@ -74,108 +77,74 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = [
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://rhevez.com/#organization",
-    "name": "Rhevez",
-    "alternateName": ["Rhevez LLP", "Rhevez company", "Rhevez India", "Rhevez AI", "revez", "Rheves", "Ravez", "Rhevez Tech"],
-    "legalName": "Rhevez LLP",
-    "url": "https://rhevez.com",
-    "logo": "https://rhevez.com/lovable-uploads/logo.png",
-    "description": "Empowering businesses with custom software development and luxury branding. We build complete digital products that help businesses grow, operate smarter, and stay ahead. AI powered. Human focused.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "India"
-    },
-    "sameAs": [
-      "https://www.linkedin.com/company/rhevez",
-      "https://www.instagram.com/rhevez",
-      "https://x.com/rhevez"
-    ],
-    "founder": [
-      { "@type": "Person", "name": "Ram Anand", "jobTitle": "Co-Founder" },
-      { "@type": "Person", "name": "Jithu Francis", "jobTitle": "Co-Founder" },
-      { "@type": "Person", "name": "Thejas Somarajan", "jobTitle": "Co-Founder" },
-      { "@type": "Person", "name": "Kesavadas", "jobTitle": "Co-Founder" },
-      { "@type": "Person", "name": "Kiran Rajeev", "jobTitle": "Co-Founder" },
-      { "@type": "Person", "name": "B. VishnuNarayanan", "jobTitle": "Co-Founder" },
-      { "@type": "Person", "name": "Arjun Kumar VS", "jobTitle": "Co-Founder" }
-    ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Rhevez Core Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Product Engineering",
-            "description": "Premium software development services including Next.js web applications, mobile apps, and robust API architectures."
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "AI & Autonomous Agents",
-            "description": "Custom agentic intelligence pipelines, LLM fine-tuning, and automated operational orchestration."
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Brand Identity Design",
-            "description": "Visionary visual direction, guidelines, typography packages, and custom logo systems for scaling startups."
-          }
-        }
-      ]
-    }
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://rhevez.com/#organization",
+  "name": "Rhevez",
+  "legalName": "Rhevez LLP",
+  "alternateName": ["Rhevez LLP", "Rhevez company", "Rhevez India", "Rhevez AI"],
+  "url": "https://rhevez.com",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://rhevez.com/lovable-uploads/logo.png",
+    "width": 512,
+    "height": 512
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": "https://rhevez.com/#website",
-    "name": "Rhevez",
-    "alternateName": "Rhevez LLP",
-    "url": "https://rhevez.com/",
-    "publisher": {
-      "@id": "https://rhevez.com/#organization"
-    },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://rhevez.com/?q={search_term_string}"
-      },
-      "query-input": "required name=search_term_string"
-    }
+  "description": "Rhevez is an AI and software development company based in India, building custom digital products, AI systems, and software solutions for businesses.",
+  "foundingDate": "2025",
+  "knowsAbout": ["Software Development", "Artificial Intelligence", "Product Engineering", "Brand Identity", "Mobile App Development", "AI Agents"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "IN"
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What services does Rhevez offer?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Rhevez specializes in high-fidelity Product Engineering, autonomous AI & Machine Learning workflow designs, and modern Brand Identity systems."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How does Rhevez collaborate with startups?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We operate in a 5-step collaboration timeline including Discovery, Strategy & blueprinting, Bespoke Production, rigid Security Hardening, and Launch & Scaling."
-        }
-      }
+  "sameAs": [
+    "https://www.linkedin.com/company/rhevez/",
+    "https://www.instagram.com/rhevez_llp",
+    "https://x.com/Rhevez_LLP"
+  ],
+  "founder": [
+    { "@type": "Person", "name": "Ram Anand", "jobTitle": "Co-Founder" },
+    { "@type": "Person", "name": "Jithu Francis", "jobTitle": "Co-Founder" },
+    { "@type": "Person", "name": "Thejas Somarajan", "jobTitle": "Co-Founder" },
+    { "@type": "Person", "name": "Kesavadas", "jobTitle": "Co-Founder" },
+    { "@type": "Person", "name": "Kiran Rajeev", "jobTitle": "Co-Founder" },
+    { "@type": "Person", "name": "B. VishnuNarayanan", "jobTitle": "Co-Founder" },
+    { "@type": "Person", "name": "Arjun Kumar VS", "jobTitle": "Co-Founder" }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Rhevez Core Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Product Engineering", "description": "Premium software development including Next.js web apps, mobile apps, and robust API architectures." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI & Autonomous Agents", "description": "Custom agentic intelligence pipelines, LLM fine-tuning, and automated operational orchestration." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand Identity Design", "description": "Visionary visual direction, typography packages, and custom logo systems for scaling startups." } }
     ]
   }
-];
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://rhevez.com/#website",
+  "name": "Rhevez",
+  "url": "https://rhevez.com/",
+  "publisher": { "@id": "https://rhevez.com/#organization" },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": { "@type": "EntryPoint", "urlTemplate": "https://rhevez.com/?q={search_term_string}" },
+    "query-input": "required name=search_term_string"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What services does Rhevez offer?", "acceptedAnswer": { "@type": "Answer", "text": "Rhevez specializes in high-fidelity Product Engineering, autonomous AI & Machine Learning workflow designs, and modern Brand Identity systems." } },
+    { "@type": "Question", "name": "How does Rhevez collaborate with startups?", "acceptedAnswer": { "@type": "Answer", "text": "We operate in a 5-step collaboration timeline including Discovery, Strategy & blueprinting, Bespoke Production, Security Hardening, and Launch & Scaling." } }
+  ]
+};
 
 export default function RootLayout({
   children,
@@ -185,10 +154,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </head>
       <body className="antialiased overflow-x-hidden">
         <QueryProvider>
