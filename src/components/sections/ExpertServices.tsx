@@ -49,6 +49,18 @@ const servicesData = [
         iconHover: "group-hover:text-emerald-400",
         iconActive: "text-emerald-500",
         borderHover: "group-hover:border-emerald-500/50"
+    },
+    {
+        id: "04",
+        title: "DIGITAL MARKETING",
+        tags: ["Search Engine Optimization (SEO)", "Performance Marketing", "Brand Strategy & Growth"],
+        description: "Scale organic reach, drive high-intent acquisition, and amplify brand presence with data-driven performance campaigns, technical SEO, and conversion rate optimization.",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
+        hoverGradient: "from-purple-500 via-indigo-400 to-blue-400",
+        activeGradient: "from-indigo-500 to-purple-400",
+        iconHover: "group-hover:text-indigo-400",
+        iconActive: "text-indigo-500",
+        borderHover: "group-hover:border-indigo-500/50"
     }
 ];
 
