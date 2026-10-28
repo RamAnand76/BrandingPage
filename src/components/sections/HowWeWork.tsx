@@ -96,8 +96,10 @@ export const HowWeWork = () => {
     const update = () => {
       const el = ref.current;
       if (!el) return;
-      const total = el.offsetHeight - window.innerHeight;
-      scrollYProgress.set(Math.min(1, Math.max(0, -el.getBoundingClientRect().top / total)));
+      // Use the rect for both numbers: offsetHeight ignores the site's html zoom and would overstate the scroll range.
+      const rect = el.getBoundingClientRect();
+      const total = rect.height - window.innerHeight;
+      scrollYProgress.set(Math.min(1, Math.max(0, -rect.top / total)));
     };
     update();
     window.addEventListener("scroll", update, { passive: true });
@@ -130,7 +132,7 @@ export const HowWeWork = () => {
 
   return (
     <section id="how-we-work" className="bg-black relative">
-      <div ref={ref} style={{ height: "440vh" }} className="relative">
+      <div ref={ref} style={{ height: "480vh" }} className="relative">
         {/* The site runs at html zoom 0.75 on desktop, which shrinks vh-sized blocks. Cancel it here so the stage fills the viewport. */}
         <div
           className="sticky top-0 h-screen overflow-hidden bg-black"
@@ -178,7 +180,7 @@ export const HowWeWork = () => {
                   text={w.text}
                   accent={w.accent}
                   progress={scrollYProgress}
-                  from={0.55 + (i / words.length) * 0.36}
+                  from={0.55 + (i / words.length) * 0.27}
                 />
               ))}
             </p>
