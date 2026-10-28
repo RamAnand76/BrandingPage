@@ -12,7 +12,7 @@ import placeholderImages from "@/app/lib/placeholder-images.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const works = [
+export const works = [
   {
     title: "Sleazy",
     description: "Slick shoes for everyday lifestyle. Sleazy designs slick everyday kicks with street-ready polish and all-day comfort. Zero dull pairs. Walk louder.",

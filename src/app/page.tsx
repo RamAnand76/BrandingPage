@@ -5,9 +5,10 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import Footer from "@/components/Footer";
 
 import { ExpertServices } from "@/components/sections/ExpertServices";
-import { BenefitsSection } from "@/components/sections/BenefitsSection";
+import { HowWeWork } from "@/components/sections/HowWeWork";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { WhatWeDoSection } from "@/components/sections/WhatWeDoSection";
+import { SelectedWork } from "@/components/sections/SelectedWork";
 import { PricingSection } from "@/components/pricing/PricingSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { FaqSection } from "@/components/sections/FaqSection";
@@ -22,13 +23,16 @@ const Index = () => {
       {/* New Hero Section */}
       <HeroSection />
 
+      {/* Selected Work */}
+      <SelectedWork />
+
       {/* Services Section */}
       <div id="features" className="pt-20">
         <ExpertServices />
       </div>
 
-      {/* Benefits Section */}
-      <BenefitsSection />
+      {/* How We Work */}
+      <HowWeWork />
 
       {/* Pricing Section */}
       {showPricing && (
