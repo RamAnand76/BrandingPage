@@ -5,6 +5,7 @@ import { GridLines } from "./hero/GridLines";
 import { CustomBackground } from "./hero/CustomBackground";
 import { Wordmark } from "./hero/Wordmark";
 import { HeroDescription } from "./hero/HeroDescription";
+import { HeroActions } from "./hero/HeroActions";
 import { TeamBadge } from "./hero/TeamBadge";
 import { Signature } from "./hero/Signature";
 import { BottomCategories } from "./hero/BottomCategories";
@@ -55,13 +56,14 @@ export const HeroSection = () => {
                             </div>
                         </div>
 
+                        <HeroActions />
+
                         {/* Bottom Categories */}
                         <BottomCategories />
 
                         {/* Mobile Footer Info (inside the frame) */}
-                        <div className="flex md:hidden items-center justify-between w-full mt-10 text-[9px] font-semibold tracking-widest text-white/60">
-                            <span>AVAILABLE FOR: <span className="text-[#00FF66]">DEC</span> PROJECTS</span>
-                            <span>JULY 18, 08:10</span>
+                        <div className="flex md:hidden items-center w-full mt-10 text-[9px] font-semibold tracking-widest text-white/60">
+                            <span><span className="text-[#00FF66]">AVAILABLE</span> FOR NEW PROJECTS</span>
                         </div>
                     </div>
                     <Signature />
