@@ -58,7 +58,7 @@ const PricingTier = ({
         ))}
       </ul>
       <Button className="button-gradient w-full">
-        Get Started
+        Start a project
       </Button>
     </div>
   </CardSpotlight>

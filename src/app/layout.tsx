@@ -13,9 +13,9 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://rhevez.com'),
   title: {
     template: "%s | Rhevez",
-    default: "Rhevez — Premium Product Engineering & AI Solutions",
+    default: "Rhevez — AI-Powered Product Engineering Studio",
   },
-  description: "Rhevez (Rhevez LLP) delivers design-first Product Engineering, custom AI systems, and premium Brand Identity services. Empowering businesses with custom software development and luxury branding to help them grow, operate smarter, and stay ahead.",
+  description: "We engineer AI-powered digital products for ambitious businesses. Rhevez (Rhevez LLP) delivers design-first product engineering, custom AI systems, cyber security and digital marketing.",
   keywords: [
     "Rhevez",
     "Rhevez LLP",
@@ -24,8 +24,7 @@ export const metadata: Metadata = {
     "Rhevez AI",
     "revez",
     "AI powered. Human focused.",
-    "We build complete digital products that help businesses grow",
-    "Empowering businesses with custom software development and luxury branding",
+    "We engineer AI-powered digital products for ambitious businesses",
     "Software Engineering Services",
     "AI Engineers",
     "Web Development",
@@ -48,8 +47,8 @@ export const metadata: Metadata = {
     apple: "/lovable-uploads/logo.png",
   },
   openGraph: {
-    title: "Rhevez — Premium Product Engineering & AI Solutions",
-    description: "Empowering businesses with custom software development and luxury branding. We build complete digital products that help businesses grow, operate smarter, and stay ahead. AI powered. Human focused.",
+    title: "Rhevez — AI-Powered Product Engineering Studio",
+    description: "We engineer AI-powered digital products for ambitious businesses. AI powered. Human focused.",
     url: "https://rhevez.com",
     siteName: "Rhevez",
     images: [
@@ -57,7 +56,7 @@ export const metadata: Metadata = {
         url: "/lovable-uploads/link-preview.png",
         width: 1200,
         height: 630,
-        alt: "Rhevez - Premium Product Engineering & AI Solutions",
+        alt: "Rhevez - AI-Powered Product Engineering Studio",
       },
       {
         url: "/lovable-uploads/logo.png",
@@ -71,8 +70,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rhevez — Premium Product Engineering & AI Solutions",
-    description: "Empowering businesses with custom software development and luxury branding.",
+    title: "Rhevez — AI-Powered Product Engineering Studio",
+    description: "We engineer AI-powered digital products for ambitious businesses.",
     images: ["/lovable-uploads/link-preview.png", "/lovable-uploads/logo.png"],
   },
 };

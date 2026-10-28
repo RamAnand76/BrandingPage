@@ -62,7 +62,7 @@ const Footer = () => {
               onClick={() => setContactModalOpen(true)}
               className="relative z-10 bg-white hover:bg-neutral-100 text-black rounded-full px-9 py-4 font-semibold text-sm transition-all duration-300 hover:scale-[1.03] shadow-[0_4px_20px_rgba(255,255,255,0.15)]"
             >
-              Build Your Project
+              Start a project
             </button>
           </div>
         </div>
@@ -81,7 +81,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-neutral-400 text-sm leading-relaxed max-w-[310px] mb-6">
-              Empowering businesses with custom software development and luxury branding.
+              We engineer AI-powered digital products for ambitious businesses.
             </p>
             <div className="flex flex-col space-y-3">
               <a href="tel:+917012445960" className="text-neutral-300 hover:text-white transition-colors text-sm font-light flex items-center gap-2">
@@ -130,7 +130,7 @@ const Footer = () => {
 
           {/* Column 4: Join Us & Newsletter */}
           <div className="flex flex-col">
-            <h4 className="text-neutral-400 uppercase text-xs font-semibold mb-6 tracking-widest">JOIN US</h4>
+            <h4 className="text-neutral-400 uppercase text-xs font-semibold mb-6 tracking-widest">FOLLOW US</h4>
 
             {/* Social Icons */}
             <div className="flex items-center gap-3 mb-6">
@@ -150,20 +150,6 @@ const Footer = () => {
               </a> */}
             </div>
 
-            {/* Email Form */}
-            <form onSubmit={(e) => e.preventDefault()} className="relative flex items-center bg-[#050505] border border-white/15 rounded-full p-1.5 w-full max-w-[340px]">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="bg-transparent pl-4 pr-28 py-2 text-sm text-white placeholder:text-neutral-500 focus:outline-none w-full"
-              />
-              <button
-                type="submit"
-                className="absolute right-1.5 bg-white hover:bg-neutral-200 text-black text-xs font-semibold px-5 py-2.5 rounded-full transition-colors"
-              >
-                Subscribe
-              </button>
-            </form>
           </div>
 
         </div>

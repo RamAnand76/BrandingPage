@@ -29,7 +29,7 @@ export const BenefitsSection = () => {
                     >
                         <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
                         <span className="text-sm md:text-sm text-neutral-400 font-medium tracking-wide">
-                            Explore what&apos;s included
+                            Why teams choose Rhevez
                         </span>
                     </motion.div>
                     <motion.h2 
@@ -38,7 +38,7 @@ export const BenefitsSection = () => {
                         transition={{ duration: 0.5, delay: 0.1 }}
                         className="text-4xl md:text-5xl lg:text-[56px] font-medium tracking-tight text-white leading-tight"
                     >
-                        Inspiring benefits awaits you
+                        Built to ship. Built to scale.
                     </motion.h2>
                 </div>
 
@@ -83,9 +83,9 @@ export const BenefitsSection = () => {
                                 className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay bg-[length:200%_200%]"
                             />
                             <div className="relative z-10 text-white">
-                                <h3 className="text-2xl font-bold mb-2 tracking-tight drop-shadow-md">Maximum creativity</h3>
+                                <h3 className="text-2xl font-bold mb-2 tracking-tight drop-shadow-md">Design-first engineering</h3>
                                 <p className="text-white/90 font-medium text-sm leading-relaxed max-w-[90%] drop-shadow-sm">
-                                    Engage audience with your unique style.
+                                    Interfaces your users remember, code your team can maintain.
                                 </p>
                             </div>
                         </motion.div>
@@ -105,7 +105,7 @@ export const BenefitsSection = () => {
                                         initial={{ pathLength: 0 }}
                                         whileInView={{ pathLength: 1 }}
                                         transition={{ duration: 2, ease: "easeOut" }}
-                                        d="M0 80 Q 40 80, 80 60 T 150 70 T 200 40 T 250 20 L 300 10" 
+                                        d="M0 80 Q 40 80, 80 60 T 150 70 T 200 40 T 250 20 T 300 10"
                                         fill="none" 
                                         stroke="url(#blue-gradient)" 
                                         strokeWidth="3"
@@ -116,7 +116,7 @@ export const BenefitsSection = () => {
                                     <motion.path 
                                         animate={{ opacity: [0.3, 1, 0.3] }}
                                         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                                        d="M0 80 Q 40 80, 80 60 T 150 70 T 200 40 T 250 20 L 300 10" 
+                                        d="M0 80 Q 40 80, 80 60 T 150 70 T 200 40 T 250 20 T 300 10"
                                         fill="none" 
                                         stroke="#60a5fa" 
                                         strokeWidth="1"
@@ -149,9 +149,9 @@ export const BenefitsSection = () => {
                             </div>
 
                             <div className="relative z-10 mt-auto pt-24">
-                                <h3 className="text-lg md:text-xl font-medium text-white mb-1.5">Design iterations</h3>
+                                <h3 className="text-lg md:text-xl font-medium text-white mb-1.5">Tight feedback loops</h3>
                                 <p className="text-neutral-500 font-light text-xs md:text-sm leading-relaxed max-w-[90%]">
-                                    Get as many design tweaks as you&apos;d like.
+                                    Design reviews every sprint, not just at launch.
                                 </p>
                             </div>
                         </motion.div>
@@ -198,12 +198,12 @@ export const BenefitsSection = () => {
                                         className="absolute -bottom-4 -right-8 z-40 flex flex-col items-center"
                                     >
                                         <MousePointer2 className="w-4 h-4 text-white drop-shadow-md fill-black" />
-                                        <div className="bg-cyan-400 text-black text-[8px] font-bold px-1.5 py-0.5 rounded-full mt-0.5 whitespace-nowrap shadow-lg">Eliah</div>
+                                        <div className="bg-cyan-400 text-black text-[8px] font-bold px-1.5 py-0.5 rounded-full mt-0.5 whitespace-nowrap shadow-lg">You</div>
                                     </motion.div>
                                 </div>
                             </div>
                             
-                            <h3 className="text-lg md:text-xl font-medium text-white mt-auto">Invite people</h3>
+                            <h3 className="text-lg md:text-xl font-medium text-white mt-auto">An embedded team</h3>
                         </motion.div>
 
                         {/* Fast Iterations (UI Mocks) */}
@@ -226,7 +226,7 @@ export const BenefitsSection = () => {
                                     <div className="flex flex-col gap-1 w-full">
                                         <div className="flex items-center gap-1">
                                             <motion.div animate={{ opacity: [0.4, 1, 0.4] }} transition={{ duration: 1.5, repeat: Infinity }} className="w-1 h-1 rounded-full bg-cyan-400 shadow-[0_0_5px_rgba(34,211,238,0.8)]" />
-                                            <div className="text-[6px] text-neutral-400 font-bold tracking-wider uppercase">Processing</div>
+                                            <div className="text-[9px] text-neutral-400 font-bold tracking-wider uppercase">Building</div>
                                         </div>
                                         <motion.div animate={{ width: ["30%", "80%", "30%"] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }} className="h-1 bg-white/20 rounded-full" />
                                         <div className="w-1/2 h-1 bg-white/5 rounded-full" />
@@ -247,15 +247,15 @@ export const BenefitsSection = () => {
                                     <div className="flex flex-col gap-0.5 w-full">
                                         <div className="flex items-center gap-1">
                                             <div className="w-1 h-1 rounded-full bg-blue-400 animate-pulse" />
-                                            <div className="text-[6px] text-blue-400 font-bold tracking-wider uppercase">Ready</div>
+                                            <div className="text-[9px] text-blue-400 font-bold tracking-wider uppercase">Live</div>
                                         </div>
-                                        <div className="text-[9px] font-medium text-white leading-tight">Latest design</div>
-                                        <div className="text-[7px] text-neutral-500">Today, 11:50</div>
+                                        <div className="text-[11px] font-medium text-white leading-tight">Build deployed</div>
+                                        <div className="text-[9px] text-neutral-500">Just now</div>
                                     </div>
                                 </motion.div>
                             </div>
                             
-                            <h3 className="text-lg md:text-xl font-medium text-white mt-auto">Fast iterations</h3>
+                            <h3 className="text-lg md:text-xl font-medium text-white mt-auto">Rapid delivery</h3>
                         </motion.div>
 
                         {/* Custom Support (Chat Bubble) */}
@@ -272,7 +272,7 @@ export const BenefitsSection = () => {
                                     className="bg-[#1a1a1a] border border-white/10 rounded-2xl rounded-tl-none p-2.5 lg:p-3 flex items-start gap-2.5 shadow-2xl relative z-20"
                                 >
                                     {/* Avatar */}
-                                    <div className="relative shrink-0 mt-0.5">
+                                    <div className="relative shrink-0 mt-0.5 w-6 h-6">
                                         <Image src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" alt="support" fill className="object-cover rounded-full" sizes="24px" />
                                         <motion.div 
                                             animate={{ scale: [1, 1.3, 1] }} transition={{ duration: 2, repeat: Infinity }}
@@ -282,9 +282,9 @@ export const BenefitsSection = () => {
                                         </motion.div>
                                     </div>
                                     <div className="flex flex-col gap-0.5">
-                                        <div className="text-[8px] text-neutral-500">Trina says:</div>
-                                        <div className="text-[10px] text-white/90 leading-tight">Hey there!</div>
-                                        <div className="text-[10px] text-white/90 leading-tight">How can I help you?</div>
+                                        <div className="text-[10px] text-neutral-500">Rhevez team:</div>
+                                        <div className="text-[11px] text-white/90 leading-tight">Hi! Ready to scope</div>
+                                        <div className="text-[11px] text-white/90 leading-tight">your build?</div>
                                     </div>
                                 </motion.div>
                                 
@@ -302,7 +302,7 @@ export const BenefitsSection = () => {
                                 </motion.div>
                             </div>
                             
-                            <h3 className="text-lg md:text-xl font-medium text-white mt-auto">Custom support</h3>
+                            <h3 className="text-lg md:text-xl font-medium text-white mt-auto">Dedicated support</h3>
                         </motion.div>
                     </div>
 
@@ -342,16 +342,16 @@ export const BenefitsSection = () => {
                                 })}
                             </div>
                             
-                            <div className="flex justify-between w-full text-[8px] text-neutral-600 mt-2 px-1 font-medium">
-                                <span>Nov, 10</span>
-                                <span>Nov, 11</span>
-                                <span>Today</span>
+                            <div className="flex justify-between w-full text-[10px] text-neutral-500 mt-2 px-1 font-medium">
+                                <span>Kickoff</span>
+                                <span>Beta</span>
+                                <span>Launch</span>
                             </div>
 
                             <div className="mt-auto pt-6">
-                                <h3 className="text-lg md:text-xl font-medium text-white mb-1.5">Track progress</h3>
+                                <h3 className="text-lg md:text-xl font-medium text-white mb-1.5">Predictable delivery</h3>
                                 <p className="text-neutral-500 font-light text-xs md:text-sm leading-relaxed max-w-[90%]">
-                                    Blazing fast delivery timing, no fuzz.
+                                    Clear milestones and weekly demos, no surprises.
                                 </p>
                             </div>
                         </motion.div>
@@ -361,23 +361,19 @@ export const BenefitsSection = () => {
                             variants={cardVariants}
                             className="bg-[#121212] border border-white/[0.05] rounded-3xl p-6 lg:p-8 flex flex-col justify-between min-h-[260px] md:min-h-0 md:flex-1 relative overflow-hidden group hover:border-white/[0.1] transition-colors"
                         >
-                            {/* Animated connection lines background */}
-                            <div className="absolute inset-0 z-0 flex items-center justify-center opacity-20 pointer-events-none">
-                                <svg width="100%" height="100%" className="absolute">
-                                    <motion.path 
-                                        d="M50,150 Q150,100 250,150" 
-                                        fill="none" stroke="#3b82f6" strokeWidth="2" strokeDasharray="5 5"
-                                        animate={{ strokeDashoffset: [0, -50] }} transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                                    />
-                                    <motion.path 
-                                        d="M100,50 Q150,150 200,50" 
-                                        fill="none" stroke="#22d3ee" strokeWidth="2" strokeDasharray="5 5"
-                                        animate={{ strokeDashoffset: [0, 50] }} transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
-                                    />
-                                </svg>
-                            </div>
-
                             <div className="w-full h-full flex flex-col items-center justify-center gap-4 mt-2 relative z-10">
+                              <div className="relative flex flex-col items-center gap-4">
+                                {/* Lines share the icon rows' coordinate space (160x104 = row widths/heights) so they meet the icon centers */}
+                                <svg viewBox="0 0 160 104" className="absolute inset-0 w-full h-full -z-10 overflow-visible opacity-40 pointer-events-none">
+                                    <motion.path d="M20,24 Q50,54 80,84" fill="none" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="4 4"
+                                        animate={{ strokeDashoffset: [0, -16] }} transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }} />
+                                    <motion.path d="M140,24 Q110,54 80,84" fill="none" stroke="#22d3ee" strokeWidth="1.5" strokeDasharray="4 4"
+                                        animate={{ strokeDashoffset: [0, -16] }} transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }} />
+                                    <motion.path d="M26,84 Q53,54 80,24" fill="none" stroke="#22d3ee" strokeWidth="1.5" strokeDasharray="4 4"
+                                        animate={{ strokeDashoffset: [0, 16] }} transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }} />
+                                    <motion.path d="M134,84 Q107,54 80,24" fill="none" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="4 4"
+                                        animate={{ strokeDashoffset: [0, 16] }} transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }} />
+                                </svg>
                                 <div className="flex items-center gap-4">
                                     {/* Icon 1: Figma */}
                                     <motion.div 
@@ -431,12 +427,13 @@ export const BenefitsSection = () => {
                                         <MessageCircle className="w-3.5 h-3.5 text-indigo-500 fill-indigo-500" />
                                     </motion.div>
                                 </div>
+                              </div>
                             </div>
                             
                             <div className="mt-8 relative z-10">
-                                <h3 className="text-lg md:text-xl font-medium text-white mb-1.5">100% Integrated</h3>
+                                <h3 className="text-lg md:text-xl font-medium text-white mb-1.5">Fits your stack</h3>
                                 <p className="text-neutral-500 font-light text-xs md:text-sm leading-relaxed max-w-[90%]">
-                                    Seamlessly connect all your existing apps.
+                                    Plugs into your existing CRM, ERP and tools.
                                 </p>
                             </div>
                         </motion.div>

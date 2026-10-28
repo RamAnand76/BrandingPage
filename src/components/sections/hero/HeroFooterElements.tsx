@@ -12,7 +12,7 @@ export const HeroFooterElements = ({ onMenuClick }: { onMenuClick?: () => void }
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
       >
-        AVAILABLE FOR: <span className="text-[#00FF66]">DEC</span> PROJECTS
+        <span className="text-[#00FF66]">AVAILABLE</span> FOR NEW PROJECTS
       </motion.div>
     </>
   );

@@ -236,13 +236,13 @@ export const FaqSection = () => {
         >
           <div className="text-center sm:text-left">
             <h4 className="text-white font-medium text-lg mb-1 tracking-tight">Still have questions?</h4>
-            <p className="text-neutral-400 text-sm md:text-base font-light">We&apos;re here to help.</p>
+            <p className="text-neutral-400 text-sm md:text-base font-light">Tell us what you&apos;re building and we&apos;ll scope it with you.</p>
           </div>
           <Link 
             href="#contact" 
             className="w-full sm:w-auto px-7 py-3 bg-white text-black rounded-full font-medium text-sm flex items-center justify-center gap-2 hover:bg-neutral-200 transition-all duration-300 hover:scale-105"
           >
-            Contact Support <ArrowRight className="w-4 h-4" />
+            Start a project <ArrowRight className="w-4 h-4" />
           </Link>
         </motion.div>
 

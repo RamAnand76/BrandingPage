@@ -32,7 +32,7 @@ const Navigation = () => {
             <div className="flex items-center justify-between w-full lg:w-auto lg:gap-6">
               <div className="flex items-center gap-6">
                 <Link href="/" className="flex items-center gap-3 lg:gap-5 cursor-pointer">
-                  <h1 className="sr-only">Rhevez LLP - AI powered. Human focused. Custom software development and luxury branding.</h1>
+                  <h1 className="sr-only">Rhevez LLP - We engineer AI-powered digital products for ambitious businesses.</h1>
                   <div className="w-8 h-8 lg:w-11 lg:h-11 relative flex-shrink-0">
                     <Image src="/lovable-uploads/logo.png" alt="Rhevez Logo" fill className="object-contain" />
                   </div>
@@ -64,7 +64,7 @@ const Navigation = () => {
                 onClick={() => setContactModalOpen(true)}
                 className="flex items-center gap-2 ml-4 px-5 py-2 rounded-md border border-[#3275F8] bg-[#3275F8] text-white text-[13px] tracking-[0.05em] font-semibold hover:bg-[#3275F8]/80 hover:shadow-[0_0_15px_rgba(50,117,248,0.3)] transition-all"
               >
-                Build Your Project
+                Start a project
                 <ArrowUpRight className="w-4 h-4" />
               </button>
             </div>

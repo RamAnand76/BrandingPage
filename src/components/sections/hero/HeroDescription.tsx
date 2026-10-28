@@ -9,9 +9,9 @@ export const HeroDescription = () => {
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 1.2 }}
     >
       <p className="text-[12px] md:text-[13px] leading-[1.8] text-white/80 uppercase tracking-wide font-semibold">
-        We build complete digital products<br />
-        that help businesses grow, operate<br />
-        smarter and stay ahead.
+        We engineer AI-powered<br />
+        digital products for<br />
+        ambitious businesses.
       </p>
     </motion.div>
   );
