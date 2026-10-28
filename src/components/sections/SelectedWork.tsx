@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { works } from "./WorksSection";
+import { works } from "@/lib/works";
 
 // Strongest projects first; the full list lives on /our-works.
 const FEATURED = ["Rhevez OS", "Haven | Munnar", "ScriptForge AI Platform", "Sleazy"];

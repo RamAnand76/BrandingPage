@@ -7,6 +7,7 @@ import QueryProvider from "@/components/QueryProvider";
 import SmoothScrolling from "@/components/SmoothScrolling";
 import PageTransition from "@/components/ui/PageTransition";
 import RouteTransition from "@/components/RouteTransition";
+import Preloader from "@/components/Preloader";
 import { ContactModalProvider } from "@/context/ContactModalContext";
 import { CookieConsent } from "@/components/privacy/CookieConsent";
 
@@ -167,6 +168,7 @@ export default function RootLayout({
                   <Toaster />
                   <Sonner />
                   <CookieConsent />
+                  <Preloader />
                   <RouteTransition />
                   <PageTransition>{children}</PageTransition>
                 </div>

@@ -29,6 +29,7 @@ export const HeroSection = () => {
             {/* ── Fixed hamburger button overlay (mobile only) ── */}
             <motion.button
                 onClick={() => setIsMobileMenuOpen(true)}
+                aria-label="Open menu"
                 className="fixed bottom-[calc(7.5vh-24px)] left-[calc(50%-20px)] -translate-x-1/2 z-[150] w-12 h-12 bg-[#111]/80 backdrop-blur-md border border-white/10 flex items-center justify-center hover:bg-[#222]/90 transition-colors md:hidden"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -66,7 +67,7 @@ export const HeroSection = () => {
 
                         {/* Mobile Footer Info (inside the frame) */}
                         <div className="flex md:hidden items-center w-full mt-10 text-[9px] font-semibold tracking-widest text-white/60">
-                            <span><span className="text-[#00FF66]">AVAILABLE</span> FOR NEW PROJECTS</span>
+                            <span><span className="text-[#00FF66]">AVAILABLE</span> NOW</span>
                         </div>
                     </div>
                     <Signature />

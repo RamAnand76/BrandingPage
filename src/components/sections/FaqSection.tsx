@@ -178,7 +178,7 @@ export const FaqSection = () => {
                       className="w-full flex items-center justify-between text-left p-5 md:p-6 gap-4"
                     >
                       <div className="flex items-center gap-5 md:gap-8 flex-1 pr-4">
-                        <span className="text-neutral-600 text-sm md:text-base shrink-0 select-none">
+                        <span className="text-neutral-400 text-sm md:text-base shrink-0 select-none">
                           {faq.num}
                         </span>
                         <span className={`text-base md:text-lg font-medium transition-colors duration-300 ${isOpen ? "text-white" : "text-white/80"}`}>
@@ -235,7 +235,7 @@ export const FaqSection = () => {
           className="mt-12 p-6 md:p-8 bg-white/[0.02] border border-white/10 rounded-[1.5rem] flex flex-col sm:flex-row justify-between items-center gap-6"
         >
           <div className="text-center sm:text-left">
-            <h4 className="text-white font-medium text-lg mb-1 tracking-tight">Still have questions?</h4>
+            <h3 className="text-white font-medium text-lg mb-1 tracking-tight">Still have questions?</h3>
             <p className="text-neutral-400 text-sm md:text-base font-light">Tell us what you&apos;re building and we&apos;ll scope it with you.</p>
           </div>
           <Link 

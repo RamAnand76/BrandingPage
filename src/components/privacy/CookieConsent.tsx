@@ -44,6 +44,7 @@ export const CookieConsent = () => {
             {/* Close Button */}
             <button 
               onClick={handleDecline}
+              aria-label="Close cookie notice"
               className="absolute top-4 right-4 text-neutral-400 hover:text-white transition-colors"
             >
               <X className="w-4 h-4" />

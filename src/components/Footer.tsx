@@ -102,7 +102,7 @@ const Footer = () => {
 
           {/* Column 2: Site Map */}
           <div className="flex flex-col">
-            <h4 className="text-neutral-400 uppercase text-xs font-semibold mb-6 tracking-widest">SITE MAP</h4>
+            <h3 className="text-neutral-400 uppercase text-xs font-semibold mb-6 tracking-widest">SITE MAP</h3>
             <ul className="space-y-4 flex flex-col">
               <li><Link href="/#faq" className="text-neutral-300 hover:text-white transition-colors text-sm font-light">FAQs</Link></li>
               <li>
@@ -120,7 +120,7 @@ const Footer = () => {
 
           {/* Column 3: Resources */}
           <div className="flex flex-col">
-            <h4 className="text-neutral-400 uppercase text-xs font-semibold mb-6 tracking-widest">RESOURCES</h4>
+            <h3 className="text-neutral-400 uppercase text-xs font-semibold mb-6 tracking-widest">RESOURCES</h3>
             <ul className="space-y-4 flex flex-col">
               <li><Link href="/terms-of-service" className="text-neutral-300 hover:text-white transition-colors text-sm font-light">Terms of use</Link></li>
               <li><Link href="/privacy-policy" className="text-neutral-300 hover:text-white transition-colors text-sm font-light">Privacy Policy</Link></li>
@@ -130,19 +130,19 @@ const Footer = () => {
 
           {/* Column 4: Join Us & Newsletter */}
           <div className="flex flex-col">
-            <h4 className="text-neutral-400 uppercase text-xs font-semibold mb-6 tracking-widest">FOLLOW US</h4>
+            <h3 className="text-neutral-400 uppercase text-xs font-semibold mb-6 tracking-widest">FOLLOW US</h3>
 
             {/* Social Icons */}
             <div className="flex items-center gap-3 mb-6">
-              <a href="https://x.com/Rhevez_LLP" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/10 bg-white/[0.03] flex items-center justify-center text-neutral-300 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all">
+              <a href="https://x.com/Rhevez_LLP" aria-label="Rhevez on X" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/10 bg-white/[0.03] flex items-center justify-center text-neutral-300 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all">
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                 </svg>
               </a>
-              <a href="https://www.instagram.com/rhevez_llp" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/10 bg-white/[0.03] flex items-center justify-center text-neutral-300 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all">
+              <a href="https://www.instagram.com/rhevez_llp" aria-label="Rhevez on Instagram" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/10 bg-white/[0.03] flex items-center justify-center text-neutral-300 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all">
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="https://www.linkedin.com/company/rhevez/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/10 bg-white/[0.03] flex items-center justify-center text-neutral-300 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all">
+              <a href="https://www.linkedin.com/company/rhevez/" aria-label="Rhevez on LinkedIn" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/10 bg-white/[0.03] flex items-center justify-center text-neutral-300 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all">
                 <Linkedin className="w-4 h-4 fill-current" />
               </a>
               {/* <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/10 bg-white/[0.03] flex items-center justify-center text-neutral-300 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all">

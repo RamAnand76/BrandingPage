@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
-@import url('https://fonts.geist-ui.dev/font.css');
 
 @tailwind base;
 @tailwind components;
@@ -54,6 +53,18 @@
 
   :root {
     --page-zoom: 1;
+  }
+
+  /* Looping ambient motion stops for visitors who ask for less motion. Scroll-driven effects are
+     kept on purpose; they only move while the visitor scrolls. */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee,
+    .animate-gradient,
+    .animate-rainbow,
+    .animate-border-beam,
+    .animate-move {
+      animation: none !important;
+    }
   }
 
   @media (min-width: 1024px) {
