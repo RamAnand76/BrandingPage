@@ -40,6 +40,9 @@ export const HeroSection = () => {
             <div className="relative w-full flex-1 flex items-center justify-center px-4 md:px-12 z-20 mt-20 md:mt-16">
                 <HeroFrame>
                     <div className="w-full h-full p-6 md:p-12 lg:p-16 flex flex-col relative z-20">
+                        {/* Soft scrim so small copy stays readable over the bright folds */}
+                        <div className="absolute inset-y-0 left-0 w-[70%] -z-10 pointer-events-none bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+
                         {/* Top Label */}
                         <div className="flex items-center gap-2 text-[10px] md:text-[11px] tracking-[0.2em] text-white/50 uppercase font-normal mb-4">
                             (EST. <span className="text-[#3275F8]">2025</span> — VERSION <span className="text-[#00FF66]">1.0.0</span>)

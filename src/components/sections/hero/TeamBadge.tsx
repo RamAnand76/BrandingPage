@@ -10,7 +10,7 @@ export const TeamBadge = () => {
     >
       <div className="flex flex-col text-left">
         <span className="text-[12px] font-medium text-white tracking-wide">Rhevez Team</span>
-        <span className="text-[9px] text-white/50 tracking-[0.1em] mt-[2px] uppercase">ENGINEERS. BUILDERS. PARTNERS.</span>
+        <span className="text-[10px] text-white/80 tracking-[0.1em] mt-[2px] uppercase">ENGINEERS. BUILDERS. PARTNERS.</span>
       </div>
     </motion.div>
   );

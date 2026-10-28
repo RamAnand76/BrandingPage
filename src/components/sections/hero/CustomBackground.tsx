@@ -6,13 +6,22 @@ export const CustomBackground = () => {
   return (
     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-[#030303]">
 
+      {/* Static fallback: shows when WebGL is unavailable, hidden under the shader otherwise */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at 70% 30%, rgba(37,99,235,0.45), transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(34,211,238,0.2), transparent 55%)",
+        }}
+      />
+
       {/* ═══ GLASS FOLD SHADER (brand blue + cyan) ═══ */}
       <GlassFold
         color1="#2563eb"
         color2="#030303"
         color3="#22d3ee"
         speed={0.5}
-        className="absolute inset-0 opacity-90"
+        className="absolute inset-0"
       />
 
       {/* ═══ FILM GRAIN ═══ */}
@@ -34,7 +43,7 @@ export const CustomBackground = () => {
         style={{
           zIndex: 90,
           background:
-            "radial-gradient(ellipse at center, rgba(0,0,0,0.25) 10%, rgba(0,0,0,0.75) 100%)",
+            "radial-gradient(ellipse at center, rgba(0,0,0,0.1) 25%, rgba(0,0,0,0.6) 100%)",
           pointerEvents: "none",
         }}
       />

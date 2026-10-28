@@ -31,7 +31,7 @@ export const HeroActions = () => {
         </Link>
       </div>
 
-      <div className="flex items-center gap-2 text-[11px] tracking-wide text-white/55">
+      <div className="flex items-center gap-2 text-[12px] tracking-wide text-white/80">
         <span className="w-1.5 h-1.5 rounded-full bg-[#00FF66] shadow-[0_0_8px_#00FF66]" />
         Booking new projects · Product engineering, AI, cyber security, digital marketing
       </div>
