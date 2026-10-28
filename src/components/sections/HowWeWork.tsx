@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import Image from "next/image";
-import { motion, MotionValue, useMotionValue, useReducedMotion, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, MotionValue, useMotionValue, useTransform } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useContactModal } from "@/context/ContactModalContext";
 import { GlassFold } from "@/components/ui/glass-fold";
+import { ZoomLayer } from "@/components/ui/zoom-parallax";
 
 // Zoom-parallax project wall that dissolves into a scroll-lit manifesto.
 // Manifesto lines restate commitments already made in the FAQ. *word* = italic accent.
@@ -17,15 +17,15 @@ const words = manifesto.split(" ").map((w) => ({
   accent: w.startsWith("*"),
 }));
 
-// x/y are the tile centre offsets and w/h the tile size, in vw/vh. scale is how far each tile flies out.
-const tiles = [
-  { src: "/lovable-uploads/RhevezOS-Dashboard.png", alt: "Rhevez OS dashboard", x: 0, y: 0, w: 26, h: 30, scale: 4 },
-  { src: "/lovable-uploads/haven.png", alt: "Haven Munnar website", x: -31, y: -24, w: 22, h: 26, scale: 5 },
-  { src: "/lovable-uploads/script-forge.png", alt: "ScriptForge AI platform", x: 29, y: -27, w: 20, h: 24, scale: 6 },
-  { src: "/lovable-uploads/Sleazy.png", alt: "Sleazy storefront", x: -34, y: 12, w: 20, h: 26, scale: 5 },
-  { src: "/lovable-uploads/Code-editor compoennet-2.png", alt: "Interactive code editor", x: 31, y: 14, w: 24, h: 22, scale: 8 },
-  { src: "/lovable-uploads/laundry.png", alt: "Enterprise laundry backend", x: 2, y: 33, w: 18, h: 22, scale: 6 },
-  { src: "/lovable-uploads/billin-software.png", alt: "Billing and invoicing app", x: 1, y: -35, w: 16, h: 18, scale: 9 },
+// Order matters: index 0 is the centre tile, the rest are placed around it by ZoomLayer.
+const images = [
+  { src: "/lovable-uploads/RhevezOS-Dashboard.png", alt: "Rhevez OS dashboard" },
+  { src: "/lovable-uploads/haven.png", alt: "Haven Munnar website" },
+  { src: "/lovable-uploads/script-forge.png", alt: "ScriptForge AI platform" },
+  { src: "/lovable-uploads/Sleazy.png", alt: "Sleazy storefront" },
+  { src: "/lovable-uploads/Code-editor compoennet-2.png", alt: "Interactive code editor" },
+  { src: "/lovable-uploads/laundry.png", alt: "Enterprise laundry backend" },
+  { src: "/lovable-uploads/billin-software.png", alt: "Billing and invoicing app" },
 ];
 
 const stats = [
@@ -35,26 +35,6 @@ const stats = [
 ];
 
 const ZOOM_END = 0.5; // zoom phase ends here, manifesto takes over
-
-const Tile = ({ tile, progress }: { tile: (typeof tiles)[number]; progress: MotionValue<number> }) => {
-  const scale = useTransform(progress, [0, ZOOM_END], [1, tile.scale]);
-  // The wall clears out before the text lights up; the centre tile goes last.
-  const opacity = useTransform(progress, tile.x === 0 && tile.y === 0 ? [0.36, 0.5] : [0.28, 0.42], [1, 0]);
-  return (
-    <motion.div style={{ scale, opacity }} className="absolute inset-0 grid place-items-center will-change-transform">
-      <div
-        className="relative overflow-hidden rounded-2xl border border-white/15 bg-[#050505] shadow-[0_30px_80px_rgba(0,0,0,0.6)]"
-        style={{
-          width: `${tile.w}vw`,
-          height: `${tile.h}vh`,
-          transform: `translate(${tile.x}vw, ${tile.y}vh)`,
-        }}
-      >
-        <Image src={tile.src} alt={tile.alt} fill sizes="30vw" className="object-cover" />
-      </div>
-    </motion.div>
-  );
-};
 
 const Word = ({
   text,
@@ -102,8 +82,14 @@ const Stats = ({ onStart }: { onStart: () => void }) => (
 
 export const HowWeWork = () => {
   const { setContactModalOpen } = useContactModal();
-  const reduce = useReducedMotion();
+  // The effect only moves while the visitor scrolls, so it animates for everyone by default.
+  // ?motion=off switches to the static version. Read after mount so server and client markup match.
+  const [reduce, setReduce] = useState(false);
+  useEffect(() => {
+    setReduce(new URLSearchParams(window.location.search).get("motion") === "off");
+  }, []);
   const ref = useRef<HTMLDivElement>(null);
+
   // Measured from the live rect on every scroll; useScroll's cached offsets drift when content above shifts.
   const scrollYProgress = useMotionValue(0);
   useEffect(() => {
@@ -122,6 +108,7 @@ export const HowWeWork = () => {
     };
   }, [scrollYProgress, reduce]);
 
+  const wallOpacity = useTransform(scrollYProgress, [0.34, 0.5], [1, 0]);
   const manifestoOpacity = useTransform(scrollYProgress, [0.46, 0.56], [0, 1]);
   const stageGlow = useTransform(scrollYProgress, [0.38, 0.55], [0, 1]);
   const hint = useTransform(scrollYProgress, [0, 0.08], [1, 0]);
@@ -144,7 +131,11 @@ export const HowWeWork = () => {
   return (
     <section id="how-we-work" className="bg-black relative">
       <div ref={ref} style={{ height: "440vh" }} className="relative">
-        <div className="sticky top-0 h-screen overflow-hidden bg-black">
+        {/* The site runs at html zoom 0.75 on desktop, which shrinks vh-sized blocks. Cancel it here so the stage fills the viewport. */}
+        <div
+          className="sticky top-0 h-screen overflow-hidden bg-black"
+          style={{ zoom: "calc(1 / var(--page-zoom, 1))" }}
+        >
           {/* Backdrop fades in as the project wall clears */}
           <motion.div style={{ opacity: stageGlow }} className="absolute inset-0">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_30%,rgba(37,99,235,0.3),transparent_60%)]" />
@@ -161,11 +152,9 @@ export const HowWeWork = () => {
           </motion.div>
 
           {/* Zoom-parallax wall */}
-          <div className="absolute inset-0">
-            {tiles.map((t) => (
-              <Tile key={t.alt} tile={t} progress={scrollYProgress} />
-            ))}
-          </div>
+          <motion.div style={{ opacity: wallOpacity }} className="absolute inset-0">
+            <ZoomLayer images={images} progress={scrollYProgress} zoomEnd={ZOOM_END} />
+          </motion.div>
 
           <span className="absolute top-24 left-6 md:left-12 text-[11px] tracking-[0.2em] uppercase text-[#22d3ee] font-semibold z-10">
             How we work
@@ -178,7 +167,10 @@ export const HowWeWork = () => {
           </motion.span>
 
           {/* Manifesto */}
-          <motion.div style={{ opacity: manifestoOpacity }} className="absolute inset-0 grid place-items-center px-6 md:px-12 z-10">
+          <motion.div
+            style={{ opacity: manifestoOpacity }}
+            className="absolute inset-0 grid place-items-center px-6 md:px-12 z-10"
+          >
             <p className="max-w-[900px] text-center text-[clamp(28px,4.6vw,60px)] leading-[1.14] tracking-[-0.025em] font-medium text-white text-balance">
               {words.map((w, i) => (
                 <Word

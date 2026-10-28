@@ -10,9 +10,19 @@ import { useEffect, useState } from "react";
 const Navigation = () => {
   const { setContactModalOpen } = useContactModal();
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
 
+  // Hide the island while scrolling down so it never sits over full-screen scenes; bring it back on scroll up.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 80);
+      if (Math.abs(y - lastY) > 6) {
+        setHidden(y > lastY && y > 200);
+        lastY = y;
+      }
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -74,7 +84,7 @@ const Navigation = () => {
 
       {/* ── Dynamic Island (after scroll) ── */}
       <AnimatePresence>
-        {scrolled && (
+        {scrolled && !hidden && (
           <motion.div
             key="dynamic-island"
             className="fixed top-4 left-1/2 z-[100] hidden md:flex items-center"

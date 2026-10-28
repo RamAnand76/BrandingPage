@@ -52,9 +52,14 @@
     pointer-events: none;
   }
 
+  :root {
+    --page-zoom: 1;
+  }
+
   @media (min-width: 1024px) {
-    html {
+    :root {
       zoom: 0.75;
+      --page-zoom: 0.75;
     }
   }
 }
