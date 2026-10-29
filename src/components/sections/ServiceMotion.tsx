@@ -167,59 +167,56 @@ const Security = ({ r }: R) => (
   </g>
 );
 
-/* Product Engineering: IDEA (sketch) becomes MVP (block) becomes SCALE (many blocks). */
-const Product = ({ r }: R) => (
-  <g {...stroke}>
-    <motion.rect
-      x="110"
-      y="130"
-      width="80"
-      height="64"
-      rx="10"
-      strokeDasharray="6 7"
-      animate={{ opacity: [0.9, 0.9, 0.35, 0.9] }}
-      transition={T(r, { duration: 4.8 })}
-    />
-    <text x="124" y="168" fill="currentColor" stroke="none" fontSize="12" fontWeight="700" opacity={0.8}>
-      IDEA
-    </text>
-    <motion.path d="M200 162 H250" animate={{ pathLength: [0, 1, 1, 0] }} transition={T(r, { duration: 4.8, times: [0, 0.2, 0.9, 1] })} />
-    <motion.rect
-      x="262"
-      y="116"
-      width="96"
-      height="92"
-      rx="12"
-      fill="currentColor"
-      fillOpacity={0.14}
-      style={box}
-      animate={{ scale: [0.8, 1, 1, 0.8], opacity: [0, 1, 1, 0] }}
-      transition={T(r, { duration: 4.8, times: [0.15, 0.35, 0.9, 1] })}
-    />
-    <text x="290" y="168" fill="currentColor" stroke="none" fontSize="14" fontWeight="800" opacity={0.9}>
-      MVP
-    </text>
-    <motion.path d="M368 162 H418" animate={{ pathLength: [0, 0, 1, 1, 0] }} transition={T(r, { duration: 4.8, times: [0, 0.4, 0.55, 0.9, 1] })} />
-    {[0, 1, 2, 3].map((i) => (
-      <motion.rect
-        key={i}
-        x={430 + (i % 2) * 70}
-        y={86 + Math.floor(i / 2) * 76}
-        width="58"
-        height="64"
-        rx="10"
-        fill="currentColor"
-        fillOpacity={0.12}
-        style={box}
-        animate={{ scale: [0, 0, 1, 1, 0], opacity: [0, 0, 1, 1, 0] }}
-        transition={T(r, { duration: 4.8, delay: i * 0.12, times: [0, 0.5, 0.65, 0.9, 1] })}
+/* Product Engineering: IDEA, MVP and SCALE are stacks of blocks that build up bottom to top, with a trail climbing across them. */
+const Product = ({ r }: R) => {
+  const cols = [
+    { x: 330, n: 1, label: "IDEA" },
+    { x: 440, n: 3, label: "MVP" },
+    { x: 550, n: 5, label: "SCALE" },
+  ];
+  return (
+    <g {...stroke}>
+      <line x1="310" y1="262" x2="630" y2="262" opacity={0.4} />
+      {cols.map((c, ci) => (
+        <g key={c.label}>
+          {Array.from({ length: c.n }).map((_, i) => (
+            <motion.rect
+              key={i}
+              x={c.x}
+              y={244 - i * 40}
+              width="76"
+              height="32"
+              rx="8"
+              strokeDasharray={ci === 0 ? "6 6" : undefined}
+              fill="currentColor"
+              strokeWidth={2}
+              opacity={1}
+              animate={{ fillOpacity: [0.08, 0.08, 0.5, 0.08] }}
+              transition={T(r, { duration: 4.4, delay: ci * 0.5 + i * 0.22, times: [0, 0.1, 0.35, 1] })}
+            />
+          ))}
+          <text x={c.x + 4} y="284" fill="currentColor" stroke="none" fontSize="12" fontWeight="800" opacity={0.85}>
+            {c.label}
+          </text>
+        </g>
+      ))}
+      <motion.path
+        d="M368 224 C 420 150 480 150 520 120 S 590 70 610 40"
+        strokeDasharray="4 7"
+        opacity={0.6}
+        animate={{ pathLength: [0, 1, 1, 0] }}
+        transition={T(r, { duration: 4.4, times: [0, 0.6, 0.9, 1] })}
       />
-    ))}
-    <text x="448" y="262" fill="currentColor" stroke="none" fontSize="12" fontWeight="700" opacity={0.8}>
-      SCALE
-    </text>
-  </g>
-);
+      <motion.circle
+        r="6"
+        fill="currentColor"
+        stroke="none"
+        animate={{ cx: [368, 440, 520, 610], cy: [224, 160, 120, 40], opacity: [0, 1, 1, 0] }}
+        transition={T(r, { duration: 4.4, times: [0, 0.3, 0.6, 0.9] })}
+      />
+    </g>
+  );
+};
 
 /* Graphic Design: type, colour and shape come together into a poster. */
 const Graphic = ({ r }: R) => (
@@ -277,46 +274,83 @@ const Graphic = ({ r }: R) => (
   </g>
 );
 
-/* Motion Graphics: a timeline playhead scrubs while a shape animates; GO! pops. */
-const Motion = ({ r }: R) => (
-  <g {...stroke}>
-    <line x1="120" y1="236" x2="560" y2="236" opacity={0.35} />
-    {[170, 280, 390, 500].map((x) => (
-      <rect key={x} x={x - 6} y="230" width="12" height="12" transform={`rotate(45 ${x} 236)`} fill="currentColor" stroke="none" opacity={0.6} />
-    ))}
-    <motion.line
-      x1="0"
-      x2="0"
-      y1="196"
-      y2="268"
-      strokeWidth={2}
-      animate={{ x: [120, 560, 560, 120] }}
-      transition={T(r, { duration: 5, times: [0, 0.8, 0.9, 1] })}
-    />
-    <motion.circle
-      r="26"
-      fill="currentColor"
-      stroke="none"
-      fillOpacity={0.3}
-      animate={{ cx: [160, 330, 500, 330, 160], cy: [130, 70, 130, 90, 130], scale: [1, 1.3, 0.8, 1.2, 1] }}
-      style={box}
-      transition={T(r, { duration: 5 })}
-    />
-    <motion.text
-      x="296"
-      y="170"
-      fill="currentColor"
-      stroke="none"
-      fontSize="46"
-      fontWeight="900"
-      style={box}
-      animate={{ opacity: [0, 0, 1, 1, 0], scale: [0.6, 0.6, 1.1, 1, 0.8] }}
-      transition={T(r, { duration: 5, times: [0, 0.55, 0.65, 0.85, 1] })}
-    >
-      GO!
-    </motion.text>
-  </g>
-);
+/* Motion Graphics: an editor timeline. The playhead sweeps, each clip lights as it passes, and the preview frame plays a shape. */
+const Motion = ({ r }: R) => {
+  const clips = [
+    { x: 320, w: 100, y: 176 },
+    { x: 436, w: 90, y: 176 },
+    { x: 340, w: 150, y: 204 },
+    { x: 506, w: 100, y: 204 },
+    { x: 322, w: 70, y: 232 },
+    { x: 408, w: 160, y: 232 },
+  ];
+  const D = 4.8;
+  return (
+    <g {...stroke}>
+      {/* Preview frame */}
+      <rect x="372" y="30" width="200" height="118" rx="12" strokeWidth={2} opacity={1} />
+      <motion.circle
+        r="20"
+        fill="currentColor"
+        stroke="none"
+        fillOpacity={0.4}
+        animate={{ cx: [412, 532, 412], cy: [92, 70, 92], scale: [1, 1.35, 1] }}
+        style={box}
+        transition={T(r, { duration: D })}
+      />
+      <motion.path
+        d="M472 118 l18 -30 l18 30 Z"
+        strokeWidth={2}
+        style={box}
+        animate={{ rotate: [0, 120, 240, 360] }}
+        transition={r ? { duration: 0 } : { duration: D, repeat: Infinity, ease: "linear" }}
+      />
+      <motion.text
+        x="450"
+        y="96"
+        fill="currentColor"
+        stroke="none"
+        fontSize="30"
+        fontWeight="900"
+        style={box}
+        animate={{ opacity: [0, 0, 1, 1, 0], scale: [0.7, 0.7, 1.1, 1, 0.9] }}
+        transition={T(r, { duration: D, times: [0, 0.7, 0.78, 0.92, 1] })}
+      >
+        GO!
+      </motion.text>
+
+      {/* Tracks and clips, each lighting as the playhead reaches it */}
+      <line x1="310" y1="166" x2="620" y2="166" opacity={0.3} />
+      {clips.map((c, i) => {
+        const t = Math.min(0.7, (c.x - 310) / 310);
+        return (
+          <motion.rect
+            key={i}
+            x={c.x}
+            y={c.y}
+            width={c.w}
+            height="20"
+            rx="6"
+            fill="currentColor"
+            strokeWidth={2}
+            opacity={1}
+            animate={{ fillOpacity: [0.1, 0.1, 0.6, 0.1, 0.1] }}
+            transition={T(r, { duration: D, times: [0, t, Math.min(0.95, t + 0.06), Math.min(0.98, t + 0.3), 1] })}
+          />
+        );
+      })}
+
+      {/* Playhead */}
+      <motion.g
+        animate={{ x: [0, 296, 296, 0] }}
+        transition={r ? { duration: 0 } : { duration: D, repeat: Infinity, ease: "linear", times: [0, 0.95, 0.97, 1] }}
+      >
+        <line x1="314" y1="158" x2="314" y2="264" strokeWidth={2} />
+        <path d="M306 152 h16 l-8 12 Z" fill="currentColor" stroke="none" />
+      </motion.g>
+    </g>
+  );
+};
 
 /* NextGen Commercials: a vertical frame with fast cuts and a blinking REC. */
 const Ads = ({ r }: R) => (
