@@ -1,216 +1,184 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { Hexagon, Flag, PenTool, Code2, Shield, Rocket } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, useMotionValue, useTransform } from "framer-motion";
 
+// Pinned section: a vertical rail of steps on the left, one large step on the right with a ghost numeral behind it.
 const steps = [
   {
-    num: "1",
+    num: "01",
     title: "Discovery & Alignment",
     description: "Deep value workshops and scope mapping to lock down exact objectives.",
-    icon: Flag,
-    // Desktop positioning
-    left: "10%",
-    top: "62.5%",
-    textPosition: "bottom", // Text below the point
   },
   {
-    num: "2",
+    num: "02",
     title: "Strategy & Architecture",
     description: "Creating custom technical blueprints, API designs, and database structures.",
-    icon: PenTool,
-    left: "30%",
-    top: "37.5%",
-    textPosition: "top", // Text above the point
   },
   {
-    num: "3",
+    num: "03",
     title: "Bespoke Production",
     description: "Rapid, high-fidelity engineering cycles with continuous designer-led reviews.",
-    icon: Code2,
-    left: "50%",
-    top: "62.5%",
-    textPosition: "bottom",
   },
   {
-    num: "4",
+    num: "04",
     title: "Hardening & Auditing",
     description: "Rigid security penetration tests, performance testing, and QA validation.",
-    icon: Shield,
-    left: "70%",
-    top: "37.5%",
-    textPosition: "top",
   },
   {
-    num: "5",
+    num: "05",
     title: "Launch & Scaling",
     description: "Deployment via stable CI/CD pipelines, handover, and real-time monitoring.",
-    icon: Rocket,
-    left: "90%",
-    top: "62.5%",
-    textPosition: "bottom",
-  }
+  },
 ];
 
+const N = steps.length;
+const EASE = [0.22, 1, 0.36, 1] as const;
+
 export const ProcessSection = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(0);
+  const progress = useMotionValue(0);
+  // Rail fill reaches the centre of the active item: (active + 0.5) / N, eased by the live progress.
+  const fill = useTransform(progress, (p) => Math.min(1, Math.max(0.06, (Math.min(N - 1, Math.floor(p * N)) + 0.5) / N)));
+
+  // Progress is measured from the live rect (not offsetHeight) so the site's html zoom cannot skew it.
+  useEffect(() => {
+    const update = () => {
+      const el = ref.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const total = rect.height - window.innerHeight;
+      const p = Math.min(1, Math.max(0, -rect.top / total));
+      progress.set(p);
+      setActive(Math.min(N - 1, Math.floor(p * N)));
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [progress]);
+
+  const step = steps[active];
+
   return (
-    <section id="process" className="py-24 md:py-32 bg-[#0a0f1d] relative overflow-hidden font-sans">
-      
-      {/* Background ambient glows */}
-      <div className="absolute top-0 left-[20%] w-[500px] h-[500px] bg-[#3275F8]/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-[20%] w-[600px] h-[600px] bg-[#3275F8]/5 rounded-full blur-[150px] pointer-events-none" />
+    <section className="bg-black relative font-sans">
+      {/* ~80vh of scroll per step plus the pinned screen; cancels the site's html zoom so the length is the same everywhere. */}
+      <div ref={ref} style={{ height: `calc(${N * 80 + 100}vh / var(--page-zoom, 1))` }} className="relative">
+        <div
+          className="sticky top-0 h-screen overflow-hidden bg-black"
+          style={{ zoom: "calc(1 / var(--page-zoom, 1))" }}
+        >
+          <div className="absolute -top-40 left-[15%] w-[620px] h-[620px] rounded-full bg-[#2563eb]/10 blur-[140px] pointer-events-none" />
+          <div className="absolute -bottom-52 right-[8%] w-[700px] h-[700px] rounded-full bg-[#22d3ee]/[0.06] blur-[160px] pointer-events-none" />
 
-      <div className="max-w-[1240px] mx-auto px-6 md:px-12 relative z-10">
-        
-        {/* Header Section */}
-        <div className="max-w-3xl mb-24 md:mb-32">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-3xl md:text-5xl lg:text-[52px] font-medium tracking-tight text-white/90 leading-[1.2]"
-          >
-            Our formula for <span className="text-[#3275F8]">predictable scale.</span>
-          </motion.h2>
-        </div>
+          {/* Eyebrow */}
+          <div className="absolute top-24 md:top-28 left-6 md:left-14 flex items-center gap-3 text-[11px] md:text-xs tracking-[0.28em] uppercase text-white/70 font-medium z-10">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] shadow-[0_0_10px_#3b82f6]" />
+            Our formula for predictable scale
+          </div>
 
-        {/* Desktop Layout (Horizontal Wavy Timeline) */}
-        <div className="hidden md:block relative w-full h-[400px]">
-          
-          {/* SVG Wavy Line */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1200 400" preserveAspectRatio="none">
-            {/* Glowing animated line on top */}
-            <motion.path
-              d="M -50,200 C 50,200 50,250 150,250 C 250,250 350,150 450,150 C 550,150 650,250 750,250 C 850,250 950,150 1050,150 C 1150,150 1150,200 1250,200"
-              fill="none"
-              stroke="#3275F8" 
-              strokeWidth="2.5"
-              initial={{ pathLength: 0, opacity: 0 }}
-              whileInView={{ pathLength: 1, opacity: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 2.5, ease: "easeInOut" }}
-              style={{ filter: "drop-shadow(0 0 8px rgba(50,117,248,0.6))" }}
-            />
-          </svg>
-
-          {/* Steps */}
-          {steps.map((step, idx) => (
-            <div 
-              key={step.num}
-              className="absolute transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
-              style={{ left: step.left, top: step.top }}
-            >
-              {/* Giant faded background number */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: 0.2 + idx * 0.2 }}
-                className="absolute text-[160px] font-bold text-white/[0.08] -z-10 select-none pointer-events-none"
-                style={{
-                  top: step.textPosition === 'top' ? '-50px' : '-30px',
-                  left: '50%',
-                  transform: 'translateX(-50%)'
-                }}
-              >
-                {step.num}
-              </motion.div>
-
-              {/* Text Content */}
-              <motion.div 
-                initial={{ opacity: 0, y: step.textPosition === 'top' ? 20 : -20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 + idx * 0.2 }}
-                className={`absolute w-[240px] ${step.textPosition === 'top' ? 'bottom-[60px]' : 'top-[60px]'} left-1/2 -translate-x-1/2 text-center`}
-              >
-                <h3 className="text-xl font-semibold text-white mb-3 tracking-wide">{step.title}</h3>
-                <p className="text-sm text-neutral-400 leading-relaxed font-light">{step.description}</p>
-              </motion.div>
-
-              {/* Hexagon Icon */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 + idx * 0.2, type: "spring", stiffness: 200 }}
-                className="relative z-10 flex items-center justify-center w-14 h-14"
-              >
-                {/* Hexagon SVG background */}
-                <svg className="absolute inset-0 w-full h-full text-[#0a0f1d] drop-shadow-[0_0_12px_rgba(50,117,248,0.5)]" viewBox="0 0 100 100">
-                  <polygon 
-                    points="50 3, 93 25, 93 75, 50 97, 7 75, 7 25" 
-                    fill="currentColor"
-                    stroke="#3275F8"
-                    strokeWidth="2"
+          {/* Phone: a horizontal step bar replaces the vertical rail so the stage can use the full height */}
+          <div className="md:hidden absolute top-[150px] left-6 right-6 flex gap-2 z-10" aria-hidden>
+            {steps.map((s, i) => (
+              <div key={s.num} className="flex-1">
+                <div className="relative h-[2px] rounded bg-white/15 overflow-hidden">
+                  <motion.div
+                    className="absolute inset-0 origin-left bg-[#3b82f6] shadow-[0_0_10px_rgba(59,130,246,0.8)]"
+                    animate={{ scaleX: i <= active ? 1 : 0 }}
+                    transition={{ duration: 0.5, ease: EASE }}
                   />
-                </svg>
-                {/* Inner Icon */}
-                <step.icon className="w-5 h-5 text-[#3275F8] relative z-10" />
-              </motion.div>
-            </div>
-          ))}
-
-          {/* Large faded "51" or extra element as in reference (optional aesthetic) */}
-          <motion.div
-             initial={{ opacity: 0 }}
-             whileInView={{ opacity: 1 }}
-             viewport={{ once: true }}
-             transition={{ duration: 2 }}
-             className="absolute -right-8 top-0 text-[100px] font-bold text-white/[0.03] select-none pointer-events-none"
-          >
-            51
-          </motion.div>
-        </div>
-
-        {/* Mobile Layout (Vertical Stack) */}
-        <div className="md:hidden flex flex-col gap-16 relative mt-12">
-          
-          {/* Vertical line */}
-          <div className="absolute left-[27px] top-4 bottom-4 w-[2px] bg-gradient-to-b from-[#3275F8] via-[#1e3a8a] to-transparent rounded-full" />
-          
-          {steps.map((step, idx) => (
-            <div key={step.num} className="flex gap-8 relative z-10">
-              
-              {/* Hexagon Icon */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1, type: "spring", stiffness: 200 }}
-                className="relative z-10 flex items-center justify-center w-14 h-14 shrink-0"
-              >
-                <svg className="absolute inset-0 w-full h-full text-[#0a0f1d] drop-shadow-[0_0_12px_rgba(50,117,248,0.5)]" viewBox="0 0 100 100">
-                  <polygon 
-                    points="50 3, 93 25, 93 75, 50 97, 7 75, 7 25" 
-                    fill="currentColor"
-                    stroke="#3275F8"
-                    strokeWidth="2"
-                  />
-                </svg>
-                <step.icon className="w-5 h-5 text-[#3275F8] relative z-10" />
-              </motion.div>
-
-              {/* Text Content */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="pt-1"
-              >
-                <div className="flex items-baseline gap-3 mb-2">
-                  <span className="text-3xl font-bold text-white/[0.15]">{step.num}</span>
-                  <h3 className="text-xl font-semibold text-white tracking-wide">{step.title}</h3>
                 </div>
-                <p className="text-sm text-neutral-400 leading-relaxed font-light">{step.description}</p>
-              </motion.div>
-            </div>
-          ))}
-        </div>
+                <span
+                  className={`mt-2 block text-[10px] tracking-[0.18em] transition-colors duration-500 ${
+                    i === active ? "text-[#3b82f6]" : "text-white/35"
+                  }`}
+                >
+                  {s.num}
+                </span>
+              </div>
+            ))}
+          </div>
 
+          {/* Phone: what comes next, so the bottom of the screen is never empty */}
+          {active < N - 1 && (
+            <div className="md:hidden absolute bottom-28 left-6 z-10 text-[11px] tracking-[0.18em] uppercase text-white/45">
+              Next
+              <span className="block mt-1 text-sm tracking-tight normal-case font-semibold text-white/75">
+                {steps[active + 1].num} {steps[active + 1].title.split(" & ")[0]}
+              </span>
+            </div>
+          )}
+
+          <div className="relative h-full max-w-[1400px] mx-auto px-6 md:px-14 flex flex-col justify-center pt-44 pb-32 md:pt-0 md:pb-0 md:grid md:grid-cols-[300px_1fr] md:items-center gap-5 md:gap-16">
+            {/* Rail */}
+            <nav aria-label="Process steps" className="relative hidden md:flex gap-5">
+              <div className="relative w-px bg-white/12 self-stretch my-1">
+                <motion.div
+                  style={{ scaleY: fill }}
+                  className="absolute inset-x-0 top-0 bottom-0 origin-top bg-[#3b82f6] shadow-[0_0_12px_rgba(59,130,246,0.8)]"
+                />
+              </div>
+              <ol className="flex flex-col gap-6 md:gap-9 py-2">
+                {steps.map((s, i) => {
+                  const on = i === active;
+                  return (
+                    <li key={s.num} className="flex items-baseline gap-3 md:gap-4">
+                      <span
+                        className={`text-[10px] md:text-xs tracking-[0.18em] transition-colors duration-500 ${
+                          on ? "text-[#3b82f6]" : "text-white/35"
+                        }`}
+                      >
+                        {s.num}
+                      </span>
+                      <span
+                        className={`text-[13px] md:text-[26px] leading-tight font-bold tracking-tight transition-all duration-500 ${
+                          on ? "text-white" : "text-white/40"
+                        }`}
+                      >
+                        {s.title.split(" & ")[0]}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ol>
+            </nav>
+
+            {/* Stage */}
+            <div className="relative flex-1 md:flex-none md:min-h-[320px] flex items-center">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={step.num}
+                  initial={{ opacity: 0, y: 28 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.55, ease: EASE }}
+                  className="relative w-full"
+                >
+                  {/* Ghost numeral */}
+                  <span
+                    aria-hidden
+                    className="absolute right-0 top-1/2 -translate-y-1/2 -z-0 select-none pointer-events-none text-[clamp(340px,100vw,420px)] md:text-[clamp(150px,30vw,440px)] leading-none font-extrabold tracking-tighter text-white/[0.055] -right-4 md:right-0"
+                  >
+                    {step.num}
+                  </span>
+                  <h3 className="relative text-[clamp(48px,15.5vw,62px)] md:text-[clamp(34px,6.6vw,104px)] leading-[0.98] tracking-[-0.035em] font-extrabold text-white">
+                    {step.title.split(" & ")[0]}
+                    {step.title.includes(" & ") && (
+                      <span className="block text-white/55 text-[0.64em] md:text-[1em] leading-[1.1] md:leading-[0.98] mt-1 md:mt-0">& {step.title.split(" & ")[1]}</span>
+                    )}
+                  </h3>
+                  <p className="relative mt-6 md:mt-8 max-w-[28ch] md:max-w-[44ch] text-[19px] md:text-xl leading-relaxed text-white/75 font-light">
+                    {step.description}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
