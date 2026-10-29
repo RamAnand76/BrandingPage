@@ -6,10 +6,8 @@ import { CustomBackground } from "./hero/CustomBackground";
 import { Wordmark } from "./hero/Wordmark";
 import { HeroDescription } from "./hero/HeroDescription";
 import { HeroActions } from "./hero/HeroActions";
-import { TeamBadge } from "./hero/TeamBadge";
 import { Signature } from "./hero/Signature";
 import { BottomCategories } from "./hero/BottomCategories";
-import { HeroFooterElements } from "./hero/HeroFooterElements";
 import { useState } from "react";
 import { MobileMenuModal } from "../MobileMenuModal";
 import { Menu } from "lucide-react";
@@ -23,8 +21,6 @@ export const HeroSection = () => {
             <CustomBackground />
 
             <MobileMenuModal isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
-
-            <HeroFooterElements onMenuClick={() => setIsMobileMenuOpen(true)} />
 
             {/* ── Fixed hamburger button overlay (mobile only) ── */}
             <motion.button
@@ -46,18 +42,14 @@ export const HeroSection = () => {
 
                         {/* Top Label */}
                         <div className="flex items-center gap-2 text-[10px] md:text-[11px] tracking-[0.2em] text-white/50 uppercase font-normal mb-4">
-                            (EST. <span className="text-[#3275F8]">2025</span> — VERSION <span className="text-[#00FF66]">1.0.0</span>)
+                            (EST. <span className="text-[#3275F8]">2026</span> — VERSION <span className="text-[#00FF66]">1.0.0</span>)
                         </div>
 
                         {/* Wordmark */}
                         <Wordmark />
 
-                        {/* Middle Section: Description & Team Badge */}
-                        <div className="mt-4 md:mt-8 flex flex-col md:flex-row justify-between items-start md:items-center w-full relative z-20">
+                        <div className="mt-4 md:mt-8 w-full relative z-20">
                             <HeroDescription />
-                            <div className="mt-6 md:mt-0 md:absolute md:left-1/2 md:-translate-x-[20%]">
-                                <TeamBadge />
-                            </div>
                         </div>
 
                         <HeroActions />
@@ -65,10 +57,6 @@ export const HeroSection = () => {
                         {/* Bottom Categories */}
                         <BottomCategories />
 
-                        {/* Mobile Footer Info (inside the frame) */}
-                        <div className="flex md:hidden items-center w-full mt-10 text-[9px] font-semibold tracking-widest text-white/60">
-                            <span><span className="text-[#00FF66]">AVAILABLE</span> NOW</span>
-                        </div>
                     </div>
                     <Signature />
                 </HeroFrame>

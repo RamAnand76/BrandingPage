@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 
 export type TransitionType =
@@ -141,6 +142,22 @@ export const PageTransition: React.FC<PageTransitionProps> = ({
             className="relative h-full flex-1 bg-[#050505] border-r border-white/10 last:border-r-0"
           />
         ))}
+        {/* Logo + wordmark, side by side, once the stairs have covered the page */}
+        <motion.div
+          className="absolute inset-0 flex items-center justify-center gap-3 md:gap-5"
+          variants={{
+            initial: { opacity: 0, scale: 0.94 },
+            enter: { opacity: 1, scale: 1, transition: { duration: 0.45, delay: 0.55, ease: [0.22, 1, 0.36, 1] } },
+            exit: { opacity: 0, scale: 1.04, transition: { duration: 0.3 } },
+          }}
+        >
+          <div className="relative w-10 h-10 md:w-14 md:h-14">
+            <Image src="/lovable-uploads/logo.png" alt="" fill className="object-contain" />
+          </div>
+          <div className="relative h-7 w-[120px] md:h-11 md:w-[196px]">
+            <Image src="/text-white.png" alt="Rhevez" fill className="object-contain object-left" />
+          </div>
+        </motion.div>
       </motion.div>
     );
   }
