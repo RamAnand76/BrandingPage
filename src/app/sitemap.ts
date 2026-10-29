@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { caseStudies } from '@/lib/caseStudies';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://rhevez.com';
@@ -16,6 +17,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/case-studies`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    ...caseStudies.map((c) => ({
+      url: `${baseUrl}/case-studies/${c.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    })),
     {
       url: `${baseUrl}/our-works/rhevez-os`,
       lastModified: new Date(),

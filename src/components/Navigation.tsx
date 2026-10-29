@@ -67,6 +67,8 @@ const Navigation = () => {
             <div className="hidden lg:flex items-center gap-5 text-[13px] tracking-[0.05em] font-semibold uppercase text-white/90">
               <Link href="/our-works" className="hover:text-white transition-colors">WORKS</Link>
               <span className="text-white/20">/</span>
+              <Link href="/case-studies" className="hover:text-white transition-colors">CASE STUDIES</Link>
+              <span className="text-white/20">/</span>
               <Link href="/#features" className="hover:text-white transition-colors">SERVICES</Link>
               <span className="text-white/20">/</span>
               <Link href="/about" className="hover:text-white transition-colors">ABOUT</Link>
@@ -111,6 +113,7 @@ const Navigation = () => {
               {/* Nav Links */}
               <div className="hidden sm:flex items-center gap-5 text-[10px] tracking-[0.12em] font-semibold uppercase text-white/70">
                 <Link href="/our-works" className="hover:text-white transition-colors">WORKS</Link>
+                <Link href="/case-studies" className="hover:text-white transition-colors">CASE STUDIES</Link>
                 <Link href="/#features" className="hover:text-white transition-colors">SERVICES</Link>
                 <Link href="/about" className="hover:text-white transition-colors">ABOUT</Link>
               </div>
