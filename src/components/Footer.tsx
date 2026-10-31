@@ -50,7 +50,7 @@ const Footer = () => {
               }}
             />
 
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-medium text-white tracking-tight relative z-10 mb-5 max-w-[750px] leading-[1.15] md:leading-[1.12]">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-[-0.035em] relative z-10 mb-5 max-w-[750px] leading-[1.15] md:leading-[1.12]">
               Ready to take your product<br />to the next level?
             </h2>
 

@@ -6,7 +6,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useContactModal } from "@/context/ContactModalContext";
-import { GlassFold } from "@/components/ui/glass-fold";
+import dynamic from "next/dynamic";
+const GlassFold = dynamic(() => import("@/components/ui/glass-fold").then((m) => m.GlassFold), { ssr: false });
 import type { CaseStudy } from "@/lib/caseStudies";
 
 // The same five-step formula used on the home page. It describes how we work, not a claim about this one project.

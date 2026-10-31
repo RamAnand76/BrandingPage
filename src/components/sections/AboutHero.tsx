@@ -4,7 +4,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { Zap, Lock, ShieldCheck, PenTool, Users, TrendingUp } from "lucide-react";
 import { motion, useInView } from "framer-motion";
-import GradientBlinds from "@/components/ui/GradientBlinds";
+import dynamic from "next/dynamic";
+const GradientBlinds = dynamic(() => import("@/components/ui/GradientBlinds"), { ssr: false });
 
 // Existing copy from the About page; nothing new is claimed here.
 const STATEMENT =

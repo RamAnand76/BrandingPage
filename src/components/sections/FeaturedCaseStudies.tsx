@@ -39,7 +39,7 @@ export const FeaturedCaseStudies = () => (
           >
             <Link
               href={`/case-studies/${c.slug}`}
-              className="group block overflow-hidden rounded-[20px] border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-3 hover:border-[#3b82f6]/40 transition-colors duration-500"
+              className="group block overflow-hidden rounded-[20px] outline-none focus-visible:ring-2 focus-visible:ring-[#3b82f6] border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-3 hover:border-[#3b82f6]/40 transition-colors duration-500"
             >
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-[#0a0a0a]">
                 <Image

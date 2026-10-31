@@ -1,6 +1,7 @@
 "use client";
 
-import { GlassFold } from "@/components/ui/glass-fold";
+import dynamic from "next/dynamic";
+const GlassFold = dynamic(() => import("@/components/ui/glass-fold").then((m) => m.GlassFold), { ssr: false });
 
 export const CustomBackground = () => {
   return (

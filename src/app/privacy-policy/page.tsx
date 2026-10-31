@@ -59,7 +59,7 @@ const PrivacyPolicyPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#3275F8] to-white"
+            className="text-[clamp(34px,6vw,76px)] leading-[1.02] tracking-[-0.035em] font-extrabold mb-4 text-white"
         >
             Privacy Policy
         </motion.h1>
@@ -69,7 +69,7 @@ const PrivacyPolicyPage = () => {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-muted-foreground text-lg"
         >
-            Last updated: {new Date().toLocaleDateString()}
+            Last updated: 31 October 2026
         </motion.p>
       </header>
       <main className="container mx-auto px-4 pb-20">

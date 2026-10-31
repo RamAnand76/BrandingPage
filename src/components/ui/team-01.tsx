@@ -53,8 +53,8 @@ const Team = ({ badge, title, members }: { badge: string; title: string; members
             <Image
               src={m.image}
               alt={m.name}
-              width={900}
-              height={1125}
+              width={600}
+              height={750}
               unoptimized
               className="h-auto w-full transition-all duration-300 group-hover:grayscale"
             />
@@ -69,7 +69,7 @@ const Team = ({ badge, title, members }: { badge: string; title: string; members
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${m.name} on LinkedIn`}
-                  className="rounded-full border border-white/15 p-2 text-white/80 hover:border-[#3b82f6]/60 hover:text-white transition-colors"
+                  className="rounded-full border border-white/15 p-2 text-white/80 hover:border-[#3b82f6]/60 hover:text-white transition-colors outline-none focus-visible:ring-2 focus-visible:ring-[#3b82f6]"
                 >
                   <LinkedinIcon size={16} />
                 </a>

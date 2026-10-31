@@ -4,7 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { motion, MotionValue, useMotionValue, useTransform } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useContactModal } from "@/context/ContactModalContext";
-import { GlassFold } from "@/components/ui/glass-fold";
+import dynamic from "next/dynamic";
+const GlassFold = dynamic(() => import("@/components/ui/glass-fold").then((m) => m.GlassFold), { ssr: false });
 import { ZoomLayer } from "@/components/ui/zoom-parallax";
 
 // Zoom-parallax project wall that dissolves into a scroll-lit manifesto.

@@ -108,7 +108,7 @@ export default function CareersPage() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-medium tracking-tight text-white select-none leading-none"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-[-0.045em] text-white select-none leading-none"
           >
             Join Our Team
           </motion.h1>
