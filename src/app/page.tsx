@@ -1,18 +1,19 @@
-"use client";
 import React from "react";
+import dynamic from "next/dynamic";
 import Navigation from "@/components/Navigation";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import Footer from "@/components/Footer";
-
-import { ExpertServices } from "@/components/sections/ExpertServices";
-import { HowWeWork } from "@/components/sections/HowWeWork";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { WhatWeDoSection } from "@/components/sections/WhatWeDoSection";
-import { SelectedWork } from "@/components/sections/SelectedWork";
-import { PricingSection } from "@/components/pricing/PricingSection";
-import { ProcessSection } from "@/components/sections/ProcessSection";
-import { FeaturedCaseStudies } from "@/components/sections/FeaturedCaseStudies";
-import { FaqSection } from "@/components/sections/FaqSection";
+
+// Everything below the hero is split into its own chunk (still server-rendered, so the HTML keeps the content),
+// which keeps the first JavaScript the browser must run down to the nav and hero.
+const SelectedWork = dynamic(() => import("@/components/sections/SelectedWork").then((m) => m.SelectedWork));
+const ExpertServices = dynamic(() => import("@/components/sections/ExpertServices").then((m) => m.ExpertServices));
+const HowWeWork = dynamic(() => import("@/components/sections/HowWeWork").then((m) => m.HowWeWork));
+const WhatWeDoSection = dynamic(() => import("@/components/sections/WhatWeDoSection").then((m) => m.WhatWeDoSection));
+const ProcessSection = dynamic(() => import("@/components/sections/ProcessSection").then((m) => m.ProcessSection));
+const FeaturedCaseStudies = dynamic(() => import("@/components/sections/FeaturedCaseStudies").then((m) => m.FeaturedCaseStudies));
+const FaqSection = dynamic(() => import("@/components/sections/FaqSection").then((m) => m.FaqSection));
+const PricingSection = dynamic(() => import("@/components/pricing/PricingSection").then((m) => m.PricingSection));
+const Footer = dynamic(() => import("@/components/Footer"));
 
 const Index = () => {
   const showPricing = process.env.NEXT_PUBLIC_SHOW_PRICING === 'true';
@@ -51,13 +52,6 @@ const Index = () => {
       <div id="process" className="bg-black">
         <ProcessSection />
       </div>
-
-      {/* Testimonials Section — temporarily hidden */}
-      {false && (
-        <div className="bg-black">
-          <TestimonialsSection />
-        </div>
-      )}
 
       <FeaturedCaseStudies />
 
