@@ -11,6 +11,7 @@ import { WhatWeDoSection } from "@/components/sections/WhatWeDoSection";
 import { SelectedWork } from "@/components/sections/SelectedWork";
 import { PricingSection } from "@/components/pricing/PricingSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
+import { FeaturedCaseStudies } from "@/components/sections/FeaturedCaseStudies";
 import { FaqSection } from "@/components/sections/FaqSection";
 
 const Index = () => {
@@ -57,6 +58,8 @@ const Index = () => {
           <TestimonialsSection />
         </div>
       )}
+
+      <FeaturedCaseStudies />
 
       {/* Faq Section */}
       <div id="faq" className="bg-black">
