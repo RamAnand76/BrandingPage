@@ -158,6 +158,7 @@ export const AboutHero = () => {
             spotlightRadius={0.45}
             spotlightOpacity={0.9}
             mouseDampening={0.2}
+            dpr={1}
             distortAmount={0}
           />
           </div>
@@ -218,7 +219,7 @@ export const AboutHero = () => {
           <Eyebrow>Our approach</Eyebrow>
           <p className="mt-5 text-[clamp(28px,4.4vw,60px)] font-semibold tracking-[-0.03em] leading-[1.12]" aria-label={STATEMENT}>
             {words.map((w, i) => (
-              <span key={i} aria-hidden className={`transition-colors duration-500 ${i < lit ? "text-white" : "text-white/15"}`}>
+              <span key={i} aria-hidden className={`transition-colors duration-500 ${i < lit ? "text-white" : "text-white/25"}`}>
                 {w}{" "}
               </span>
             ))}

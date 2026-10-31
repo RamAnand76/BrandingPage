@@ -1,85 +1,116 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShieldAlert, X } from "lucide-react";
+import { X } from "lucide-react";
+
+// Small orbiting mark: a ring, a core and one dot circling it, with a slow pulse.
+const OrbitMark = () => (
+  <div aria-hidden className="relative h-11 w-11 shrink-0">
+    <motion.span
+      className="absolute inset-0 rounded-full border border-[#3b82f6]/50"
+      animate={{ scale: [1, 1.5], opacity: [0.6, 0] }}
+      transition={{ duration: 2.8, repeat: Infinity, ease: "easeOut" }}
+    />
+    <span className="absolute inset-0 rounded-full border border-white/15 bg-white/[0.04]" />
+    <span className="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#3b82f6] shadow-[0_0_12px_#3b82f6]" />
+    <motion.span
+      className="absolute inset-0"
+      animate={{ rotate: 360 }}
+      transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+    >
+      <span className="absolute left-1/2 top-0 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#22d3ee] shadow-[0_0_8px_#22d3ee]" />
+    </motion.span>
+  </div>
+);
 
 export const CookieConsent = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Check if the user has already made a choice
     const consent = localStorage.getItem("cookie-consent");
     if (!consent) {
-      // Show banner after 2 seconds
-      const timer = setTimeout(() => {
-        setIsVisible(true);
-      }, 2000);
+      const timer = setTimeout(() => setIsVisible(true), 2000);
       return () => clearTimeout(timer);
     }
   }, []);
 
-  const handleAcceptAll = () => {
-    localStorage.setItem("cookie-consent", "accepted");
-    setIsVisible(false);
-  };
-
-  const handleDecline = () => {
-    localStorage.setItem("cookie-consent", "declined");
+  const choose = (value: "accepted" | "declined") => {
+    localStorage.setItem("cookie-consent", value);
     setIsVisible(false);
   };
 
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.div
-          initial={{ opacity: 0, y: 100, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 50, scale: 0.95 }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed bottom-6 left-6 right-6 md:left-auto md:right-8 md:max-w-md z-50"
+        <motion.section
+          role="region"
+          aria-label="Cookie notice"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 24 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="fixed bottom-24 left-4 right-4 z-50 md:bottom-8 md:left-auto md:right-8 md:max-w-[400px]"
         >
-          <div className="bg-black/80 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-[0_15px_50px_rgba(0,0,0,0.8)] relative text-white">
-            
-            {/* Close Button */}
-            <button 
-              onClick={handleDecline}
+          <div className="relative overflow-hidden rounded-[22px] border border-white/10 bg-[#07070b]/90 p-6 text-white shadow-[0_24px_70px_rgba(0,0,0,0.75)] backdrop-blur-xl">
+            {/* drifting dot grid, fading toward the left */}
+            <motion.div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 opacity-[0.16] [background-image:radial-gradient(rgba(255,255,255,0.9)_1px,transparent_1px)] [background-size:18px_18px] [mask-image:linear-gradient(to_left,black,transparent_65%)]"
+              animate={{ backgroundPosition: ["0px 0px", "18px 18px"] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            />
+            <div aria-hidden className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#2563eb]/25 blur-3xl" />
+            {/* light sweeping along the top edge */}
+            <motion.span
+              aria-hidden
+              className="pointer-events-none absolute left-0 top-0 h-px w-1/3 bg-gradient-to-r from-transparent via-[#60a5fa] to-transparent"
+              animate={{ x: ["-100%", "320%"] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", repeatDelay: 1 }}
+            />
+
+            <button
+              onClick={() => choose("declined")}
               aria-label="Close cookie notice"
-              className="absolute top-4 right-4 text-neutral-400 hover:text-white transition-colors"
+              className="absolute right-4 top-4 rounded-full p-1 text-white/45 outline-none transition-colors hover:text-white focus-visible:ring-2 focus-visible:ring-[#3b82f6]"
             >
-              <X className="w-4 h-4" />
+              <X className="h-4 w-4" />
             </button>
 
-            <div className="flex items-start gap-4">
-              <div className="p-2.5 bg-blue-500/10 rounded-xl shrink-0 text-[#3275F8]">
-                <ShieldAlert className="w-5 h-5" />
-              </div>
-              
-              <div className="flex flex-col gap-2">
-                <h4 className="text-sm font-semibold tracking-wide">Cookie & Privacy Policy</h4>
-                <p className="text-xs text-neutral-400 leading-relaxed font-light">
-                  We use cookies and telemetry identifiers to enhance site security, analyze traffic performance, and feed our generative optimization patterns. By clicking &quot;Accept All&quot;, you consent to our data policy.
+            <div className="relative flex items-start gap-4">
+              <OrbitMark />
+              <div className="pr-6">
+                <span className="text-[11px] uppercase tracking-[0.28em] text-white/55">Cookies &amp; privacy</span>
+                <p className="mt-2 text-[15px] font-semibold leading-snug tracking-tight">
+                  We use cookies to keep the site secure and to understand how it&apos;s used.
+                </p>
+                <p className="mt-2 text-[13px] leading-relaxed text-white/55">
+                  Accept to allow them, or decline and carry on. Details in our{" "}
+                  <Link href="/privacy-policy" className="text-white/80 underline underline-offset-4 hover:text-white">
+                    Privacy Policy
+                  </Link>
+                  .
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-3 mt-6 border-t border-white/5 pt-4">
+            <div className="relative mt-6 flex items-center justify-end gap-2">
               <button
-                onClick={handleDecline}
-                className="px-4 py-2 rounded-lg text-xs font-medium text-neutral-400 hover:text-white transition-colors uppercase tracking-wider"
+                onClick={() => choose("declined")}
+                className="rounded-full px-5 py-2.5 text-[13px] font-medium text-white/65 outline-none transition-colors hover:text-white focus-visible:ring-2 focus-visible:ring-[#3b82f6]"
               >
                 Decline
               </button>
               <button
-                onClick={handleAcceptAll}
-                className="px-5 py-2.5 rounded-lg bg-white hover:bg-neutral-200 text-black text-xs font-semibold transition-all hover:scale-[1.01] uppercase tracking-wider"
+                onClick={() => choose("accepted")}
+                className="rounded-full bg-white px-6 py-2.5 text-[13px] font-semibold text-black outline-none transition-colors hover:bg-neutral-200 focus-visible:ring-2 focus-visible:ring-[#3b82f6] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
               >
-                Accept All
+                Accept all
               </button>
             </div>
-
           </div>
-        </motion.div>
+        </motion.section>
       )}
     </AnimatePresence>
   );

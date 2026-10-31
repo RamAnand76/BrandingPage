@@ -8,7 +8,7 @@ const people = [
   { name: "Thejas", role: "COO", partner: false, image: "/team/thejas.webp", linkedin: "https://www.linkedin.com/in/thejas-somarajan/" },
   { name: "Jithu Francis", role: "CTO", partner: false, image: "/team/jithu.webp", linkedin: "https://www.linkedin.com/in/jithu-francis-958aa81a0/" },
   { name: "Kesavadas", role: "CAIO", partner: false, image: "/team/kesavadas.webp", linkedin: "https://www.linkedin.com/in/kesavadas3/" },
-  { name: "Kiran Rajeev", role: "CQO", partner: false, image: "/team/kiran.webp", linkedin: "https://www.linkedin.com/in/kiran-rajeev-1o" },
+  { name: "Kiran Rajeev", role: "CQO", partner: false, image: "/team/kiran.webp", linkedin: "https://www.linkedin.com/in/kiran-rajeev-1o/" },
   { name: "B. VishnuNarayanan", role: "Partner", partner: true, image: "/team/vishnu.webp", linkedin: "https://www.linkedin.com/in/vishnu-narayanan-b-643aa7202/" },
   { name: "Arjun Kumar VS", role: "Partner", partner: true, image: "/team/arjun.webp", linkedin: "https://www.linkedin.com/in/arjun-kumar-v-s/" },
 ];

@@ -3,7 +3,9 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { GlassIconReveal } from "@/components/ui/liquid-glass-logo-reveal";
+import dynamic from "next/dynamic";
+
+const GlassIconReveal = dynamic(() => import("@/components/ui/liquid-glass-logo-reveal").then((m) => m.GlassIconReveal), { ssr: false });
 
 const SEEN_KEY = "rhevez-preloader-seen";
 // The glass reveal runs present (1.5s) + tail (1.1s) = 2.6s; the extra beat lets the finished mark breathe.
