@@ -81,7 +81,9 @@ const AboutSection = () => {
               <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] shadow-[0_0_10px_#3b82f6]" />
               Vision
             </span>
-            <p
+            {/* div, not p: AiStreamingText renders a div, which is invalid inside a paragraph */}
+            <div
+              role="paragraph"
               className="relative mt-16 text-[clamp(24px,2.6vw,36px)] font-semibold leading-[1.18] tracking-[-0.025em] text-white"
               aria-label={VISION_LEAD + VISION_REST}
             >
@@ -100,7 +102,7 @@ const AboutSection = () => {
                   </span>
                 )}
               </span>
-            </p>
+            </div>
           </article>
           <article
             onMouseMove={track}
