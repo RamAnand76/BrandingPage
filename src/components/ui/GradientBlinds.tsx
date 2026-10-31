@@ -270,7 +270,8 @@ void main() {
     meshRef.current = mesh;
 
     const resize = () => {
-      const rect = container.getBoundingClientRect();
+      // offset* are layout px; getBoundingClientRect is scaled by the site's html zoom, which shrank the canvas.
+      const rect = { width: container.offsetWidth, height: container.offsetHeight };
       renderer.setSize(rect.width, rect.height);
       uniforms.iResolution.value = [gl.drawingBufferWidth, gl.drawingBufferHeight, 1];
 
@@ -299,8 +300,9 @@ void main() {
     const onPointerMove = (e: PointerEvent) => {
       const rect = canvas.getBoundingClientRect();
       const scale = (renderer as unknown as { dpr?: number }).dpr || 1;
-      const x = (e.clientX - rect.left) * scale;
-      const y = (rect.height - (e.clientY - rect.top)) * scale;
+      const z = rect.width / (canvas.offsetWidth || rect.width) || 1; // html zoom factor
+      const x = ((e.clientX - rect.left) / z) * scale;
+      const y = ((rect.height - (e.clientY - rect.top)) / z) * scale;
       mouseTargetRef.current = [x, y];
       if (mouseDampening <= 0) {
         uniforms.iMouse.value = [x, y];

@@ -31,9 +31,9 @@ export const MobileMenuModal = ({ isOpen, setIsOpen }: MobileMenuModalProps) => 
                 <nav className="flex flex-col gap-4">
                   <Link href="/" onClick={() => setIsOpen(false)} className="text-xl font-medium text-white hover:text-[#3275F8] transition-colors">Home</Link>
                   <Link href="/our-works" onClick={() => setIsOpen(false)} className="text-xl font-medium text-white hover:text-[#3275F8] transition-colors">Works</Link>
+                  <Link href="/case-studies" onClick={() => setIsOpen(false)} className="text-xl font-medium text-white hover:text-[#3275F8] transition-colors">Case Studies</Link>
+                  <Link href="/#features" onClick={() => setIsOpen(false)} className="text-xl font-medium text-white hover:text-[#3275F8] transition-colors">Services</Link>
                   <Link href="/about" onClick={() => setIsOpen(false)} className="text-xl font-medium text-white hover:text-[#3275F8] transition-colors">About</Link>
-                  <Link href="/blog" onClick={() => setIsOpen(false)} className="text-xl font-medium text-white hover:text-[#3275F8] transition-colors">Blog</Link>
-                  <Link href="/contact" onClick={() => setIsOpen(false)} className="text-xl font-medium text-white hover:text-[#3275F8] transition-colors">Contact</Link>
                 </nav>
               </div>
 

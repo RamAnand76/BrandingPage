@@ -8,31 +8,11 @@ import { HeroDescription } from "./hero/HeroDescription";
 import { HeroActions } from "./hero/HeroActions";
 import { Signature } from "./hero/Signature";
 import { BottomCategories } from "./hero/BottomCategories";
-import { useState } from "react";
-import { MobileMenuModal } from "../MobileMenuModal";
-import { Menu } from "lucide-react";
-import { motion } from "framer-motion";
 
 export const HeroSection = () => {
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
     return (
         <section className="relative w-full h-screen min-h-[100svh] md:min-h-[132vh] flex flex-col items-center justify-center overflow-hidden bg-[#050505] selection:bg-[#3275F8]/30 selection:text-white">
             <CustomBackground />
-
-            <MobileMenuModal isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
-
-            {/* ── Fixed hamburger button overlay (mobile only) ── */}
-            <motion.button
-                onClick={() => setIsMobileMenuOpen(true)}
-                aria-label="Open menu"
-                className="fixed bottom-[calc(7.5vh-24px)] left-[calc(50%-20px)] -translate-x-1/2 z-[150] w-12 h-12 bg-[#111]/80 backdrop-blur-md border border-white/10 flex items-center justify-center hover:bg-[#222]/90 transition-colors md:hidden"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 2, duration: 1 }}
-            >
-                <Menu className="w-5 h-5 text-white/80" />
-            </motion.button>
 
             <div className="relative w-full flex-1 flex items-center justify-center px-4 md:px-12 z-20 mt-20 md:mt-16">
                 <HeroFrame>

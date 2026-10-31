@@ -1,16 +1,18 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useContactModal } from "@/context/ContactModalContext";
 import { useEffect, useState } from "react";
+import { MobileMenuModal } from "@/components/MobileMenuModal";
 
 const Navigation = () => {
   const { setContactModalOpen } = useContactModal();
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // Hide the island while scrolling down so it never sits over full-screen scenes; bring it back on scroll up.
   useEffect(() => {
@@ -29,6 +31,16 @@ const Navigation = () => {
 
   return (
     <>
+      {/* ── Mobile menu: one hamburger on every page, same links as desktop ── */}
+      <MobileMenuModal isOpen={menuOpen} setIsOpen={setMenuOpen} />
+      <button
+        onClick={() => setMenuOpen(true)}
+        aria-label="Open menu"
+        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[150] w-12 h-12 rounded-md bg-[#111]/80 backdrop-blur-md border border-white/10 flex items-center justify-center hover:bg-[#222]/90 transition-colors md:hidden"
+      >
+        <Menu className="w-5 h-5 text-white/80" />
+      </button>
+
       {/* ── Full-width navbar (at top) ── */}
       <AnimatePresence>
         {!scrolled && (

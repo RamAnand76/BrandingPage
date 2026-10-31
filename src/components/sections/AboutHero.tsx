@@ -21,8 +21,14 @@ const STATS = [
   { n: 7, suffix: "", label: "Services, concept to launch" },
 ];
 
-const Tile = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
-  <span className={`absolute grid place-items-center rounded-2xl border border-white/10 bg-white/[0.06] text-white ${className}`}>{children}</span>
+const Tile = ({ children, className = "", float = false }: { children: React.ReactNode; className?: string; float?: boolean }) => (
+  <motion.span
+    className={`absolute grid place-items-center rounded-2xl border border-white/10 bg-white/[0.06] text-white ${className}`}
+    animate={float ? { y: [0, -8, 0] } : undefined}
+    transition={float ? { duration: 5, repeat: Infinity, ease: "easeInOut" } : undefined}
+  >
+    {children}
+  </motion.span>
 );
 
 // Small Zenox-style backdrop per card: a lit centre tile, flanking tilted tiles and a faint pattern.
@@ -33,7 +39,7 @@ const CardArt = ({ kind }: { kind: number }) => (
       <>
         <Tile className="left-[22%] top-[34%] w-14 h-14 -rotate-12 opacity-70 transition-transform duration-500 group-hover:-translate-x-2"><Lock className="w-5 h-5" /></Tile>
         <Tile className="right-[22%] top-[34%] w-14 h-14 rotate-12 opacity-70 transition-transform duration-500 group-hover:translate-x-2"><ShieldCheck className="w-5 h-5" /></Tile>
-        <Tile className="left-1/2 top-[22%] -translate-x-1/2 w-[76px] h-[76px] bg-gradient-to-br from-[#2563eb] to-[#22d3ee] shadow-[0_0_40px_rgba(37,99,235,0.6)]"><Zap className="w-8 h-8" /></Tile>
+        <Tile float className="left-1/2 top-[22%] -translate-x-1/2 w-[76px] h-[76px] bg-gradient-to-br from-[#2563eb] to-[#22d3ee] shadow-[0_0_40px_rgba(37,99,235,0.6)]"><Zap className="w-8 h-8" /></Tile>
       </>
     )}
     {kind === 1 && (
@@ -52,7 +58,7 @@ const CardArt = ({ kind }: { kind: number }) => (
       <>
         <span className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-[78%] w-24 h-24 rounded-full border border-[#3b82f6]/60 bg-[#2563eb]/15 transition-transform duration-700 group-hover:-translate-x-[92%]" />
         <span className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-[22%] w-24 h-24 rounded-full border border-[#22d3ee]/60 bg-[#22d3ee]/10 transition-transform duration-700 group-hover:-translate-x-[8%]" />
-        <Tile className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-gradient-to-br from-[#2563eb] to-[#22d3ee] shadow-[0_0_30px_rgba(37,99,235,0.6)]"><Users className="w-6 h-6" /></Tile>
+        <Tile float className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-gradient-to-br from-[#2563eb] to-[#22d3ee] shadow-[0_0_30px_rgba(37,99,235,0.6)]"><Users className="w-6 h-6" /></Tile>
       </>
     )}
     {kind === 3 && (
@@ -62,7 +68,7 @@ const CardArt = ({ kind }: { kind: number }) => (
             <span key={i} style={{ height: `${h}%` }} className="flex-1 rounded-t-md border border-b-0 border-[#3b82f6]/40 bg-gradient-to-t from-[#2563eb]/10 to-[#22d3ee]/35 origin-bottom transition-transform duration-500 group-hover:scale-y-[1.08]" />
           ))}
         </div>
-        <Tile className="left-1/2 top-[14%] -translate-x-1/2 w-12 h-12 rounded-xl bg-gradient-to-br from-[#2563eb] to-[#22d3ee] shadow-[0_0_30px_rgba(37,99,235,0.6)]"><TrendingUp className="w-5 h-5" /></Tile>
+        <Tile float className="left-1/2 top-[14%] -translate-x-1/2 w-12 h-12 rounded-xl bg-gradient-to-br from-[#2563eb] to-[#22d3ee] shadow-[0_0_30px_rgba(37,99,235,0.6)]"><TrendingUp className="w-5 h-5" /></Tile>
       </>
     )}
   </div>
@@ -141,8 +147,9 @@ export const AboutHero = () => {
           {/* Interactive WebGL: the blinds' spotlight follows the pointer */}
           <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_60%_70%_at_75%_30%,rgba(37,99,235,0.45),transparent_70%)]" />
           {gl && (
+          <div aria-hidden className="absolute inset-y-0 right-0 -z-10 w-full md:w-[68%] [mask-image:linear-gradient(to_right,transparent,black_55%)]">
           <GradientBlinds
-            className="absolute inset-0 -z-10"
+            className="absolute inset-0 -z-10 opacity-80"
             gradientColors={["#1d4ed8", "#3b82f6", "#22d3ee"]}
             angle={20}
             noise={0.25}
@@ -152,8 +159,9 @@ export const AboutHero = () => {
             mouseDampening={0.2}
             distortAmount={0}
           />
+          </div>
           )}
-          <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(0,0,0,0.88),rgba(0,0,0,0.35)_60%,rgba(0,0,0,0.6))]" />
+          <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(0,0,0,0.6),rgba(0,0,0,0.3)_50%,rgba(0,0,0,0))]" />
           <div className="pointer-events-none">
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <Eyebrow>About Rhevez</Eyebrow>
@@ -162,7 +170,7 @@ export const AboutHero = () => {
             {["The standard is broken.", "We rebuilt it."].map((line, i) => (
               <span key={line} className="block overflow-hidden pb-[0.1em]">
                 <motion.span
-                  className={`block ${i ? "text-white/50" : ""}`}
+                  className={`block ${i ? "text-white/70" : ""}`}
                   initial={{ y: "105%" }}
                   animate={{ y: 0 }}
                   transition={{ duration: 1, delay: 0.15 + i * 0.15, ease: [0.22, 1, 0.36, 1] }}
@@ -205,7 +213,7 @@ export const AboutHero = () => {
         </motion.div>
 
         {/* STATEMENT */}
-        <section ref={stRef} className="max-w-[1000px] py-24 md:py-36">
+        <section ref={stRef} className="max-w-[1000px] py-16 md:py-24">
           <Eyebrow>Our approach</Eyebrow>
           <p className="mt-5 text-[clamp(28px,4.4vw,60px)] font-semibold tracking-[-0.03em] leading-[1.12]" aria-label={STATEMENT}>
             {words.map((w, i) => (
@@ -217,12 +225,12 @@ export const AboutHero = () => {
         </section>
 
         {/* WHY US */}
-        <section className="pb-24 md:pb-32">
+        <section className="pb-16 md:pb-20">
           <Eyebrow>Why us</Eyebrow>
           <h2 className="mt-5 max-w-[18ch] text-[clamp(34px,6vw,76px)] font-extrabold tracking-[-0.035em] leading-[1.02]">
             Why teams choose <span className="text-white/45">Rhevez</span>
           </h2>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-12 gap-4">
             {VALUES.map((v, i) => (
               <motion.div
                 key={v.t}
@@ -230,7 +238,7 @@ export const AboutHero = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: (i % 2) * 0.1 }}
-                className="group relative overflow-hidden rounded-[20px] border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-3 flex flex-col hover:border-[#3b82f6]/40 transition-colors duration-500"
+                className={`${i === 0 || i === 3 ? "md:col-span-7" : "md:col-span-5"} group relative overflow-hidden rounded-[20px] border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-3 flex flex-col hover:border-[#3b82f6]/40 transition-colors duration-500`}
               >
                 <CardArt kind={i} />
                 <div className="px-4 pt-6 pb-5">
@@ -242,13 +250,20 @@ export const AboutHero = () => {
             ))}
           </div>
 
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 border-t border-white/10">
-            {STATS.map((s) => (
-              <div key={s.label} className="py-8 sm:pr-8 sm:[&:not(:first-child)]:pl-8 sm:[&:not(:first-child)]:border-l border-white/10">
-                <div className="text-[clamp(44px,5vw,72px)] font-extrabold tracking-[-0.04em] leading-none text-white">
-                  <CountUp to={s.n} suffix={s.suffix} />
+          <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 overflow-hidden rounded-[20px] border border-white/10">
+            {STATS.map((s, i) => (
+              <div
+                key={s.label}
+                className={`flex flex-col justify-end min-h-[190px] md:min-h-[230px] p-7 md:p-9 ${
+                  i ? "border-t sm:border-t-0 sm:border-l border-white/10" : ""
+                }`}
+              >
+                <div>
+                  <div className="text-[clamp(56px,6.4vw,96px)] font-extrabold tracking-[-0.05em] leading-none text-white">
+                    <CountUp to={s.n} suffix={s.suffix} />
+                  </div>
+                  <span className="mt-4 block min-h-[3.5rem] text-[12px] leading-[1.5] tracking-[0.2em] uppercase text-white/60">{s.label}</span>
                 </div>
-                <span className="mt-3 block text-[11px] tracking-[0.2em] uppercase text-white/50">{s.label}</span>
               </div>
             ))}
           </div>
